@@ -20,8 +20,8 @@
   
 ### C# 개발 
 - 네이밍 (자기만 쓸 것 같은 코드 말곤 지키기)
-  - 변수 : playerSpeed (cammelCase)
-  - class의 private 변수 : _playerSpeed (언더바 붙이기)
+  - 지역 변수 : playerSpeed (cammelCase)
+  - private 변수 : _playerSpeed (언더바 붙이기)
   - 그 외 모든 것 : ThrowSlime (PascalCase)
 - Inspector에 안보여도 되는 변수는 숨기기
-- 웬만해선 public 변수 사용하지 말기
+- public, protected 변수(field)는 웬만해서 사용하지 말고, 필요할 경우 속성(property)으로 만들어서 쓰기
