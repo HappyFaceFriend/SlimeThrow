@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class StateMachineBase : MonoBehaviour
 {
-    protected StateBase _currentState; 
+    private StateBase _currentState; 
     public StateBase CurrentState { get { return _currentState; } }
     private Dictionary<Type, Component> _cachedComponents = new Dictionary<Type, Component>();
 
@@ -43,12 +43,6 @@ public class StateMachineBase : MonoBehaviour
         if (component != null)
             _cachedComponents.Add(typeof(T), component);
         return component;
-    }
-    protected void CacheComponent<T>() where T : Component
-    {
-        var component = base.GetComponent<T>();
-        if (component != null)
-            _cachedComponents.Add(typeof(T), component);
     }
 }
 
