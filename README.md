@@ -25,3 +25,4 @@
   - 그 외 모든 것 : ThrowSlime (PascalCase)
 - Inspector에 안보여도 되는 변수는 숨기기
 - public, protected 변수(field)는 웬만해서 사용하지 말고, 필요할 경우 속성(property)으로 만들어서 쓰기
+- Singleton은 Awake()에서 초기화되므로 Singleton 참조할 땐 Start()에서 하기

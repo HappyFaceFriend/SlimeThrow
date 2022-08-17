@@ -10,14 +10,14 @@ public class StateMachineBase : MonoBehaviour
     public StateBase CurrentState { get { return _currentState; } }
     private Dictionary<Type, Component> _cachedComponents = new Dictionary<Type, Component>();
 
-    void Start()
+    protected void Start()
     {
         _currentState = GetInitialState();
         if (_currentState != null)
             _currentState.OnEnter();
     }
 
-    void Update()
+    protected void Update()
     {
         if (_currentState != null)
             _currentState.OnUpdate();

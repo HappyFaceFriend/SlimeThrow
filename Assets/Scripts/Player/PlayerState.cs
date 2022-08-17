@@ -10,3 +10,4 @@ public class PlayerState : StateBase
         Player = player;
     }
 }
+

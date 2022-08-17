@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
-    public PlayerIdleState(PlayerBehaviour player) : base("Idle", player)  { }
+    public PlayerIdleState(PlayerBehaviour player) : base("Idle", player) { }
     public override void OnUpdate()
     {
         if (Player.Inputs.IsMovePressed)
