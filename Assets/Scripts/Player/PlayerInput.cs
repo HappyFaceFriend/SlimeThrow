@@ -11,6 +11,8 @@ public class PlayerInput : MonoBehaviour
 
     public bool IsMovePressed { get { return _moveInput != Vector3.zero; } }
     public bool IsDashPressed { get { return Input.GetKeyDown(KeyCode.Space); } }
+    public bool IsGrabPressed { get { return Input.GetMouseButtonDown(1); } }
+    public bool IsThrowPressed { get { return Input.GetMouseButtonDown(0); } }
     private void Awake()
     {
         _moveInput = Vector3.zero;

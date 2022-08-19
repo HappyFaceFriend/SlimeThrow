@@ -11,5 +11,11 @@ public class PlayerIdleState : PlayerState
             Player.ChangeState(new PlayerMoveState(Player));
         else if (Player.Inputs.IsDashPressed)
             Player.ChangeState(new PlayerDashState(Player));
+        else if (Player.Inputs.IsGrabPressed)
+        {
+            if (Player.GrabController.GrabSlime() == GrabResult.Success)
+                Player.ChangeState(new GrabIdleState(Player));
+        }
+
     }
 }
