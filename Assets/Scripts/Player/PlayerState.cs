@@ -9,5 +9,13 @@ public class PlayerState : StateBase
     {
         Player = player;
     }
+
+    protected void MoveByInput()
+    {
+        if (Player.Inputs.IsMovePressed)
+        {
+            Player.transform.position += Player.Inputs.MoveInput * Player.MoveSpeed * Time.deltaTime;
+        }
+    }
 }
 

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SlimeBehaviour : StateMachineBase
 {
-    public bool IsGrabbable { get { return true; } }
+    [SerializeField] int maxHp;
+    public bool IsGrabbable { get { return CurrentState is SlimeDeadState; } }
+    
 
     new protected void Start()
     {
@@ -16,6 +18,7 @@ public class SlimeBehaviour : StateMachineBase
         transform.SetParent(grabController.transform);
         transform.localPosition = Vector3.zero;
         ChangeState(new GrabbedState(this));
+
     }
     public void SetThrown(Vector3 mousePosition, float throwSpeed)
     {
@@ -23,7 +26,11 @@ public class SlimeBehaviour : StateMachineBase
 
         ChangeState(new ThrownState(this, mousePosition, throwSpeed));
     }
-
+    public void OnHitted(PlayerBehaviour player)
+    {
+        Debug.Log(name + " HIT!");
+        ChangeState(new SlimeDeadState(this));
+    }
 
     protected override StateBase GetInitialState()
     {

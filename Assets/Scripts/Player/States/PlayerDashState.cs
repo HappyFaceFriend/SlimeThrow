@@ -26,10 +26,7 @@ public class PlayerDashState : PlayerState
 
         if (process == 1)
         {
-            if (Player.Inputs.IsMovePressed)
-                Player.ChangeState(new PlayerMoveState(Player));
-            else
-                Player.ChangeState(new PlayerIdleState(Player));
+            Player.ChangeState(new PlayerDefaultState(Player));
         }
 
     }

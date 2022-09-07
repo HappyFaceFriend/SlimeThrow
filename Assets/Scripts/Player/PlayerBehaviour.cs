@@ -29,7 +29,7 @@ public class PlayerBehaviour : StateMachineBase
 
     protected override StateBase GetInitialState()
     {
-        return new PlayerIdleState(this);
+        return new PlayerDefaultState(this);
     }
     
 }
