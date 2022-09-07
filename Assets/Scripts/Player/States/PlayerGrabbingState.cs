@@ -10,5 +10,11 @@ public class PlayerGrabbingState : PlayerState
     public override void OnUpdate()
     {
         MoveByInput();
+
+        if(Player.Inputs.IsGrabPressed)
+        {
+            Player.GrabController.ReleaseSlime();
+            Player.ChangeState(new PlayerDefaultState(Player));
+        }
     }
 }

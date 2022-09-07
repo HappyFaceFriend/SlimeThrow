@@ -20,6 +20,14 @@ public class SlimeBehaviour : StateMachineBase
         ChangeState(new GrabbedState(this));
 
     }
+    public void OnPlacedAtTurret()
+    {
+
+    }
+    public void OnReleasedAtGround()
+    {
+        ChangeState(new SlimeDeadState(this));
+    }
     public void SetThrown(Vector3 mousePosition, float throwSpeed)
     {
         transform.SetParent(null);

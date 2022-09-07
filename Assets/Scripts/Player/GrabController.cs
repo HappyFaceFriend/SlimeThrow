@@ -9,8 +9,8 @@ public enum GrabResult
 public class GrabController : MonoBehaviour
 {
     SlimeBehaviour _grabbedSlime = null;
-    [SerializeField] float _rangeRadius;
-    [SerializeField] float _throwSpeed;
+    [SerializeField] TurretBehaviour _turret;
+    [SerializeField] Collider2D _grabRange;
     [SerializeField] Transform _handTransform;
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
 
@@ -22,17 +22,41 @@ public class GrabController : MonoBehaviour
         _grabbedSlime.SetGrabbed(this);
         return GrabResult.Success;
     }
-    public void ThrowSlime()
+    public void ReleaseSlime()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _grabbedSlime.SetThrown(Utils.Vectors.Vec2ToVec3(mousePosition), _throwSpeed);
+        ContactFilter2D filter = new ContactFilter2D();
+        List<Collider2D> results = new List<Collider2D>();
+        _grabRange.OverlapCollider(filter.NoFilter(), results);
+
+        TurretBehaviour turret = null;
+        foreach (Collider2D collider in results)
+        {
+            turret = collider.GetComponent<TurretBehaviour>();
+            if(turret != null)
+            {
+                turret.PlaceSlime(_grabbedSlime);
+                _grabbedSlime.OnPlacedAtTurret();
+                break;
+            }
+        }
+        if(turret != null)
+        {
+            _grabbedSlime.OnReleasedAtGround();
+        }
+        _grabbedSlime = null;
+
     }
     SlimeBehaviour GetClosesetGrabbableSlime()
     {
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(LayerMask.GetMask(Defs.SlimeLayer));
+
+        List<Collider2D> results = new List<Collider2D>();
+        _grabRange.OverlapCollider(filter, results);
+
         SlimeBehaviour closestSlime = null;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _rangeRadius);
         float distance = -1;
-        foreach (Collider2D collider in colliders)
+        foreach (Collider2D collider in results)
         {
             SlimeBehaviour slime = collider.GetComponent<SlimeBehaviour>();
             if (slime == null || !slime.IsGrabbable)
