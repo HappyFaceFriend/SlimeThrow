@@ -9,7 +9,8 @@ public class TurretDefaultstate : TurretState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        if (Input.GetMouseButtonDown(0) && Utils.Inputs.IsMouseOverGameObject(Turret.transform))
+        if (Input.GetMouseButtonDown(0) && Utils.Inputs.IsMouseOverGameObject(Turret.transform) &&
+            Turret.IsReadyToShoot)
         {
             Turret.ChangeState(new TurretTargetingState(Turret));
         }

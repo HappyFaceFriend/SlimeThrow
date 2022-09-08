@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class TurretBehaviour : StateMachineBase
 {
-    List<SlimeBehaviour> _loadedSlimes;
+    public bool IsReadyToShoot { get { return _slimeSlotController.Count > 0; } }
 
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] Transform _shootPosition;
+    [SerializeField] SlimeSlotController _slimeSlotController;
 
-    public List<SlimeBehaviour> LoadedSlimes { get { return _loadedSlimes; } }
     private void Awake()
     {
-        _loadedSlimes = new List<SlimeBehaviour>();
     }
     public void PlaceSlime(SlimeBehaviour slime)
     {
         slime.gameObject.SetActive(false);
         slime.transform.SetParent(transform);
-        _loadedSlimes.Add(slime);
+
+        _slimeSlotController.PushSlime(slime.SlotIcon);
 
         Debug.Log(slime.name + " Placed");
     }
@@ -27,7 +27,7 @@ public class TurretBehaviour : StateMachineBase
         bulletObject.transform.position = _shootPosition.position;
         bulletObject.GetComponent<BulletBehaviour>().StartShoot(targetPosition);
 
-        _loadedSlimes.Clear();
+        _slimeSlotController.Clear();
     }
     protected override StateBase GetInitialState()
     {

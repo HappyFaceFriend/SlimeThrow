@@ -33,5 +33,14 @@ namespace Utils
         {
             return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y) + (a.z - b.z) * (a.z - b.z);
         }
+
+        public static bool IsPositionCrossed(Vector3 targetPos, Vector3 currentPos, Vector3 lastPos)
+        {
+            Vector3 a = currentPos - targetPos;
+            Vector3 b = lastPos - targetPos;
+
+            return a.x * b.x < 0 || a.y * b.y < 0;
+        }
+
     }
 }

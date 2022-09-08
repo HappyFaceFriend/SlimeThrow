@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SlimeBehaviour : StateMachineBase
 {
-    [SerializeField] int maxHp;
+    [SerializeField] int _maxHp;
+    [SerializeField] Sprite _slotIcon;
     public bool IsGrabbable { get { return CurrentState is SlimeDeadState; } }
-    
+    public Sprite SlotIcon { get { return _slotIcon; } }
 
     new protected void Start()
     {
