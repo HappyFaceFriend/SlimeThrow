@@ -16,10 +16,7 @@ public class SlimeBehaviour : StateMachineBase
 
     public void SetGrabbed(GrabController grabController)
     {
-        transform.SetParent(grabController.transform);
-        transform.localPosition = Vector3.zero;
         ChangeState(new GrabbedState(this));
-
     }
     public void OnPlacedAtTurret()
     {

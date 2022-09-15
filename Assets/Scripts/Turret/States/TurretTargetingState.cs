@@ -10,7 +10,7 @@ public class TurretTargetingState : TurretState
     {
         base.OnUpdate();
 
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(1))
         {
             Turret.Shoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             Turret.ChangeState(new TurretDefaultstate(Turret));

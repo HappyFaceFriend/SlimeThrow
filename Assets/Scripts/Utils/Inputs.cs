@@ -6,6 +6,12 @@ namespace Utils
 {
     public static class Inputs
     {
+        public static Vector3 GetMouseWordPos()
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            return pos;
+        }
         public static bool IsMouseOverGameObject(Transform transform)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

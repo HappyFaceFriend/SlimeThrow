@@ -19,6 +19,9 @@ public class GrabController : MonoBehaviour
         _grabbedSlime = GetClosesetGrabbableSlime();
         if (_grabbedSlime == null)
             return GrabResult.Fail;
+
+        _grabbedSlime.transform.SetParent(_handTransform);
+        _grabbedSlime.transform.localPosition = Vector3.zero;
         _grabbedSlime.SetGrabbed(this);
         return GrabResult.Success;
     }
@@ -32,20 +35,24 @@ public class GrabController : MonoBehaviour
         foreach (Collider2D collider in results)
         {
             turret = collider.GetComponent<TurretBehaviour>();
-            if(turret != null)
+            if (turret != null)
             {
                 turret.PlaceSlime(_grabbedSlime);
                 _grabbedSlime.OnPlacedAtTurret();
                 break;
             }
         }
-        if(turret != null)
+        if (turret == null)
         {
+            Vector3 mouseVec = Utils.Inputs.GetMouseWordPos() - transform.position;
+            _grabbedSlime.transform.position += mouseVec.normalized;
+            _grabbedSlime.transform.SetParent(null);
             _grabbedSlime.OnReleasedAtGround();
         }
         _grabbedSlime = null;
 
     }
+    
     SlimeBehaviour GetClosesetGrabbableSlime()
     {
         ContactFilter2D filter = new ContactFilter2D();

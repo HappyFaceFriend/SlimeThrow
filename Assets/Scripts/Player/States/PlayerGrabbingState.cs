@@ -11,7 +11,7 @@ public class PlayerGrabbingState : PlayerState
     {
         MoveByInput();
 
-        if(Player.Inputs.IsGrabPressed)
+        if(Player.Inputs.IsReleasePressed)
         {
             Player.GrabController.ReleaseSlime();
             Player.ChangeState(new PlayerDefaultState(Player));

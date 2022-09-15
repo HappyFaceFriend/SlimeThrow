@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     [SerializeField] Collider2D _hitBox;
+    [SerializeField] Transform _pivot;
 
     PlayerBehaviour _player;
 
@@ -22,7 +23,8 @@ public class AttackController : MonoBehaviour
 
     public void Attack()
     {
-        _hitBox.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        Vector3 mouseVec = Utils.Inputs.GetMouseWordPos() - _player.transform.position;
+        _pivot.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(mouseVec.y, mouseVec.x) * Mathf.Rad2Deg));
         _hitBox.gameObject.SetActive(true);
 
         ContactFilter2D filter = new ContactFilter2D();

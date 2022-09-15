@@ -9,17 +9,13 @@ public class PlayerDefaultState : PlayerState
     {
         if (Player.Inputs.IsDashPressed)
             Player.ChangeState(new PlayerDashState(Player));
-        else if (Player.Inputs.IsGrabPressed)
-        {
-            if (Player.GrabController.GrabSlime() == GrabResult.Success)
-                Player.ChangeState(new PlayerGrabbingState(Player));
-        }
         else if (Player.Inputs.IsAttackPressed)
         {
             Player.ChangeState(new PlayerAttackingState(Player));
         }
-
         MoveByInput();
 
+        if (Player.GrabController.GrabSlime() == GrabResult.Success)
+            Player.ChangeState(new PlayerGrabbingState(Player));
     }
 }
