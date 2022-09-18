@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PlayerDefaultState : PlayerState
 {
+    MovementController _movement;
     public PlayerDefaultState(PlayerBehaviour player) : base("Default", player) { }
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        _movement = Player.GetComponent<MovementController>();
+    }
     public override void OnUpdate()
     {
         if (Player.Inputs.IsDashPressed)
@@ -13,7 +19,8 @@ public class PlayerDefaultState : PlayerState
         {
             Player.ChangeState(new PlayerAttackingState(Player));
         }
-        MoveByInput();
+
+        _movement.MoveByInput();
 
         if (Player.GrabController.GrabSlime() == GrabResult.Success)
             Player.ChangeState(new PlayerGrabbingState(Player));

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PlayerGrabbingState : PlayerState
 {
+    MovementController _movement;
     public PlayerGrabbingState(PlayerBehaviour player) : base("Grabbing", player) { }
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        _movement = Player.GetComponent<MovementController>();
+    }
 
 
     public override void OnUpdate()
     {
-        MoveByInput();
+        _movement.MoveByInput();
 
         if(Player.Inputs.IsReleasePressed)
         {
