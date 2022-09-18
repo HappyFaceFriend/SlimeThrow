@@ -6,9 +6,15 @@ public class SlimeBehaviour : StateMachineBase
 {
     [SerializeField] int _maxHp;
     [SerializeField] Sprite _slotIcon;
+    
     public bool IsGrabbable { get { return CurrentState is SlimeDeadState; } }
     public Sprite SlotIcon { get { return _slotIcon; } }
 
+    public SlimeBulletEffect BulletEffect { get; private set; }
+    private void Awake()
+    {
+        BulletEffect = GetComponent<SlimeBulletEffect>();
+    }
     new protected void Start()
     {
         base.Start();

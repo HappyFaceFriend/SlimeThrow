@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    public delegate void LandEffect();
+    public delegate void FlyEffect();
+
+    List<LandEffect> _landEffects = new List<LandEffect>();
+    List<FlyEffect> _flyEffects = new List<FlyEffect>();
+
     [SerializeField] float _moveSpeed;
     [SerializeField] float _turretHeight;
     [SerializeField] float _maxZHeight;
@@ -13,7 +19,18 @@ public class BulletBehaviour : MonoBehaviour
         _targetPosition = targetPosition;
         StartCoroutine(MoveCoroutine());
     }
-
+    public void ApplyEffects(List<LandEffect> landEffects, List<FlyEffect> flyEffects)
+    {
+        _landEffects = new List<LandEffect>(landEffects);
+        _flyEffects = new List<FlyEffect>(flyEffects);
+    }
+    void OnLand()
+    {
+        foreach(LandEffect landEffect in _landEffects)
+        {
+            landEffect();
+        }
+    }
     IEnumerator MoveCoroutine()
     {
         float z = _turretHeight;
@@ -44,6 +61,7 @@ public class BulletBehaviour : MonoBehaviour
             yield return null;
         }
         //Æø¹ß
+        OnLand();
         gameObject.SetActive(false);
     }
 }

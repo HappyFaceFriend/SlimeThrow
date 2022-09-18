@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class TurretBehaviour : StateMachineBase
 {
-    public bool IsReadyToShoot { get { return _slimeSlotController.Count > 0; } }
+    public bool IsReadyToShoot { get { return _bulletBuilder.Count > 0; } }
 
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] Transform _shootPosition;
-    [SerializeField] SlimeSlotController _slimeSlotController;
+    [SerializeField] BulletBuilder _bulletBuilder;
 
     private void Awake()
     {
@@ -17,17 +17,18 @@ public class TurretBehaviour : StateMachineBase
         slime.gameObject.SetActive(false);
         slime.transform.SetParent(transform);
 
-        _slimeSlotController.PushSlime(slime.SlotIcon);
+        _bulletBuilder.PushSlime(slime);
 
         Debug.Log(slime.name + " Placed");
     }
     public void Shoot(Vector3 targetPosition)
     {
-        GameObject bulletObject = Instantiate(_bulletPrefab);
+        BulletBehaviour bulletObject = Instantiate(_bulletPrefab).GetComponent<BulletBehaviour>();
         bulletObject.transform.position = _shootPosition.position;
-        bulletObject.GetComponent<BulletBehaviour>().StartShoot(targetPosition);
+        _bulletBuilder.ApplyEffectsToBullet(bulletObject);
+        bulletObject.StartShoot(targetPosition);
 
-        _slimeSlotController.Clear();
+        _bulletBuilder.Clear();
     }
     protected override StateBase GetInitialState()
     {
