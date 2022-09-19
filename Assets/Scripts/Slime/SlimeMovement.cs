@@ -10,7 +10,7 @@ public class SlimeMovement : MonoBehaviour
     public bool IsMovementDone { get { return _isMovementDone; } }
     public void OnStartMoving()
     {
-        _target = LevelManager.Instance.Well;
+        _target = LevelManager.Instance.Flower;
         _isMovementDone = false;
     }
     public void OnUpdate()

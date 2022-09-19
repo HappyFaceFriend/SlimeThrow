@@ -7,7 +7,7 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     public static T Instance { get { return instance; } }
     static T instance = null;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         if (instance == null)
         {
