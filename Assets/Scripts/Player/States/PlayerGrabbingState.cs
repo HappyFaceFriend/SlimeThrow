@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerGrabbingState : PlayerState
 {
     MovementController _movement;
-    public PlayerGrabbingState(PlayerBehaviour player) : base("Grabbing", player) { }
+    public PlayerGrabbingState(PlayerBehaviour player) : base("Grab", player) { }
     public override void OnEnter()
     {
         base.OnEnter();

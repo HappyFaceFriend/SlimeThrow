@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlimeMoveState : SlimeState
 {
     SlimeMovement _movement;
-    public SlimeMoveState(SlimeBehaviour slime) : base("GoToWell", slime) { }
+    public SlimeMoveState(SlimeBehaviour slime) : base("Move", slime) { }
 
     public override void OnEnter()
     {

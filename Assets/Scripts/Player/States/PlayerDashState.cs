@@ -7,7 +7,7 @@ public class PlayerDashState : PlayerState
     private Vector3 _dashDir;
     private float _eTime;
     private float _lastCurveValue;
-    public PlayerDashState(PlayerBehaviour player) : base("Idle", player) { }
+    public PlayerDashState(PlayerBehaviour player) : base("Dash", player) { }
 
     public override void OnEnter()
     {

@@ -32,12 +32,6 @@ public class SlimeBehaviour : StateMachineBase
     {
         ChangeState(new SlimeDeadState(this));
     }
-    public void SetThrown(Vector3 mousePosition, float throwSpeed)
-    {
-        transform.SetParent(null);
-
-        ChangeState(new ThrownState(this, mousePosition, throwSpeed));
-    }
     public void OnHitted(PlayerBehaviour player)
     {
         Debug.Log(name + " HIT!");
