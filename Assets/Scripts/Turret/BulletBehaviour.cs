@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public delegate void LandEffect();
+    public delegate void LandEffect(Vector3 landPosition);
     public delegate void FlyEffect();
 
     List<LandEffect> _landEffects = new List<LandEffect>();
@@ -28,7 +28,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         foreach(LandEffect landEffect in _landEffects)
         {
-            landEffect();
+            landEffect(transform.position);
         }
     }
     IEnumerator MoveCoroutine()

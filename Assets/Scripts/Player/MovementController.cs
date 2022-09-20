@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     PlayerBehaviour _player;
-    [SerializeField] float _currentSpeed = 0f;
+    float _currentSpeed = 0f;
     private void Awake()
     {
         _player = GetComponent<PlayerBehaviour>();

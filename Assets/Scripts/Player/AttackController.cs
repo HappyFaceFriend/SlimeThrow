@@ -6,6 +6,7 @@ public class AttackController : MonoBehaviour
 {
     [SerializeField] Collider2D _hitBox;
     [SerializeField] Transform _pivot;
+    [SerializeField] float _attack;
 
     PlayerBehaviour _player;
 
@@ -35,7 +36,7 @@ public class AttackController : MonoBehaviour
 
         foreach(Collider2D collider in results)
         {
-            collider.GetComponent<SlimeBehaviour>().OnHitted(_player);
+            collider.GetComponent<SlimeBehaviour>().OnHitted(_player, (int)_attack);
         }
     }
 }

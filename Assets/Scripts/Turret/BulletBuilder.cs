@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BulletBuilder : MonoBehaviour
 {
+    [SerializeField] GameObject _bulletPrefab;
+    [SerializeField] GameObject _defaultLandPrefab;
 
     List<BulletBehaviour.LandEffect> _landEffects = new List<BulletBehaviour.LandEffect>();
     List<BulletBehaviour.FlyEffect> _flyEffects = new List<BulletBehaviour.FlyEffect>();
@@ -42,5 +44,12 @@ public class BulletBuilder : MonoBehaviour
     public void AddFlyEffect(BulletBehaviour.FlyEffect effect)
     {
         _flyEffects.Add(effect);
+    }
+    public BulletBehaviour CreateBullet()
+    {
+        BulletBehaviour bulletObject = Instantiate(_bulletPrefab).GetComponent<BulletBehaviour>();
+        ApplyEffectsToBullet(bulletObject);
+        Clear();
+        return bulletObject;
     }
 }

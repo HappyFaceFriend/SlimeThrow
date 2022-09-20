@@ -38,7 +38,6 @@ public class GrabController : MonoBehaviour
             if (turret != null)
             {
                 turret.PlaceSlime(_grabbedSlime);
-                _grabbedSlime.OnPlacedAtTurret();
                 break;
             }
         }

@@ -12,7 +12,9 @@ public class TurretTargetingState : TurretState
 
         if(Input.GetMouseButtonUp(1))
         {
-            Turret.Shoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+            Turret.Shoot(mousePos);
             Turret.ChangeState(new TurretDefaultstate(Turret));
         }
     }

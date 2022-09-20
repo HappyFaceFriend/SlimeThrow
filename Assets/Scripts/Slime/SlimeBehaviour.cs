@@ -6,7 +6,8 @@ public class SlimeBehaviour : StateMachineBase
 {
     [SerializeField] int _maxHp;
     [SerializeField] Sprite _slotIcon;
-    
+
+    int _currentHp;
     public bool IsGrabbable { get { return CurrentState is SlimeDeadState; } }
     public Sprite SlotIcon { get { return _slotIcon; } }
 
@@ -14,6 +15,7 @@ public class SlimeBehaviour : StateMachineBase
     private void Awake()
     {
         BulletEffect = GetComponent<SlimeBulletEffect>();
+        _currentHp = _maxHp;
     }
     new protected void Start()
     {
@@ -24,18 +26,24 @@ public class SlimeBehaviour : StateMachineBase
     {
         ChangeState(new GrabbedState(this));
     }
-    public void OnPlacedAtTurret()
-    {
-
-    }
     public void OnReleasedAtGround()
     {
         ChangeState(new SlimeDeadState(this));
     }
-    public void OnHitted(PlayerBehaviour player)
+    public void OnHitted(PlayerBehaviour player, int damage)
     {
-        Debug.Log(name + " HIT!");
-        ChangeState(new SlimeDeadState(this));
+        TakeDamage(damage);
+    }
+    public void OnHittedByBullet(int damage)
+    {
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _currentHp -= damage;
+        if(_currentHp <= 0)
+            ChangeState(new SlimeDeadState(this));
     }
 
     protected override StateBase GetInitialState()

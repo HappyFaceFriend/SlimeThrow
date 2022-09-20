@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiableWithAnimEnd : MonoBehaviour
+public class DisableWithAnimEnd : MonoBehaviour
 {
     Animator animator;
     void Awake()
