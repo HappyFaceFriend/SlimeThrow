@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1975393988645337908}
-  - component: {fileID: 1975393988645337909}
   - component: {fileID: 1975393988645337911}
   - component: {fileID: 2049248812}
   - component: {fileID: -8140643154912652464}
+  - component: {fileID: 176326653859540629}
   m_Layer: 0
   m_Name: LandEffect
   m_TagString: Untagged
@@ -120,18 +120,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1975393988645337909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975393988645337906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efeb3b5406feba4ab3a843a14ff6f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &1975393988645337911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -197,5 +185,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 365558a98d05a084a81325c27c163f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &176326653859540629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975393988645337906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9efeb3b5406feba4ab3a843a14ff6f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -4,32 +4,27 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public delegate void LandEffect(Vector3 landPosition);
-    public delegate void FlyEffect();
-
-    List<LandEffect> _landEffects = new List<LandEffect>();
-    List<FlyEffect> _flyEffects = new List<FlyEffect>();
-
     [SerializeField] float _moveSpeed;
     [SerializeField] float _turretHeight;
     [SerializeField] float _maxZHeight;
+    [SerializeField] LandEffectBehaviour _landEffectPrefab;
     Vector3 _targetPosition;
+
+    List<LandEffectInfo> _landEffectInfos;
     public void StartShoot(Vector3 targetPosition)
     {
         _targetPosition = targetPosition;
         StartCoroutine(MoveCoroutine());
     }
-    public void ApplyEffects(List<LandEffect> landEffects, List<FlyEffect> flyEffects)
+    public void ApplyEffects(List<LandEffectInfo> landEffects)
     {
-        _landEffects = new List<LandEffect>(landEffects);
-        _flyEffects = new List<FlyEffect>(flyEffects);
+        _landEffectInfos = landEffects;
     }
     void OnLand()
     {
-        foreach(LandEffect landEffect in _landEffects)
-        {
-            landEffect(transform.position);
-        }
+        LandEffectBehaviour landEffect = Instantiate(_landEffectPrefab);
+        landEffect.transform.position = transform.position;
+        landEffect.ApplyEffects(new List<LandEffectInfo>(_landEffectInfos));
     }
     IEnumerator MoveCoroutine()
     {

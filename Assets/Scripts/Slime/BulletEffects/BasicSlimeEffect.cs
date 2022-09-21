@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class BasicSlimeEffect : SlimeBulletEffect
 {
-
-    [SerializeField] BulletLandEffect _landEffect;
-    [SerializeField] int _landDamage;
-    public override void OnAddToTurret(BulletBuilder bulletBuilder)
+    protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
-        bulletBuilder.AddLandEffect(LandEffect);
+
     }
-
-    public void LandEffect(Vector3 landPosition)
+    protected override void OnHittedSlime(SlimeBehaviour slime, Vector3 landPosition)
     {
-        BulletLandEffect effect = Instantiate(_landEffect);
-        effect.Init(_landDamage);
-        effect.transform.position = landPosition;
+        Debug.Log(slime.name + " Hitted by base bullet");
+    }
+    public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
+    {
+        duplicateInfo.Damage += Damage;
     }
 }
