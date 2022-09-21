@@ -9,12 +9,15 @@ public class LandEffectInfo
     public delegate void DuplicateAction(LandEffectInfo duplicateInfo);
 
 
+
     public GameObject EffectPrefab { get; private set; }
     public EffectGenerate EffectGenMethod { get; private set; }
     public SlimeHit OnHitMethod { get; private set; }
     public DuplicateAction OnAddDuplicate { get; private set; }
     public string Name { get; private set; }
     public int Damage { get; set; }
+
+
 
     public LandEffectInfo(string name, int damage, GameObject effectPrefab, 
         EffectGenerate effectGenMethod, SlimeHit onHitMethod, DuplicateAction onAddDuplicate)

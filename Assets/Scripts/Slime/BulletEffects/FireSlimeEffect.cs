@@ -1,19 +1,20 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicSlimeEffect : SlimeBulletEffect
+public class FireSlimeEffect : SlimeBulletEffect
 {
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
-
+        GameObject effect = Instantiate(effectPrefab);
+        effect.transform.position = landPosition;
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, Vector3 landPosition)
     {
-        Debug.Log(slime.name + " Hitted by base bullet");
+        slime.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 0, 0);
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
-        duplicateInfo.Damage += Damage; 
+        duplicateInfo.Damage += Damage;
     }
 }
