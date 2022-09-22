@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeBulletEffect : MonoBehaviour
+public abstract class SlimeBulletEffect : MonoBehaviour
 {
-    [SerializeField] string _name;
     [SerializeField] int _damage;
     [SerializeField] GameObject _landEffectPrefab;
 
     public int Damage { get { return _damage; } }
     public void OnAddToTurret(BulletBuilder bulletBuilder)
     {
-        LandEffectInfo info = new LandEffectInfo(_name, _damage, _landEffectPrefab,
-                                            GenerateEffect, OnHittedSlime, OnAddDuplicate);
+        LandEffectInfo info = new LandEffectInfo(GetName(), _damage, _landEffectPrefab,
+                                            GenerateEffect, OnHittedSlime, OnAddDuplicate,
+                                            GetAdditionalInfos());
         bulletBuilder.AddLandEffect(info);
     }
-    public virtual void OnAddDuplicate(LandEffectInfo duplicateInfo)
-    {}
-
-    protected virtual void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
-    {}
-    protected virtual void OnHittedSlime(SlimeBehaviour slime, Vector3 landPosition)
-    {}
+    protected virtual AdditionalInfo GetAdditionalInfos()
+    {
+        return new AdditionalInfo();
+    }
+    protected abstract string GetName();
+    public abstract void OnAddDuplicate(LandEffectInfo duplicateInfo);
+    protected abstract void GenerateEffect(GameObject effectPrefab, Vector3 landPosition);
+    protected abstract void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition);
 }

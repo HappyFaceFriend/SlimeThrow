@@ -5,7 +5,7 @@ using UnityEngine;
 public class LandEffectInfo
 {
     public delegate void EffectGenerate(GameObject effectPrefab, Vector3 landPosition);
-    public delegate void SlimeHit(SlimeBehaviour slime, Vector3 landPosition);
+    public delegate void SlimeHit(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition);
     public delegate void DuplicateAction(LandEffectInfo duplicateInfo);
 
 
@@ -17,10 +17,11 @@ public class LandEffectInfo
     public string Name { get; private set; }
     public int Damage { get; set; }
 
-
+    public AdditionalInfo AdditionalInfos { get; set; }
 
     public LandEffectInfo(string name, int damage, GameObject effectPrefab, 
-        EffectGenerate effectGenMethod, SlimeHit onHitMethod, DuplicateAction onAddDuplicate)
+        EffectGenerate effectGenMethod, SlimeHit onHitMethod, DuplicateAction onAddDuplicate,
+        AdditionalInfo additionalInfos)
     {
         Name = name;
         Damage = damage;
@@ -28,6 +29,7 @@ public class LandEffectInfo
         EffectGenMethod = effectGenMethod;
         OnHitMethod = onHitMethod;
         OnAddDuplicate = onAddDuplicate;
+        AdditionalInfos = additionalInfos;
     }
     public void GenerateEffect(Vector3 landPosition)
     {

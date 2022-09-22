@@ -8,12 +8,17 @@ public class BasicSlimeEffect : SlimeBulletEffect
     {
 
     }
-    protected override void OnHittedSlime(SlimeBehaviour slime, Vector3 landPosition)
+    protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         Debug.Log(slime.name + " Hitted by base bullet");
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
         duplicateInfo.Damage += Damage; 
+    }
+
+    protected override string GetName()
+    {
+        return "BasicSlime";
     }
 }
