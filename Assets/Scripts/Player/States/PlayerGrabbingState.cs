@@ -10,15 +10,18 @@ public class PlayerGrabbingState : PlayerState
     {
         base.OnEnter();
         _movement = Player.GetComponent<MovementController>();
+        Player.Animator.SetBool("onGrab", true);
     }
 
 
     public override void OnUpdate()
     {
         _movement.MoveByInput();
+        _movement.CheckSpeed();
 
-        if(Player.Inputs.IsReleasePressed)
+        if (Player.Inputs.IsReleasePressed)
         {
+            Player.Animator.SetBool("onGrab", false);
             Player.GrabController.ReleaseSlime();
             Player.ChangeState(new PlayerDefaultState(Player));
         }

@@ -26,4 +26,11 @@ public class MovementController : MonoBehaviour
         }
         transform.position += _player.Inputs.LastMoveInput * _currentSpeed * Time.deltaTime;
     }
+    public void CheckSpeed()
+    {
+        if (_currentSpeed > 0)
+            _player.Animator.SetBool("onMove", true);
+        else
+            _player.Animator.SetBool("onMove", false);
+    }
 }

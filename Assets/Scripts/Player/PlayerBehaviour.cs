@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerBehaviour : StateMachineBase
 {
+    [SerializeField] Animator _animator;
+    public Animator Animator
+    {
+        get { return _animator; }
+    }
     [Header("Movement Settings")]
     [SerializeField] private float _speedUpTime;
     [SerializeField] private float _slowDownTime;
