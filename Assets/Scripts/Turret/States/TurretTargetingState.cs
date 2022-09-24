@@ -14,6 +14,7 @@ public class TurretTargetingState : TurretState
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
+            Turret.Animator.SetTrigger("Fire");
             Turret.Shoot(mousePos);
             Turret.ChangeState(new TurretDefaultstate(Turret));
         }
