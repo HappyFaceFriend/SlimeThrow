@@ -10,7 +10,7 @@ public class PlayerGrabbingState : PlayerState
     {
         base.OnEnter();
         _movement = Player.GetComponent<MovementController>();
-        Player.Animator.SetBool("onGrab", true);
+        SetAnimState(Player.Animator);
     }
 
 
@@ -21,7 +21,6 @@ public class PlayerGrabbingState : PlayerState
 
         if (Player.Inputs.IsReleasePressed)
         {
-            Player.Animator.SetBool("onGrab", false);
             Player.GrabController.ReleaseSlime();
             Player.ChangeState(new PlayerDefaultState(Player));
         }

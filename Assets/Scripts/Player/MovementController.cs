@@ -29,8 +29,8 @@ public class MovementController : MonoBehaviour
     public void CheckSpeed()
     {
         if (_currentSpeed > 0)
-            _player.Animator.SetBool("onMove", true);
+            _player.Animator.SetBool("IsMoving", true);
         else
-            _player.Animator.SetBool("onMove", false);
+            _player.Animator.SetBool("IsMoving", false);
     }
 }

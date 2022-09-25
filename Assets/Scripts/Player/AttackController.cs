@@ -14,7 +14,10 @@ public class AttackController : MonoBehaviour
     {
         get
         {
-            return true;
+            if (_hitBox != null)
+                return !_hitBox.gameObject.activeSelf;
+            else
+                return true;
         }
     }
     private void Awake()
