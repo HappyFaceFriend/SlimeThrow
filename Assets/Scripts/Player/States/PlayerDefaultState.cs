@@ -10,6 +10,7 @@ public class PlayerDefaultState : PlayerState
     {
         base.OnEnter();
         _movement = Player.GetComponent<MovementController>();
+        Player.Animator.SetTrigger("Default");
     }
     public override void OnUpdate()
     {
@@ -21,6 +22,7 @@ public class PlayerDefaultState : PlayerState
         }
 
         _movement.MoveByInput();
+        _movement.CheckSpeed();
 
         if (Player.GrabController.GrabSlime() == GrabResult.Success)
             Player.ChangeState(new PlayerGrabbingState(Player));
