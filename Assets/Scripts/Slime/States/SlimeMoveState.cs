@@ -9,12 +9,14 @@ public class SlimeMoveState : SlimeState
 
     public override void OnEnter()
     {
+        Slime.Flipper.enabled = true;
         _movement = Slime.GetComponent<SlimeMovement>();
         _movement.OnStartMoving();
     }
 
     public override void OnUpdate()
     {
+        Slime.Flipper.targetPoint = _movement.TargetPos;
         _movement.OnUpdate();
         if (_movement.IsMovementDone)
             Slime.ChangeState(new SlimeIdleState(Slime));

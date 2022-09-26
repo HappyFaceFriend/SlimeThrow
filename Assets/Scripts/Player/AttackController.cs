@@ -11,28 +11,37 @@ public class AttackController : MonoBehaviour
     [SerializeField] float _attack;
 
     PlayerBehaviour _player;
-
+    Animator _hitBoxAnim;
     public bool IsAnimDone
     {
         get
         {
-            if (_hitBox != null)
-                return !_hitBox.gameObject.activeSelf;
-            else
-                return true;
+            return _hitBoxAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !_hitBoxAnim.IsInTransition(0);
+
         }
     }
     private void Awake()
     {
         _player = GetComponent<PlayerBehaviour>();
+        _hitBoxAnim = _hitBox.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if(IsAnimDone)
+        {
+            Vector3 mouseVec = Utils.Inputs.GetMouseWordPos() - _player.transform.position;
+            float rot = Mathf.Atan2(mouseVec.y, mouseVec.x) * Mathf.Rad2Deg;
+            Quaternion newRotation = Quaternion.Euler(new Vector3(0, 0,  rot));
+
+            _pivot.rotation = Quaternion.RotateTowards(_pivot.rotation, newRotation, 1800 * Time.deltaTime);
+        }
     }
 
     public void Attack()
     {
         Animator.SetTrigger("onAttack");
-        Vector3 mouseVec = Utils.Inputs.GetMouseWordPos() - _player.transform.position;
-        _pivot.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(mouseVec.y, mouseVec.x) * Mathf.Rad2Deg));
-        _hitBox.gameObject.SetActive(true);
+        _hitBoxAnim.SetTrigger("Hit");
 
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(LayerMask.GetMask(Defs.SlimeLayer));

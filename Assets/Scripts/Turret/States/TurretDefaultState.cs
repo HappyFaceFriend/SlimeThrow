@@ -6,6 +6,10 @@ public class TurretDefaultstate : TurretState
 {
     public TurretDefaultstate(TurretBehaviour turret) : base("Default", turret) { }
 
+    public override void OnEnter()
+    {
+        base.OnEnter();
+    }
     public override void OnUpdate()
     {
         base.OnUpdate();

@@ -9,6 +9,7 @@ public class PlayerBehaviour : StateMachineBase
     {
         get { return _animator; }
     }
+    [SerializeField] FlipObjectToPoint _flip;
     [Header("Movement Settings")]
     [SerializeField] private float _speedUpTime;
     [SerializeField] private float _slowDownTime;
@@ -37,6 +38,11 @@ public class PlayerBehaviour : StateMachineBase
         _grabController = GetComponent<GrabController>();
     }
 
+    private void Update()
+    {
+        base.Update();
+        _flip.targetPoint = Utils.Inputs.GetMouseWordPos();
+    }
 
     protected override StateBase GetInitialState()
     {

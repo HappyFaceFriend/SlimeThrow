@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0f89c38b128ba9c4a97896abd4741b82
+guid: 5b41152d2bdbb8c44bfb0b09754bd177
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hit-Sheet_0
+      name: hit-Shee2t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74067bd5bf71fb5438a8d91bbe1060b8
-      internalID: 97862636
+      spriteID: e7afb12b150645d4ea9e778adfacc796
+      internalID: -973574948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit-Sheet_1
+      name: hit-Shee2t_1
       rect:
         serializedVersion: 2
         x: 47
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b0a91872ab49ba45b9ae0370a75a0b3
-      internalID: 230507899
+      spriteID: d3895e59ff9292d45ae2c2eb1a5a9f2a
+      internalID: 1575907118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit-Sheet_2
+      name: hit-Shee2t_2
       rect:
         serializedVersion: 2
         x: 94
@@ -160,8 +160,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5529ed9af5f134c44ba75d90785c582d
-      internalID: -1910722531
+      spriteID: 96d624894135f3d43b158d75d6308282
+      internalID: 2140991627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit-Shee2t_3
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 0
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5057349d6287144697b54740a11f6e6
+      internalID: -191208692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit-Shee2t_4
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 0
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52ada2ca9552534a8a1ed38acd7245c
+      internalID: -487157328
       vertices: []
       indices: 
       edges: []
@@ -177,9 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hit-Sheet_1: 230507899
-      hit-Sheet_0: 97862636
-      hit-Sheet_2: -1910722531
+      hit-Shee2t_0: -973574948
+      hit-Shee2t_3: -191208692
+      hit-Shee2t_4: -487157328
+      hit-Shee2t_2: 2140991627
+      hit-Shee2t_1: 1575907118
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

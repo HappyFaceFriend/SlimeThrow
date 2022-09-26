@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1758983217225111915}
   - component: {fileID: 8662183731332643291}
+  - component: {fileID: 4836827925246437745}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4836827925246437745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047550523690109636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d683ab2fac29dfb42843b41302c6c384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6569848943592261043
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 20
   _slotIcon: {fileID: 21300000, guid: a873173572f00384e8432659c9c76663, type: 3}
+  _flip: {fileID: 4836827925246437745}
 --- !u!114 &6569848943592261053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +211,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cda920834350fc4d8776f65ecb5dce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Fire
   _damage: 10
   _landEffectPrefab: {fileID: 5498427035956749090, guid: 48269e4a0ee4a0649abb510a3d4a82c7, type: 3}
