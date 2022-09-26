@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34099668dd62d534b816cc466db9de0d
+guid: e97f83a1a4bfbd249a6dc6395d31c405
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cannon_0
+      name: Cannon-Sheet_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 22
-        height: 31
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41582a4dbb1c3ba438a140fba3ba3546
-      internalID: -1933002550
+      spriteID: 17b0980b0d498d04ea2aa17b291a4de0
+      internalID: -672271639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cannon_1
+      name: Cannon-Sheet_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 48
         y: 0
-        width: 24
-        height: 28
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0077f4efcf544f4ba5f7545149d4a3b
-      internalID: 1044463515
+      spriteID: 0b45da83d49894d4fac6f0f562fbfb59
+      internalID: 2147457816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cannon_2
+      name: Cannon-Sheet_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 96
         y: 0
-        width: 26
-        height: 25
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 961a68f96fa3cd1429e3a92db3fd17a3
-      internalID: 2084851818
+      spriteID: b5c4355d2806a2d47a8d014e3691af05
+      internalID: 2005586213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cannon_3
+      name: Cannon-Sheet_3
       rect:
         serializedVersion: 2
-        x: 101
+        x: 144
         y: 0
-        width: 22
-        height: 32
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae312390f05bab84cbb0453a70820944
-      internalID: -1240301002
+      spriteID: e26c1d254d36b05499b6e7ca09f4954f
+      internalID: 1221480247
       vertices: []
       indices: 
       edges: []
@@ -198,10 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cannon_2: 2084851818
-      Cannon_0: -1933002550
-      Cannon_1: 1044463515
-      Cannon_3: -1240301002
+      Cannon-Sheet_1: 2147457816
+      Cannon-Sheet_0: -672271639
+      Cannon-Sheet_3: 1221480247
+      Cannon-Sheet_2: 2005586213
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
