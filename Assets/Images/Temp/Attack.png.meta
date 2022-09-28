@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26813a5e01acfb042bdd1ec910a6a2a7
+guid: f2301a16068b7d944b707e1dea40cb3c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Breathe_0
+      name: Attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7b61d6f0677b684ba3f994e281a362d
-      internalID: -348214877
+      spriteID: 273e3a2755c917a4e99da374f50a3115
+      internalID: 940359798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Breathe_1
+      name: Attack_1
       rect:
         serializedVersion: 2
         x: 32
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1994e7248af466b488a36c8783ce80a4
-      internalID: -1641040099
+      spriteID: ac5ce47be8f9aed4b99fe462f6b9b849
+      internalID: -1213869068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Breathe_2
+      name: Attack_2
       rect:
         serializedVersion: 2
         x: 64
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 845a658cdc698c9408d3cf2925786e92
-      internalID: -1386882689
+      spriteID: 3c8a87b0c626a884387843177dd0c9fa
+      internalID: 2097614539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Breathe_3
+      name: Attack_3
       rect:
         serializedVersion: 2
         x: 96
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa509895833dd4c47991763d6de21389
-      internalID: -1677609666
+      spriteID: 884eab036450bb144b4e18d2b7f06fbe
+      internalID: 1363953793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Breathe_4
+      name: Attack_4
       rect:
         serializedVersion: 2
         x: 128
@@ -202,8 +202,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9add4b53153d842a8b189cb0acacbb
-      internalID: 1044367087
+      spriteID: db4404c5c45925049ad54e7e2985765b
+      internalID: -1148367734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcae728662a75d41a7f072d1484b5c1
+      internalID: -2069761588
       vertices: []
       indices: 
       edges: []
@@ -219,11 +240,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Breathe_0: -348214877
-      Breathe_1: -1641040099
-      Breathe_3: -1677609666
-      Breathe_4: 1044367087
-      Breathe_2: -1386882689
+      Attack_5: -2069761588
+      Attack_0: 940359798
+      Attack_4: -1148367734
+      Attack_2: 2097614539
+      Attack_1: -1213869068
+      Attack_3: 1363953793
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
