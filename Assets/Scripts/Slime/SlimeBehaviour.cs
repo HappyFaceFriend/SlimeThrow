@@ -6,22 +6,27 @@ public class SlimeBehaviour : StateMachineBase
 {
     [SerializeField] int _maxHp;
     [SerializeField] Sprite _slotIcon;
+    [SerializeField] FlipObjectToPoint _flip;
 
     int _currentHp;
+    SlimeMovement _movement;
     public bool IsGrabbable { get { return CurrentState is SlimeDeadState; } }
     public Sprite SlotIcon { get { return _slotIcon; } }
 
     public SlimeBulletEffect BulletEffect { get; private set; }
+    public FlipObjectToPoint Flipper { get { return _flip; } }
+
+
     private void Awake()
     {
         BulletEffect = GetComponent<SlimeBulletEffect>();
+        _movement = GetComponent<SlimeMovement>();
         _currentHp = _maxHp;
     }
     new protected void Start()
     {
         base.Start();
     }
-
     public void SetGrabbed(GrabController grabController)
     {
         ChangeState(new GrabbedState(this));

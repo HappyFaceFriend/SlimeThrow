@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0f89c38b128ba9c4a97896abd4741b82
+guid: 26813a5e01acfb042bdd1ec910a6a2a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hit-Sheet_0
+      name: Breathe_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 47
-        height: 42
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74067bd5bf71fb5438a8d91bbe1060b8
-      internalID: 97862636
+      spriteID: e0f5866b937f02246a2f3a4de8993187
+      internalID: -288837841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit-Sheet_1
+      name: Breathe_1
       rect:
         serializedVersion: 2
-        x: 47
+        x: 32
         y: 0
-        width: 47
-        height: 42
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b0a91872ab49ba45b9ae0370a75a0b3
-      internalID: 230507899
+      spriteID: 2f1e7b4111da32243a14dabf60b9c984
+      internalID: -684961398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit-Sheet_2
+      name: Breathe_2
       rect:
         serializedVersion: 2
-        x: 94
+        x: 64
         y: 0
-        width: 47
-        height: 42
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +160,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5529ed9af5f134c44ba75d90785c582d
-      internalID: -1910722531
+      spriteID: c3e5973cb8c08dc4ba7023929dd2fbd9
+      internalID: 2028087017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Breathe_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8082c5d3dcfecf469abd10a0417592d
+      internalID: 1366552971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Breathe_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 883513e88aabbd34cad40fbc2f3cedb9
+      internalID: 1674083086
       vertices: []
       indices: 
       edges: []
@@ -177,9 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hit-Sheet_1: 230507899
-      hit-Sheet_0: 97862636
-      hit-Sheet_2: -1910722531
+      Breathe_0: -288837841
+      Breathe_1: -684961398
+      Breathe_3: 1366552971
+      Breathe_4: 1674083086
+      Breathe_2: 2028087017
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
