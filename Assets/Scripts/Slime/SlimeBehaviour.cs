@@ -37,7 +37,7 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnHitted(PlayerBehaviour player, int damage)
     {
-        EffectManager.InstantiateHiEffect(transform.position);
+        EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
     }
     public void OnHittedByBullet(int damage)

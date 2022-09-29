@@ -16,6 +16,5 @@ public class DisableWithAnimEnd : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
     }
 }
