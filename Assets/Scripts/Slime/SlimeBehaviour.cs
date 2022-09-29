@@ -10,7 +10,7 @@ public class SlimeBehaviour : StateMachineBase
 
     int _currentHp;
     SlimeMovement _movement;
-    public bool IsGrabbable { get { return CurrentState is SlimeDeadState; } }
+    public bool IsGrabbable { get { return CurrentState is SlimeStates.DeadState; } }
     public Sprite SlotIcon { get { return _slotIcon; } }
 
     public SlimeBulletEffect BulletEffect { get; private set; }
@@ -29,11 +29,11 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void SetGrabbed(GrabController grabController)
     {
-        ChangeState(new GrabbedState(this));
+        ChangeState(new SlimeStates.GrabbedState(this));
     }
     public void OnReleasedAtGround()
     {
-        ChangeState(new SlimeDeadState(this));
+        ChangeState(new SlimeStates.DeadState(this));
     }
     public void OnHitted(PlayerBehaviour player, int damage)
     {
@@ -48,11 +48,11 @@ public class SlimeBehaviour : StateMachineBase
     {
         _currentHp -= damage;
         if(_currentHp <= 0)
-            ChangeState(new SlimeDeadState(this));
+            ChangeState(new SlimeStates.DeadState(this));
     }
 
     protected override StateBase GetInitialState()
     {
-        return new SlimeMoveState(this);
+        return new SlimeStates.MoveState(this);
     }
 }

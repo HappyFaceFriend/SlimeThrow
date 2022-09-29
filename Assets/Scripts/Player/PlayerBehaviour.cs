@@ -41,7 +41,7 @@ public class PlayerBehaviour : StateMachineBase
 
     protected override StateBase GetInitialState()
     {
-        return new PlayerDefaultState(this);
+        return new PlayerStates.DefaultState(this);
     }
     
 }
