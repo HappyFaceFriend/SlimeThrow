@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretBehaviour : StateMachineBase
-{
-    [SerializeField] Animator _animator;
-    public Animator Animator { get { return _animator; } }
+{ 
     public bool IsReadyToShoot { get { return _bulletBuilder.Count > 0; } }
 
     [SerializeField] Transform _shootPosition;

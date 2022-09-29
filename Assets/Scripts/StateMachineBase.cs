@@ -9,7 +9,12 @@ public class StateMachineBase : MonoBehaviour
     private StateBase _currentState; 
     public StateBase CurrentState { get { return _currentState; } }
     private Dictionary<Type, Component> _cachedComponents = new Dictionary<Type, Component>();
-
+    
+    [SerializeField] Animator _animator;
+    public Animator Animator
+    {
+        get { return _animator; }
+    }
     protected void Start()
     {
         _currentState = GetInitialState();

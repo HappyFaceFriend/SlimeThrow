@@ -11,7 +11,7 @@ public class PlayerState : StateBase
         Player = player;
         _name = name;
     }
-    public void SetAnimState(Animator anim)
+    public void SetAnimState()
     {
         int id = 0;
         if (_name == "Default")
@@ -22,7 +22,7 @@ public class PlayerState : StateBase
             id = 2;
         else if (_name == "Attack")
             id = 3;
-        anim.SetInteger("State", id);
+        Player.Animator.SetInteger("State", id);
     }
 
 }

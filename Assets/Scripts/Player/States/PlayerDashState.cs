@@ -14,7 +14,7 @@ public class PlayerDashState : PlayerState
         _dashDir = Player.Inputs.LastMoveInput;
         _eTime = 0f;
         _lastCurveValue = Player.DashCurve.Evaluate(0);
-        SetAnimState(Player.Animator);
+        SetAnimState();
     }
     public override void OnUpdate()
     {

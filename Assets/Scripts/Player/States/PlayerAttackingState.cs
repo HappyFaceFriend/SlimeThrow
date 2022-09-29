@@ -13,7 +13,7 @@ public class PlayerAttackingState : PlayerState
         _movement = Player.GetComponent<MovementController>();
         _attackController = Player.GetComponent<AttackController>();
         _attackController.Attack();
-        SetAnimState(Player.Animator);
+        SetAnimState();
     }
     public override void OnUpdate()
     {

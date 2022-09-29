@@ -10,7 +10,7 @@ public class PlayerDefaultState : PlayerState
     {
         base.OnEnter();
         _movement = Player.GetComponent<MovementController>();
-        SetAnimState(Player.Animator);
+        SetAnimState();
     }
     public override void OnUpdate()
     {

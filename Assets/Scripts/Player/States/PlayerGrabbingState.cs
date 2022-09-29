@@ -10,7 +10,7 @@ public class PlayerGrabbingState : PlayerState
     {
         base.OnEnter();
         _movement = Player.GetComponent<MovementController>();
-        SetAnimState(Player.Animator);
+        SetAnimState();
     }
 
 

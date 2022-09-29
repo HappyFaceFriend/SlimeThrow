@@ -12,6 +12,7 @@ public class SlimeDeadState : SlimeState
         Color c = Slime.GetComponentInChildren<SpriteRenderer>().color;
         Slime.GetComponentInChildren<SpriteRenderer>().color = new Color(c.r, c.g, c.b, 0.5f);
         Slime.Flipper.enabled = false;
+        SetAnimState();
     }
 
 }
