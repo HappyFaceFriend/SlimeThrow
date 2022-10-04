@@ -1,25 +1,28 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SlimeStates
 {
-    public class DeadState : SlimeState
+    public class GrabbableState : SlimeState
     {
-        public DeadState(SlimeBehaviour slime) : base("Dead", slime) { }
+        Utils.Timer _timer;
+        public GrabbableState(SlimeBehaviour slime) : base("Grabbable", slime) { }
 
         public override void OnEnter()
         {
             base.OnEnter();
             Slime.Flipper.enabled = false;
+            _timer = new Utils.Timer(Slime.GrabbableDuration);
             SetAnimState();
         }
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if (Slime.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !Slime.Animator.IsInTransition(0))
+            _timer.Tick();
+            if(_timer.IsOver)
             {
-                GameObject.Destroy(Slime.gameObject);
+                Slime.ChangeState(new DeadState(Slime));
             }
         }
 

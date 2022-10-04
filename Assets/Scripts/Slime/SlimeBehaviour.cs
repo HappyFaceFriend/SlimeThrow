@@ -5,12 +5,14 @@ using UnityEngine;
 public class SlimeBehaviour : StateMachineBase
 {
     [SerializeField] int _maxHp;
+    [SerializeField] float _grabbableDuration;
     [SerializeField] Sprite _slotIcon;
     [SerializeField] FlipObjectToPoint _flip;
 
     int _currentHp;
     SlimeMovement _movement;
     public bool IsGrabbable { get { return CurrentState is SlimeStates.DeadState; } }
+    public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _slotIcon; } }
 
     public SlimeBulletEffect BulletEffect { get; private set; }
@@ -49,7 +51,7 @@ public class SlimeBehaviour : StateMachineBase
     {
         _currentHp -= damage;
         if(_currentHp <= 0)
-            ChangeState(new SlimeStates.DeadState(this));
+            ChangeState(new SlimeStates.GrabbableState(this));
     }
 
     protected override StateBase GetInitialState()
