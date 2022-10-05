@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5670455739314524933}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.978, z: 0}
+  m_LocalPosition: {x: 0, y: 0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f01e83230c9d9a4da449bb6db431819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerIcon: {fileID: 0}
   _bulletPrefab: {fileID: 3515105274898913502, guid: 06e02302f68e14442b01d5a479384b2c, type: 3}
   _defaultLandPrefab: {fileID: 1975393988645337906, guid: 25538323aafac7c42b4605456f95c191, type: 3}
   _slots:

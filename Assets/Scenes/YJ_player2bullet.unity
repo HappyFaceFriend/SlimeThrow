@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4e9b0e223ff745f478d4dc2e56b2407a, type: 2}
-    - target: {fileID: 6360444566517254506, guid: 6842a4e41b3858448936b9e9f73269e1, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -83595014, guid: dff2e82eb174a2c4b9f95b32fc0458c1, type: 3}
     - target: {fileID: 8889646455034623234, guid: 6842a4e41b3858448936b9e9f73269e1, type: 3}
       propertyPath: m_Name
       value: Basic Variant
@@ -430,22 +426,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8479817263558345139, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8479817263558345139, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 959426419
-      objectReference: {fileID: 0}
-    - target: {fileID: 8479817264418587435, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8479817264418587435, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 361152499
-      objectReference: {fileID: 0}
     - target: {fileID: 8479817264885539394, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
       propertyPath: _turret
       value: 
@@ -558,14 +538,6 @@ PrefabInstance:
     - target: {fileID: 6032544385032564678, guid: 2e02cc1cf59205e458bb026b9abbbd26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6032544385712145155, guid: 2e02cc1cf59205e458bb026b9abbbd26, type: 3}
-      propertyPath: m_ChunkCullingBounds.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6032544385712145155, guid: 2e02cc1cf59205e458bb026b9abbbd26, type: 3}
-      propertyPath: m_ChunkCullingBounds.y
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e02cc1cf59205e458bb026b9abbbd26, type: 3}
@@ -825,6 +797,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &998082914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8479817264885539419, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
+  m_PrefabInstance: {fileID: 246320050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &998082924
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998082914}
+  m_Enabled: 1
+  m_SortingLayerID: 361152499
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &1037119241
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,14 +868,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4236249625663518107, guid: 504eed15fc3346b43a9e1dc5afe87a08, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236249625663518107, guid: 504eed15fc3346b43a9e1dc5afe87a08, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 361152499
-      objectReference: {fileID: 0}
     - target: {fileID: 4236249626926701041, guid: 504eed15fc3346b43a9e1dc5afe87a08, type: 3}
       propertyPath: m_Name
       value: Flower
@@ -1552,10 +1532,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5670455739314524938, guid: 6924d0e869c7fb046a31057aaf303b3d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.61
-      objectReference: {fileID: 0}
     - target: {fileID: 5670455740937238616, guid: 6924d0e869c7fb046a31057aaf303b3d, type: 3}
       propertyPath: m_RootOrder
       value: 5
