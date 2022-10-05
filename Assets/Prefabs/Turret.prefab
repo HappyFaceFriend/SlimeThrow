@@ -253,7 +253,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.671875
+  m_Radius: 0.73
 --- !u!50 &5670455740937238617
 Rigidbody2D:
   serializedVersion: 4
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f01e83230c9d9a4da449bb6db431819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerIcon: {fileID: 0}
+  _playerIcon: {fileID: 940359798, guid: f2301a16068b7d944b707e1dea40cb3c, type: 3}
   _bulletPrefab: {fileID: 3515105274898913502, guid: 06e02302f68e14442b01d5a479384b2c, type: 3}
   _defaultLandPrefab: {fileID: 1975393988645337906, guid: 25538323aafac7c42b4605456f95c191, type: 3}
   _slots:

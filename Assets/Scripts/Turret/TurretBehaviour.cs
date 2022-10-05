@@ -7,14 +7,16 @@ public class TurretBehaviour : StateMachineBase
     public float Height { get { return (_shootPosition.position - transform.position).y; } }
     public Vector3 ShootPosition { get { return _shootPosition.position; } }
 
-    public bool IsMouseHovered { get { return _isMouseHovered; } }
+    public bool IsMouseHovered { get { return _rigidbody.OverlapPoint(Utils.Inputs.GetMouseWordPos()); } }
 
     [SerializeField] Transform _shootPosition;
     [SerializeField] BulletBuilder _bulletBuilder;
+    Rigidbody2D _rigidbody;
 
     bool _isMouseHovered = false;
     private void Awake()
     {
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
     public void PlaceSlime(SlimeBehaviour slime)
     {
