@@ -11,11 +11,11 @@ namespace Utils
             ContactFilter2D filter = new ContactFilter2D();
             List<Collider2D> results = new List<Collider2D>();
             collider.OverlapCollider(filter.NoFilter(), results);
-
+           
             T result = null;
             foreach (Collider2D c in results)
             {
-                result = collider.GetComponent<T>();
+                result = c.GetComponent<T>();
                 if (result != null)
                 {
                     return result;

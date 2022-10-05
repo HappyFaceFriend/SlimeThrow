@@ -11,6 +11,7 @@ public class GrabController : MonoBehaviour
     SlimeBehaviour _grabbedSlime = null;
     [SerializeField] TurretBehaviour _turret;
     [SerializeField] Collider2D _grabRange;
+    [SerializeField] Collider2D _pushToTowerRange;
     [SerializeField] Transform _handTransform;
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
 
@@ -27,21 +28,12 @@ public class GrabController : MonoBehaviour
     }
     public void ReleaseSlime()
     {
-        ContactFilter2D filter = new ContactFilter2D();
-        List<Collider2D> results = new List<Collider2D>();
-        _grabRange.OverlapCollider(filter.NoFilter(), results);
-
-        TurretBehaviour turret = null;
-        foreach (Collider2D collider in results)
+        var turret = Utils.Collisions.GetCollidedComponent<TurretBehaviour>(_pushToTowerRange);
+        if (_turret.IsMouseHovered && turret == _turret)
         {
-            turret = collider.GetComponent<TurretBehaviour>();
-            if (turret != null)
-            {
-                turret.PlaceSlime(_grabbedSlime);
-                break;
-            }
+            _turret.PlaceSlime(_grabbedSlime);
         }
-        if (turret == null)
+        else
         {
             Vector3 mouseVec = Utils.Inputs.GetMouseWordPos() - transform.position;
             _grabbedSlime.transform.position += mouseVec.normalized;
