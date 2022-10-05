@@ -442,6 +442,10 @@ PrefabInstance:
       propertyPath: _turret
       value: 
       objectReference: {fileID: 2078183565}
+    - target: {fileID: 8479817264885539398, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
+      propertyPath: _getInTurretRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8479817264885539417, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1109,7 +1113,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -493519185
   m_SortingOrder: 0
   m_TargetDisplay: 0

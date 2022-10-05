@@ -22,13 +22,16 @@ namespace PlayerStates
             {
                 Player.ChangeState(new AttackingState(Player));
             }
-
+            if (Player.Inputs.IsGetInTurretPressed && Utils.Vectors.IsInDistance(transform.position, Turret.transform.position, Player.GetInTurretRange))
+                Player.ChangeState(new EnterTurretState(Player));
+            
             _movement.MoveByInput();
             _movement.CheckSpeed();
 
             if (Player.GrabController.GrabSlime() == GrabResult.Success)
                 Player.ChangeState(new GrabbingState(Player));
         }
+
     }
 
 }

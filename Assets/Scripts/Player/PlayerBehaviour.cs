@@ -6,15 +6,16 @@ public class PlayerBehaviour : StateMachineBase
 { 
     [SerializeField] FlipObjectToPoint _flip;
     [SerializeField] TurretBehaviour _turret;
+    [SerializeField] float _getInTurretRange;
     [Header("Movement Settings")]
-    [SerializeField] private float _speedUpTime;
-    [SerializeField] private float _slowDownTime;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] float _speedUpTime;
+    [SerializeField] float _slowDownTime;
+    [SerializeField] float _moveSpeed;
     [Header("Dash Settings")]
-    [SerializeField] private float _dashDistance;
-    [SerializeField] private float _dashDuration;
+    [SerializeField] float _dashDistance;
+    [SerializeField] float _dashDuration;
     [Tooltip("x : 시간 (0~1), y : 총 이동 거리")]
-    [SerializeField] private AnimationCurve _dashCurve;
+    [SerializeField]  AnimationCurve _dashCurve;
     public GrabController GrabController { get { return _grabController; } }
 
     public float SpeedUpTime { get { return _speedUpTime; } }
@@ -22,6 +23,7 @@ public class PlayerBehaviour : StateMachineBase
     public float MoveSpeed { get { return _moveSpeed; } }
     public float DashDistance { get { return _dashDistance; } }
     public float DashDuration { get { return _dashDuration; } }
+    public float GetInTurretRange { get { return _getInTurretRange; } }
     public AnimationCurve DashCurve { get { return _dashCurve; } }
     public PlayerInput Inputs { get { return _inputs; } }
     public TurretBehaviour Turret { get { return _turret; } }
@@ -39,8 +41,6 @@ public class PlayerBehaviour : StateMachineBase
     {
         base.Update();
         _flip.targetPoint = Utils.Inputs.GetMouseWordPos();
-        if (Input.GetKeyDown(KeyCode.E))
-            ChangeState(new PlayerStates.EnterTurretState(this));
     }
     public void LandWithBullet(Vector3 landPosition)
     {

@@ -33,7 +33,10 @@ namespace Utils
         {
             return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y) + (a.z - b.z) * (a.z - b.z);
         }
-
+        public static bool IsInDistance(Vector3 pos1, Vector3 pos2, float distance)
+        {
+            return GetSquareDistance(pos1, pos2) <= distance * distance;
+        }
         public static bool IsPositionCrossed(Vector3 targetPos, Vector3 currentPos, Vector3 lastPos)
         {
             Vector3 a = currentPos - targetPos;
