@@ -9,6 +9,7 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] float _maxZHeight;
     [SerializeField] LandEffectBehaviour _landEffectPrefab;
     Vector3 _targetPosition;
+    PlayerBehaviour _player;
 
     List<LandEffectInfo> _landEffectInfos;
     public void StartShoot(Vector3 targetPosition)
@@ -16,15 +17,20 @@ public class BulletBehaviour : MonoBehaviour
         _targetPosition = targetPosition;
         StartCoroutine(MoveCoroutine());
     }
-    public void ApplyEffects(List<LandEffectInfo> landEffects)
+    public void ApplyEffects(List<LandEffectInfo> landEffects, PlayerBehaviour player)
     {
         _landEffectInfos = landEffects;
+        _player = player;
     }
     void OnLand()
     {
         LandEffectBehaviour landEffect = Instantiate(_landEffectPrefab);
         landEffect.transform.position = transform.position;
         landEffect.ApplyEffects(new List<LandEffectInfo>(_landEffectInfos));
+        if(_player != null)
+        {
+            _player.LandWithBullet(transform.position);
+        }
     }
     IEnumerator MoveCoroutine()
     {

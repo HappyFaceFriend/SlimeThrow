@@ -6,6 +6,8 @@ public class PlayerState : StateBase
 {
     string _name;
     protected PlayerBehaviour Player { get; }
+    protected TurretBehaviour Turret { get { return Player.Turret; } }
+    protected Transform transform { get { return Player.transform; } }
     public PlayerState(string name, PlayerBehaviour player) : base(name, player)
     {
         Player = player;

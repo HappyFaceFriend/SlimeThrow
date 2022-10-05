@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBehaviour : StateMachineBase
 { 
     [SerializeField] FlipObjectToPoint _flip;
+    [SerializeField] TurretBehaviour _turret;
     [Header("Movement Settings")]
     [SerializeField] private float _speedUpTime;
     [SerializeField] private float _slowDownTime;
@@ -23,6 +24,7 @@ public class PlayerBehaviour : StateMachineBase
     public float DashDuration { get { return _dashDuration; } }
     public AnimationCurve DashCurve { get { return _dashCurve; } }
     public PlayerInput Inputs { get { return _inputs; } }
+    public TurretBehaviour Turret { get { return _turret; } }
 
     private PlayerInput _inputs;
     private GrabController _grabController;
@@ -37,8 +39,14 @@ public class PlayerBehaviour : StateMachineBase
     {
         base.Update();
         _flip.targetPoint = Utils.Inputs.GetMouseWordPos();
+        if (Input.GetKeyDown(KeyCode.E))
+            ChangeState(new PlayerStates.EnterTurretState(this));
     }
-
+    public void LandWithBullet(Vector3 landPosition)
+    {
+        transform.position = landPosition;
+        ChangeState(new PlayerStates.DefaultState(this));
+    }
     protected override StateBase GetInitialState()
     {
         return new PlayerStates.DefaultState(this);

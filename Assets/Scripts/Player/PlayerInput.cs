@@ -23,6 +23,7 @@ public class PlayerInput : MonoBehaviour
         UpdateMoveInput();
         if (_moveInput != Vector3.zero)
             _lastMoveInput = _moveInput;
+
     }
     void UpdateMoveInput()
     {
