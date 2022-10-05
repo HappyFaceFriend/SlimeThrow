@@ -11,7 +11,7 @@ public class SlimeBehaviour : StateMachineBase
 
     int _currentHp;
     SlimeMovement _movement;
-    public bool IsGrabbable { get { return CurrentState is SlimeStates.DeadState; } }
+    public bool IsGrabbable { get { return CurrentState is SlimeStates.GrabbableState; } }
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _slotIcon; } }
 
