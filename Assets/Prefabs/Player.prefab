@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2006927240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2006927242}
+  - component: {fileID: 2006927241}
+  m_Layer: 0
+  m_Name: PushToTowerRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2006927242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006927240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: -0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8479817264885539417}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2006927241
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006927240}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &8479817263558345141
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,8 +118,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 959426419
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -973574948, guid: 5b41152d2bdbb8c44bfb0b09754bd177, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -404,8 +452,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 361152499
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0c6f02b361c24634ba57248d05787ce4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -480,7 +528,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -503,6 +551,7 @@ GameObject:
   - component: {fileID: 8479817264885539395}
   - component: {fileID: 8479817264885539392}
   - component: {fileID: 8479817264885539393}
+  - component: {fileID: 998082924}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -525,6 +574,7 @@ Transform:
   - {fileID: 8479817264364604897}
   - {fileID: 8479817264728948727}
   - {fileID: 8479817263955259385}
+  - {fileID: 2006927242}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -542,6 +592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 8479817264885539393}
   _flip: {fileID: 8479817264364604911}
+  _turret: {fileID: 0}
+  _getInTurretRange: 1
   _speedUpTime: 0.2
   _slowDownTime: 0.2
   _moveSpeed: 4
@@ -634,6 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _turret: {fileID: 0}
   _grabRange: {fileID: 8479817264728948724}
+  _pushToTowerRange: {fileID: 2006927241}
   _handTransform: {fileID: 8479817264341709412}
 --- !u!114 &8479817264885539395
 MonoBehaviour:
@@ -683,3 +736,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &998082924
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479817264885539419}
+  m_Enabled: 1
+  m_SortingLayerID: 361152499
+  m_SortingLayer: 2
+  m_SortingOrder: 0

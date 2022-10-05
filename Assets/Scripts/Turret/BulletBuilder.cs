@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletBuilder : MonoBehaviour
 {
+    [SerializeField] Sprite _playerIcon;
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] GameObject _defaultLandPrefab;
 
@@ -12,6 +13,7 @@ public class BulletBuilder : MonoBehaviour
     [SerializeField] SlimeSlot [] _slots;
 
     int _count = 0;
+    PlayerBehaviour _player = null;
     private void Start()
     {
         Clear();
@@ -32,13 +34,19 @@ public class BulletBuilder : MonoBehaviour
             else
                 dup.OnAddDuplicate(dup);
         }
-        bullet.ApplyEffects(realLandEffects);
+        bullet.ApplyEffects(realLandEffects, _player);
     }
     public void PushSlime(SlimeBehaviour slime)
     {
         _slots[_count].SetImage(slime.SlotIcon);
         _count++;
         slime.BulletEffect.OnAddToTurret(this);
+    }
+    public void PushPlayer(PlayerBehaviour player)
+    {
+        _slots[_count].SetImage(_playerIcon);
+        _count++;
+        _player = player;
     }
     public void Clear()
     {
@@ -48,6 +56,7 @@ public class BulletBuilder : MonoBehaviour
             _slots[i].SetImage(null);
         }
         _landEffectInfos.Clear();
+        _player = null;
     }
 
     public BulletBehaviour CreateBullet()

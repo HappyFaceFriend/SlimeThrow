@@ -4,10 +4,15 @@ using UnityEngine;
 public class TurretBehaviour : StateMachineBase
 { 
     public bool IsReadyToShoot { get { return _bulletBuilder.Count > 0; } }
+    public float Height { get { return (_shootPosition.position - transform.position).y; } }
+    public Vector3 ShootPosition { get { return _shootPosition.position; } }
+
+    public bool IsMouseHovered { get { return _isMouseHovered; } }
 
     [SerializeField] Transform _shootPosition;
     [SerializeField] BulletBuilder _bulletBuilder;
 
+    bool _isMouseHovered = false;
     private void Awake()
     {
     }
@@ -20,6 +25,10 @@ public class TurretBehaviour : StateMachineBase
 
         Debug.Log(slime.name + " Placed");
     }
+    public void PlacePlayer(PlayerBehaviour player)
+    {
+        _bulletBuilder.PushPlayer(player);
+    }
     public void Shoot(Vector3 targetPosition)
     {
         BulletBehaviour bulletObject = _bulletBuilder.CreateBullet();
@@ -29,5 +38,14 @@ public class TurretBehaviour : StateMachineBase
     protected override StateBase GetInitialState()
     {
         return new TurretDefaultstate(this);
+    }
+
+    private void OnMouseOver()
+    {
+        _isMouseHovered = true;
+    }
+    private void OnMouseExit()
+    {
+        _isMouseHovered=false;
     }
 }
