@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SlimeMovement : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
-    private Transform _target;
-    private bool _isMovementDone;
+    float _moveSpeed;
+    Transform _target;
+    bool _isMovementDone;
     public bool IsMovementDone { get { return _isMovementDone; } }
     public Vector3 TargetPos { get { return _target.position; } }
     public void OnStartMoving()
     {
         _target = LevelManager.Instance.Flower;
         _isMovementDone = false;
+    }
+    private void Awake()
+    {
+        _moveSpeed = GetComponent<SlimeBehaviour>().MoveSpeed;  
     }
     public void OnUpdate()
     {

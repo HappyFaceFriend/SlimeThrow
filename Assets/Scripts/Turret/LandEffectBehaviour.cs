@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LandEffectBehaviour: MonoBehaviour
 {
-    int _damage;
+    float _damage;
     List<LandEffectInfo> _landInfos;
 
     public void ApplyEffects(List<LandEffectInfo> landInfos)

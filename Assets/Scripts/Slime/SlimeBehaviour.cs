@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class SlimeBehaviour : StateMachineBase
 {
-    [SerializeField] int _maxHp;
+    [SerializeField] SlimeData _data;
     [SerializeField] float _grabbableDuration;
-    [SerializeField] Sprite _slotIcon;
     [SerializeField] FlipObjectToPoint _flip;
 
-    int _currentHp;
+    float _currentHp;
     SlimeMovement _movement;
     public bool IsGrabbable { get { return CurrentState is SlimeStates.GrabbableState; } }
     public float GrabbableDuration { get { return _grabbableDuration; } }
-    public Sprite SlotIcon { get { return _slotIcon; } }
+    public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
     public SlimeBulletEffect BulletEffect { get; private set; }
     public FlipObjectToPoint Flipper { get { return _flip; } }
+
+    public float MoveSpeed { get { return _data.MoveSpeed; } }
+    public float DamageAsBullet { get { return _data.DamageAsBullet; } }
 
 
     private void Awake()
     {
         BulletEffect = GetComponent<SlimeBulletEffect>();
         _movement = GetComponent<SlimeMovement>();
-        _currentHp = _maxHp;
+        _currentHp = _data.MaxHp;
     }
     new protected void Start()
     {
@@ -42,12 +44,12 @@ public class SlimeBehaviour : StateMachineBase
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
     }
-    public void OnHittedByBullet(int damage)
+    public void OnHittedByBullet(float damage)
     {
         TakeDamage(damage);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         _currentHp -= damage;
         if(_currentHp <= 0)
