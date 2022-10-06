@@ -67,5 +67,69 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: 82de2be4752b9464cb5a39fd3e15c330, type: 2}
+    - target: {fileID: 8889646455034623247, guid: 6842a4e41b3858448936b9e9f73269e1, type: 3}
+      propertyPath: _grabbableDuration
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6842a4e41b3858448936b9e9f73269e1, type: 3}
+--- !u!1 &4968296474792893227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8889646455034623234, guid: 6842a4e41b3858448936b9e9f73269e1, type: 3}
+  m_PrefabInstance: {fileID: 4588236785179242025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2989650989074244131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968296474792893227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e128b6579ce541141b22fe9017e85ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.3333333
+      outSlope: 3.3333333
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: -0.03083096
+      outSlope: -0.03083096
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10926855
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0.05869656
+      outSlope: 0.05869656
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4017863
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 1

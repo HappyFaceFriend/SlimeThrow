@@ -19,6 +19,7 @@ public class SlimeBehaviour : StateMachineBase
 
     public float MoveSpeed { get { return _data.MoveSpeed; } }
     public float DamageAsBullet { get { return _data.DamageAsBullet; } }
+    public float AttackRange { get { return _data.AttackRange; } }
 
 
     private void Awake()
@@ -53,11 +54,16 @@ public class SlimeBehaviour : StateMachineBase
     {
         _currentHp -= damage;
         if(_currentHp <= 0)
-            ChangeState(new SlimeStates.GrabbableState(this));
+        {
+            if(_data.Type == SlimeType.Bullet)
+                ChangeState(new SlimeStates.GrabbableState(this));
+            else
+                ChangeState(new SlimeStates.DeadState(this));
+        }
     }
 
     protected override StateBase GetInitialState()
     {
-        return new SlimeStates.MoveState(this);
+        return new SlimeStates.IdleState(this);
     }
 }

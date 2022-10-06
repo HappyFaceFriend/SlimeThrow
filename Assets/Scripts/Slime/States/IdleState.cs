@@ -15,6 +15,7 @@ namespace SlimeStates
             Slime.Flipper.enabled = true;
             _movement = Slime.GetComponent<SlimeMovement>();
             SetAnimState();
+            Slime.ChangeState(new MoveState(Slime));
         }
         public override void OnUpdate()
         {

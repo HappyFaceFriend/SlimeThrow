@@ -11,7 +11,7 @@ public class SlimeMovement : MonoBehaviour
     public Vector3 TargetPos { get { return _target.position; } }
     public void OnStartMoving()
     {
-        _target = LevelManager.Instance.Flower;
+        _target = GlobalRefs.Flower.transform;
         _isMovementDone = false;
     }
     private void Awake()
