@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f81d3d0609c16184fa46ce07125bcf70
+guid: d606d9eb00a6a6f4d827a22609dfc75a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ice Attack_0
+      name: Knight Attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71ef25b2d6e0aff46b52c427a711520f
-      internalID: -669197022
+      spriteID: 34a2ad9e8c7812d47be163a525b20e35
+      internalID: -1051670250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ice Attack_1
+      name: Knight Attack_1
       rect:
         serializedVersion: 2
         x: 32
@@ -151,8 +151,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38dbb13b5fe8ccc40b3a22d907c88643
-      internalID: 465686562
+      spriteID: b6b5c3b19a3de484887a449538903764
+      internalID: -978521907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight Attack_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f350712ad961d44945ff3fb89a707b
+      internalID: 836019569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight Attack_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f5325392313d546afdfd8fe3a12e2b
+      internalID: -427333941
       vertices: []
       indices: 
       edges: []
@@ -168,8 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ice Attack_1: 465686562
-      Ice Attack_0: -669197022
+      Knight Attack_1: -978521907
+      Knight Attack_2: 836019569
+      Knight Attack_3: -427333941
+      Knight Attack_0: -1051670250
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
