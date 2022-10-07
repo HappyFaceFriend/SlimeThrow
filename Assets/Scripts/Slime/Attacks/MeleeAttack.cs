@@ -7,7 +7,6 @@ public class MeleeAttack : SlimeAttackBase
     Vector3 _targetPos;
 
     [SerializeField] float _normPosOfAttack;
-    [SerializeField] float _duration;
 
 
     public override Transform GetAttackableTarget()
@@ -37,7 +36,7 @@ public class MeleeAttack : SlimeAttackBase
         float eTime = 0f;
         Vector3 originalPos = transform.position;
         Vector3 targetPos = (_targetPos - transform.position).normalized * Slime.AttackRange + originalPos;
-        while (eTime < _duration)
+        while (eTime < Duration)
         {
             eTime += Time.deltaTime;
             transform.position = Vector3.Lerp(originalPos, targetPos, _normPosOfAttack);

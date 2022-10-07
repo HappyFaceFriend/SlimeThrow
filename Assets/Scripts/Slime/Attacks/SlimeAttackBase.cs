@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SlimeAttackBase : MonoBehaviour
 {
+    [SerializeField] float _duration;
+
+    protected float Duration { get { return _duration; } }
     Coroutine _attackCoroutine;
     protected SlimeBehaviour Slime { get; private set; }
     bool _isAttackDone;
