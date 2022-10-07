@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f351821109fd4e42bb73ccc1801413a
-      internalID: -1521794826
+      spriteID: 3cd5134802987a94db8d21e2aa56cff6
+      internalID: -126891836
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d17c1b0223830e0458ad46eba83f51f5
-      internalID: 523505224
+      spriteID: 5aec7c100f67efb448a03d2044f66e82
+      internalID: -6524735
       vertices: []
       indices: 
       edges: []
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75545fa2a34b46b4087e077b3ed8eafc
-      internalID: 1395847834
+      spriteID: 931ac6a4b642edc4c9a9fe30e6cdc46e
+      internalID: -1495276212
       vertices: []
       indices: 
       edges: []
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20bf7955afb46514d89bdf8bf26cbd40
-      internalID: 561054374
+      spriteID: eb0ce7c1a3fd7ea4688d23f35b53aeae
+      internalID: 2001792983
       vertices: []
       indices: 
       edges: []
@@ -214,8 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6aa148c5ecaa0e4b8ea4a232843da09
-      internalID: -2012331581
+      spriteID: 0d72c65225a739243b91826f61e4ee28
+      internalID: -1834637629
       vertices: []
       indices: 
       edges: []
@@ -235,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d356c2d8762941642b078681d011bbe8
-      internalID: 22015305
+      spriteID: d4aec8d39df697a4bb7c8bb68d28632e
+      internalID: -1616974953
       vertices: []
       indices: 
       edges: []
@@ -252,12 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ice Die_5: 22015305
-      Ice Die_0: -1521794826
-      Ice Die_1: 523505224
-      Ice Die_2: 1395847834
-      Ice Die_4: -2012331581
-      Ice Die_3: 561054374
+      Ice Die_5: -1616974953
+      Ice Die_0: -126891836
+      Ice Die_1: -6524735
+      Ice Die_2: -1495276212
+      Ice Die_4: -1834637629
+      Ice Die_3: 2001792983
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

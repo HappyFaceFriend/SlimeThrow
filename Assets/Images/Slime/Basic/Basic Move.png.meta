@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dff2e82eb174a2c4b9f95b32fc0458c1
+guid: 6a88e63999297de4c8105d388c1de327
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basic Move_0
+      name: Basic Move 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d3a56a50947c2049a1d64ce71f57a80
-      internalID: -83595014
+      spriteID: 8a7a179b886212144b1f33276ced332f
+      internalID: -2082920990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Move_1
+      name: Basic Move 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92c1fa58044054f4393160b0cd9e8c16
-      internalID: 862206726
+      spriteID: 3d75b6f2f7fbce24ebcd7a3a6343c530
+      internalID: 2029330984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Move_2
+      name: Basic Move 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b2ef72f81bfaf149ab388350b01050f
-      internalID: 293244075
+      spriteID: a726fb012fb54044392608e735139f90
+      internalID: 1849797348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Move_3
+      name: Basic Move 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95a4e90a8c4280945943efa93b0588ad
-      internalID: 1539862015
+      spriteID: 95f2aee2688c1ad4db1094d2b5e8aef4
+      internalID: -189351543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic Move_4
+      name: Basic Move 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -214,8 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4570eb16caceb474597e16fdec71af1a
-      internalID: -2002575113
+      spriteID: 2226810ac61776b428e4b3ee3ca82fea
+      internalID: 111514735
       vertices: []
       indices: 
       edges: []
@@ -231,11 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Basic Move_3: 1539862015
-      Basic Move_1: 862206726
-      Basic Move_2: 293244075
-      Basic Move_0: -83595014
-      Basic Move_4: -2002575113
+      Basic Move 1_0: -2082920990
+      Basic Move 1_4: 111514735
+      Basic Move 1_2: 1849797348
+      Basic Move 1_1: 2029330984
+      Basic Move 1_3: -189351543
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

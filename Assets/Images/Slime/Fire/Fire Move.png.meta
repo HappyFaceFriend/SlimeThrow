@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 37f3d101f49178c419189a0b47244604
+guid: 738f0d39732af1a4a863d45892dfa687
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire Move_0
+      name: Fire Move2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d9b85f76c454104f970b8f56e2aa5b5
-      internalID: -1808299491
+      spriteID: 60d112e29e54c0f41b1898f0b3cea9e2
+      internalID: 2029826809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire Move_1
+      name: Fire Move2_1
       rect:
         serializedVersion: 2
         x: 32
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bae52f28a68dc0439dc83829f639d1a
-      internalID: -596779431
+      spriteID: f4816740b8c07af4ab18dc8cbf1a810e
+      internalID: -1729888943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire Move_2
+      name: Fire Move2_2
       rect:
         serializedVersion: 2
         x: 64
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e420019175f6ecc40a89787c6038888b
-      internalID: -596454097
+      spriteID: 9f6e0955530ef5141aa027ad778f1785
+      internalID: -59961014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire Move_3
+      name: Fire Move2_3
       rect:
         serializedVersion: 2
         x: 96
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddd8589ee81dcaa43a5c3100d51a5da7
-      internalID: 1235901589
+      spriteID: b6018282471bb0c459ce03cac720f8eb
+      internalID: 1586012990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire Move_4
+      name: Fire Move2_4
       rect:
         serializedVersion: 2
         x: 128
@@ -214,8 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5789d58d042b6b444a1d6e0d58223fa2
-      internalID: -1979732096
+      spriteID: 71c443417e1e352478f33bcad3eb9e13
+      internalID: -671203550
       vertices: []
       indices: 
       edges: []
@@ -231,11 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fire Move_2: -596454097
-      Fire Move_3: 1235901589
-      Fire Move_0: -1808299491
-      Fire Move_1: -596779431
-      Fire Move_4: -1979732096
+      Fire Move2_3: 1586012990
+      Fire Move2_0: 2029826809
+      Fire Move2_4: -671203550
+      Fire Move2_2: -59961014
+      Fire Move2_1: -1729888943
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
