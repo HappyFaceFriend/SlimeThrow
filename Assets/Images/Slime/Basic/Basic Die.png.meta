@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bfc6b26c9dca6084fabe4d81985830bc
+guid: d304ce0197410444e8b84409f474125b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aba27f5ab1c27348ae3445ea6a5ca5d
-      internalID: 1349158860
+      spriteID: fcf49483d88d6e74a855f4124b3d19f9
+      internalID: 473878328
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 829c48fb314a4d340ad1b5fc2f45696f
-      internalID: -1829901055
+      spriteID: cafa7a71e7a17f242a5455ba8482d5f4
+      internalID: 206908496
       vertices: []
       indices: 
       edges: []
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79d99c2c7f5b0cd4d940191e77f65701
-      internalID: 597176842
+      spriteID: c8ee9f41f91187a44a1e5bfd63ca7b18
+      internalID: 1421506321
       vertices: []
       indices: 
       edges: []
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0256cc19b72ee94db0da5c95ae75e87
-      internalID: 738720486
+      spriteID: 3642c25e2513f83498896424417e0fb9
+      internalID: 1264780268
       vertices: []
       indices: 
       edges: []
@@ -214,8 +214,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 276292215783cb842bbdec8ecf8f30a7
-      internalID: 275499505
+      spriteID: 83b4119b0e0dbd641968cda25c6b2e70
+      internalID: 943098096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic Die_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44bef27fe1fb2b40bb1ea72c0e34f0b
+      internalID: -418224259
       vertices: []
       indices: 
       edges: []
@@ -231,11 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Basic Die_2: 597176842
-      Basic Die_4: 275499505
-      Basic Die_3: 738720486
-      Basic Die_1: -1829901055
-      Basic Die_0: 1349158860
+      Basic Die_2: 1421506321
+      Basic Die_4: 943098096
+      Basic Die_5: -418224259
+      Basic Die_3: 1264780268
+      Basic Die_1: 206908496
+      Basic Die_0: 473878328
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

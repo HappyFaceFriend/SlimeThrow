@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 8889646455034623244}
   - component: {fileID: 8889646455034623245}
   - component: {fileID: 5107295747387490095}
+  - component: {fileID: 2903033947834112597}
   m_Layer: 6
   m_Name: SlimeBase
   m_TagString: Untagged
@@ -185,9 +186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5107295747387490095}
-  _maxHp: 20
+  _data: {fileID: 11400000, guid: 82de2be4752b9464cb5a39fd3e15c330, type: 2}
   _grabbableDuration: 3
-  _slotIcon: {fileID: 21300000, guid: a873173572f00384e8432659c9c76663, type: 3}
   _flip: {fileID: 9173099065009160333}
 --- !u!114 &8889646455034623244
 MonoBehaviour:
@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d898a73c4524f48a643ea59930efc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 0.5
 --- !u!114 &8889646455034623245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8c27cc104cccd45a38276f576fc41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 20
   _landEffectPrefab: {fileID: 0}
 --- !u!95 &5107295747387490095
 Animator:
@@ -236,3 +234,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2903033947834112597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889646455034623234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349886a99eeef6b4684d1466c7c8b010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.0023584906
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.29613096
+      value: 0.9976415
+      inSlope: 0.018811554
+      outSlope: 0.018811554
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5014881
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9970238
+      value: 0.004716981
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 1

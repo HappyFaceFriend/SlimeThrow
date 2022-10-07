@@ -9,13 +9,13 @@ AnimatorOverrideController:
   m_Name: Ice
   m_Controller: {fileID: 9100000, guid: 4e9b0e223ff745f478d4dc2e56b2407a, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: f720748a964b094429e338dc5d151805, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 746985763e21d1e42b273f95622c7e68, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: b77878c43e02f6e41b7fe99f15c4ab7f, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 8bdb014e3bcb60743953902ec6ca7c58, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 8599c0fb6b52ef54984cb206c9d2a80a, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 1a6463f87e93da8459901a137cc8ed19, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 94dc736b13f4c114ea36b05372504d85, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e62a64a43156bef41b6cecf2dd9c7c3c, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 65464fb2a17a0714b84be925962cfdb4, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 8852617ec1359a1408ba3e1c9bfd89e0, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 4dae5e8172300644b98fbf52b6aba2ff, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1bc54801b099bbe4d94164d572b68089, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8408d9400a08fc54dafee5bb61868ada, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 06e47c83e618f774385a72cf9a1ef49e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 279a076755950de41bf6641894bce488, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7ce3b7192bac8e7488d2bf640bc093fa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 64a9ac3b148377d429b2efcca5348c59, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b572700b36b118142b4d4ad88ad37353, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8bdb014e3bcb60743953902ec6ca7c58, type: 2}
