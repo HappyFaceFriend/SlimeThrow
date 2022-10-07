@@ -58,7 +58,7 @@ public class SlimeAttackBase : MonoBehaviour
         while(eTime < _duration)
         {
             eTime += Time.deltaTime;
-            float process = Mathf.Clamp01(eTime / _duration);
+            float process = eTime / _duration;
             float curveValue = _attackCurve.Evaluate(process);
             transform.position = Vector3.Lerp(originalPos, targetPos, curveValue);
             yield return null;

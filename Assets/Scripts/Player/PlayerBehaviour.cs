@@ -5,36 +5,27 @@ using UnityEngine;
 public class PlayerBehaviour : StateMachineBase
 { 
     [SerializeField] FlipObjectToPoint _flip;
-    [SerializeField] TurretBehaviour _turret;
+    TurretBehaviour _turret;
     [SerializeField] float _getInTurretRange;
-    [Header("Movement Settings")]
-    [SerializeField] float _speedUpTime;
-    [SerializeField] float _slowDownTime;
-    [SerializeField] float _moveSpeed;
-    [Header("Dash Settings")]
-    [SerializeField] float _dashDistance;
-    [SerializeField] float _dashDuration;
-    [Tooltip("x : 시간 (0~1), y : 총 이동 거리")]
-    [SerializeField]  AnimationCurve _dashCurve;
+    [SerializeField] PlayerMovementSettings _movementSettings;
     public GrabController GrabController { get { return _grabController; } }
 
-    public float SpeedUpTime { get { return _speedUpTime; } }
-    public float SlowDownTime { get { return _slowDownTime; } }
-    public float MoveSpeed { get { return _moveSpeed; } }
-    public float DashDistance { get { return _dashDistance; } }
-    public float DashDuration { get { return _dashDuration; } }
     public float GetInTurretRange { get { return _getInTurretRange; } }
-    public AnimationCurve DashCurve { get { return _dashCurve; } }
     public PlayerInput Inputs { get { return _inputs; } }
     public TurretBehaviour Turret { get { return _turret; } }
+
+    public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
 
     private PlayerInput _inputs;
     private GrabController _grabController;
 
+
+    float _currentHp;
     private void Awake()
     {
         _inputs = GetComponent<PlayerInput>();
         _grabController = GetComponent<GrabController>();
+        _turret = GlobalRefs.Turret;
     }
 
     private void Update()
@@ -51,5 +42,22 @@ public class PlayerBehaviour : StateMachineBase
     {
         return new PlayerStates.DefaultState(this);
     }
-    
+    public void OnHitted(PlayerBehaviour player, int damage)
+    {
+        EffectManager.InstantiateHitEffect(transform.position);
+        TakeDamage(damage);
+    }
+    public void OnHitted(Vector3 hittedPosition, float damage)
+    {
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        _currentHp -= damage;
+        if (_currentHp <= 0)
+        {
+        }
+    }
+
 }

@@ -449,6 +449,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179071219}
   m_CullTransparentMesh: 1
+--- !u!1 &197812339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5670455740937238618, guid: 6924d0e869c7fb046a31057aaf303b3d, type: 3}
+  m_PrefabInstance: {fileID: 955789709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &217692544
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +946,7 @@ GameObject:
   - component: {fileID: 894724933}
   m_Layer: 0
   m_Name: GlobalRefs
-  m_TagString: Untagged
+  m_TagString: GlobalRefs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1050,12 +1055,23 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5670455740937238623, guid: 6924d0e869c7fb046a31057aaf303b3d, type: 3}
   m_PrefabInstance: {fileID: 955789709}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 197812339}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 255761de5d641b24187cf82b9e5b2ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &955789716
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197812339}
+  m_Enabled: 1
+  m_SortingLayerID: 361152499
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &1145871995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,14 +1617,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8479817264885539394, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
-      propertyPath: _turret
-      value: 
-      objectReference: {fileID: 955789710}
-    - target: {fileID: 8479817264885539398, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
-      propertyPath: _turret
-      value: 
-      objectReference: {fileID: 955789710}
     - target: {fileID: 8479817264885539417, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
       propertyPath: m_RootOrder
       value: 6
