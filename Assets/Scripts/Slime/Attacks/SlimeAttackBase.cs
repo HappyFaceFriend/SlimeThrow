@@ -12,8 +12,8 @@ public class SlimeAttackBase : MonoBehaviour
     bool _isAttackDone;
 
     public bool IsAttackDone { get { return _isAttackDone; } protected set { _isAttackDone = value; } }
-    
-    private void Awake()
+
+    protected void Awake()
     {
         Slime = GetComponent<SlimeBehaviour>();
     }

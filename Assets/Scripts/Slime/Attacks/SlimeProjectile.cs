@@ -18,7 +18,7 @@ public class SlimeProjectile : MonoBehaviour
     {
         transform.position += _moveDir * _moveSpeed * Time.deltaTime;
         _movedDistance += _moveSpeed * Time.deltaTime;
-        if (_movedDistance < _range)
+        if (_movedDistance > _range)
         {
             Destroy(gameObject);
         }

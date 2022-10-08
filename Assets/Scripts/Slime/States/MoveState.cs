@@ -26,10 +26,13 @@ namespace SlimeStates
             if (_movement.IsMovementDone)
                 Slime.ChangeState(new IdleState(Slime));
 
-            Transform attackTarget = _attack.GetAttackableTarget();
-            if(attackTarget != null)
+            if(_attack != null)
             {
-                Slime.ChangeState(new AttackState(Slime, attackTarget));
+                Transform attackTarget = _attack.GetAttackableTarget();
+                if (attackTarget != null)
+                {
+                    Slime.ChangeState(new AttackState(Slime, attackTarget));
+                }
             }
 
         }

@@ -45,7 +45,6 @@ public class GrabController : MonoBehaviour
             _grabbedSlime.OnReleasedAtGround();
         }
         _grabbedSlime = null;
-
     }
     
     SlimeBehaviour GetClosesetGrabbableSlime()

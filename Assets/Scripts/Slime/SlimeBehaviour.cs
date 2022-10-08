@@ -20,7 +20,7 @@ public class SlimeBehaviour : StateMachineBase
     public float MoveSpeed { get { return _data.MoveSpeed; } }
     public float DamageAsBullet { get { return _data.DamageAsBullet; } }
     public float AttackRange { get { return _data.AttackRange; } }
-
+    public float AttackPower { get { return _data.AttackPower; } }
 
     private void Awake()
     {

@@ -12,9 +12,10 @@ public class RangedAttack : SlimeAttackBase
     {
         _target = targetTransform;
     }
-    public void ShootProjectile()
+    public void AnimEvent_ShootProjectile()
     {
-
+        SlimeProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+        projectile.SetTargetPos(_target.position);
     }
 
     protected override IEnumerator AttackCoroutine()

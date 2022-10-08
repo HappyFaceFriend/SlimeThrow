@@ -7,8 +7,16 @@ public class MeleeAttack : SlimeAttackBase
     Vector3 _targetPos;
 
     [SerializeField] float _normPosOfAttack;
+    [SerializeField] GameObject _hitBoxObject;
 
+    Collider2D[] _hitBoxColliders;
 
+    protected void Awake()
+    {
+        base.Awake();
+        _hitBoxColliders = _hitBoxObject.GetComponents<Collider2D>();
+        
+    }
     public override Transform GetAttackableTarget()
     {
         if (Utils.Vectors.IsInDistance(GlobalRefs.Flower.transform.position, transform.position, Slime.AttackRange))
@@ -26,9 +34,28 @@ public class MeleeAttack : SlimeAttackBase
     {
         _targetPos = targetTransform.position;
     }
-    public void CheckCollision()
+    public void AnimEvent_CheckCollision()
     {
+        List<IAttackableBySlime> hittedList = new List<IAttackableBySlime>();
+        foreach (Collider2D collider in _hitBoxColliders)
+        {
+            ContactFilter2D filter = new ContactFilter2D();
+            List<Collider2D> results = new List<Collider2D>();
+            collider.OverlapCollider(filter.NoFilter(), results);
 
+            foreach (Collider2D c in results)
+            {
+                IAttackableBySlime result = c.GetComponent<IAttackableBySlime>();
+                if (result != null && !hittedList.Contains(result))
+                {
+                    hittedList.Add(result);
+                }
+            }
+        }
+        foreach(IAttackableBySlime hitted in hittedList)
+        {
+            hitted.OnHittedBySlime(Slime, Slime.AttackPower);
+        }
     }
 
     protected override IEnumerator AttackCoroutine()

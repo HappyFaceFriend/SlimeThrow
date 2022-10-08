@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehaviour : StateMachineBase
+public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
 { 
     [SerializeField] FlipObjectToPoint _flip;
     TurretBehaviour _turret;
@@ -42,13 +42,10 @@ public class PlayerBehaviour : StateMachineBase
     {
         return new PlayerStates.DefaultState(this);
     }
-    public void OnHitted(PlayerBehaviour player, int damage)
+    public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
+        Debug.Log("Player hitted by " + slime.name);
         EffectManager.InstantiateHitEffect(transform.position);
-        TakeDamage(damage);
-    }
-    public void OnHitted(Vector3 hittedPosition, float damage)
-    {
         TakeDamage(damage);
     }
 
