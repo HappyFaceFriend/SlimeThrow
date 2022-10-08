@@ -21,6 +21,7 @@ public class SlimeBehaviour : StateMachineBase
     public float DamageAsBullet { get { return _data.DamageAsBullet; } }
     public float AttackRange { get { return _data.AttackRange; } }
     public float AttackPower { get { return _data.AttackPower; } }
+    public float AttackCoolTime { get { return 1f / _data.AttackSpeed; } }
 
     private void Awake()
     {

@@ -29,7 +29,7 @@ namespace SlimeStates
             if(_attack != null)
             {
                 Transform attackTarget = _attack.GetAttackableTarget();
-                if (attackTarget != null)
+                if (attackTarget != null && _attack.IsCoolDownReady)
                 {
                     Slime.ChangeState(new AttackState(Slime, attackTarget));
                 }

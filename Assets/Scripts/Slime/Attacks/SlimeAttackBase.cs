@@ -10,14 +10,15 @@ public class SlimeAttackBase : MonoBehaviour
     Coroutine _attackCoroutine;
     protected SlimeBehaviour Slime { get; private set; }
     bool _isAttackDone;
-
     public bool IsAttackDone { get { return _isAttackDone; } protected set { _isAttackDone = value; } }
+    Utils.Timer _coolDownTimer;
+    public bool IsCoolDownReady { get { return _coolDownTimer.IsOver; } }
 
     protected void Awake()
     {
         Slime = GetComponent<SlimeBehaviour>();
+        _coolDownTimer = new Utils.Timer(Slime.AttackCoolTime, true);
     }
-
     public virtual Transform GetAttackableTarget()
     {
         if(Utils.Vectors.IsInDistance(GlobalRefs.Flower.transform.position, transform.position, Slime.AttackRange))
@@ -44,7 +45,14 @@ public class SlimeAttackBase : MonoBehaviour
     public void StopAttack()
     {
         StopCoroutine(_attackCoroutine);
-        _isAttackDone = false;
+        _isAttackDone = true;
+        _coolDownTimer.Reset(Slime.AttackCoolTime);
+    }
+
+    private void Update()
+    {
+        if(_isAttackDone)
+            _coolDownTimer.Tick();
     }
 
 
