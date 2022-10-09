@@ -20,7 +20,7 @@ namespace SlimeStates
 
         public override void OnUpdate()
         {
-            Slime.Flipper.targetPoint = _movement.TargetPos;
+            Slime.Flipper.TargetPoint = _movement.TargetPos;
             _movement.OnUpdate();
 
             if(_attack != null)

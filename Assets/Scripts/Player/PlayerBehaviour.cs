@@ -28,10 +28,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _turret = GlobalRefs.Turret;
     }
 
-    private void Update()
+    new private void Update()
     {
         base.Update();
-        _flip.targetPoint = Utils.Inputs.GetMouseWordPos();
+        _flip.TargetPoint = Utils.Inputs.GetMouseWordPos();
     }
     public void LandWithBullet(Vector3 landPosition)
     {

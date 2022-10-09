@@ -11,7 +11,7 @@ public class MeleeAttack : SlimeAttackBase
 
     Collider2D[] _hitBoxColliders;
 
-    protected void Awake()
+    new protected void Awake()
     {
         base.Awake();
         _hitBoxColliders = _hitBoxObject.GetComponents<Collider2D>();

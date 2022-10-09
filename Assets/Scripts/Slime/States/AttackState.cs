@@ -17,6 +17,7 @@ namespace SlimeStates
         public override void OnEnter()
         {
             base.OnEnter();
+            Slime.Flipper.TargetPoint = _attackTarget.position;
             _attack.StartAttack(_attackTarget);
             SetAnimState();
         }
