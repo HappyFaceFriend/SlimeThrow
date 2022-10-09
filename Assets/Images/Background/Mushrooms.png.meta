@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a39f766c3e950848ab9d6467b354aec
+guid: 38bb70f34eb50874e92dbf6548cd2620
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grass 2_0
+      name: Mushrooms_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b65d10d915d97848973a9a3d8e002fc
-      internalID: -1191877494
+      spriteID: 2ebf56c85d78ffb4f870d04cc5f85a95
+      internalID: 897455264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grass 2_1
+      name: Mushrooms_1
       rect:
         serializedVersion: 2
         x: 32
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5595c4cac4a535744aa5d2afd2f701e2
-      internalID: -1663594860
+      spriteID: f4dd6ce3c23162b4c8181914277eb2c5
+      internalID: -618975279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grass 2_2
+      name: Mushrooms_2
       rect:
         serializedVersion: 2
         x: 64
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4244a14f8286c0409b653e0b4379abd
-      internalID: -1863408336
+      spriteID: a0664bdfeade89d4cbe251a2827ff3a8
+      internalID: -437350488
       vertices: []
       indices: 
       edges: []
@@ -189,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Grass 2_2: -1863408336
-      Grass 2_0: -1191877494
-      Grass 2_1: -1663594860
+      Mushrooms_0: 897455264
+      Mushrooms_2: -437350488
+      Mushrooms_1: -618975279
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
