@@ -28,8 +28,11 @@ public class LandEffectBehaviour: MonoBehaviour
         {
             foreach (LandEffectInfo info in _landInfos)
             {
-                slime.OnHittedByBullet(_damage);
-                info.OnHitMethod(slime, info.AdditionalInfos, transform.position);
+                if(slime.IsAlive)
+                {
+                    slime.OnHittedByBullet(transform.position, _damage);
+                    info.OnHitMethod(slime, info.AdditionalInfos, transform.position);
+                }
             }
         }
     }
