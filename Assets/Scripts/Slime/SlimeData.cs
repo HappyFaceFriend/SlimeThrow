@@ -9,6 +9,7 @@ public class SlimeData : ScriptableObject
     [SerializeField] float _attackPower;
     [SerializeField] float _attackSpeed;
     [SerializeField] float _attackRange;
+    [SerializeField] float _sightRange;
     [SerializeField] float _moveSpeed;
     [SerializeField] float _damageAsBullet;
     [SerializeField] SlimeType _type;
@@ -18,6 +19,7 @@ public class SlimeData : ScriptableObject
     public float AttackPower { get { return _attackPower; } }
     public float AttackSpeed { get { return _attackSpeed; } }
     public float AttackRange { get { return _attackRange; } }
+    public float SightRange { get { return _sightRange; } }
     public float MoveSpeed { get { return _moveSpeed; } }
     public float DamageAsBullet { get { return _damageAsBullet; } }
     public SlimeType Type { get { return _type; } }

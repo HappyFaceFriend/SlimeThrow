@@ -15,7 +15,6 @@ namespace SlimeStates
             Slime.Flipper.enabled = true;
             _movement = Slime.GetComponent<SlimeMovement>();
             _attack = Slime.GetComponent<SlimeAttackBase>();
-            _movement.OnStartMoving();
             SetAnimState();
         }
 
@@ -23,8 +22,6 @@ namespace SlimeStates
         {
             Slime.Flipper.targetPoint = _movement.TargetPos;
             _movement.OnUpdate();
-            if (_movement.IsMovementDone)
-                Slime.ChangeState(new IdleState(Slime));
 
             if(_attack != null)
             {
