@@ -9,11 +9,25 @@ public enum GrabResult
 public class GrabController : MonoBehaviour
 {
     SlimeBehaviour _grabbedSlime = null;
+    FlowerBehaviour _grabbedFlower = null;
     [SerializeField] TurretBehaviour _turret;
     [SerializeField] Collider2D _grabRange;
     [SerializeField] Collider2D _pushToTowerRange;
     [SerializeField] Transform _handTransform;
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
+
+    public GrabResult GrabFlower()
+    {
+        _grabbedFlower = GetFlower();
+        if (_grabbedFlower == null)
+            return GrabResult.Fail;
+
+        _grabbedFlower.transform.SetParent(_handTransform);
+        _grabbedFlower.transform.localPosition = Vector3.zero;
+        _grabbedFlower.SetGrabbed(this);
+        return GrabResult.Success;
+
+    }
 
     public GrabResult GrabSlime()
     {
@@ -75,5 +89,10 @@ public class GrabController : MonoBehaviour
             }
         }
         return closestSlime;
+    }
+
+    FlowerBehaviour GetFlower()
+    {
+        return null;
     }
 }

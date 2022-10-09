@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeBehaviour : StateMachineBase
+public class SlimeBehaviour : StateMachineBase, IGrababble
 {
     [SerializeField] int _maxHp;
     [SerializeField] float _grabbableDuration;
