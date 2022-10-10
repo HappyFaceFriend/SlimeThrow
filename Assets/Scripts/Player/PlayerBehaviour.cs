@@ -8,6 +8,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     TurretBehaviour _turret;
     [SerializeField] float _getInTurretRange;
     [SerializeField] PlayerMovementSettings _movementSettings;
+    KnockbackController _knockback;
     public GrabController GrabController { get { return _grabController; } }
 
     public float GetInTurretRange { get { return _getInTurretRange; } }
@@ -25,13 +26,14 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _inputs = GetComponent<PlayerInput>();
         _grabController = GetComponent<GrabController>();
+        _knockback = GetComponent<KnockbackController>();
         _turret = GlobalRefs.Turret;
     }
 
-    private void Update()
+    new private void Update()
     {
         base.Update();
-        _flip.targetPoint = Utils.Inputs.GetMouseWordPos();
+        _flip.TargetPoint = Utils.Inputs.GetMouseWordPos();
     }
     public void LandWithBullet(Vector3 landPosition)
     {
@@ -44,7 +46,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     }
     public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
-        Debug.Log("Player hitted by " + slime.name);
+        Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
+        _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
     }

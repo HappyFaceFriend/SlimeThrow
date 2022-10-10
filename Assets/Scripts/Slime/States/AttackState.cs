@@ -8,15 +8,19 @@ namespace SlimeStates
     {
         Transform _attackTarget;
         SlimeAttackBase _attack;
+        KnockbackController _knockback;
         public AttackState(SlimeBehaviour slime, Transform target) : base("Attack", slime)
         {
             _attackTarget = target;
             _attack = Slime.GetComponent<SlimeAttackBase>();
+            _knockback = Slime.GetComponent<KnockbackController>();
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
+            _knockback.SuperArmor = true;
+            Slime.Flipper.TargetPoint = _attackTarget.position;
             _attack.StartAttack(_attackTarget);
             SetAnimState();
         }
@@ -33,6 +37,7 @@ namespace SlimeStates
         {
             base.OnExit();
             _attack.StopAttack();
+            _knockback.SuperArmor = false;
         }
 
     }

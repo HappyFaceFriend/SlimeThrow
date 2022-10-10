@@ -50,7 +50,8 @@ public class AttackController : MonoBehaviour
 
         foreach(Collider2D collider in results)
         {
-            collider.GetComponent<SlimeBehaviour>().OnHitted(_player, (int)_attack);
+            if(collider.GetComponent<SlimeBehaviour>().IsAlive)
+                collider.GetComponent<SlimeBehaviour>().OnHittedByPlayer(_player, (int)_attack);
         }
     }
 }

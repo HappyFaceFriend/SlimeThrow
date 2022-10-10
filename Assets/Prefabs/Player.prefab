@@ -176,7 +176,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.01, y: 0}
@@ -244,7 +244,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8479817264341709412}
-  - component: {fileID: 8479817264341709413}
   m_Layer: 0
   m_Name: HandPosition
   m_TagString: Untagged
@@ -267,22 +266,6 @@ Transform:
   m_Father: {fileID: 8479817264364604897}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &8479817264341709413
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8479817264341709415}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.4
 --- !u!1 &8479817264364604896
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +516,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.43
 --- !u!1 &8479817264885539419
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +535,7 @@ GameObject:
   - component: {fileID: 8479817264885539392}
   - component: {fileID: 8479817264885539393}
   - component: {fileID: 998082924}
+  - component: {fileID: 1310140944322811408}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -609,7 +593,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.41
 --- !u!50 &8479817264885539399
 Rigidbody2D:
   serializedVersion: 4
@@ -618,7 +602,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8479817264885539419}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -630,7 +614,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &8479817264885539397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,3 +701,15 @@ SortingGroup:
   m_SortingLayerID: 361152499
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!114 &1310140944322811408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479817264885539419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454b126fb778fdb40b9869faf09d33f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

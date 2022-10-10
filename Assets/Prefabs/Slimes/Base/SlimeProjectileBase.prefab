@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5073582269476436946}
   - component: {fileID: 5073582269476436947}
+  - component: {fileID: 1427690164789895759}
   m_Layer: 0
   m_Name: SlimeProjectileBase
   m_TagString: Untagged
@@ -129,5 +130,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd13ad37d787b945a2395ebdb684703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 0
-  _moveSpeed: 0
+  _range: 5
+  _moveSpeed: 8
+--- !u!58 &1427690164789895759
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073582269476436944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
