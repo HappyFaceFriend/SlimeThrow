@@ -86,10 +86,10 @@ public class SlimeBehaviour : StateMachineBase
     {
         if (!IsAlive)
             return;
-        var player = collision.collider.GetComponent<IAttackableBySlime>();
-        if (player != null)
+        var target = collision.collider.GetComponent<IAttackableBySlime>();
+        if (target != null)
         {
-            player.OnHittedBySlime(this, AttackPower);
+            target.OnHittedBySlime(this, AttackPower);
         }
     }
 }
