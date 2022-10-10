@@ -9,12 +9,16 @@ public enum GrabResult
 public class GrabController : MonoBehaviour
 {
     SlimeBehaviour _grabbedSlime = null;
-    [SerializeField] TurretBehaviour _turret;
+    TurretBehaviour _turret;
     [SerializeField] Collider2D _grabRange;
     [SerializeField] Collider2D _pushToTowerRange;
     [SerializeField] Transform _handTransform;
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
 
+    private void Awake()
+    {
+        _turret = GlobalRefs.Turret;
+    }
     public GrabResult GrabSlime()
     {
         _grabbedSlime = GetClosesetGrabbableSlime();
@@ -41,7 +45,6 @@ public class GrabController : MonoBehaviour
             _grabbedSlime.OnReleasedAtGround();
         }
         _grabbedSlime = null;
-
     }
     
     SlimeBehaviour GetClosesetGrabbableSlime()

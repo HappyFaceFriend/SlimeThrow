@@ -15,11 +15,11 @@ public class LandEffectInfo
     public SlimeHit OnHitMethod { get; private set; }
     public DuplicateAction OnAddDuplicate { get; private set; }
     public string Name { get; private set; }
-    public int Damage { get; set; }
+    public float Damage { get; set; }
 
     public AdditionalInfo AdditionalInfos { get; set; }
 
-    public LandEffectInfo(string name, int damage, GameObject effectPrefab, 
+    public LandEffectInfo(string name, float damage, GameObject effectPrefab, 
         EffectGenerate effectGenMethod, SlimeHit onHitMethod, DuplicateAction onAddDuplicate,
         AdditionalInfo additionalInfos)
     {

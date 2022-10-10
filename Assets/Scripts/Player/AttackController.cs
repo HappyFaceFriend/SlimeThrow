@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    [SerializeField] Animator _animator;
-    public  Animator Animator { get { return _animator; } }
+    [SerializeField] Animator _shovelAnimator;
     [SerializeField] Collider2D _hitBox;
     [SerializeField] Transform _pivot;
     [SerializeField] float _attack;
@@ -40,7 +39,7 @@ public class AttackController : MonoBehaviour
 
     public void Attack()
     {
-        Animator.SetTrigger("onAttack");
+        _shovelAnimator.SetTrigger("onAttack");
         _hitBoxAnim.SetTrigger("Hit");
 
         ContactFilter2D filter = new ContactFilter2D();
@@ -51,7 +50,8 @@ public class AttackController : MonoBehaviour
 
         foreach(Collider2D collider in results)
         {
-            collider.GetComponent<SlimeBehaviour>().OnHitted(_player, (int)_attack);
+            if(collider.GetComponent<SlimeBehaviour>().IsAlive)
+                collider.GetComponent<SlimeBehaviour>().OnHittedByPlayer(_player, (int)_attack);
         }
     }
 }

@@ -2,45 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehaviour : StateMachineBase
+public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
 { 
     [SerializeField] FlipObjectToPoint _flip;
-    [SerializeField] TurretBehaviour _turret;
+    TurretBehaviour _turret;
     [SerializeField] float _getInTurretRange;
-    [Header("Movement Settings")]
-    [SerializeField] float _speedUpTime;
-    [SerializeField] float _slowDownTime;
-    [SerializeField] float _moveSpeed;
-    [Header("Dash Settings")]
-    [SerializeField] float _dashDistance;
-    [SerializeField] float _dashDuration;
-    [Tooltip("x : 시간 (0~1), y : 총 이동 거리")]
-    [SerializeField]  AnimationCurve _dashCurve;
+    [SerializeField] PlayerMovementSettings _movementSettings;
+    KnockbackController _knockback;
     public GrabController GrabController { get { return _grabController; } }
 
-    public float SpeedUpTime { get { return _speedUpTime; } }
-    public float SlowDownTime { get { return _slowDownTime; } }
-    public float MoveSpeed { get { return _moveSpeed; } }
-    public float DashDistance { get { return _dashDistance; } }
-    public float DashDuration { get { return _dashDuration; } }
     public float GetInTurretRange { get { return _getInTurretRange; } }
-    public AnimationCurve DashCurve { get { return _dashCurve; } }
     public PlayerInput Inputs { get { return _inputs; } }
     public TurretBehaviour Turret { get { return _turret; } }
+
+    public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
 
     private PlayerInput _inputs;
     private GrabController _grabController;
 
+
+    float _currentHp;
     private void Awake()
     {
         _inputs = GetComponent<PlayerInput>();
         _grabController = GetComponent<GrabController>();
+        _knockback = GetComponent<KnockbackController>();
+        _turret = GlobalRefs.Turret;
     }
 
-    private void Update()
+    new private void Update()
     {
         base.Update();
-        _flip.targetPoint = Utils.Inputs.GetMouseWordPos();
+        _flip.TargetPoint = Utils.Inputs.GetMouseWordPos();
     }
     public void LandWithBullet(Vector3 landPosition)
     {
@@ -51,5 +44,20 @@ public class PlayerBehaviour : StateMachineBase
     {
         return new PlayerStates.DefaultState(this);
     }
-    
+    public void OnHittedBySlime(SlimeBehaviour slime, float damage)
+    {
+        Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
+        _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
+        EffectManager.InstantiateHitEffect(transform.position);
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        _currentHp -= damage;
+        if (_currentHp <= 0)
+        {
+        }
+    }
+
 }

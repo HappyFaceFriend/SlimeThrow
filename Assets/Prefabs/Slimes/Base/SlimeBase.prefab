@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 361152499
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a873173572f00384e8432659c9c76663, type: 3}
+  m_Sprite: {fileID: -2082920990, guid: 6a88e63999297de4c8105d388c1de327, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,12 +106,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8889646455034623243}
-  - component: {fileID: 8889646455034623241}
   - component: {fileID: 8889646455034623246}
   - component: {fileID: 8889646455034623247}
   - component: {fileID: 8889646455034623244}
   - component: {fileID: 8889646455034623245}
   - component: {fileID: 5107295747387490095}
+  - component: {fileID: 3986696581531728185}
+  - component: {fileID: 7953624684996556171}
   m_Layer: 6
   m_Name: SlimeBase
   m_TagString: Untagged
@@ -135,22 +136,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &8889646455034623241
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8889646455034623234}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.46875
 --- !u!50 &8889646455034623246
 Rigidbody2D:
   serializedVersion: 4
@@ -185,9 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5107295747387490095}
-  _maxHp: 20
+  _data: {fileID: 11400000, guid: 82de2be4752b9464cb5a39fd3e15c330, type: 2}
   _grabbableDuration: 3
-  _slotIcon: {fileID: 21300000, guid: a873173572f00384e8432659c9c76663, type: 3}
   _flip: {fileID: 9173099065009160333}
 --- !u!114 &8889646455034623244
 MonoBehaviour:
@@ -201,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d898a73c4524f48a643ea59930efc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 0.5
 --- !u!114 &8889646455034623245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8c27cc104cccd45a38276f576fc41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 20
   _landEffectPrefab: {fileID: 0}
 --- !u!95 &5107295747387490095
 Animator:
@@ -236,3 +218,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &3986696581531728185
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889646455034623234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.015089035, y: 0.27573538}
+      - {x: -0.29217726, y: 0.22351363}
+      - {x: -0.3966598, y: 0.005780816}
+      - {x: -0.3879603, y: -0.19037414}
+      - {x: -0.28464127, y: -0.2628219}
+      - {x: 0.29522848, y: -0.26083326}
+      - {x: 0.39200354, y: -0.18908596}
+      - {x: 0.39086628, y: 0.02134037}
+      - {x: 0.27708817, y: 0.2335729}
+--- !u!114 &7953624684996556171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889646455034623234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454b126fb778fdb40b9869faf09d33f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

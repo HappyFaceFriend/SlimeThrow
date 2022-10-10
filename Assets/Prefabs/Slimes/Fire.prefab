@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889646455034623234, guid: 90d2cbb43d8648144a95117bd1b057df, type: 3}
       propertyPath: m_Name
-      value: SlimeBase
+      value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 8889646455034623243, guid: 90d2cbb43d8648144a95117bd1b057df, type: 3}
       propertyPath: m_RootOrder
@@ -79,5 +79,28 @@ PrefabInstance:
       propertyPath: _moveSpeed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8889646455034623247, guid: 90d2cbb43d8648144a95117bd1b057df, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 325d21e4ad9b5914e917ebdd5cd4231b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d2cbb43d8648144a95117bd1b057df, type: 3}
+--- !u!1 &8540810672491017247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8889646455034623234, guid: 90d2cbb43d8648144a95117bd1b057df, type: 3}
+  m_PrefabInstance: {fileID: 997917130396991773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6354218489775786190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540810672491017247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3802490cee0c9a344a0ff15291472d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0.5
+  _projectilePrefab: {fileID: 5630796069354135676, guid: a5702fc80905d06409c17c65d2f33cfd, type: 3}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LandEffectBehaviour: MonoBehaviour
 {
-    int _damage;
+    float _damage;
     List<LandEffectInfo> _landInfos;
 
     public void ApplyEffects(List<LandEffectInfo> landInfos)
@@ -28,8 +28,11 @@ public class LandEffectBehaviour: MonoBehaviour
         {
             foreach (LandEffectInfo info in _landInfos)
             {
-                slime.OnHittedByBullet(_damage);
-                info.OnHitMethod(slime, info.AdditionalInfos, transform.position);
+                if(slime.IsAlive)
+                {
+                    slime.OnHittedByBullet(transform.position, _damage);
+                    info.OnHitMethod(slime, info.AdditionalInfos, transform.position);
+                }
             }
         }
     }

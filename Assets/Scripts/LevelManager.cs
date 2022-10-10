@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LevelManager : SingletonBehaviour<LevelManager>
 {
+
     [SerializeField] Flower _flower;
     [SerializeField] List<FlowerPlantPoint> _dirts;
-    public Transform Flower { get { return _flower.transform; } }
 
     private void Start()
     {

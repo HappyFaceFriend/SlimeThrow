@@ -15,11 +15,12 @@ namespace SlimeStates
             Slime.Flipper.enabled = true;
             _movement = Slime.GetComponent<SlimeMovement>();
             SetAnimState();
+            Slime.ChangeState(new MoveState(Slime));
         }
         public override void OnUpdate()
         {
             base.OnUpdate();
-            Slime.Flipper.targetPoint = _movement.TargetPos;
+            Slime.Flipper.TargetPoint = _movement.TargetPos;
         }
     }
 

@@ -13,7 +13,6 @@ public class TurretBehaviour : StateMachineBase
     [SerializeField] BulletBuilder _bulletBuilder;
     Rigidbody2D _rigidbody;
 
-    bool _isMouseHovered = false;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -42,12 +41,4 @@ public class TurretBehaviour : StateMachineBase
         return new TurretDefaultstate(this);
     }
 
-    private void OnMouseOver()
-    {
-        _isMouseHovered = true;
-    }
-    private void OnMouseExit()
-    {
-        _isMouseHovered=false;
-    }
 }

@@ -6,24 +6,26 @@ namespace PlayerStates
 {
     public class DashState : PlayerState
     {
-        private Vector3 _dashDir;
-        private float _eTime;
-        private float _lastCurveValue;
+        Vector3 _dashDir;
+        float _eTime;
+        float _lastCurveValue;
+        PlayerMovementSettings _settings;
         public DashState(PlayerBehaviour player) : base("Dash", player) { }
 
         public override void OnEnter()
         {
+            _settings = Player.MovementSettings;
             _dashDir = Player.Inputs.LastMoveInput;
             _eTime = 0f;
-            _lastCurveValue = Player.DashCurve.Evaluate(0);
+            _lastCurveValue = _settings.DashCurve.Evaluate(0);
             SetAnimState();
         }
         public override void OnUpdate()
         {
             _eTime += Time.deltaTime;
-            float process = Mathf.Clamp01(_eTime / Player.DashDuration);
-            float curveValue = Player.DashCurve.Evaluate(process);
-            Player.transform.position += _dashDir * (curveValue - _lastCurveValue) * Player.DashDistance;
+            float process = Mathf.Clamp01(_eTime / _settings.DashDuration);
+            float curveValue = _settings.DashCurve.Evaluate(process);
+            Player.transform.position += _dashDir * (curveValue - _lastCurveValue) * _settings.DashDistance;
 
             _lastCurveValue = curveValue;
 
