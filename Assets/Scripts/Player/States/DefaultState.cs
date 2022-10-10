@@ -18,7 +18,7 @@ namespace PlayerStates
         {
             if (Player.Inputs.IsDashPressed)
                 Player.ChangeState(new DashState(Player));
-            else if (Player.Inputs.IsAttackPressed)
+            else if (Player.Inputs.IsAttackPressed && Player.IsAbleToAttack)
             {
                 Player.ChangeState(new AttackingState(Player));
             }

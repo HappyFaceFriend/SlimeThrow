@@ -8,17 +8,23 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     TurretBehaviour _turret;
     [SerializeField] float _getInTurretRange;
     [SerializeField] PlayerMovementSettings _movementSettings;
+    [SerializeField] PlayerCombatSettings _combatSettings;
     KnockbackController _knockback;
     public GrabController GrabController { get { return _grabController; } }
 
     public float GetInTurretRange { get { return _getInTurretRange; } }
+    public float AttackPower { get { return _combatSettings.AttackPower; } }
+    public float AttackSpeed { get { return _combatSettings.AttackSpeed; } }
+    public float AttackCoolTime { get { return 1f / _combatSettings.AttackSpeed; } }
     public PlayerInput Inputs { get { return _inputs; } }
     public TurretBehaviour Turret { get { return _turret; } }
-
+    public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
 
+    public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
     private PlayerInput _inputs;
     private GrabController _grabController;
+    AttackController _attackController;
 
 
     float _currentHp;
@@ -27,6 +33,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _inputs = GetComponent<PlayerInput>();
         _grabController = GetComponent<GrabController>();
         _knockback = GetComponent<KnockbackController>();
+        _attackController = GetComponent<AttackController>();
         _turret = GlobalRefs.Turret;
     }
 
