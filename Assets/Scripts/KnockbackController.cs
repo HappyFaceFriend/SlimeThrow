@@ -35,7 +35,7 @@ public class KnockbackController : MonoBehaviour
 
         while(eTime < duration)
         {
-            transform.position += Vector3.Lerp( knockbackDir * speed * 2, Vector3.zero, eTime / duration) * Time.deltaTime;
+            transform.position += Vector3.Lerp( knockbackDir * speed / 2, Vector3.zero, eTime / duration) * Time.deltaTime;
             eTime += Time.deltaTime;
             yield return null;
         }
