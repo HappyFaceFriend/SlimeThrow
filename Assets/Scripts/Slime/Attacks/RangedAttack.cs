@@ -7,7 +7,6 @@ public class RangedAttack : SlimeAttackBase
     Transform _target;
     [SerializeField] SlimeProjectile _projectilePrefab;
 
-
     protected override void OnStartAttack(Transform targetTransform)
     {
         _target = targetTransform;
@@ -15,7 +14,7 @@ public class RangedAttack : SlimeAttackBase
     public void AnimEvent_ShootProjectile()
     {
         SlimeProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-        projectile.SetTargetPos(_target.position);
+        projectile.Init(_target.position, Slime);
     }
 
     protected override IEnumerator AttackCoroutine()

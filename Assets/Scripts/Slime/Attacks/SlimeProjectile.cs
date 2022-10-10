@@ -9,9 +9,11 @@ public class SlimeProjectile : MonoBehaviour
 
     Vector3 _moveDir = Vector3.zero;
     float _movedDistance = 0f;
-    public void SetTargetPos(Vector3 targetPosition)
+    SlimeBehaviour _slime;
+    public void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         _moveDir = (targetPosition - transform.position).normalized;
+        _slime = shooter;
     }
 
     public void Update()
@@ -20,7 +22,20 @@ public class SlimeProjectile : MonoBehaviour
         _movedDistance += _moveSpeed * Time.deltaTime;
         if (_movedDistance > _range)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var player = collision.collider.GetComponent<IAttackableBySlime>();
+        if (player != null)
+        {
+            player.OnHittedBySlime(_slime, _slime.AttackPower);
+            Die();
+        }
+    }
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

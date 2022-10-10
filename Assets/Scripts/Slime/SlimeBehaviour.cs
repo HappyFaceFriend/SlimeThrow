@@ -84,7 +84,9 @@ public class SlimeBehaviour : StateMachineBase
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var player = collision.collider.GetComponent<PlayerBehaviour>();
+        if (!IsAlive)
+            return;
+        var player = collision.collider.GetComponent<IAttackableBySlime>();
         if (player != null)
         {
             player.OnHittedBySlime(this, AttackPower);
