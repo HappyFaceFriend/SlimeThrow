@@ -40,6 +40,6 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
 
     public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
-
+        Debug.Log("Flower took " + damage + " damage");
     }
 }

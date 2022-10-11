@@ -289,14 +289,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4236249625663518107, guid: 504eed15fc3346b43a9e1dc5afe87a08, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236249625663518107, guid: 504eed15fc3346b43a9e1dc5afe87a08, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 361152499
-      objectReference: {fileID: 0}
     - target: {fileID: 4236249626926701041, guid: 504eed15fc3346b43a9e1dc5afe87a08, type: 3}
       propertyPath: m_Name
       value: Flower
@@ -1066,8 +1058,6 @@ MonoBehaviour:
   - {fileID: 1294367963}
   _spawnPattern:
   - {fileID: 1334731649722400539, guid: 36d2b06871053994a80f755bff277f9b, type: 3}
-  - {fileID: 4684665071810243973, guid: e0e8d5ba952845144bdd3151a3349412, type: 3}
-  - {fileID: 4326984650880665316, guid: 55a516257223a024790d52ac03ae119b, type: 3}
   - {fileID: 8540810672491017234, guid: 235291c3562e8a8488a830d427aa4991, type: 3}
 --- !u!4 &1262339808
 Transform:

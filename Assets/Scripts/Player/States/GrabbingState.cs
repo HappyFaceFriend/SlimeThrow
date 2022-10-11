@@ -23,8 +23,9 @@ namespace PlayerStates
 
             if (Player.Inputs.IsReleasePressed)
             {
-                Player.GrabController.ReleaseSlime();
-                Player.ChangeState(new DefaultState(Player));
+                Player.GrabController.Release();
+                if(Player.GrabController.GrabbedFlower == null)
+                    Player.ChangeState(new DefaultState(Player));
             }
         }
     }

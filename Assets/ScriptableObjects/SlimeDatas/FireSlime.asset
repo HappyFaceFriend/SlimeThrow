@@ -16,6 +16,7 @@ MonoBehaviour:
   _attackPower: 25
   _attackSpeed: 1.5
   _attackRange: 5
+  _sightRange: 6
   _moveSpeed: 0.7
   _damageAsBullet: 30
   _type: 0

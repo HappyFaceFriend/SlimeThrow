@@ -18,17 +18,19 @@ namespace PlayerStates
         {
             if (Player.Inputs.IsDashPressed)
                 Player.ChangeState(new DashState(Player));
-            else if (Player.Inputs.IsAttackPressed)
+            else if (Player.Inputs.IsAttackPressed && Player.IsAbleToAttack)
             {
-                Player.ChangeState(new AttackingState(Player));
+                if (Player.GrabController.GrabFlower() == GrabResult.Success)
+                    Player.ChangeState(new GrabbingState(Player));
+                else
+                    Player.ChangeState(new AttackingState(Player));
             }
             if (Player.Inputs.IsGetInTurretPressed && Utils.Vectors.IsInDistance(transform.position, Turret.transform.position, Player.GetInTurretRange))
                 Player.ChangeState(new EnterTurretState(Player));
             
             _movement.MoveByInput();
             _movement.CheckSpeed();
-            if (Player.GrabController.GrabFlower() == GrabResult.Success)
-                Player.ChangeState(new GrabbingState(Player));
+            
 
             if (Player.GrabController.GrabSlime() == GrabResult.Success)
                 Player.ChangeState(new GrabbingState(Player));

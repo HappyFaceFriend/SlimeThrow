@@ -6,15 +6,23 @@ public enum GrabResult
 {
     Success, Fail
 }
+public enum GrabbingObject
+{
+    Slime, Flower
+}
 public class GrabController : MonoBehaviour
 {
     SlimeBehaviour _grabbedSlime = null;
+
     Flower _grabbedFlower = null;
-    [SerializeField] TurretBehaviour _turret;
-    [SerializeField] Collider2D _grabRange;
-    [SerializeField] Collider2D _pushToTowerRange;
+    [SerializeField] FlowerPlantPoint _flowerplantpoint;
+    TurretBehaviour _turret;
+    [SerializeField] float _grabRange;
+    [SerializeField] float _pushToTowerRange;
     [SerializeField] Transform _handTransform;
+    GrabbingObject _grabbingobject;
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
+    public Flower GrabbedFlower { get { return _grabbedFlower; } }
 
     private void Awake()
     {
@@ -29,6 +37,7 @@ public class GrabController : MonoBehaviour
 
         _grabbedFlower.transform.SetParent(_handTransform);
         _grabbedFlower.transform.localPosition = Vector3.zero;
+        _grabbingobject = GrabbingObject.Flower;
         return GrabResult.Success;
     }
 
@@ -41,12 +50,22 @@ public class GrabController : MonoBehaviour
         _grabbedSlime.transform.SetParent(_handTransform);
         _grabbedSlime.transform.localPosition = Vector3.zero;
         _grabbedSlime.SetGrabbed(this);
+        _grabbingobject = GrabbingObject.Slime;
         return GrabResult.Success;
+    }
+
+    public void Release()
+    {
+        if (_grabbingobject == GrabbingObject.Flower)
+            ReleaseFlower();
+        else if (_grabbingobject == GrabbingObject.Slime)
+            ReleaseSlime();
+
     }
     public void ReleaseSlime()
     {
-        var turret = Utils.Collisions.GetCollidedComponent<TurretBehaviour>(_pushToTowerRange);
-        if (_turret.IsMouseHovered && turret == _turret)
+        bool isTurretInRange = Utils.Vectors.IsInDistance(_turret.transform.position, transform.position, _pushToTowerRange);
+        if (_turret.IsMouseHovered && isTurretInRange)
         {
             _turret.PlaceSlime(_grabbedSlime);
         }
@@ -59,14 +78,50 @@ public class GrabController : MonoBehaviour
         }
         _grabbedSlime = null;
     }
+    public void ReleaseFlower()
+    {
+        _flowerplantpoint = FindClosestDirt();
+        if (_flowerplantpoint != null)
+        {
+            _grabbedFlower.transform.position = _flowerplantpoint.transform.position;
+            _grabbedFlower.transform.SetParent(null);
+            _grabbedFlower.OnReleasedAtGround();
+            _grabbedFlower = null;
+        }
+    }
+
+    FlowerPlantPoint FindClosestDirt()
+    {
+        Collider2D[] results = Physics2D.OverlapCircleAll(transform.position, _grabRange);
+
+        FlowerPlantPoint closestDirt = null;
+        float distance = -1;
+        foreach (Collider2D collider in results)
+        {
+            FlowerPlantPoint dirt  = collider.GetComponent<FlowerPlantPoint>();
+            if ( dirt == null)
+                continue;
+            if (closestDirt == null)
+            {
+                distance = Utils.Vectors.GetSquareDistance(transform.position, dirt.transform.position);
+                closestDirt = dirt;
+            }
+            else
+            {
+                float newDistance = Utils.Vectors.GetSquareDistance(transform.position, dirt.transform.position);
+                if (distance > newDistance)
+                {
+                    distance = newDistance;
+                    closestDirt = dirt;
+                }
+            }
+        }
+        return closestDirt;
+    }
     
     SlimeBehaviour GetClosesetGrabbableSlime()
     {
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask(Defs.SlimeLayer));
-
-        List<Collider2D> results = new List<Collider2D>();
-        _grabRange.OverlapCollider(filter, results);
+        Collider2D [] results = Physics2D.OverlapCircleAll(transform.position, _grabRange);
 
         SlimeBehaviour closestSlime = null;
         float distance = -1;
@@ -95,11 +150,7 @@ public class GrabController : MonoBehaviour
 
     Flower GetClosestFlower()
     {
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask(Defs.FlowerLayer));
-
-        List<Collider2D> results = new List<Collider2D>();
-        _grabRange.OverlapCollider(filter, results);
+        Collider2D[] results = Physics2D.OverlapCircleAll(transform.position, _grabRange);
 
         Flower closestFlower = null;
         float distance = -1;

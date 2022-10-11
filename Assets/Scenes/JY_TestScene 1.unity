@@ -369,7 +369,7 @@ PrefabInstance:
     - target: {fileID: 8479817264885539394, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
       propertyPath: _grabFlowerRange
       value: 
-      objectReference: {fileID: 1494898078}
+      objectReference: {fileID: 0}
     - target: {fileID: 8479817264885539417, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1039,11 +1039,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1eeaac7a66a6ec488a0c785e2e53d32, type: 3}
---- !u!58 &1494898078 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8479817264728948724, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
-  m_PrefabInstance: {fileID: 208017528}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1573242498
 GameObject:
   m_ObjectHideFlags: 0
