@@ -9,24 +9,27 @@ public enum GrabResult
 public class GrabController : MonoBehaviour
 {
     SlimeBehaviour _grabbedSlime = null;
-    FlowerBehaviour _grabbedFlower = null;
+    Flower _grabbedFlower = null;
     [SerializeField] TurretBehaviour _turret;
     [SerializeField] Collider2D _grabRange;
     [SerializeField] Collider2D _pushToTowerRange;
     [SerializeField] Transform _handTransform;
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
 
+    private void Awake()
+    {
+        _turret = GlobalRefs.Turret;
+    }
+
     public GrabResult GrabFlower()
     {
-        _grabbedFlower = GetFlower();
+        _grabbedFlower = GetClosestFlower();
         if (_grabbedFlower == null)
             return GrabResult.Fail;
 
         _grabbedFlower.transform.SetParent(_handTransform);
         _grabbedFlower.transform.localPosition = Vector3.zero;
-        _grabbedFlower.SetGrabbed(this);
         return GrabResult.Success;
-
     }
 
     public GrabResult GrabSlime()
@@ -55,7 +58,6 @@ public class GrabController : MonoBehaviour
             _grabbedSlime.OnReleasedAtGround();
         }
         _grabbedSlime = null;
-
     }
     
     SlimeBehaviour GetClosesetGrabbableSlime()
@@ -91,8 +93,36 @@ public class GrabController : MonoBehaviour
         return closestSlime;
     }
 
-    FlowerBehaviour GetFlower()
+    Flower GetClosestFlower()
     {
-        return null;
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(LayerMask.GetMask(Defs.FlowerLayer));
+
+        List<Collider2D> results = new List<Collider2D>();
+        _grabRange.OverlapCollider(filter, results);
+
+        Flower closestFlower = null;
+        float distance = -1;
+        foreach(Collider2D collider in results)
+        {
+            Flower flower = collider.GetComponent<Flower>();
+            if (flower == null)
+                continue;
+            if(closestFlower == null)
+            {
+                distance = Utils.Vectors.GetSquareDistance(transform.position, flower.transform.position);
+                closestFlower = flower;
+            }
+            else
+            {
+                float newDistance = Utils.Vectors.GetSquareDistance(transform.position, flower.transform.position);
+                if(distance > newDistance)
+                {
+                    distance = newDistance;
+                    closestFlower = flower;
+                }
+            }
+        }
+        return closestFlower;
     }
 }

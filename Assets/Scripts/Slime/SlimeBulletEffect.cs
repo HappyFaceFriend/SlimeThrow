@@ -4,10 +4,15 @@ using UnityEngine;
 
 public abstract class SlimeBulletEffect : MonoBehaviour
 {
-    [SerializeField] int _damage;
+    float _damage;
     [SerializeField] GameObject _landEffectPrefab;
 
-    public int Damage { get { return _damage; } }
+    public float Damage { get { return _damage; } }
+
+    private void Awake()
+    {
+        _damage = GetComponent<SlimeBehaviour>().DamageAsBullet;
+    }
     public void OnAddToTurret(BulletBuilder bulletBuilder)
     {
         LandEffectInfo info = new LandEffectInfo(GetName(), _damage, _landEffectPrefab,

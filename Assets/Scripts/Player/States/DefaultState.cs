@@ -27,6 +27,8 @@ namespace PlayerStates
             
             _movement.MoveByInput();
             _movement.CheckSpeed();
+            if (Player.GrabController.GrabFlower() == GrabResult.Success)
+                Player.ChangeState(new GrabbingState(Player));
 
             if (Player.GrabController.GrabSlime() == GrabResult.Success)
                 Player.ChangeState(new GrabbingState(Player));
