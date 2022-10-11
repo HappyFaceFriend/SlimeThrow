@@ -48,7 +48,7 @@ public class SlimeBehaviour : StateMachineBase
     {
         ChangeState(new SlimeStates.GrabbableState(this));
     }
-    public void OnHittedByPlayer(PlayerBehaviour player, int damage)
+    public void OnHittedByPlayer(PlayerBehaviour player, float damage)
     {
         EffectManager.InstantiateHitEffect(transform.position);
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;

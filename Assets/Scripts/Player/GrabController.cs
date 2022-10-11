@@ -10,8 +10,8 @@ public class GrabController : MonoBehaviour
 {
     SlimeBehaviour _grabbedSlime = null;
     TurretBehaviour _turret;
-    [SerializeField] Collider2D _grabRange;
-    [SerializeField] Collider2D _pushToTowerRange;
+    [SerializeField] float _grabRange;
+    [SerializeField] float _pushToTowerRange;
     [SerializeField] Transform _handTransform;
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
 
@@ -32,8 +32,8 @@ public class GrabController : MonoBehaviour
     }
     public void ReleaseSlime()
     {
-        var turret = Utils.Collisions.GetCollidedComponent<TurretBehaviour>(_pushToTowerRange);
-        if (_turret.IsMouseHovered && turret == _turret)
+        bool isTurretInRange = Utils.Vectors.IsInDistance(_turret.transform.position, transform.position, _pushToTowerRange);
+        if (_turret.IsMouseHovered && isTurretInRange)
         {
             _turret.PlaceSlime(_grabbedSlime);
         }
@@ -49,11 +49,7 @@ public class GrabController : MonoBehaviour
     
     SlimeBehaviour GetClosesetGrabbableSlime()
     {
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask(Defs.SlimeLayer));
-
-        List<Collider2D> results = new List<Collider2D>();
-        _grabRange.OverlapCollider(filter, results);
+        Collider2D [] results = Physics2D.OverlapCircleAll(transform.position, _grabRange);
 
         SlimeBehaviour closestSlime = null;
         float distance = -1;

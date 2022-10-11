@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletBuilder : MonoBehaviour
 {
-    [SerializeField] Sprite _playerIcon;
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] GameObject _defaultLandPrefab;
 
@@ -44,7 +43,7 @@ public class BulletBuilder : MonoBehaviour
     }
     public void PushPlayer(PlayerBehaviour player)
     {
-        _slots[_count].SetImage(_playerIcon);
+        _slots[_count].SetImage(player.SlotIcon);
         _count++;
         _player = player;
     }

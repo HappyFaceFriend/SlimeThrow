@@ -14,6 +14,7 @@ namespace PlayerStates
             _sprites = Player.GetComponentsInChildren<SpriteRenderer>();
             SetAllSprites(false);
             Turret.PlacePlayer(Player);
+            Player.IsInvincible = true;
             SetAnimState();
         }
         void SetAllSprites(bool enabled)
@@ -26,6 +27,7 @@ namespace PlayerStates
         public override void OnExit()
         {
             SetAllSprites(true);
+            Player.IsInvincible = false;
         }
     }
 

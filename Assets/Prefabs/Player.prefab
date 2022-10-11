@@ -1,53 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2006927240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2006927242}
-  - component: {fileID: 2006927241}
-  m_Layer: 0
-  m_Name: PushToTowerRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2006927242
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006927240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8479817264885539417}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2006927241
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006927240}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
 --- !u!1 &8479817263558345141
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +185,7 @@ Transform:
   - {fileID: 8479817263683920926}
   - {fileID: 8479817264418587437}
   m_Father: {fileID: 8479817264885539417}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8479817264341709415
 GameObject:
@@ -469,54 +421,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &8479817264728948726
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8479817264728948727}
-  - component: {fileID: 8479817264728948724}
-  m_Layer: 0
-  m_Name: GrabRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8479817264728948727
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8479817264728948726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8479817264885539417}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &8479817264728948724
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8479817264728948726}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.43
 --- !u!1 &8479817264885539419
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,8 +460,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8479817264364604897}
-  - {fileID: 8479817264728948727}
-  - {fileID: 2006927242}
   - {fileID: 8479817263955259385}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -578,6 +480,7 @@ MonoBehaviour:
   _flip: {fileID: 8479817264364604911}
   _getInTurretRange: 1
   _movementSettings: {fileID: 11400000, guid: e965fc83a6c408a40a113a2ac48b8961, type: 2}
+  _combatSettings: {fileID: 11400000, guid: c158afdee78104d40b23be217553e40c, type: 2}
 --- !u!58 &8479817264885539396
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -639,8 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79477b8e17c2a64458969dc30e2ae357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabRange: {fileID: 8479817264728948724}
-  _pushToTowerRange: {fileID: 2006927241}
+  _grabRange: 0.45
+  _pushToTowerRange: 1
   _handTransform: {fileID: 8479817264341709412}
 --- !u!114 &8479817264885539395
 MonoBehaviour:
@@ -657,7 +560,6 @@ MonoBehaviour:
   _shovelAnimator: {fileID: 8479817264418587434}
   _hitBox: {fileID: 8479817263683920912}
   _pivot: {fileID: 8479817263955259385}
-  _attack: 10
 --- !u!114 &8479817264885539392
 MonoBehaviour:
   m_ObjectHideFlags: 0

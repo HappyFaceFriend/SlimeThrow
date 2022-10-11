@@ -16,6 +16,10 @@ namespace PlayerStates
             SetAnimState();
             Player.StartCoroutine(MoveCoroutine());
         }
+        public override void OnExit()
+        {
+            base.OnExit();
+        }
         IEnumerator MoveCoroutine()
         {
             Vector3 turretPos = Turret.transform.position;
