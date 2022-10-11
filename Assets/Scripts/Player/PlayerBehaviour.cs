@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
 { 
+    public bool IsInvincible { get; set; }
+    public bool IsTargetable { get; private set; }
     [SerializeField] FlipObjectToPoint _flip;
     TurretBehaviour _turret;
     [SerializeField] float _getInTurretRange;
@@ -35,6 +37,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _knockback = GetComponent<KnockbackController>();
         _attackController = GetComponent<AttackController>();
         _turret = GlobalRefs.Turret;
+        IsInvincible = false;
+        IsTargetable = true;
     }
 
     new private void Update()
@@ -46,13 +50,22 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         transform.position = landPosition;
         ChangeState(new PlayerStates.DefaultState(this));
+        IsInvincible = false;
+        IsTargetable = true;
     }
     protected override StateBase GetInitialState()
     {
         return new PlayerStates.DefaultState(this);
     }
+    public void OnEnterTurret()
+    {
+        IsInvincible = true;
+        IsTargetable = false;
+    }
     public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
+        if (IsInvincible)
+            return;
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
