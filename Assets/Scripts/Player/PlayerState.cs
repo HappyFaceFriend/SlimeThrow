@@ -24,6 +24,8 @@ public class PlayerState : StateBase
             id = 2;
         else if (_name == "Attack")
             id = 3;
+        else if (_name == "Dead")
+            id = 4;
         Player.Animator.SetInteger("State", id);
     }
 

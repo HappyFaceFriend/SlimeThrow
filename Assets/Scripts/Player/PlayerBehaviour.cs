@@ -77,6 +77,9 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _currentHp -= damage;
         if (_currentHp <= 0)
         {
+            _flip.enabled = false;
+            Destroy(GetComponent<CircleCollider2D>());
+            ChangeState(new PlayerStates.DeadState(this));
         }
     }
 
