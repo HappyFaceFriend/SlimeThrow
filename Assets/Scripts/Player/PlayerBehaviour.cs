@@ -39,6 +39,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _turret = GlobalRefs.Turret;
         IsInvincible = false;
         IsTargetable = true;
+        _currentHp = _combatSettings.MaxHp;
     }
 
     new private void Update()

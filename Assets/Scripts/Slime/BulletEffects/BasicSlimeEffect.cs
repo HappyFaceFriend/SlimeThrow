@@ -6,7 +6,7 @@ public class BasicSlimeEffect : SlimeBulletEffect
 {
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
-
+        
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
