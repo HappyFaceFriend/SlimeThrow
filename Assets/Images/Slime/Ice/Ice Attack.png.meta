@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71ef25b2d6e0aff46b52c427a711520f
-      internalID: -669197022
+      spriteID: a47cac9de0bdf5a499d45539691b7750
+      internalID: -1023431401
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38dbb13b5fe8ccc40b3a22d907c88643
-      internalID: 465686562
+      spriteID: 3a97d1cf37427f24ca5a234e39921c06
+      internalID: -1515650437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Attack_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bcc311703c633645944679f569d9d06
+      internalID: -1026095885
       vertices: []
       indices: 
       edges: []
@@ -168,8 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ice Attack_1: 465686562
-      Ice Attack_0: -669197022
+      Ice Attack_2: -1026095885
+      Ice Attack_1: -1515650437
+      Ice Attack_0: -1023431401
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

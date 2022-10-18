@@ -10,10 +10,19 @@ public class SlimeProjectile : MonoBehaviour
     Vector3 _moveDir = Vector3.zero;
     float _movedDistance = 0f;
     SlimeBehaviour _slime;
+    private SpriteRenderer _spriteRenderer;
+
+    public float GetAngle(Vector3 start, Vector3 end)
+    {
+        Vector3 v = end - start;
+        return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+    }
     public void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         _moveDir = (targetPosition - transform.position).normalized;
         _slime = shooter;
+        float angle = GetAngle(_moveDir, Vector3.zero) - 180f;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public void Update()

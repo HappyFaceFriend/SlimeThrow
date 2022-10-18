@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce12d7b3a98455e4d8bd5b3d14a3c57c
-      internalID: -475018874
+      spriteID: 521a83dfb927e2d419cece7abc6d51b9
+      internalID: -289442932
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 880d0fe0e01875e49ad50756ce2412e4
-      internalID: -797603273
+      spriteID: 4384201996ec15844befd25e0413d4ef
+      internalID: -566730631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Attack_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e79dfc8be475246a0268cae7e7580f
+      internalID: 899443452
       vertices: []
       indices: 
       edges: []
@@ -168,8 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fire Attack_0: -475018874
-      Fire Attack_1: -797603273
+      Fire Attack_2: 899443452
+      Fire Attack_0: -289442932
+      Fire Attack_1: -566730631
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
