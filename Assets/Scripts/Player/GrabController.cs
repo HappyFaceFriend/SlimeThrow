@@ -15,7 +15,6 @@ public class GrabController : MonoBehaviour
     SlimeBehaviour _grabbedSlime = null;
 
     Flower _grabbedFlower = null;
-    [SerializeField] FlowerPlantPoint _flowerplantpoint;
     TurretBehaviour _turret;
     [SerializeField] float _grabRange;
     [SerializeField] float _pushToTowerRange;
@@ -80,11 +79,11 @@ public class GrabController : MonoBehaviour
     }
     public void ReleaseFlower()
     {
-        _flowerplantpoint = FindClosestDirt();
-        if (_flowerplantpoint != null)
+        FlowerPlantPoint _dirt = FindClosestDirt();
+        if (_dirt != null)
         {
-            _grabbedFlower.transform.position = _flowerplantpoint.transform.position;
-            _grabbedFlower.transform.SetParent(null);
+            _grabbedFlower.transform.position = _dirt.transform.position;
+            _grabbedFlower.transform.SetParent(_dirt.transform);
             _grabbedFlower.OnReleasedAtGround();
             _grabbedFlower = null;
         }
