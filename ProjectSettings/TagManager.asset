@@ -13,11 +13,7 @@ TagManager:
   - Water
   - UI
   - Slimes
-<<<<<<< HEAD
   - Flowers
-=======
-  - Smoke
->>>>>>> be0b5d807d297cf7e6b19b40447b592eabe1c69f
   - 
   - 
   - 
@@ -47,14 +43,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 39762767
+    uniqueID: 2583993383
     locked: 0
   - name: GameObjects
-    uniqueID: 361152499
+    uniqueID: 3373802455
     locked: 0
-  - name: Effect
-    uniqueID: 959426419
-    locked: 0
-  - name: UI
-    uniqueID: 3801448111
+  - name: Effects
+    uniqueID: 3171146835
     locked: 0
