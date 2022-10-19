@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 361152499
+  m_SortingLayerID: -921164841
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 278793812, guid: 4bd65bca93f74e541873a28c2c742a7f, type: 3}
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6743636263529296376}
   - component: {fileID: 8225732387724725485}
   - component: {fileID: 424730646071411015}
+  - component: {fileID: 1845336814}
   m_Layer: 7
   m_Name: JY_Flower
   m_TagString: Untagged
@@ -109,7 +110,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6743636263529296374}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.44, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -146,4 +147,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4850f3574a143e1438020c1da83081d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 1845336814}
+--- !u!95 &1845336814
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743636263529296374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d265c802b1cc73142809eb0eb7bee9e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
