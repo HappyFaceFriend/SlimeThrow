@@ -20,6 +20,7 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
 
     HpSystem _hpSystem;
     BuffManager<SlimeBehaviour> _buffManager = new BuffManager<SlimeBehaviour>();
+    [SerializeField] FlashWhenHitted _flasher;
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public BuffableStat AttackRange { get; private set; }
@@ -70,6 +71,7 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
         ChangeState(new SlimeStates.HittedState(this));
         _hpSystem.ChangeHp(-damage);
+        _flasher.Flash(0.1f);
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
@@ -78,6 +80,7 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Big, Defs.KnockBackSpeed.Small);
         ChangeState(new SlimeStates.HittedState(this));
         _hpSystem.ChangeHp(-damage);
+        _flasher.Flash(0.1f);
     }
     public void TakeDamage(float damage)
     {
