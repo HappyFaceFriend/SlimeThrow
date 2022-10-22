@@ -9,7 +9,7 @@ public abstract class SlimeBulletEffect : MonoBehaviour
 
     public float Damage { get { return _damage; } }
 
-    private void Awake()
+    private void Start()
     {
         _damage = GetComponent<SlimeBehaviour>().DamageAsBullet.Value;
     }

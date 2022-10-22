@@ -7,14 +7,12 @@ public class MeleeAttack : SlimeAttackBase
     Vector3 _targetPos;
 
     [SerializeField] float _normPosOfAttack;
-    [SerializeField] GameObject _hitBoxObject;
 
     Collider2D[] _hitBoxColliders;
     Vector3 _posBeforeAttack;
     new protected void Awake()
     {
         base.Awake();
-        _hitBoxColliders = _hitBoxObject.GetComponents<Collider2D>();
         _posBeforeAttack = transform.position;
     }
     public override Transform GetAttackableTarget()

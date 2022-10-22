@@ -21,6 +21,8 @@ public class SlimeSpawner : MonoBehaviour
     [SerializeField] int _stagePerRound;
     [SerializeField] float _waveDuration;
     [SerializeField] List<string> _spawnSetCodes;
+    [Header("Test")]
+    [SerializeField] bool _dontSpawn = false;
     List<int[]> _spawnSets;
     List<SpawnSection> _spawnSections;
     List<SlimeBehaviour> _spawnedSlimes;
@@ -63,7 +65,8 @@ public class SlimeSpawner : MonoBehaviour
             _currentStage = 1;
             _currentRound++;
         }
-        StartCoroutine(StageCoroutine());
+        if(!_dontSpawn)
+            StartCoroutine(StageCoroutine());
     }
     public IEnumerator WaitUntilStageClear()
     {
