@@ -32,11 +32,16 @@ public class SlimeMovement : MonoBehaviour
             Vector3 moveDir = (_target.position - transform.position).normalized;
             transform.position += moveDir * _slime.MoveSpeed.Value * Time.deltaTime;
 
-            bool isPlayerInRange = Utils.Vectors.IsInDistance(_player.position, transform.position, _slime.SightRange.Value);
-            if (_target == _player && !isPlayerInRange)
+            if (!GlobalRefs.Player.IsTargetable)
                 _target = _flower;
-            else if (_target == _flower && isPlayerInRange)
-                _target = _player;
+            else
+            {
+                bool isPlayerInRange = Utils.Vectors.IsInDistance(_player.position, transform.position, _slime.SightRange.Value);
+                if (_target == _player && !isPlayerInRange)
+                    _target = _flower;
+                else if (_target == _flower && isPlayerInRange)
+                    _target = _player;
+            }
             
             if (Utils.Vectors.IsInDistance(_target.position, transform.position, _slime.AttackRange.Value))
             {

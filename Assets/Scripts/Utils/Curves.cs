@@ -19,6 +19,10 @@ namespace Utils
         {
             return x;
         }
+        public static float Constant(float x)
+        {
+            return 1;
+        }
     }
 
 }

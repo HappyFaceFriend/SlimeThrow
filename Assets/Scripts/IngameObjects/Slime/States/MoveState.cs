@@ -23,10 +23,10 @@ namespace SlimeStates
             Slime.Flipper.TargetPoint = _movement.TargetPos;
             _movement.OnUpdate();
 
-            if(_attack != null)
+            if(_attack != null && _attack.IsCoolDownReady)
             {
                 Transform attackTarget = _attack.GetAttackableTarget();
-                if (attackTarget != null && _attack.IsCoolDownReady)
+                if (attackTarget != null)
                 {
                     Slime.ChangeState(new AttackState(Slime, attackTarget));
                 }

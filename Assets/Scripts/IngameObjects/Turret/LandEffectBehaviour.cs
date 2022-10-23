@@ -6,6 +6,7 @@ public class LandEffectBehaviour: MonoBehaviour
 {
     float _damage;
     List<LandEffectInfo> _landInfos;
+    [SerializeField] float _duration;
 
     public void ApplyEffects(List<LandEffectInfo> landInfos)
     {
@@ -20,17 +21,24 @@ public class LandEffectBehaviour: MonoBehaviour
         {
             info.GenerateEffect(transform.position);
         }
+        Camera.main.GetComponent<CameraController>().Shake(CameraController.ShakePower.BulletLanded);
+        Invoke("Kill", _duration);
+    }
+    void Kill()
+    {
+        Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         SlimeBehaviour slime = collision.GetComponent<SlimeBehaviour>();
         if (slime != null)
         {
+            if(slime.IsAlive)
+                slime.OnHittedByBullet(transform.position, _damage);
             foreach (LandEffectInfo info in _landInfos)
             {
                 if(slime.IsAlive)
                 {
-                    slime.OnHittedByBullet(transform.position, _damage);
                     info.OnHitMethod(slime, info.AdditionalInfos, transform.position);
                 }
             }

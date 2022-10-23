@@ -21,6 +21,7 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
     HpSystem _hpSystem;
     BuffManager<SlimeBehaviour> _buffManager = new BuffManager<SlimeBehaviour>();
     [SerializeField] FlashWhenHitted _flasher;
+    [SerializeField] SquashWhenHitted _squasher;
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public BuffableStat AttackRange { get; private set; }
@@ -28,8 +29,11 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
 
+    CameraController _camera;
+
     private void Awake()
     {
+        _camera = Camera.main.GetComponent<CameraController>();
         BulletEffect = GetComponent<SlimeBulletEffect>();
         _knockback = GetComponent<KnockbackController>();
 
@@ -66,32 +70,42 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
     {
-        EffectManager.InstantiateHitEffect(transform.position);
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
-        ChangeState(new SlimeStates.HittedState(this));
-        _hpSystem.ChangeHp(-damage);
-        _flasher.Flash(0.1f);
+        OnGetHitted(impactPosition, damage);
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
-        EffectManager.InstantiateHitEffect(transform.position);
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
-        _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Big, Defs.KnockBackSpeed.Small);
+        _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
+        OnGetHitted(impactPosition, damage);
+    }
+    void OnGetHitted(Vector3 impactPosition, float damage)
+    {
+        EffectManager.InstantiateHitEffect(transform.position);
         ChangeState(new SlimeStates.HittedState(this));
-        _hpSystem.ChangeHp(-damage);
-        _flasher.Flash(0.1f);
+        _squasher.Squash();
+        TakeDamage(damage);
+        if(_hpSystem.IsDead)
+        {
+            _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+        }
+        else
+        {
+            _camera.Shake(CameraController.ShakePower.SlimeHitted);
+        }
     }
     public void TakeDamage(float damage)
     {
+        _flasher.Flash(0.2f);
+        EffectManager.InstantiateDamageTextEffect(transform.position, damage);
         _hpSystem.ChangeHp(-damage);
     }
     void OnDie()
     {
-        if (_data.Type == SlimeType.Bullet)
-            ChangeState(new SlimeStates.GrabbableState(this));
-        else
-            ChangeState(new SlimeStates.DeadState(this));
+        //if (_data.Type == SlimeType.Bullet)
+            //ChangeState(new SlimeStates.GrabbableState(this));
+        ChangeState(new SlimeStates.DeadState(this));
     }
 
     protected override StateBase GetInitialState()

@@ -27,7 +27,8 @@ public class SlimeAttackBase : MonoBehaviour
         }
         if (Utils.Vectors.IsInDistance(GlobalRefs.Player.transform.position, transform.position, Slime.AttackRange.Value))
         {
-            return GlobalRefs.Player.transform;
+            if(GlobalRefs.Player.IsTargetable)
+                return GlobalRefs.Player.transform;
         }
         return null;
     }

@@ -15,18 +15,6 @@ public class MeleeAttack : SlimeAttackBase
         base.Awake();
         _posBeforeAttack = transform.position;
     }
-    public override Transform GetAttackableTarget()
-    {
-        if (Utils.Vectors.IsInDistance(GlobalRefs.Flower.transform.position, transform.position, Slime.AttackRange.Value))
-        {
-            return GlobalRefs.Flower.transform;
-        }
-        if (Utils.Vectors.IsInDistance(GlobalRefs.Player.transform.position, transform.position, Slime.AttackRange.Value))
-        {
-            return GlobalRefs.Player.transform;
-        }
-        return null;
-    }
 
     protected override void OnStartAttack(Transform targetTransform)
     {

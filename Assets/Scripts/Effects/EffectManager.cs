@@ -5,9 +5,12 @@ using UnityEngine;
 public class EffectManager : MonoBehaviour
 {
     static EffectManager _instance;
-    
+
+    [SerializeField] Canvas _canvas; 
     [Header("Pools")]
     [SerializeField] ObjectPool _circleHitPool;
+    [SerializeField] ObjectPool _dustEffectPool;
+    [SerializeField] ObjectPool _damageTextPool;
     private void Awake()
     {
         _instance = this;
@@ -22,5 +25,20 @@ public class EffectManager : MonoBehaviour
         effect.NoLine = noLine;
         effect.gameObject.SetActive(true);
         return effect;
+    }
+    public static void InstantiateDustEffect(Vector3 position)
+    {
+        PooledObject effect = _instance._dustEffectPool.Create<PooledObject>();
+        effect.transform.position = position;
+        effect.gameObject.SetActive(true);
+    }
+    public static void InstantiateDamageTextEffect(Vector3 position, float damage)
+    {
+        DamageTextEffect effect = _instance._damageTextPool.Create<DamageTextEffect>();
+        effect.SetText((int)damage);
+        effect.transform.parent = _instance._canvas.transform;
+        effect.transform.position = position + new Vector3(0, 0.5f, 0);
+        effect.transform.localScale = new Vector3(0.85f, 1, 1);
+        effect.gameObject.SetActive(true);
     }
 }

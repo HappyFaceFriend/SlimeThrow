@@ -14,6 +14,7 @@ namespace PlayerStates
         {
             base.OnEnter();
             SetAnimState();
+            Player.OnEnterTurret();
             Player.StartCoroutine(MoveCoroutine());
         }
         public override void OnExit()

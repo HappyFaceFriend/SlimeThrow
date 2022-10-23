@@ -6,6 +6,7 @@ namespace SlimeStates
 {
     public class DeadState : SlimeState
     {
+        KnockbackController _knockback;
         public DeadState(SlimeBehaviour slime) : base("Dead", slime) { }
 
         public override void OnEnter()
@@ -13,12 +14,17 @@ namespace SlimeStates
             base.OnEnter();
             Slime.Flipper.enabled = false;
             SetAnimState();
+
+            _knockback = Slime.GetComponent<KnockbackController>();
+            Vector3 knockbackVec = _knockback.Velocity;
+            _knockback.ApplyKnockbackDir(knockbackVec.normalized, 7, 10);
         }
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if (Slime.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !Slime.Animator.IsInTransition(0))
+            if(_knockback.IsKnockbackDone)
             {
+                EffectManager.InstantiateHitEffect(Slime.transform.position);
                 GameObject.Destroy(Slime.gameObject);
             }
         }

@@ -31,6 +31,7 @@ public class BulletBehaviour : MonoBehaviour
         {
             _player.LandWithBullet(transform.position);
         }
+        Destroy(gameObject);
     }
     IEnumerator MoveCoroutine()
     {
@@ -63,6 +64,5 @@ public class BulletBehaviour : MonoBehaviour
         }
         //Æø¹ß
         OnLand();
-        gameObject.SetActive(false);
     }
 }

@@ -28,11 +28,16 @@ namespace Utils
         {
             return list[UnityEngine.Random.Range(0, list.Count)];
         }
-        public static Vector2 RandomRange(float minX, float maxX, float minY, float maxY)
+        public static Vector2 RandomVector(float minX, float maxX, float minY, float maxY)
         {
             return new Vector2(UnityEngine.Random.Range(minX, maxX), UnityEngine.Random.Range(minY, maxY));
         }
-        public static Vector3 RandomRange(Vector3 minVec, Vector3 maxVec)
+        public static Vector2 RandomUnitVector2()
+        {
+            float angle = UnityEngine.Random.Range(0, Mathf.PI * 2);
+            return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        }
+        public static Vector3 RandomVector(Vector3 minVec, Vector3 maxVec)
         {
             return new Vector3(UnityEngine.Random.Range(minVec.x, maxVec.x),
                 UnityEngine.Random.Range(minVec.y, maxVec.y), UnityEngine.Random.Range(minVec.z, maxVec.z));
