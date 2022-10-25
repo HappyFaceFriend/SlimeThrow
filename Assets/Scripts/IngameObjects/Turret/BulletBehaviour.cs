@@ -31,6 +31,7 @@ public class BulletBehaviour : MonoBehaviour
         {
             _player.LandWithBullet(transform.position);
         }
+        
         Destroy(gameObject);
     }
     IEnumerator MoveCoroutine()

@@ -18,5 +18,5 @@ MonoBehaviour:
   _damageAsBullet: 20
   _getInTurretRange: 1
   _grabRange: 0.45
-  _pushToTowerRange: 1
+  _pushToTowerRange: 2
   _slotIcon: {fileID: 940359798, guid: f2301a16068b7d944b707e1dea40cb3c, type: 3}

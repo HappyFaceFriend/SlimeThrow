@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeBehaviour : StateMachineBase, IGrababble
+public class SlimeBehaviour : StateMachineBase
 {
     [SerializeField] SlimeData _data;
     [SerializeField] float _grabbableDuration;
     [SerializeField] FlipObjectToPoint _flip;
 
     KnockbackController _knockback;
-    public bool IsGrabbable { get { return CurrentState is SlimeStates.GrabbableState; } }
+    public bool IsGrabbable { get; set; } = false;
     public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
                                         CurrentState is SlimeStates.GrabbedState); } }
     public float GrabbableDuration { get { return _grabbableDuration; } }
@@ -64,9 +64,10 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
         _knockback.StopKnockback();
         ChangeState(new SlimeStates.GrabbedState(this));
     }
-    public void OnReleasedAtGround()
+    public void OnReleasedAtGround(Vector3 direction, float range)
     {
-        ChangeState(new SlimeStates.GrabbableState(this));
+        _knockback.ApplyKnockbackDir(direction, range, 7);
+        ChangeState(new SlimeStates.GrabbableState(this, true));
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
     {
@@ -103,9 +104,14 @@ public class SlimeBehaviour : StateMachineBase, IGrababble
     }
     void OnDie()
     {
-        //if (_data.Type == SlimeType.Bullet)
-            //ChangeState(new SlimeStates.GrabbableState(this));
-        ChangeState(new SlimeStates.DeadState(this));
+        if (_data.Type == SlimeType.Bullet)
+            ChangeState(new SlimeStates.GrabbableState(this));
+        //ChangeState(new SlimeStates.DeadState(this));
+    }
+
+    private void OnDestroy()
+    {
+        _camera.Shake(CameraController.ShakePower.SlimeHitted);
     }
 
     protected override StateBase GetInitialState()

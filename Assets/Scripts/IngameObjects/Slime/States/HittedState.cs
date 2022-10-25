@@ -19,7 +19,7 @@ namespace SlimeStates
         {
             base.OnUpdate();
             if (_knockback.IsKnockbackDone)
-                Slime.ChangeState(new IdleState(Slime));
+                Slime.ChangeState(new MoveState(Slime));
         }
         public override void OnExit()
         {

@@ -178,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8479817263955259384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -211,7 +211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8479817264341709415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.42000008, y: -0.019999996, z: 0}
+  m_LocalPosition: {x: 0.42000008, y: 0.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -478,7 +478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 8479817264885539393}
   _flip: {fileID: 8479817264364604911}
-  _getInTurretRange: 1
   _movementSettings: {fileID: 11400000, guid: e965fc83a6c408a40a113a2ac48b8961, type: 2}
   _combatSettings: {fileID: 11400000, guid: c158afdee78104d40b23be217553e40c, type: 2}
 --- !u!58 &8479817264885539396
@@ -572,6 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb91d5d97734fd409ce984d0e4279c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dustIntervalDistance: 1.5
 --- !u!95 &8479817264885539393
 Animator:
   serializedVersion: 4

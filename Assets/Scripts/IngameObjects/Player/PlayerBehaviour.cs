@@ -14,6 +14,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public BuffableStat AttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat MoveSpeed { get; private set; }
+    public BuffableStat PushToTowerRange { get; private set; }
     public PlayerInput Inputs { get { return _inputs; } }
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
@@ -37,6 +38,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         AttackSpeed = new BuffableStat(_combatSettings.AttackSpeed);
         AttackPower = new BuffableStat(_combatSettings.AttackPower);
         MoveSpeed = new BuffableStat(_movementSettings.MoveSpeed);
+        PushToTowerRange = new BuffableStat(_combatSettings.PushToTowerRange);
         GetInTurretRange = new BuffableStat(_combatSettings.GetInTurretRange);
     }
 

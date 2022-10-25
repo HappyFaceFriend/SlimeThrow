@@ -11,8 +11,13 @@ public class CameraController : MonoBehaviour
     float _originalSize;
     Vector3 _originalPosition;
 
+    Vector3 _shakeOffset= Vector3.zero;
     Vector3 _focusPosition = Vector3.zero;
+    Vector3 _targetFocus = Vector3.zero;
+    float _targetSize;
+
     Coroutine _currentShake;
+    Coroutine _currentZoom;
     ShakePower _currentPower;
     Camera _camera;
     private void Awake()
@@ -32,12 +37,10 @@ public class CameraController : MonoBehaviour
             if(_currentPower <= power)
             {
                 StopCoroutine(_currentShake);
-                transform.position = _originalPosition;
+                _shakeOffset = Vector3.zero;
             }
             else
-            {
                 return;
-            }
         }
         if (power == ShakePower.SlimeHitted)
             StartCoroutine(ShakeCoroutine(_slimeHitted));
@@ -48,11 +51,34 @@ public class CameraController : MonoBehaviour
         _currentPower = power;
     }
 
+    public void Zoom(Vector3 focusPosition, float zoom)
+    {
+        _targetFocus = focusPosition;
+        _targetSize = zoom * _originalSize;
+        if (_currentZoom != null)
+            StopCoroutine(_currentZoom);
+        _currentZoom = StartCoroutine(ZoomCoroutine(0.5f));
+    }
+    IEnumerator ZoomCoroutine(float duration)
+    {
+        float eTime = 0f;
+        Vector3 originalFocus = _focusPosition;
+        float originalSize = _camera.orthographicSize;
+        while(eTime < duration)
+        {
+            eTime += Time.unscaledDeltaTime;
+            _focusPosition = Vector3.Lerp(originalFocus, _targetFocus, Utils.Curves.EaseOut(eTime / duration));
+            _camera.orthographicSize = Mathf.Lerp(originalSize, _targetSize, Utils.Curves.EaseOut(eTime / duration));
+            yield return null;
+        }
+        _focusPosition = _targetFocus;
+        _camera.orthographicSize = _targetSize;
+    }
+
     delegate float Curve(float t);
     IEnumerator ShakeCoroutine(CameraShakeParams shakeParams)
     {
         float eTime = 0f;
-        Vector3 offset = Vector3.zero;
         Curve curve;
         if (shakeParams.Curve == CameraShakeParams.CurveType.EaseIn)
             curve = Utils.Curves.EaseIn;
@@ -62,17 +88,15 @@ public class CameraController : MonoBehaviour
             curve = Utils.Curves.Constant;
         while (eTime < shakeParams.Duration)
         {
-            eTime += Time.deltaTime;
-            offset = Utils.Random.RandomUnitVector2() * shakeParams.Magnitude * curve(eTime / shakeParams.Duration);
-            transform.position = _originalPosition + _focusPosition + offset;
+            eTime += Time.unscaledDeltaTime;
+            _shakeOffset = Utils.Random.RandomUnitVector2() * shakeParams.Magnitude * curve(eTime / shakeParams.Duration);
             yield return null;
         }
-        transform.position = _originalPosition + _focusPosition;
+        _shakeOffset = Vector3.zero;
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            Shake(ShakePower.SlimeHitted);
+        transform.position = _originalPosition + _focusPosition + _shakeOffset;
     }
 }

@@ -23,9 +23,11 @@ public class GrabController : MonoBehaviour
     public SlimeBehaviour GrabbedSlime { get { return _grabbedSlime; } }
     public Flower GrabbedFlower { get { return _grabbedFlower; } }
 
+    PlayerBehaviour _player;
     private void Awake()
     {
         _turret = GlobalRefs.Turret;
+        _player = GetComponent<PlayerBehaviour>();
     }
 
     public GrabResult GrabFlower()
@@ -63,18 +65,9 @@ public class GrabController : MonoBehaviour
     }
     public void ReleaseSlime()
     {
-        bool isTurretInRange = Utils.Vectors.IsInDistance(_turret.transform.position, transform.position, _pushToTowerRange);
-        if (_turret.IsMouseHovered && isTurretInRange)
-        {
-            _turret.PlaceSlime(_grabbedSlime);
-        }
-        else
-        {
-            Vector3 mouseVec = Utils.Inputs.GetMouseWordPos() - transform.position;
-            _grabbedSlime.transform.position += mouseVec.normalized;
-            _grabbedSlime.transform.SetParent(null);
-            _grabbedSlime.OnReleasedAtGround();
-        }
+        Vector3 mouseVec = Utils.Inputs.GetMouseWordPos() - transform.position;
+        _grabbedSlime.transform.SetParent(null);
+        _grabbedSlime.OnReleasedAtGround(mouseVec.normalized, _player.PushToTowerRange.Value);
         _grabbedSlime = null;
     }
     public void ReleaseFlower()

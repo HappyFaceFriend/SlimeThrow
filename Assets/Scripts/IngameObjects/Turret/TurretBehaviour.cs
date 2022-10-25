@@ -6,11 +6,15 @@ public class TurretBehaviour : StateMachineBase
     public bool IsReadyToShoot { get { return _bulletBuilder.Count > 0; } }
     public float Height { get { return (_shootPosition.position - transform.position).y; } }
     public Vector3 ShootPosition { get { return _shootPosition.position; } }
+    public Transform TargetMarker { get { return _targetMarker; } }
+    public float MarkerSpeed { get { return _markerSpeed; } }
 
     public bool IsMouseHovered { get { return _rigidbody.OverlapPoint(Utils.Inputs.GetMouseWordPos()); } }
 
     [SerializeField] Transform _shootPosition;
     [SerializeField] BulletBuilder _bulletBuilder;
+    [SerializeField] Transform _targetMarker;
+    [SerializeField] float _markerSpeed;
     Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -23,8 +27,6 @@ public class TurretBehaviour : StateMachineBase
         slime.transform.SetParent(transform);
 
         _bulletBuilder.PushSlime(slime);
-
-        Debug.Log(slime.name + " Placed");
     }
     public void PlacePlayer(PlayerBehaviour player)
     {
@@ -35,6 +37,7 @@ public class TurretBehaviour : StateMachineBase
         BulletBehaviour bulletObject = _bulletBuilder.CreateBullet();
         bulletObject.transform.position = _shootPosition.position;
         bulletObject.StartShoot(targetPosition);
+        Animator.SetTrigger("Shoot");
     }
     protected override StateBase GetInitialState()
     {
