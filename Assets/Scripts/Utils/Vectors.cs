@@ -44,6 +44,11 @@ namespace Utils
 
             return a.x * b.x < 0 || a.y * b.y < 0;
         }
+        public static Vector2 AngleToVector(float degrees)
+        {
+            
+            return new Vector2(Mathf.Cos(degrees * Mathf.Deg2Rad), Mathf.Sin(degrees * Mathf.Deg2Rad));
+        }
 
     }
 }

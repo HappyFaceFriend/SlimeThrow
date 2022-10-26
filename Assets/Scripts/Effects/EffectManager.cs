@@ -11,6 +11,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ObjectPool _circleHitPool;
     [SerializeField] ObjectPool _dustEffectPool;
     [SerializeField] ObjectPool _damageTextPool;
+    [SerializeField] ObjectPool _smokeEffectPool;
     private void Awake()
     {
         _instance = this;
@@ -29,6 +30,13 @@ public class EffectManager : MonoBehaviour
     public static void InstantiateDustEffect(Vector3 position)
     {
         PooledObject effect = _instance._dustEffectPool.Create<PooledObject>();
+        effect.transform.position = position;
+        effect.gameObject.SetActive(true);
+    }
+    public static void InstantiateSmokeEffect(Vector3 position, Vector3 velocity)
+    {
+        PooledEffect effect = _instance._smokeEffectPool.Create<PooledEffect>();
+        effect.SetVelocity(velocity);
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }

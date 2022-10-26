@@ -84,16 +84,17 @@ public class SlimeBehaviour : StateMachineBase
     void OnGetHitted(Vector3 impactPosition, float damage)
     {
         EffectManager.InstantiateHitEffect(transform.position);
-        ChangeState(new SlimeStates.HittedState(this));
         _squasher.Squash();
         TakeDamage(damage);
         if(_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+            //ChangeState(new SlimeStates.GrabbableState(this));
         }
         else
         {
             _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            ChangeState(new SlimeStates.HittedState(this));
         }
     }
     public void TakeDamage(float damage)
@@ -112,6 +113,11 @@ public class SlimeBehaviour : StateMachineBase
     private void OnDestroy()
     {
         _camera.Shake(CameraController.ShakePower.SlimeHitted);
+        float smokeSpeed = 0.7f;
+        float angleOffset = Random.Range(-15, 15);
+        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
+        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);
+        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(315 + angleOffset) * smokeSpeed);
     }
 
     protected override StateBase GetInitialState()
