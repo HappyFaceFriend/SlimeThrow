@@ -13,7 +13,9 @@ public class TurretTargetingState : TurretState
     public override void OnEnter()
     {
         base.OnEnter();
-        Turret.TargetMarker.position = Turret.transform.position;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        Turret.TargetMarker.position = mousePos;
         Turret.TargetMarker.gameObject.SetActive(true);
         Time.timeScale = 0.3f;
     }
@@ -24,8 +26,7 @@ public class TurretTargetingState : TurretState
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
-        Turret.TargetMarker.position = Vector3.MoveTowards(Turret.TargetMarker.position, mousePos, Turret.MarkerSpeed * Time.unscaledDeltaTime);
-
+        Turret.TargetMarker.position = mousePos;
         if (Input.GetMouseButtonUp(1))
         {
             Turret.Shoot(Turret.TargetMarker.position);

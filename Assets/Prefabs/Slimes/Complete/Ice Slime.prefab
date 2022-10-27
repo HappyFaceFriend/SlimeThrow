@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8760195865704741609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372328805832628289, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -581524864, guid: 949171af191f44149995de92616e8ade, type: 3}
+    - target: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: e35b8844d7a2aa5488c81e7e2e465a88, type: 2}
+    - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Name
+      value: Ice Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938963835695920365, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: ed53083b137c6e248a98fac9a49ce01a, type: 2}
+    m_RemovedComponents:
+    - {fileID: 6938963835695920367, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+--- !u!1 &1864016776417955337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 8760195865704741609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2307149749929562951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864016776417955337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fc45751eadd104888df1a2e85b3607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _landEffectPrefab: {fileID: 120809503910874998, guid: a6552e45801e18045af925b343e18b59, type: 3}

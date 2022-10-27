@@ -20,4 +20,4 @@ MonoBehaviour:
   _moveSpeed: 0.4
   _damageAsBullet: 20
   _type: 0
-  _slotIcon: {fileID: 473878328, guid: d304ce0197410444e8b84409f474125b, type: 3}
+  _slotIcon: {fileID: -517770132, guid: 89f81cf39634983408fadb01c5397fa4, type: 3}
