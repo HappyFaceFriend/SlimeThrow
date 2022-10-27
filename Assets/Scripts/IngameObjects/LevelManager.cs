@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-
+    public Vector2 MapSize { get { return _mapSize; } }
+    [SerializeField] Vector2 _mapSize;
     [SerializeField] Flower _flower;
     [SerializeField] List<FlowerPlantPoint> _dirts;
 

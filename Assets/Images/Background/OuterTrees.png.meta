@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3fe90a970ee9434e93c2fb196fe40c1
+guid: 15a1a7aca0e15fe449d385db24265c2b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,59 +100,47 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trees 1_0
+      name: OuterTrees_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 85
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 75
+        height: 83
+      alignment: 9
+      pivot: {x: 0.49333334, y: 0.04819277}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43c9daae316a3c249a0a9a5dbe29d7f0
-      internalID: 1437831697
+      spriteID: 0453fbe7d148a8242afb2b54f4759622
+      internalID: 303666192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees 1_1
+      name: OuterTrees_1
       rect:
         serializedVersion: 2
-        x: 85
+        x: 80
         y: 0
-        width: 85
-        height: 85
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 75
+        height: 83
+      alignment: 9
+      pivot: {x: 0.49333334, y: 0.04819277}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b93ffa751e5ee3a40bc530c3325cfc1b
-      internalID: -149918915
+      spriteID: 93cc425bdb6bf1e4c93d71ce8a383062
+      internalID: -30336580
       vertices: []
       indices: 
       edges: []
@@ -168,8 +156,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Trees 1_1: -149918915
-      Trees 1_0: 1437831697
+      OuterTrees_0: 303666192
+      OuterTrees_1: -30336580
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

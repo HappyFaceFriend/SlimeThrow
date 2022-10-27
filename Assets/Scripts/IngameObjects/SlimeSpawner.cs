@@ -14,8 +14,7 @@ public class SlimeSpawner : MonoBehaviour
     }
     [SerializeField] List<SlimeBehaviour> _slimePrefabs;
     [SerializeField] int _spawnSectionCount;
-    [SerializeField] int _angle;
-    [SerializeField] Vector2 _mapSize;
+    [SerializeField] LevelManager _levelManager;
     [SerializeField] int _currentRound;
     [SerializeField] int _currentStage;
     [SerializeField] int _stagePerRound;
@@ -27,9 +26,11 @@ public class SlimeSpawner : MonoBehaviour
     List<SpawnSection> _spawnSections;
     List<SlimeBehaviour> _spawnedSlimes;
     bool _isSpawnDone = true;
+    Vector2 _mapSize;
     
     private void Awake()
     {
+        _mapSize = _levelManager.MapSize;
         _spawnSections = new List<SpawnSection>();
         float intervalAngle = 360 / _spawnSectionCount;
         for (int i = 0; i < _spawnSectionCount; i++)
