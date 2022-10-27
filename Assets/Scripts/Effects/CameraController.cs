@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     [Header("Other Params")]
     [SerializeField] float _followSpeed;
     [SerializeField] Transform _followTarget;
+    [SerializeField] float _minDistanceFromEdge;
+    [SerializeField] LevelManager _levelManager;
 
     Vector3 _originalPosition;
 
@@ -23,10 +25,13 @@ public class CameraController : MonoBehaviour
     Coroutine _currentShake;
     ShakePower _currentPower;
     Camera _camera;
+
+    Vector3 _mapSize;
     private void Awake()
     {
         _camera = GetComponent<Camera>();
         _originalPosition = transform.position;
+        _mapSize = _levelManager.MapSize;
     }
     private void Start()
     {
@@ -80,8 +85,28 @@ public class CameraController : MonoBehaviour
         float speed = (_focusPosition - _followTarget.position).magnitude * _followSpeed;
         if (speed < 0.1f)
             speed = 0f;
-        _focusPosition = Vector3.MoveTowards(_focusPosition, _followTarget.position,
-                     speed  * Time.deltaTime);
+
+        Vector3 targetPos = _followTarget.position;
+        float aspect = 640.0f/360.0f;
+        if(targetPos.x - _camera.orthographicSize * aspect < -_mapSize.x / 2 - _minDistanceFromEdge)
+        {
+            targetPos.x = -_mapSize.x / 2 - _minDistanceFromEdge + _camera.orthographicSize * aspect;
+        }
+        else if (targetPos.x + _camera.orthographicSize * aspect > _mapSize.x / 2 + _minDistanceFromEdge)
+        {
+            targetPos.x = _mapSize.x / 2 + _minDistanceFromEdge - _camera.orthographicSize * aspect;
+        }
+        if (targetPos.y + _camera.orthographicSize > _mapSize.y / 2 + _minDistanceFromEdge)
+        {
+            targetPos.y = _mapSize.y / 2 + _minDistanceFromEdge - _camera.orthographicSize;
+        }
+        else if (targetPos.y - _camera.orthographicSize < -_mapSize.y / 2 - _minDistanceFromEdge)
+        {
+            targetPos.y = -_mapSize.y / 2 - _minDistanceFromEdge + _camera.orthographicSize;
+        }
+        Debug.Log(aspect + " , " +  _camera.orthographicSize);
+        _focusPosition = Vector3.MoveTowards(_focusPosition, targetPos,
+                     speed * Time.deltaTime);
         transform.position = _originalPosition + _focusPosition + _shakeOffset;
     }
 }

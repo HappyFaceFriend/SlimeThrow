@@ -10531,6 +10531,8 @@ MonoBehaviour:
   _slimeLastHitted: {fileID: 11400000, guid: 1e54128c06afcaf48a526b5d731b48a7, type: 2}
   _followSpeed: 3
   _followTarget: {fileID: 1815544616}
+  _minDistanceFromEdge: 0.5
+  _levelManager: {fileID: 1420246761}
 --- !u!1 &1081275801
 GameObject:
   m_ObjectHideFlags: 0
