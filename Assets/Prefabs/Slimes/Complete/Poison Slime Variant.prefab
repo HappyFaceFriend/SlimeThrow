@@ -88,21 +88,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_PrefabInstance: {fileID: 7079998635138933098}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &179831902465307281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147796247482930570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3802490cee0c9a344a0ff15291472d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0.666
-  _projectilePrefab: {fileID: 5073582269476436947, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
-  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &5712791305362638382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +101,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _landEffectPrefab: {fileID: 0}
+--- !u!114 &6789458741255317167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147796247482930570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd5da1483a9dc54e9eef1dbc56e8e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0
+  _padtilePrefab: {fileID: 7438070302814020722, guid: 39fce6c13028aba47adbc19c2dbd13a9, type: 3}
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}

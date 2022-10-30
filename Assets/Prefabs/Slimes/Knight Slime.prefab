@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Helmet
       objectReference: {fileID: 0}
+    - target: {fileID: 5640623954171796691, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c8b7aa7b8876974bb0cf9155076907a, type: 2}
     - target: {fileID: 5640623954171796695, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -71,5 +75,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight Slime
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8356738810376804083, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: cd92c46bb4423104799ed1c438c35355, type: 2}
+    m_RemovedComponents:
+    - {fileID: 688518818958631472, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
+--- !u!1 &8694881231011927893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5640623954171796702, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
+  m_PrefabInstance: {fileID: 3958076866028718987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5000265135240650101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694881231011927893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b816950693aedc64a9f2015998c97cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 5
+  _numOfdirections: 50
+  _projectilePrefab: {fileID: 5073582269476436947, guid: 3996b5b021d09eb4e8be06bcad6ea3b3, type: 3}
+  _smokePrefab: {fileID: 0}

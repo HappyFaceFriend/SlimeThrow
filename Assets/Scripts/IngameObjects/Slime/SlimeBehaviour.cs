@@ -97,7 +97,7 @@ public class SlimeBehaviour : StateMachineBase
             ChangeState(new SlimeStates.HittedState(this));
         }
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage) // 이거를 플레이어한테 달아주면 된다
     {
         _flasher.Flash(0.2f);
         EffectManager.InstantiateDamageTextEffect(transform.position, damage);

@@ -10,6 +10,7 @@ public class SlimePadtile : MonoBehaviour
     SlimeBehaviour _slime;
     private SpriteRenderer _spriteRenderer;
     float _damage;
+    float timer = 0f;
 
     public float GetAngle(Vector3 start, Vector3 end)
     {
@@ -25,15 +26,27 @@ public class SlimePadtile : MonoBehaviour
 
     public void Update()
     {
-
-        Die();
+        if(timer < 2f)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            Die();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var target = collision.collider.GetComponent<IAttackableBySlime>();
-        if (target != null)
+        var player = collision.collider.GetComponent<PlayerBehaviour>();
+        var flower = collision.collider.GetComponent<Flower>();
+        if (player != null)
         {
-            target.OnHittedBySlime(_slime, _damage);
+            player.OnHittedByPad(_slime, _damage);
+            Die();
+        }
+        else if (flower != null)  
+        {
+            flower.OnHittedBySlime(_slime, _damage);
             Die();
         }
     }

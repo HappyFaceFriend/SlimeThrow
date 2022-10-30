@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
+using Unity.VisualScripting;
 using UnityEngine;
-
 public class MultiDirectionAttack : SlimeAttackBase
 {
     public int _numOfdirections;
@@ -16,15 +16,20 @@ public class MultiDirectionAttack : SlimeAttackBase
     }
     public void AnimEvent_ShootProjectile()
     {
-        for(int i = 0; i < _numOfdirections; i++)
+        Vector3 baseVector = _target.position - transform.position;
+        float baseAngle = GetAngle(baseVector);
+        for (int i = 0; i < _numOfdirections; i++)
         {
-            Vector3 targetPos = RotationMatrix(0 + (360/_numOfdirections) * i);
+            float offset = 0 + (360 / _numOfdirections) * i;
+            float currentAngle = baseAngle + offset;
+            Vector2 tempdir = Utils.Vectors.AngleToVector(currentAngle);
+            Vector3 targetPos = new Vector3(tempdir.x, tempdir.y, 0) + transform.position;
             SlimeProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
             projectile.Init(targetPos, Slime);
         }
         BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
         smoke.SetColor(name);
-        Destroy(smoke.gameObject, 1f);
+        Destroy(smoke.gameObject, 1f);       
     }
 
     protected override IEnumerator AttackCoroutine()
@@ -38,11 +43,9 @@ public class MultiDirectionAttack : SlimeAttackBase
         IsAttackDone = true;
     }
 
-    private Vector3 RotationMatrix(float angle  )
+    private float GetAngle(Vector3 vector)
     {
-        float radian = angle * (float)(Mathf.PI / 180);
-        float x2 = Mathf.Cos(radian) * (_target.position.x - transform.position.x) - Mathf.Sin(radian) * (_target.position.y - transform.position.y);
-        float y2 = Mathf.Sin(radian) * (_target.position.x - transform.position.x) + Mathf.Cos(radian) * (_target.position.y - transform.position.y);
-        return new Vector3(x2, y2, 0);
+        Vector3 v = vector;
+        return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
     }
 }

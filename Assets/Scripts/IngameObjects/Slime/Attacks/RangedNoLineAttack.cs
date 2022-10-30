@@ -6,7 +6,6 @@ using static UnityEngine.GraphicsBuffer;
 public class RangedNoLineAttack : SlimeAttackBase
 {
     Transform _target;
-    [SerializeField] GameObject _warningPrefab;
     [SerializeField] SlimePadtile _padtilePrefab;
     [SerializeField] BulletSmoke _smokePrefab;
     private float time = 0;
@@ -16,24 +15,9 @@ public class RangedNoLineAttack : SlimeAttackBase
     }
     public void AnimEvent_ShootProjectile()
     {
-        GameObject warning = Instantiate(_warningPrefab, _target.position, Quaternion.identity);
-        SlimePadtile padtile;
-        BulletSmoke smoke;
-        Destroy(warning, 1.5f);      
-        if(time < 1.5f)
-        {
-            time += Time.deltaTime;
-        }
-        else
-        {
-            Debug.Log("¸¸µç´Ù");
-            padtile = Instantiate(_padtilePrefab, _target.transform.position, Quaternion.identity);
-            padtile.Init(_target.position, Slime);
-            smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
-            Destroy(smoke.gameObject, 1f);
-            Destroy(padtile.gameObject, 1f);
-            time = 0;
-        }
+        SlimePadtile padtile = Instantiate(_padtilePrefab, transform.position, Quaternion.identity);
+        padtile.Init(_target.position, Slime);
+        BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
     }
     protected override IEnumerator AttackCoroutine()
     {

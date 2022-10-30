@@ -1,14 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class JumpingAttack : SlimeAttackBase
 {
-    [SerializeField] GameObject _attackEffect;
+    [SerializeField] SlimeJumptile _jumpTile;
+    Transform _target;
 
+    protected override void OnStartAttack(Transform targetTransform)
+    {
+        _target = targetTransform;
+    }
     public void AnimEvent_JumpingAttack()
     {
-        GameObject effect = Instantiate(_attackEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 2f);
+        CircleCollider2D collider = _jumpTile.GetComponent<CircleCollider2D>();
+        SlimeJumptile jumptile = Instantiate(_jumpTile, transform.position, Quaternion.identity);
+        jumptile.Init(_target.position, Slime, collider);
+        Destroy(jumptile, 3f);
+    }
+    
+    protected override IEnumerator AttackCoroutine()
+    {
+        float eTime = 0f;
+        while (eTime < Duration)
+        {
+            eTime += Time.deltaTime;
+            yield return null;
+        }
+        IsAttackDone = true;
     }
 }

@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Knight
+  m_Name: JumpingAttack
   m_Controller: {fileID: 9100000, guid: 4e9b0e223ff745f478d4dc2e56b2407a, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: b572700b36b118142b4d4ad88ad37353, type: 2}
@@ -22,4 +22,4 @@ AnimatorOverrideController:
   - m_OriginalClip: {fileID: 7400000, guid: 7ce3b7192bac8e7488d2bf640bc093fa, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 7ce3b7192bac8e7488d2bf640bc093fa, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 1ef25b58c93cefd4da1929bd4b4c41f3, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 47b6991c10afeec4abb305128c360acc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 89afd05afb86d2c409c8a2057ea620cd, type: 2}

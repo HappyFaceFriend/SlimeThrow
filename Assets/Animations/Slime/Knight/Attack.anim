@@ -233,8 +233,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.5833334
-    functionName: AnimEvent_JumpingAttack
+  - time: 1.5666667
+    functionName: AnimEvent_ShootProjectile
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
