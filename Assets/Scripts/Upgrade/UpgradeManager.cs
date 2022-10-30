@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    List<UpgradeData> _upgrades;
+
+
+    private void Awake()
     {
-        
+        _upgrades = new List<UpgradeData>();
+    }
+    public void AddUpgrade(UpgradeData data)
+    {
+        _upgrades.Add(data);
+        data.OnAdded();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        foreach (var upgrade in _upgrades)
+        {
+            upgrade.OnUpdate();
+        }
     }
+
+    public float GetGrabProbability(SlimeData slime)
+    {
+        float result = 0f;
+        foreach(var upgrade in _upgrades)
+        {
+            if( upgrade is Upgrades.SlimePickup )
+            {
+                if ((upgrade as Upgrades.SlimePickup).Slime == slime)
+                    result += (upgrade as Upgrades.SlimePickup).Probability;
+            }
+        }
+        return result;
+    }
+
 }

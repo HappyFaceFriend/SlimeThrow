@@ -105,9 +105,10 @@ public class SlimeBehaviour : StateMachineBase
     }
     void OnDie()
     {
-        if (_data.Type == SlimeType.Bullet)
+        if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
             ChangeState(new SlimeStates.GrabbableState(this));
-        //ChangeState(new SlimeStates.DeadState(this));
+        else
+            ChangeState(new SlimeStates.DeadState(this));
     }
 
     private void OnDestroy()

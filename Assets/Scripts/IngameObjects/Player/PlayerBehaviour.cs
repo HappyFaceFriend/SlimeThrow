@@ -9,7 +9,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     [SerializeField] PlayerCombatSettings _combatSettings;
     public bool IsInvincible { get; set; }
     public bool IsTargetable { get; private set; }
-    public BuffableStat GetInTurretRange { get; private set;}
+    public BuffableStat GetInTurretRange { get; private set; }
+    public BuffableStat MaxHp { get { return _hpSystem.MaxHp; } }
     public HpSystem HpSystem { get { return _hpSystem; } }
     public BuffableStat AttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }

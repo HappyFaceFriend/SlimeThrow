@@ -21,7 +21,7 @@ public class UpgradeButton : MonoBehaviour
     }
     public void OnClick()
     {
-
+        GlobalRefs.UpgradeManager.AddUpgrade(_data);
     }
     public void ApplyUIs(UpgradeData data)
     {
