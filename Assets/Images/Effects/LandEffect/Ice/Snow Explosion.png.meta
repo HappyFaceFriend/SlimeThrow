@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11a84442ce29449418e543afde9e6ee9
+guid: 1097bcec41d434c4295c4a0a38f4327d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight_all_0
+      name: Snow Explosion_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 27
-        height: 29
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9cc06a2526966c47a30d82b818279db
-      internalID: 925547172
+      spriteID: 897b8e7e9aa8dad41b2bfa5b9d4b5e9b
+      internalID: 1352287525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_1
+      name: Snow Explosion_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 2
-        width: 29
-        height: 29
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7c12b1379d9ffd40b70458b3f61669e
-      internalID: 1718655357
+      spriteID: 60769beacbc546849a2a7d126bd1ca2d
+      internalID: -519957327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_2
+      name: Snow Explosion_2
       rect:
         serializedVersion: 2
-        x: 65
-        y: 16
-        width: 18
-        height: 15
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 206059e47d1208a4f9e2e65d73bdf01e
-      internalID: -1807038775
+      spriteID: 54275be03b50dff48b91d7f4dd386d81
+      internalID: 2053967575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_3
+      name: Snow Explosion_3
       rect:
         serializedVersion: 2
-        x: 79
-        y: 3
-        width: 13
-        height: 11
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +193,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d333c06cfa0fe44cad11572119a7730
-      internalID: 382995701
+      spriteID: bcf5c7096f3a30f4da4f1af660994195
+      internalID: -969191122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Explosion_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7daa4aff270177747a359770c2f5d80d
+      internalID: -475167018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Explosion_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b9d9b2b27b6be42901e6b6d53da335
+      internalID: 2023133514
       vertices: []
       indices: 
       edges: []
@@ -210,10 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Knight_all_2: -1807038775
-      Knight_all_0: 925547172
-      Knight_all_1: 1718655357
-      Knight_all_3: 382995701
+      Snow Explosion_0: 1352287525
+      Snow Explosion_4: -475167018
+      Snow Explosion_5: 2023133514
+      Snow Explosion_2: 2053967575
+      Snow Explosion_1: -519957327
+      Snow Explosion_3: -969191122
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

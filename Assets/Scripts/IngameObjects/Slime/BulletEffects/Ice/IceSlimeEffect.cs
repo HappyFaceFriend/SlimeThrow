@@ -23,9 +23,14 @@ public class IceSlimeEffect : SlimeBulletEffect
     }
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
-        GameObject effects = Instantiate(effectPrefab);
-        effects.transform.position = landPosition;
-        Destroy(effects, 2.5f);
+        GameObject[] effects = new GameObject[3];
+
+        effects[0] = Instantiate(effectPrefab, landPosition, Quaternion.identity);
+
+        effects[1] = Instantiate(effectPrefab, landPosition + new Vector3(0.5f, 0.2f, 0), Quaternion.identity);
+        //effects[2] = Instantiate(effectPrefab, landPosition + new Vector3(-0.2f, 0.4f, 0), Quaternion.identity);
+        Destroy(effects[0], 4.0f);
+        Destroy(effects[1], 4.0f);
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
@@ -50,4 +55,6 @@ public class IceSlimeEffect : SlimeBulletEffect
     {
         return "IceSlime";
     }
+
+  
 }

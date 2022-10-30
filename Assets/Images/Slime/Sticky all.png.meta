@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11a84442ce29449418e543afde9e6ee9
+guid: 3bf6538c3d6507b48b68b5a5028ac6a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,85 +116,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight_all_0
+      name: Sticky all_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 2
+        y: 6
+        width: 26
+        height: 19
+      alignment: 9
+      pivot: {x: 0.50489175, y: 0.018032199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9385426380cc9cf4488e92fbc8e72259
+      internalID: -491827931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sticky all_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 7
         width: 27
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.516487, y: 0.029411864}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9cc06a2526966c47a30d82b818279db
-      internalID: 925547172
+      spriteID: 468c6643643dd12458152ebca471a7b7
+      internalID: -828276183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_1
+      name: Sticky all_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 2
-        width: 29
-        height: 29
+        x: 68
+        y: 24
+        width: 10
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7c12b1379d9ffd40b70458b3f61669e
-      internalID: 1718655357
+      spriteID: 789928f0209ab8140a6751360b84b167
+      internalID: -1688828335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_2
+      name: Sticky all_3
       rect:
         serializedVersion: 2
-        x: 65
+        x: 82
+        y: 25
+        width: 10
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0829cff8138c3bc428f5db1190b6ee8f
+      internalID: -1805445254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sticky all_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 14
+        width: 8
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9995a759f8eb504f9b03f6e99fcd0c7
+      internalID: 1552011567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sticky all_5
+      rect:
+        serializedVersion: 2
+        x: 83
         y: 16
-        width: 18
-        height: 15
+        width: 10
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 206059e47d1208a4f9e2e65d73bdf01e
-      internalID: -1807038775
+      spriteID: 0032e14a265db3b41b7f7b0b178a34b3
+      internalID: 464607806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_3
+      name: Sticky all_6
       rect:
         serializedVersion: 2
-        x: 79
-        y: 3
-        width: 13
-        height: 11
+        x: 72
+        y: 6
+        width: 3
+        height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d333c06cfa0fe44cad11572119a7730
-      internalID: 382995701
+      spriteID: 5e1e3a9d27cf3f641a97464b25dbfdd5
+      internalID: -573858228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sticky all_7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 6
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6a2c1e55319304ab1893b23308c948
+      internalID: 858992787
       vertices: []
       indices: 
       edges: []
@@ -210,10 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Knight_all_2: -1807038775
-      Knight_all_0: 925547172
-      Knight_all_1: 1718655357
-      Knight_all_3: 382995701
+      Sticky all_7: 260448162
+      Sticky all_4: 1552011567
+      Sticky all_0: -491827931
+      Sticky all_2: -1688828335
+      Sticky all_6: -573858228
+      Sticky all_1: -828276183
+      Sticky all_5: 464607806
+      Sticky all_3: -1805445254
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

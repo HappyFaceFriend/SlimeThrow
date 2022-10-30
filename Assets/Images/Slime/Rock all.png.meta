@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11a84442ce29449418e543afde9e6ee9
+guid: f431ae16af462e24cad00566c4ca7cad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,85 +116,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight_all_0
+      name: Rock all_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 2
+        y: 6
+        width: 26
+        height: 19
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.034767177}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635be0cf2cce21d44a642ae0d41f0f43
+      internalID: 1234644101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock all_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 7
         width: 27
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5188422, y: 0.023052549}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9cc06a2526966c47a30d82b818279db
-      internalID: 925547172
+      spriteID: d37e3a31b9ef88144a870b53446f9f74
+      internalID: 1868415714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_1
+      name: Rock all_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 2
-        width: 29
-        height: 29
+        x: 68
+        y: 24
+        width: 10
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7c12b1379d9ffd40b70458b3f61669e
-      internalID: 1718655357
+      spriteID: c92f9e5978b76e647a5600221170ecb3
+      internalID: 964618425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_2
+      name: Rock all_3
       rect:
         serializedVersion: 2
-        x: 65
+        x: 82
+        y: 25
+        width: 10
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a91f6f811753bf40b2815301f7c93c6
+      internalID: 1118887025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock all_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 14
+        width: 8
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde897f39f9662f4a8c3273a64f9b229
+      internalID: -1397486076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock all_5
+      rect:
+        serializedVersion: 2
+        x: 83
         y: 16
-        width: 18
-        height: 15
+        width: 10
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 206059e47d1208a4f9e2e65d73bdf01e
-      internalID: -1807038775
+      spriteID: 6fbdcb29aa026e14ca3bfc3059f0fa16
+      internalID: -968109091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_all_3
+      name: Rock all_6
       rect:
         serializedVersion: 2
-        x: 79
-        y: 3
-        width: 13
-        height: 11
+        x: 72
+        y: 6
+        width: 3
+        height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d333c06cfa0fe44cad11572119a7730
-      internalID: 382995701
+      spriteID: 4c2893dea0242ec4ab2c198683fd56f2
+      internalID: -512983148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock all_7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 6
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34fe4a6ed7fe1cb4d808494ba9c5f550
+      internalID: -762115383
       vertices: []
       indices: 
       edges: []
@@ -210,10 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Knight_all_2: -1807038775
-      Knight_all_0: 925547172
-      Knight_all_1: 1718655357
-      Knight_all_3: 382995701
+      Rock all_7: 30775356
+      Rock all_4: -1397486076
+      Rock all_6: -512983148
+      Rock all_0: 1234644101
+      Rock all_3: 1118887025
+      Rock all_5: -968109091
+      Rock all_2: 964618425
+      Rock all_1: 1868415714
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
