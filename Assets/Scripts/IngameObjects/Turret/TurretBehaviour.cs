@@ -23,10 +23,9 @@ public class TurretBehaviour : StateMachineBase
     }
     public void PlaceSlime(SlimeBehaviour slime)
     {
-        slime.gameObject.SetActive(false);
-        slime.transform.SetParent(transform);
-
         _bulletBuilder.PushSlime(slime);
+        slime.PuttedInTurret = true;
+        Destroy(slime.gameObject);
     }
     public void PlacePlayer(PlayerBehaviour player)
     {

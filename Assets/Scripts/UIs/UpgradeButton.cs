@@ -10,6 +10,7 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] UpgradeData _data;
 
     [Header("References")]
+    [SerializeField] UpgradePanel _panel;
     [SerializeField] TextMeshProUGUI _nameText;
     [SerializeField] TextMeshProUGUI _bodyText;
     [SerializeField] Image _iconImage;
@@ -22,6 +23,7 @@ public class UpgradeButton : MonoBehaviour
     public void OnClick()
     {
         GlobalRefs.UpgradeManager.AddUpgrade(_data);
+        _panel.Close();
     }
     public void ApplyUIs(UpgradeData data)
     {

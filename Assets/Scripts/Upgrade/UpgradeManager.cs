@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
+    [SerializeField] UpgradePanel _upgradePanel;
     List<UpgradeData> _upgrades;
 
+    UpgradeData[] _allUpgradeDatas;
 
     private void Awake()
     {
         _upgrades = new List<UpgradeData>();
+        _allUpgradeDatas = Resources.LoadAll<UpgradeData>(Defs.UpgradeAssetsPath);
     }
     public void AddUpgrade(UpgradeData data)
     {
@@ -46,5 +49,14 @@ public class UpgradeManager : MonoBehaviour
     {
         return _upgrades.FindAll(x => x == data).Count;
     }
+    public IEnumerator SelectUpgrade()
+    {
+        UpgradeData[] datas = Utils.Random.RandomElements(_allUpgradeDatas, 3);
+        _upgradePanel.SetUpgrades(datas);
 
+        _upgradePanel.Open();
+        while(_upgradePanel.IsOpen)
+            yield return null;
+
+    }
 }

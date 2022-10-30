@@ -20,6 +20,16 @@ namespace Utils
                 list[r] = temp;
             }
         }
+        public static void Shuffle<T>(T [] list)
+        {
+            for (int i = list.Length - 1; i >= 1; i--)
+            {
+                int r = UnityEngine.Random.Range(0, i + 1);
+                T temp = list[i];
+                list[i] = list[r];
+                list[r] = temp;
+            }
+        }
         public static int RandomIndex<T>(List<T> list)
         {
             return UnityEngine.Random.Range(0, list.Count);
@@ -27,6 +37,17 @@ namespace Utils
         public static T RandomElement<T>(List<T> list)
         {
             return list[UnityEngine.Random.Range(0, list.Count)];
+        }
+        public static T[] RandomElements<T>(T [] array, int count)
+        { 
+            int [] indicies = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+                indicies[i] = i;
+            Shuffle(indicies);
+            T [] result = new T[count];
+            for(int i=0; i<count; i++)
+                result[i] = array[indicies[i]];
+            return result;
         }
         public static Vector2 RandomVector(float minX, float maxX, float minY, float maxY)
         {

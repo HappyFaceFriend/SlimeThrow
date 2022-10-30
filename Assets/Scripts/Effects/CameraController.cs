@@ -104,7 +104,6 @@ public class CameraController : MonoBehaviour
         {
             targetPos.y = -_mapSize.y / 2 - _minDistanceFromEdge + _camera.orthographicSize;
         }
-        Debug.Log(aspect + " , " +  _camera.orthographicSize);
         _focusPosition = Vector3.MoveTowards(_focusPosition, targetPos,
                      speed * Time.deltaTime);
         transform.position = _originalPosition + _focusPosition + _shakeOffset;

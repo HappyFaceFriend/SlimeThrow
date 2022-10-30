@@ -10,6 +10,7 @@ public class SlimeBehaviour : StateMachineBase
 
     KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
+    public bool PuttedInTurret { get; set; } = false;
     public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
                                         CurrentState is SlimeStates.GrabbedState); } }
     public float GrabbableDuration { get { return _grabbableDuration; } }
@@ -113,6 +114,8 @@ public class SlimeBehaviour : StateMachineBase
 
     private void OnDestroy()
     {
+        if (PuttedInTurret)
+            return;
         _camera.Shake(CameraController.ShakePower.SlimeHitted);
         float smokeSpeed = 0.7f;
         float angleOffset = Random.Range(-15, 15);
