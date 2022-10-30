@@ -38,5 +38,13 @@ public class UpgradeManager : MonoBehaviour
         }
         return result;
     }
+    public int GetCount(string name)
+    {
+        return _upgrades.FindAll(x => x.Name == name).Count;
+    }
+    public int GetCount(UpgradeData data)
+    {
+        return _upgrades.FindAll(x => x == data).Count;
+    }
 
 }
