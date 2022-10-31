@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: "\uAC15\uC778\uD55C \uACF5\uACA9"
   _body: "\uD50C\uB808\uC774\uC5B4\uC758 \uAE30\uBCF8 \uACF5\uACA9\uB825 5 \uC99D\uAC00"
   _icon: {fileID: 0}
-  _statToChange: 1
-  _applyValue: 5
-  _applyType: 0
+  _statModes:
+  - _statToChange: 2
+    _applyValue: 5
+    _applyType: 0
