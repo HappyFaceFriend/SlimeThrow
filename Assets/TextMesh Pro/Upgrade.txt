@@ -1,0 +1,11 @@
+en	ko
+Light Footsteps	가벼운 발걸음	
+Aidkit	구급상자
+Rapid Attack	빠른사격
+God's Blessing	축복받은 자
+Burning Sites	불타는 대지
+Carpet Bombing	무차별 폭격
+Snowy Field	설원
+Violent Boy	난폭한 소년
+Slayer1	사냥꾼
+The Prophet	예언자
