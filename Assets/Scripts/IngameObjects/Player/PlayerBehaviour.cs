@@ -78,6 +78,16 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
         _hpSystem.ChangeHp(damage);
+        Debug.Log("충격을 준다");
+    }
+
+    public void OnHittedByPad(SlimeBehaviour slime, float damage)
+    {
+        if (IsInvincible)
+            return;
+        EffectManager.InstantiateHitEffect(transform.position);
+        _hpSystem.ChangeHp(damage);
+        Debug.Log("장판 위에 있어" + damage + "만큼 피해를 입는다");
     }
     void OnDie()
     {

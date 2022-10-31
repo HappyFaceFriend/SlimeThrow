@@ -11770,7 +11770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1249722237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11789,9 +11789,13 @@ MonoBehaviour:
   - {fileID: 1002824384}
   - {fileID: 2134127643}
   _spawnPattern:
-  - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
-  - {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
   - {fileID: 2426975632887591198, guid: 911378f541476bf448ba4f92c5f18668, type: 3}
+  - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
+  - {fileID: 7514398595279066984, guid: 096792e971efe1148951cef9b322d9d4, type: 3}
+  - {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
+  - {fileID: 147796247482930567, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+  - {fileID: 1429698854386456877, guid: 0e92b62e6588c8d4183b34891bd1301f, type: 3}
+  - {fileID: 6406124441371963539, guid: de41f0d0f4b724f49a385b76ac43fac4, type: 3}
 --- !u!4 &1249722238
 Transform:
   m_ObjectHideFlags: 0
@@ -12542,7 +12546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradePanel: {fileID: 2006828477}
-  _upbradesAssetsPath: 
 --- !u!1 &1302725356
 GameObject:
   m_ObjectHideFlags: 0
@@ -18465,8 +18468,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slimePrefabs:
   - {fileID: 2426975632887591198, guid: 911378f541476bf448ba4f92c5f18668, type: 3}
-  - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
-  - {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
   _spawnSectionCount: 12
   _levelManager: {fileID: 1420246761}
   _currentRound: 1
@@ -18480,7 +18481,7 @@ MonoBehaviour:
   - 22
   - 33
   - 222
-  _dontSpawn: 0
+  _dontSpawn: 1
   _spawnedSlimes: []
 --- !u!1 &1724763232
 GameObject:

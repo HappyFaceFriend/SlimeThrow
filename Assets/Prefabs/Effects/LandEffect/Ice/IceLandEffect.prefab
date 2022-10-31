@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 120809503910874992}
   - component: {fileID: 120809503910874999}
   - component: {fileID: 8371826037929839610}
+  - component: {fileID: 7573072853191244347}
   m_Layer: 0
   m_Name: IceLandEffect
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 120809503910874998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1089796, y: -0.008411933, z: 0.13013159}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1239324475, guid: 8403294404614e54686e84e55fd9046a, type: 3}
+  m_Sprite: {fileID: 1352287525, guid: 1097bcec41d434c4295c4a0a38f4327d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,3 +106,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7573072853191244347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120809503910874998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024fed01ccbea094c81a379586dba0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
