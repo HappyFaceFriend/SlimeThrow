@@ -1393,7 +1393,7 @@ MonoBehaviour:
   _player: {fileID: 1815544615}
   _turret: {fileID: 1982071427}
   _flower: {fileID: 1845336812}
-  _upgradeManager: {fileID: 0}
+  _upgradeManager: {fileID: 1302069758}
 --- !u!4 &164896343
 Transform:
   m_ObjectHideFlags: 0
@@ -5974,7 +5974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &527929491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5995,7 +5995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 325.7175, y: -115.465}
+  m_AnchoredPosition: {x: 360.24167, y: -115.465}
   m_SizeDelta: {x: 100, y: 163.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527929492
@@ -6011,7 +6011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 7b18b6ad5296f634da49fb60546738c3, type: 2}
-  _panel: {fileID: 0}
+  _panel: {fileID: 2006828477}
   _nameText: {fileID: 686241762}
   _bodyText: {fileID: 2018250042}
   _iconImage: {fileID: 1594555269}
@@ -7809,9 +7809,9 @@ RectTransform:
   m_Father: {fileID: 2006828473}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 84.048325, y: -115.465}
   m_SizeDelta: {x: 100, y: 163.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757352557
@@ -7920,8 +7920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a87ca82d16fa24b8fe8bd53c73bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 7b18b6ad5296f634da49fb60546738c3, type: 2}
-  _panel: {fileID: 0}
+  _data: {fileID: 11400000, guid: f310f6d859a567942bac8fc09b2aa49f, type: 2}
+  _panel: {fileID: 2006828477}
   _nameText: {fileID: 410329373}
   _bodyText: {fileID: 1537562027}
   _iconImage: {fileID: 1217969702}
@@ -9940,7 +9940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1032704863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9976,8 +9976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a87ca82d16fa24b8fe8bd53c73bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 7b18b6ad5296f634da49fb60546738c3, type: 2}
-  _panel: {fileID: 0}
+  _data: {fileID: 11400000, guid: af2a920cb9f7fa843b6b7d5bdefab087, type: 2}
+  _panel: {fileID: 2006828477}
   _nameText: {fileID: 377689273}
   _bodyText: {fileID: 122317707}
   _iconImage: {fileID: 509420297}
@@ -11789,9 +11789,13 @@ MonoBehaviour:
   - {fileID: 1002824384}
   - {fileID: 2134127643}
   _spawnPattern:
-  - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
-  - {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
   - {fileID: 2426975632887591198, guid: 911378f541476bf448ba4f92c5f18668, type: 3}
+  - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
+  - {fileID: 7514398595279066984, guid: 096792e971efe1148951cef9b322d9d4, type: 3}
+  - {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
+  - {fileID: 147796247482930567, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+  - {fileID: 1429698854386456877, guid: 0e92b62e6588c8d4183b34891bd1301f, type: 3}
+  - {fileID: 6406124441371963539, guid: de41f0d0f4b724f49a385b76ac43fac4, type: 3}
 --- !u!4 &1249722238
 Transform:
   m_ObjectHideFlags: 0
@@ -12541,7 +12545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396e137ae2366ad44b91ff9e71bddcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradePanel: {fileID: 0}
+  _upgradePanel: {fileID: 2006828477}
 --- !u!1 &1302725356
 GameObject:
   m_ObjectHideFlags: 0
@@ -18463,8 +18467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimePrefabs:
-  - {fileID: 6009788027667017333, guid: 529de05f3774ef24ca8d0b1bbb20b666, type: 3}
-  - {fileID: 2127461521900035769, guid: 45acfd3b100444c4e902c6d1ea7ba29a, type: 3}
+  - {fileID: 2426975632887591198, guid: 911378f541476bf448ba4f92c5f18668, type: 3}
   _spawnSectionCount: 12
   _levelManager: {fileID: 1420246761}
   _currentRound: 1
@@ -21455,13 +21458,14 @@ GameObject:
   - component: {fileID: 2006828475}
   - component: {fileID: 2006828474}
   - component: {fileID: 2006828476}
+  - component: {fileID: 2006828477}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2006828473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21549,6 +21553,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2006828477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006828472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6038b7a107d8479539e2503efdb45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttons:
+  - {fileID: 757352560}
+  - {fileID: 1032704864}
+  - {fileID: 527929492}
 --- !u!1 &2010360215
 GameObject:
   m_ObjectHideFlags: 0

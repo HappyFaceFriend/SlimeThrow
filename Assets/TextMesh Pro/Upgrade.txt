@@ -9,3 +9,4 @@ Snowy Field	설원
 Violent Boy	난폭한 소년
 Slayer1	사냥꾼
 The Prophet	예언자
+Fearsome Attack	강인한 공격

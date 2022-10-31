@@ -13,4 +13,13 @@ public class UpgradeData : ScriptableObject
     public string Name { get { return _name; } }
     public string Body { get { return _body; } }
     public Sprite Icon{ get { return _icon; } }
+
+    public virtual void OnAdded()
+    {
+
+    }
+    public virtual void OnUpdate()
+    {
+
+    }
 }

@@ -27,13 +27,15 @@ public class LevelManager : MonoBehaviour
         InitFlower();
         _spawner.Init();
         //Loop
-        while (_spawner)
+        while (true)
         {
             _spawner.StartNextStage();
+            if (_spawner.IsLastStage)
+                break;
             yield return _spawner.WaitUntilStageClear();
 
             //업그레이드
-
+            yield return GlobalRefs.UpgradeManager.SelectUpgrade();
         }
 
 
