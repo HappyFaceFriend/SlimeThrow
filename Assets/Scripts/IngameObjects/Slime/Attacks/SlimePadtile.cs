@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SlimePadtile : MonoBehaviour
 {
     [SerializeField] float _range;
+    public float _padDurationTime;
 
     Vector3 _moveDir = Vector3.zero;
     SlimeBehaviour _slime;
-    private SpriteRenderer _spriteRenderer;
     float _damage;
-    float timer = 0f;
+    float _timer = 0f;
+    float _damagetimer = 0f;
+    bool _canDamage = true;
 
     public float GetAngle(Vector3 start, Vector3 end)
     {
@@ -26,33 +29,42 @@ public class SlimePadtile : MonoBehaviour
 
     public void Update()
     {
-        if(timer < 2f)
-        {
-            timer += Time.deltaTime;
-        }
+        if(_timer < _padDurationTime)
+            _timer += Time.deltaTime;
+        else
+            Die();
+        if(_damagetimer < 2f)
+            _damagetimer += Time.deltaTime;
         else
         {
-            Die();
+            _canDamage = true;
+            _damagetimer = 0f;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         var player = collision.collider.GetComponent<PlayerBehaviour>();
         var flower = collision.collider.GetComponent<Flower>();
         if (player != null)
         {
-            player.OnHittedByPad(_slime, _damage);
-            Die();
+            if(_canDamage)
+            {
+                player.OnHittedByPad(_slime, _damage);
+                _canDamage=false;
+            }
         }
         else if (flower != null)  
         {
-            flower.OnHittedBySlime(_slime, _damage);
-            Die();
+           if(_canDamage)
+            {
+                flower.OnHittedBySlime(_slime, _damage);
+                _canDamage = false;
+            }
         }
     }
     void Die()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject);
     }
   
 }

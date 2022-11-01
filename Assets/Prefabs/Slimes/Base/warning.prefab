@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -921164841
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b359a7809f118c04aa0c48436d801ac2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf6ffb9e8a094e34e80831a1be754aea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,10 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5073582269476436946}
-  - component: {fileID: 1427690164789895759}
-  - component: {fileID: 7438070302814020722}
   m_Layer: 0
-  m_Name: SlimePadtileBase
+  m_Name: warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,33 +116,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1427690164789895759
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5073582269476436944}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &7438070302814020722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5073582269476436944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a16d5a32e78fe548904c5881a0674bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _range: 0
-  _padDurationTime: 6

@@ -14,9 +14,8 @@ public class JumpingAttack : SlimeAttackBase
     }
     public void AnimEvent_JumpingAttack()
     {
-        CircleCollider2D collider = _jumpTile.GetComponent<CircleCollider2D>();
         SlimeJumptile jumptile = Instantiate(_jumpTile, transform.position, Quaternion.identity);
-        jumptile.Init(_target.position, Slime, collider);
+        jumptile.Init(_target.position, Slime);
         Destroy(jumptile, 3f);
     }
     

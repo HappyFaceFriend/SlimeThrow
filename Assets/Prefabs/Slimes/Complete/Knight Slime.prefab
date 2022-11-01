@@ -87,7 +87,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5640623954171796702, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
   m_PrefabInstance: {fileID: 3958076866028718987}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5000265135240650101
+--- !u!114 &4208183710210517734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,10 +96,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8694881231011927893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b816950693aedc64a9f2015998c97cfd, type: 3}
+  m_Script: {fileID: 11500000, guid: c79202237310051449d7ff779abc2520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 5
-  _numOfdirections: 50
-  _projectilePrefab: {fileID: 5073582269476436947, guid: 3996b5b021d09eb4e8be06bcad6ea3b3, type: 3}
-  _smokePrefab: {fileID: 0}
+  _jumpTile: {fileID: 1758562191305166658, guid: 3996b5b021d09eb4e8be06bcad6ea3b3, type: 3}
