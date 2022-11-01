@@ -5,20 +5,14 @@ using UnityEngine;
 public class SavaDataManager : SingletonBehaviour<SavaDataManager>
 {
     [SerializeField]string _language;
-    string _currentLanguage;
 
-    public string GetLanguage { get { return _currentLanguage; } }
+    public string GetLanguage { get { return _language; } }
 
-    new void Awake()
+    public void UpdateLanguage()
     {
-        _currentLanguage = _language;
-        if (_currentLanguage == null)
-            print("no language setting");
-    }
-
-    private void Update()
-    {
-        if (_currentLanguage != _language)
-            _currentLanguage = _language;
+        if (_language == "ko")
+            _language = "en";
+        else
+            _language = "ko";
     }
 }

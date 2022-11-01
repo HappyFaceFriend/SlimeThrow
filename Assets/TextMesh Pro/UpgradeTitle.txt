@@ -1,0 +1,7 @@
+en	ko
+Light Footsteps1	가벼운 발걸음1
+Player movement speed increased by 10%	플레이어의 이동속도가 10% 증가한다
+Aidkit1	구급상자1
+Player's MaxHp increased by 20 and CurrentHP increased by 30.	플레이어의 최대 체력이 20 증가하고, 현재 체력이 30 증가한다.
+Fearsome Attack1	강인한 공격1
+Player Attack Power increased by 5	플레이어의 기본 공격력 5 증가

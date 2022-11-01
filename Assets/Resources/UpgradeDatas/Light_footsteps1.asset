@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95dff475ef8970a47b41d5f184c686e2, type: 3}
-  m_Name: Stat_SpeedUp
+  m_Name: Light_footsteps1
   m_EditorClassIdentifier: 
   _name: "\uAC00\uBCBC\uC6B4 \uBC1C\uAC78\uC74C1"
   _body: "\uD50C\uB808\uC774\uC5B4\uC758 \uC774\uB3D9\uC18D\uB3C4\uAC00 10% \uC99D\uAC00\uD55C\uB2E4"

@@ -7,7 +7,7 @@ using TMPro;
 public class UpgradeButton : MonoBehaviour
 {
     [Header("Test")]
-    [SerializeField] UpgradeData _data;
+    [SerializeField] UpgradeData _data; 
 
     [Header("References")]
     [SerializeField] UpgradePanel _panel;
@@ -15,10 +15,13 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] TextMeshProUGUI _bodyText;
     [SerializeField] Image _iconImage;
 
+    string _currentLanguage;
+
     private void Start()
     {
         if (_data != null)
             ApplyUIs(_data);
+        _currentLanguage = SavaDataManager.Instance.GetLanguage;
     }
     public void OnClick()
     {
@@ -29,7 +32,28 @@ public class UpgradeButton : MonoBehaviour
     {
         _data = data;
         _nameText.text = data.Name;
+        LocalizeText(_nameText);
         _bodyText.text = data.Body;
+        LocalizeText(_bodyText);
         _iconImage.sprite = data.Icon;
+        _currentLanguage = SavaDataManager.Instance.GetLanguage;
+    }
+
+    private void Update()
+    {
+        if(_currentLanguage != SavaDataManager.Instance.GetLanguage)
+        {
+            LocalizeText(_nameText);
+            LocalizeText(_bodyText);
+        }
+    }
+
+    public void LocalizeText(TextMeshProUGUI _Text)
+    {
+        try
+        {
+            _Text.text = GlobalDataManager.Instance.GetLocalizedString(_Text.text);
+        }
+        catch { print("fail"); }
     }
 }

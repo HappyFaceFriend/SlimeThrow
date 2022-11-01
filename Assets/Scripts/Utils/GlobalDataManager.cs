@@ -13,13 +13,12 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
         localizedStringData = FileUtils.ParseTSV(stringsFile.text);
     }
 
-    public string GetLocalizedString(string string_en)
+    public string GetLocalizedString(string string_ko)
     {
         string code = SavaDataManager.Instance.GetLanguage;
-        var languageData = localizedStringData.Find(x => x["en"] == string_en);
-        print(code);
+        var languageData = localizedStringData.Find(x => x["ko"] == string_ko);
         if (languageData == null)
-            return string_en;
+            return string_ko;
         return languageData[code];
     }
 }
