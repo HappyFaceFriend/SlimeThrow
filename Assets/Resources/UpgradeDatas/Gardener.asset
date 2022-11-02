@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99253b4c0264ca948a3c97007bcd9243, type: 3}
-  m_Name: SpeedUp
+  m_Name: Gardener
   m_EditorClassIdentifier: 
-  _name: "\uAC00\uBCBC\uC6B4 \uBC1C\uAC78\uC74C"
-  _body: "\uD50C\uB808\uC774\uC5B4 \uC774\uB3D9\uC18D\uB3C4 \uC99D\uAC00"
-  _icon: {fileID: 1403401060, guid: 305e94ca35730b040a7f12098c77455b, type: 3}
+  _name: Gardener
+  _body: "\uAF43\uC744 \uC544\uBB34\uB370\uB098 \uC2EC\uC744 \uC218 \uC788\uC74C"
+  _icon: {fileID: 278793812, guid: 4bd65bca93f74e541873a28c2c742a7f, type: 3}

@@ -80,6 +80,13 @@ public class GrabController : MonoBehaviour
             _grabbedFlower.OnReleasedAtGround();
             _grabbedFlower = null;
         }
+        else if(GlobalRefs.UpgradeManager.GetCount("Gardener") > 0)
+        {
+            _grabbedFlower.transform.position = transform.position;
+            _grabbedFlower.transform.SetParent(null);
+            _grabbedFlower.OnReleasedAtGround();
+            _grabbedFlower = null;
+        }
     }
 
     FlowerPlantPoint FindClosestDirt()

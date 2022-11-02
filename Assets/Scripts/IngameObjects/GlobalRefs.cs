@@ -7,6 +7,7 @@ public class GlobalRefs : MonoBehaviour
     [SerializeField] PlayerBehaviour _player;
     [SerializeField] TurretBehaviour _turret;
     [SerializeField] Flower _flower;
+    [SerializeField] UpgradeManager _upgradeManager;
 
     static GlobalRefs _instance = null;
 
@@ -22,6 +23,7 @@ public class GlobalRefs : MonoBehaviour
     public static PlayerBehaviour Player { get { return _safeInstance._player; } }
     public static TurretBehaviour Turret { get { return _safeInstance._turret; } }
     public static Flower Flower { get { return _safeInstance._flower; } }
+    public static UpgradeManager UpgradeManager { get { return _safeInstance._upgradeManager; } }
     private void Awake()
     {
         _instance = this;

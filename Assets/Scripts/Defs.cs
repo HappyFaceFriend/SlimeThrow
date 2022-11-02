@@ -6,6 +6,9 @@ public static class Defs
 {
     public static string SlimeLayer = "Slimes";
     public static string FlowerLayer = "Flowers";
+
+    public static string UpgradeAssetsPath = "UpgradeDatas";
+
     public static class KnockBackDistance
     {
         public static readonly float Small = 1;

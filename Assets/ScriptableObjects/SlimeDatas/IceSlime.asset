@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: IceSlime
   m_EditorClassIdentifier: 
-  _maxHp: 60
-  _attackPower: 25
-  _attackSpeed: 1.5
-  _attackRange: 5
+  _maxHp: 20
+  _attackPower: 5
+  _attackSpeed: 0.4
+  _attackRange: 3
   _sightRange: 6
-  _moveSpeed: 0.7
-  _damageAsBullet: 30
+  _moveSpeed: 0.5
+  _damageAsBullet: 20
   _type: 0
   _slotIcon: {fileID: 1487914698, guid: d739fedb69ab55c459e9a82a5a3153c8, type: 3}

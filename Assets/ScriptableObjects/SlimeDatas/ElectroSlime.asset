@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: ElectroSlime
   m_EditorClassIdentifier: 
-  _maxHp: 60
-  _attackPower: 25
-  _attackSpeed: 1.5
+  _maxHp: 20
+  _attackPower: 8
+  _attackSpeed: 0.3
   _attackRange: 5
-  _sightRange: 6
-  _moveSpeed: 0.7
-  _damageAsBullet: 35
+  _sightRange: 7
+  _moveSpeed: 0.5
+  _damageAsBullet: 20
   _type: 0
   _slotIcon: {fileID: 2029826809, guid: 738f0d39732af1a4a863d45892dfa687, type: 3}

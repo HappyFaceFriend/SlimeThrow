@@ -24,9 +24,10 @@ public class SlimeSpawner : MonoBehaviour
     [SerializeField] bool _dontSpawn = false;
     List<int[]> _spawnSets;
     List<SpawnSection> _spawnSections;
-    List<SlimeBehaviour> _spawnedSlimes;
+    [SerializeField] List<SlimeBehaviour> _spawnedSlimes;
     bool _isSpawnDone = true;
     Vector2 _mapSize;
+    public bool IsLastStage { get; private set; } = false;
     
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class SlimeSpawner : MonoBehaviour
     public void Init()
     {
         _currentRound = 1;
-        _currentStage = 1;
+        _currentStage = 0;
     }
     void StartStage()
     {
@@ -66,13 +67,21 @@ public class SlimeSpawner : MonoBehaviour
             _currentStage = 1;
             _currentRound++;
         }
+        if(_currentRound > _spawnSetCodes.Count)
+        {
+            IsLastStage = true;
+            return;
+        }
         if(!_dontSpawn)
             StartCoroutine(StageCoroutine());
     }
     public IEnumerator WaitUntilStageClear()
     {
         while (! (_isSpawnDone && _spawnedSlimes.Count == 0))
+        {
+            _spawnedSlimes.RemoveAll(x => x == null);
             yield return null;
+        }
     }
     List<SpawnSection> GetRandomSections(int[] sets)
     {
