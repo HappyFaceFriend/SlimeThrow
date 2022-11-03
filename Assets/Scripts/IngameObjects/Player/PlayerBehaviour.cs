@@ -7,6 +7,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     [SerializeField] FlipObjectToPoint _flip;
     [SerializeField] PlayerMovementSettings _movementSettings;
     [SerializeField] PlayerCombatSettings _combatSettings;
+    [SerializeField] HpBar _hpBar;
     public bool IsInvincible { get; set; }
     public bool IsTargetable { get; private set; }
     public BuffableStat GetInTurretRange { get; private set; }
@@ -36,6 +37,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         IsInvincible = false;
         IsTargetable = true;
         _hpSystem = new HpSystem(_combatSettings.MaxHp, OnDie);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
         AttackSpeed = new BuffableStat(_combatSettings.AttackSpeed);
         AttackPower = new BuffableStat(_combatSettings.AttackPower);
         MoveSpeed = new BuffableStat(_movementSettings.MoveSpeed);
@@ -74,13 +76,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         if (IsInvincible)
             return;
-        if (slime == null)
-            Debug.Log("슬라임이 안 들어온다");
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        _hpSystem.ChangeHp(damage);
-        Debug.Log("충격을 준다");
+        TakeDamage(damage);
     }
 
     public void OnHittedByPad(SlimeBehaviour slime, float damage)
@@ -90,6 +89,11 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         EffectManager.InstantiateHitEffect(transform.position);
         _hpSystem.ChangeHp(damage);
         Debug.Log("2초 후에 장판 위에 있어" + damage + "만큼 피해를 입는다");
+    }
+    public void TakeDamage(float damage)
+    {
+        _hpSystem.ChangeHp(-damage);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
     void OnDie()
     {
