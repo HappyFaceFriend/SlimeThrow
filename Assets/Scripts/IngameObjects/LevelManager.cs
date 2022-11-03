@@ -13,7 +13,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(GameLoop());
+        if (_spawner != null)
+            StartCoroutine(GameLoop());
     }
     
     void InitFlower()
