@@ -27,6 +27,8 @@ public class SlimeSpawner : MonoBehaviour
     [SerializeField] List<SlimeBehaviour> _spawnedSlimes;
     bool _isSpawnDone = true;
     Vector2 _mapSize;
+    public StageLabel.Type[] LabelTypes { get; private set; }
+    public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
     
     private void Awake()
@@ -49,6 +51,24 @@ public class SlimeSpawner : MonoBehaviour
             _spawnSets.Add(set);
         }
         _spawnedSlimes = new List<SlimeBehaviour>();
+        LabelTypes = new StageLabel.Type[_spawnSetCodes.Count * _stagePerRound];
+        LabelImages = new List<Sprite>();
+        for(int i=0; i<_spawnSetCodes.Count; i++)
+        {
+            for(int j=0; j<_stagePerRound; j++)
+            {
+                if (j == _stagePerRound - 1)
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Boss;
+                    LabelImages.Add(null);
+                }
+                else
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Later;
+                    LabelImages.Add(null);
+                }
+            }
+        }
     }
     public void Init()
     {

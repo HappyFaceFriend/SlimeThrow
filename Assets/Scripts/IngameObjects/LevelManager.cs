@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<FlowerPlantPoint> _dirts;
 
     [SerializeField] SlimeSpawner _spawner;
+    [SerializeField] StagePanel _stagePanel;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class LevelManager : MonoBehaviour
         //Init
         InitFlower();
         _spawner.Init();
+        _stagePanel.Init();
         //Loop
         while (true)
         {
@@ -34,6 +36,7 @@ public class LevelManager : MonoBehaviour
             if (_spawner.IsLastStage)
                 break;
             yield return _spawner.WaitUntilStageClear();
+            _stagePanel.SetToNextStage();
 
             //업그레이드
             yield return GlobalRefs.UpgradeManager.SelectUpgrade();
