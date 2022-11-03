@@ -8,6 +8,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     [SerializeField] PlayerMovementSettings _movementSettings;
     [SerializeField] PlayerCombatSettings _combatSettings;
     [SerializeField] HpBar _hpBar;
+    [SerializeField] LevelManager _levelManager;
     public bool IsInvincible { get; set; }
     public bool IsTargetable { get; private set; }
     public BuffableStat GetInTurretRange { get; private set; }
@@ -45,6 +46,17 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         GetInTurretRange = new BuffableStat(_combatSettings.GetInTurretRange);
     }
 
+    void MoveInBounds()
+    {
+        if (transform.position.x < -_levelManager.MapSize.x / 2)
+            transform.position = new Vector3(-_levelManager.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.x > _levelManager.MapSize.x / 2)
+            transform.position = new Vector3(_levelManager.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.y < -_levelManager.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, -_levelManager.MapSize.y / 2, 0);
+        if (transform.position.y > _levelManager.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, _levelManager.MapSize.y / 2, 0);
+    }
     public void ApplyBuff(Buff<PlayerBehaviour> buff)
     {
         _buffManager.AddBuff(buff);
@@ -55,6 +67,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         base.Update();
         _flip.TargetPoint = Utils.Inputs.GetMouseWordPos();
         _buffManager.OnUpdate();
+        MoveInBounds();
     }
     public void LandWithBullet(Vector3 landPosition)
     {

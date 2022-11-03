@@ -30,6 +30,7 @@ public class MovementController : MonoBehaviour
                 _currentSpeed = 0;
         }
         Vector3 moveVec = _player.Inputs.LastMoveInput * _currentSpeed * Time.deltaTime;
+
         transform.position += moveVec;
         _dustMovedDistance += moveVec.magnitude;
         if(_dustMovedDistance >= _dustIntervalDistance)
@@ -48,7 +49,7 @@ public class MovementController : MonoBehaviour
             _isMovePressedLastFrame = true;
         else
             _isMovePressedLastFrame = false;
-
+        
     }
     public void CheckSpeed()
     {

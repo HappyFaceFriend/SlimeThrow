@@ -33,7 +33,7 @@ public class SlimeSpawner : MonoBehaviour
     
     private void Awake()
     {
-        _mapSize = _levelManager.MapSize;
+        _mapSize = _levelManager.MapSize + new Vector2(2,2);
         _spawnSections = new List<SpawnSection>();
         float intervalAngle = 360 / _spawnSectionCount;
         for (int i = 0; i < _spawnSectionCount; i++)
@@ -216,10 +216,5 @@ public class SlimeSpawner : MonoBehaviour
         else  //Down
             spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);  
         _spawnedSlimes.Add(Instantiate(Utils.Random.RandomElement(_slimePrefabs), spawnPoint, Quaternion.identity));
-    }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
-        Gizmos.DrawWireCube(new Vector3(0, 0, 0.01f), new Vector3(_mapSize.x, _mapSize.y, 0.01f));
     }
 }

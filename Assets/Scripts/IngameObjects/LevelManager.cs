@@ -49,4 +49,9 @@ public class LevelManager : MonoBehaviour
     {
 
     }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
+        Gizmos.DrawWireCube(new Vector3(0, 0, 0.01f), new Vector3(_mapSize.x, _mapSize.y, 0.01f));
+    }
 }
