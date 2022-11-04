@@ -28,6 +28,7 @@ public class SlimeSpawner : MonoBehaviour
     bool _isSpawnDone = true;
     Vector2 _mapSize;
     public bool IsLastStage { get; private set; } = false;
+    public bool _burnUpgrade = false;
     
     private void Awake()
     {
@@ -196,6 +197,11 @@ public class SlimeSpawner : MonoBehaviour
         else  //Down
             spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);  
         _spawnedSlimes.Add(Instantiate(Utils.Random.RandomElement(_slimePrefabs), spawnPoint, Quaternion.identity));
+        if (_burnUpgrade)
+        {
+            var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
+            slime.ApplyBuff(new SlimeBuffs.Burn(4f, 5, 0.5f));
+        }
     }
     void OnDrawGizmos()
     {

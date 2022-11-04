@@ -1257,8 +1257,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1815544615}
   _turret: {fileID: 1982071427}
+  _bullet: {fileID: 0}
   _flower: {fileID: 1845336812}
   _upgradeManager: {fileID: 0}
+  _levelManager: {fileID: 0}
 --- !u!4 &164896343
 Transform:
   m_ObjectHideFlags: 0
@@ -7541,7 +7543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a87ca82d16fa24b8fe8bd53c73bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 7b18b6ad5296f634da49fb60546738c3, type: 2}
+  _data: {fileID: 11400000, guid: 8209e4c315a613247a0a46ae3ed8696d, type: 2}
   _panel: {fileID: 0}
   _nameText: {fileID: 410329373}
   _bodyText: {fileID: 1537562027}
@@ -18570,6 +18572,7 @@ MonoBehaviour:
   - 222
   _dontSpawn: 1
   _spawnedSlimes: []
+  _burnUpgrade: 0
 --- !u!1 &1724763232
 GameObject:
   m_ObjectHideFlags: 0

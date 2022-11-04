@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Flower _flower;
     [SerializeField] List<FlowerPlantPoint> _dirts;
 
-    [SerializeField] SlimeSpawner _spawner;
+    [SerializeField] public SlimeSpawner _spawner;
 
     private void Start()
     {

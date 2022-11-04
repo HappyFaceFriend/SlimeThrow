@@ -1,7 +1,35 @@
 en	ko
-Light Footsteps1	가벼운 발걸음1
+Light Footsteps1	가벼운 발걸음1	
 Player movement speed increased by 10%	플레이어의 이동속도가 10% 증가한다
 Aidkit1	구급상자1
 Player's MaxHp increased by 20 and CurrentHP increased by 30.	플레이어의 최대 체력이 20 증가하고, 현재 체력이 30 증가한다.
 Fearsome Attack1	강인한 공격1
 Player Attack Power increased by 5	플레이어의 기본 공격력 5 증가
+Rapid Shooting1	빠른 사격1
+Fall speed of cannonball increased by 10%	포탄의 낙하 속도 10% 증가
+Carpet Bombing1	무차별 폭격1
+Range and Damage of cannonball increased by 10%	포탄의 공격범위와 데미지 10% 증가
+Burning Ground1	불타는 대지1
+Every Slime spawned for first 10 seconds get Burn for 5 seconds with 5 damage	첫 10초간 스폰되는 슬라임 모두 화상으로 5초간 총 5의 데미지
+Snowy Field1	설원1
+For the first 10 seconds, speed of every slime decreased by 5%		첫 10초간 모든 슬라임 이동속도 5% 감소
+Fierce Boy1	사나운 소년1
+For 5 seconds of every time the player lands after shoot by cannon, currentHP, Attack power, attack speed and movement speed increased by 50%	플레이어가 포탄으로 착지후 5초간 현재체력, 공격력, 공격속도, 이동속도 모두 50% 증가
+The Hunter1	사냥꾼1
+After every kill by player itself, Player recovers HP by 1	플레이어가 슬라임을 죽일떄마다 체력 1회복
+Iron Arm1	강철어깨1
+The range of player throwing slime to cannon widthens by 10%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 10% 증가
+Grab Fire	불슬라임 잡기
+You can grab dead fire slime 100%	사망한 불 슬라임을 100%의 확률로 집을 수 있다
+Grab Basic	기본슬라임 잡기
+You can grab dead basic slime 100%	사망한 기본 슬라임을 100%의 확률로 집을 수 있다
+Grab Ice	얼음슬라임 잡기
+You can grab dead ice slime 100%	사망한 얼음 슬라임을 100%의 확률로 집을 수 있다
+Grab Electro	전기슬라임 잡기
+You can grab dead electro slime 100%	사망한 전기 슬라임을 100%의 확률로 집을 수 있다
+Grab Poison	독슬라임 잡기
+You can grab dead poison slime 100%	사망한 독 슬라임을 100%의 확률로 집을 수 있다
+Grab Rock	바위슬라임 잡기
+You can grab dead rock slime 100%	사망한 바위 슬라임을 100%의 확률로 집을 수 있다
+Grab Sticky	끈끈이슬라임 잡기
+You can grab dead sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
