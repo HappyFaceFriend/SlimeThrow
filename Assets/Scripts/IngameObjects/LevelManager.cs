@@ -10,10 +10,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<FlowerPlantPoint> _dirts;
 
     [SerializeField] public SlimeSpawner _spawner;
+    [SerializeField] StagePanel _stagePanel;
 
     private void Start()
     {
-        StartCoroutine(GameLoop());
+        if (_spawner != null)
+            StartCoroutine(GameLoop());
     }
     
     void InitFlower()
@@ -26,6 +28,7 @@ public class LevelManager : MonoBehaviour
         //Init
         InitFlower();
         _spawner.Init();
+        _stagePanel.Init();
         //Loop
         while (true)
         {
@@ -33,6 +36,7 @@ public class LevelManager : MonoBehaviour
             if (_spawner.IsLastStage)
                 break;
             yield return _spawner.WaitUntilStageClear();
+            _stagePanel.SetToNextStage();
 
             //업그레이드
             yield return GlobalRefs.UpgradeManager.SelectUpgrade();
@@ -44,5 +48,10 @@ public class LevelManager : MonoBehaviour
     public void OnPlayerDead()
     {
 
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
+        Gizmos.DrawWireCube(new Vector3(0, 0, 0.01f), new Vector3(_mapSize.x, _mapSize.y, 0.01f));
     }
 }

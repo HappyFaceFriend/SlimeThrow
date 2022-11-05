@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: -491827931, guid: 3bf6538c3d6507b48b68b5a5028ac6a0, type: 3}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
-      value: Sticky Slime Variant
+      value: Sticky Slime
       objectReference: {fileID: 0}
     - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_RootOrder
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 0.666
-  _padtilePrefab: {fileID: 7438070302814020722, guid: 39fce6c13028aba47adbc19c2dbd13a9, type: 3}
+  _padtilePrefab: {fileID: 2737328821955075495, guid: b47f5bd944550b2439b8fbba067755b6, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &3270154333383808074
 MonoBehaviour:

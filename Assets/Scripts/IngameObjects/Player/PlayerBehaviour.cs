@@ -7,6 +7,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     [SerializeField] FlipObjectToPoint _flip;
     [SerializeField] PlayerMovementSettings _movementSettings;
     [SerializeField] PlayerCombatSettings _combatSettings;
+    [SerializeField] HpBar _hpBar;
+    [SerializeField] LevelManager _levelManager;
     public bool IsInvincible { get; set; }
     public bool IsTargetable { get; private set; }
     public BuffableStat GetInTurretRange { get; private set; }
@@ -36,6 +38,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         IsInvincible = false;
         IsTargetable = true;
         _hpSystem = new HpSystem(_combatSettings.MaxHp, OnDie);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
         AttackSpeed = new BuffableStat(_combatSettings.AttackSpeed);
         AttackPower = new BuffableStat(_combatSettings.AttackPower);
         MoveSpeed = new BuffableStat(_movementSettings.MoveSpeed);
@@ -43,6 +46,17 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         GetInTurretRange = new BuffableStat(_combatSettings.GetInTurretRange);
     }
 
+    void MoveInBounds()
+    {
+        if (transform.position.x < -_levelManager.MapSize.x / 2)
+            transform.position = new Vector3(-_levelManager.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.x > _levelManager.MapSize.x / 2)
+            transform.position = new Vector3(_levelManager.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.y < -_levelManager.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, -_levelManager.MapSize.y / 2, 0);
+        if (transform.position.y > _levelManager.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, _levelManager.MapSize.y / 2, 0);
+    }
     public void ApplyBuff(Buff<PlayerBehaviour> buff)
     {
         _buffManager.AddBuff(buff);
@@ -53,6 +67,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         base.Update();
         _flip.TargetPoint = Utils.Inputs.GetMouseWordPos();
         _buffManager.OnUpdate();
+        MoveInBounds();
     }
     public void LandWithBullet(Vector3 landPosition)
     {
@@ -77,8 +92,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        _hpSystem.ChangeHp(damage);
-        Debug.Log("충격을 준다");
+        TakeDamage(damage);
     }
 
     public void OnHittedByPad(SlimeBehaviour slime, float damage)
@@ -87,7 +101,12 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
             return;
         EffectManager.InstantiateHitEffect(transform.position);
         _hpSystem.ChangeHp(damage);
-        Debug.Log("장판 위에 있어" + damage + "만큼 피해를 입는다");
+        Debug.Log("2초 후에 장판 위에 있어" + damage + "만큼 피해를 입는다");
+    }
+    public void TakeDamage(float damage)
+    {
+        _hpSystem.ChangeHp(-damage);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
     void OnDie()
     {
