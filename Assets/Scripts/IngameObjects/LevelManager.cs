@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public Vector2 MapSize { get { return _mapSize; } }
     [SerializeField] Vector2 _mapSize;
+    [SerializeField] string _gameOverSceneName;
     [SerializeField] Flower _flower;
     [SerializeField] List<FlowerPlantPoint> _dirts;
 
     [SerializeField] SlimeSpawner _spawner;
     [SerializeField] StagePanel _stagePanel;
+
 
     private void Start()
     {
@@ -45,8 +48,28 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        OnPlayerDead();
+    }
     public void OnPlayerDead()
     {
+        OpenGameOver();
+    }
+    public void OnFlowerDead()
+    {
+        OpenGameOver();
+    }
+    void OpenGameOver()
+    {
+        GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
+        data.Round = _spawner.CurrentRound;
+        data.Stage = _spawner.CurrentStage;
+
+        GameOverDataManager.SetData(data);
+
+        SceneManager.LoadScene(_gameOverSceneName, LoadSceneMode.Additive);
 
     }
     void OnDrawGizmos()

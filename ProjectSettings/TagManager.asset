@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GlobalRefs
+  - DataManager
   layers:
   - Default
   - TransparentFX

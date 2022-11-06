@@ -30,7 +30,10 @@ public class SlimeSpawner : MonoBehaviour
     public StageLabel.Type[] LabelTypes { get; private set; }
     public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
-    
+
+    public int CurrentRound { get { return _currentRound; } }
+    public int CurrentStage { get { return _currentStage; } }
+
     private void Awake()
     {
         _mapSize = _levelManager.MapSize + new Vector2(2,2);

@@ -9,11 +9,13 @@ public enum FlowerState
 
 public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
 {
-    int _maxHP = 5;
-    FlowerState _flowerstate;
+    [SerializeField] int _maxHp;
+    [SerializeField] HpBar _hpBar;
+    [SerializeField] LevelManager _levelManager;
     [SerializeField] Animator _animator;
+    FlowerState _flowerstate;
 
-    int _currentHP;
+    HpSystem _hpSystem;
     public Animator Animator
     {
         get { return _animator; }
@@ -22,7 +24,8 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
     private void Awake()
     {
         _flowerstate = FlowerState.Planted;
-        _currentHP = _maxHP;
+        _hpSystem = new HpSystem(_maxHp, OnDie);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
 
     public void SetGrabbed(GrabController grabController)
@@ -37,9 +40,13 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
         Animator.SetTrigger("Idle");
     }
 
-
+    public void OnDie()
+    {
+        _levelManager.OnFlowerDead();
+    }
     public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
-        Debug.Log("Flower took " + damage + " damage");
+        _hpSystem.ChangeHp(-damage);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
 }

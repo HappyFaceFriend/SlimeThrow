@@ -113,6 +113,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _flip.enabled = false;
         Destroy(GetComponent<CircleCollider2D>());
         ChangeState(new PlayerStates.DeadState(this));
+        _levelManager.OnPlayerDead();
     }
 
 }
