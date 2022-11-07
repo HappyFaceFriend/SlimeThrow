@@ -12,6 +12,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ObjectPool _dustEffectPool;
     [SerializeField] ObjectPool _damageTextPool;
     [SerializeField] ObjectPool _smokeEffectPool;
+    [SerializeField] ObjectPool _recoveryTextPool;
     private void Awake()
     {
         _instance = this;

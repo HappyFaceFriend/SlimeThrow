@@ -8,7 +8,7 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] float _grabbableDuration;
     [SerializeField] FlipObjectToPoint _flip;
 
-    KnockbackController _knockback;
+    protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
     public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
@@ -30,9 +30,9 @@ public class SlimeBehaviour : StateMachineBase
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
 
-    CameraController _camera;
+    protected CameraController _camera;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _camera = Camera.main.GetComponent<CameraController>();
         BulletEffect = GetComponent<SlimeBulletEffect>();
@@ -82,7 +82,7 @@ public class SlimeBehaviour : StateMachineBase
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
         OnGetHitted(impactPosition, damage);
     }
-    void OnGetHitted(Vector3 impactPosition, float damage)
+    protected void OnGetHitted(Vector3 impactPosition, float damage)
     {
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();

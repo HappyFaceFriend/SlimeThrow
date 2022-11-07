@@ -16,7 +16,10 @@ public class ElectroSlimeEffect : SlimeBulletEffect
     }
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
-        
+        GameObject effect;
+        effect = Instantiate(effectPrefab);
+        effect.transform.position = landPosition;
+        Destroy(effect, 3.0f);
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {

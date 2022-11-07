@@ -10,6 +10,7 @@ public class MeleeAttack : SlimeAttackBase
 
     Collider2D[] _hitBoxColliders;
     Vector3 _posBeforeAttack;
+    public bool _willReturn = true;
     new protected void Awake()
     {
         base.Awake();
@@ -32,7 +33,8 @@ public class MeleeAttack : SlimeAttackBase
             transform.position = Vector3.Lerp(originalPos, targetPos, _normPosOfAttack);
             yield return null;
         }
-        transform.position = originalPos;
+        if (_willReturn)
+            transform.position = originalPos;
         IsAttackDone = true;
     }
 }
