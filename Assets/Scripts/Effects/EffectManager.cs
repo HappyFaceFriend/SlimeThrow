@@ -45,7 +45,7 @@ public class EffectManager : MonoBehaviour
     {
         DamageTextEffect effect = _instance._damageTextPool.Create<DamageTextEffect>();
         effect.SetText((int)damage);
-        effect.transform.parent = _instance._canvas.transform;
+        effect.transform.SetParent(_instance._canvas.transform);
         effect.transform.position = position + new Vector3(0, 0.5f, 0);
         effect.transform.localScale = new Vector3(0.85f, 1, 1);
         effect.gameObject.SetActive(true);

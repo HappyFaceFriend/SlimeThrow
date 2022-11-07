@@ -101,7 +101,7 @@ public class SlimeBehaviour : StateMachineBase
     public void TakeDamage(float damage) // 이거를 플레이어한테 달아주면 된다
     {
         _flasher.Flash(0.2f);
-        EffectManager.InstantiateDamageTextEffect(transform.position, damage);
+        EffectManager.InstantiateDamageTextEffect(Camera.main.WorldToScreenPoint(transform.position), damage);
         _hpSystem.ChangeHp(-damage);
     }
     void OnDie()

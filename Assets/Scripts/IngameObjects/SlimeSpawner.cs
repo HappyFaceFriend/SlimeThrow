@@ -27,11 +27,16 @@ public class SlimeSpawner : MonoBehaviour
     [SerializeField] List<SlimeBehaviour> _spawnedSlimes;
     bool _isSpawnDone = true;
     Vector2 _mapSize;
+    public StageLabel.Type[] LabelTypes { get; private set; }
+    public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
-    
+
+    public int CurrentRound { get { return _currentRound; } }
+    public int CurrentStage { get { return _currentStage; } }
+
     private void Awake()
     {
-        _mapSize = _levelManager.MapSize;
+        _mapSize = _levelManager.MapSize + new Vector2(2,2);
         _spawnSections = new List<SpawnSection>();
         float intervalAngle = 360 / _spawnSectionCount;
         for (int i = 0; i < _spawnSectionCount; i++)
@@ -49,6 +54,24 @@ public class SlimeSpawner : MonoBehaviour
             _spawnSets.Add(set);
         }
         _spawnedSlimes = new List<SlimeBehaviour>();
+        LabelTypes = new StageLabel.Type[_spawnSetCodes.Count * _stagePerRound];
+        LabelImages = new List<Sprite>();
+        for(int i=0; i<_spawnSetCodes.Count; i++)
+        {
+            for(int j=0; j<_stagePerRound; j++)
+            {
+                if (j == _stagePerRound - 1)
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Boss;
+                    LabelImages.Add(null);
+                }
+                else
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Later;
+                    LabelImages.Add(null);
+                }
+            }
+        }
     }
     public void Init()
     {
@@ -196,10 +219,5 @@ public class SlimeSpawner : MonoBehaviour
         else  //Down
             spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);  
         _spawnedSlimes.Add(Instantiate(Utils.Random.RandomElement(_slimePrefabs), spawnPoint, Quaternion.identity));
-    }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
-        Gizmos.DrawWireCube(new Vector3(0, 0, 0.01f), new Vector3(_mapSize.x, _mapSize.y, 0.01f));
     }
 }
