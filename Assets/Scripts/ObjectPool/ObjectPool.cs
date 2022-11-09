@@ -46,7 +46,7 @@ public class ObjectPool : MonoBehaviour
     {
         if(item.gameObject.activeSelf)
             item.gameObject.SetActive(false);
-        item.transform.parent = transform;
+        item.transform.SetParent(transform);
         objects.Add(item);
     }
 }

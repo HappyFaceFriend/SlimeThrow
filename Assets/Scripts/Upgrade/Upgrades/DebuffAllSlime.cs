@@ -13,7 +13,7 @@ namespace Upgrades
             public enum DebuffType { Burning_Ground, Snowy_Field}
             public DebuffType _typeToChange;
         }
-        [SerializeField] List<DebuffModes> _debuffModes;
+        [SerializeField] DebuffModes _debuffModes;
 
         public override void OnAdded()
         {
@@ -21,17 +21,12 @@ namespace Upgrades
             Debuff(_debuffModes);
         }
 
-        public void Debuff(List<DebuffModes> modes)
+        public void Debuff(DebuffModes modes)
         {
-            for(int i=0;i <modes.Count; i++)
+            var debuff = modes;
+            if (debuff._typeToChange == DebuffModes.DebuffType.Burning_Ground)
             {
-                var debuff = modes[i];
-                if (debuff._typeToChange == DebuffModes.DebuffType.Burning_Ground)
-                {
-                    while (Time.deltaTime < 10)
-                        GlobalRefs.LevelManger._spawner._burnUpgrade = true;
-                    GlobalRefs.LevelManger._spawner._burnUpgrade = false;
-                }
+                GlobalRefs.LevelManger.setBurn();
             }
         }
     }

@@ -12,7 +12,7 @@ public class TurretBehaviour : StateMachineBase
     public bool IsMouseHovered { get { return _rigidbody.OverlapPoint(Utils.Inputs.GetMouseWordPos()); } }
 
     [SerializeField] Transform _shootPosition;
-    [SerializeField] BulletBuilder _bulletBuilder;
+    [SerializeField] public BulletBuilder _bulletBuilder;
     [SerializeField] Transform _targetMarker;
     [SerializeField] float _markerSpeed;
     Rigidbody2D _rigidbody;

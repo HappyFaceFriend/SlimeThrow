@@ -20,6 +20,6 @@ MonoBehaviour:
   - _statToChange: 0
     _applyValue: 20
     _applyType: 0
-  - _statToChange: 0
+  - _statToChange: 1
     _applyValue: 30
     _applyType: 0

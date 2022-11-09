@@ -10,6 +10,8 @@ public class BulletBuilder : MonoBehaviour
     List<LandEffectInfo> _landEffectInfos = new List<LandEffectInfo>();
     public int Count { get { return _count; } }
     [SerializeField] SlimeSlot [] _slots;
+    public bool upgrade1 = false;
+    float upgradeValue;
 
     int _count = 0;
     PlayerBehaviour _player = null;
@@ -58,9 +60,19 @@ public class BulletBuilder : MonoBehaviour
         _player = null;
     }
 
+    public void Upgrade(float value)
+    {
+        upgrade1 = true;
+        upgradeValue = value;
+    }
+
     public BulletBehaviour CreateBullet()
     {
         BulletBehaviour bulletObject = Instantiate(_bulletPrefab).GetComponent<BulletBehaviour>();
+        if (upgrade1)
+        {
+            bulletObject._moveSpeed *= upgradeValue;
+        }
         ApplyEffectsToBullet(bulletObject);
         Clear();
         return bulletObject;

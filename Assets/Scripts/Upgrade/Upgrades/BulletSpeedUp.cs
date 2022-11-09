@@ -14,7 +14,7 @@ namespace Upgrades
         {
             base.OnAdded();
             Modifier modifier = new Modifier(_applyValue, _applyType);
-            GlobalRefs.Bullet._moveSpeed.AddModifier(modifier);
+            GlobalRefs.Turret._bulletBuilder.upgrade1 = true;
         }
     }
 }

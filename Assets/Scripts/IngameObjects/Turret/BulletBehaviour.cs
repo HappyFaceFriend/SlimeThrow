@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    [SerializeField] float _moveSpeed;
+    [SerializeField] public float _moveSpeed;
     [SerializeField] float _turretHeight;
     [SerializeField] float _maxZHeight;
     [SerializeField] LandEffectBehaviour _landEffectPrefab;
@@ -16,6 +16,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         _targetPosition = targetPosition;
         StartCoroutine(MoveCoroutine());
+        Debug.Log(_moveSpeed);
     }
     public void ApplyEffects(List<LandEffectInfo> landEffects, PlayerBehaviour player)
     {

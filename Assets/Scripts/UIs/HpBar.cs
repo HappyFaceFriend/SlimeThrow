@@ -15,7 +15,8 @@ public class HpBar : MonoBehaviour
         _slider.maxValue = maxHp;
         _slider.value = currentHp;
 
-        _text.text = currentHp.ToString() + "/" + maxHp.ToString();
+        if (_text != null)
+            _text.text = currentHp.ToString() + "/" + maxHp.ToString();
     }
 
 }

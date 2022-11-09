@@ -30,8 +30,12 @@ public class SlimeSpawner : MonoBehaviour
     public StageLabel.Type[] LabelTypes { get; private set; }
     public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
+
     public bool _burnUpgrade = false;
-    
+
+    public int CurrentRound { get { return _currentRound; } }
+    public int CurrentStage { get { return _currentStage; } }
+
     private void Awake()
     {
         _mapSize = _levelManager.MapSize + new Vector2(2,2);
@@ -183,6 +187,8 @@ public class SlimeSpawner : MonoBehaviour
                     section.spawnTimer.Reset(GetRandomSpawnInterval(_currentRound));
                 }
             }
+            if (eTime == 10)
+                SetBurn();
             yield return null;
         }
     }
@@ -202,6 +208,11 @@ public class SlimeSpawner : MonoBehaviour
             angle += 360;
         return angle;
     }
+    public void SetBurn()
+    {
+        _burnUpgrade = (!_burnUpgrade);
+        Debug.Log(_burnUpgrade);
+    }
     void SpawnSlime(float angle)
     {
         angle = ClampAngle(angle);
@@ -215,12 +226,12 @@ public class SlimeSpawner : MonoBehaviour
         else if (180 - diagnalAngle <= angle && angle <= 180 + diagnalAngle)  //Left
             spawnPoint = new Vector3(-_mapSize.x / 2, -_mapSize.x / 2 * Mathf.Tan(angle * Mathf.Deg2Rad), 0);
         else  //Down
-            spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);  
+            spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);
         _spawnedSlimes.Add(Instantiate(Utils.Random.RandomElement(_slimePrefabs), spawnPoint, Quaternion.identity));
         if (_burnUpgrade)
         {
             var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
-            slime.ApplyBuff(new SlimeBuffs.Burn(4f, 5, 0.5f));
+            slime.ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
         }
     }
 }
