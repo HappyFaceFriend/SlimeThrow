@@ -23,6 +23,8 @@ public class SlimeBehaviour : StateMachineBase
     BuffManager<SlimeBehaviour> _buffManager = new BuffManager<SlimeBehaviour>();
     [SerializeField] FlashWhenHitted _flasher;
     [SerializeField] SquashWhenHitted _squasher;
+    [SerializeField] float _normPosOfFlowerAttack;
+    public float NormPosOfFlowerAttack { get { return _normPosOfFlowerAttack; } }
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public BuffableStat AttackRange { get; private set; }

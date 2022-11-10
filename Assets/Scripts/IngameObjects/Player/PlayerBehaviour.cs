@@ -92,10 +92,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-<<<<<<< HEAD
-=======
         TakeDamage(damage);
->>>>>>> e9aaa2dec5b0e3769f5e16e922ed223d0b1d8a36
     }
 
     public void OnHittedByPad(SlimeBehaviour slime, float damage)
@@ -103,7 +100,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         if (IsInvincible)
             return;
         EffectManager.InstantiateHitEffect(transform.position);
-        _hpSystem.ChangeHp(damage);
+        TakeDamage(damage);
     }
     public void TakeDamage(float damage)
     {
