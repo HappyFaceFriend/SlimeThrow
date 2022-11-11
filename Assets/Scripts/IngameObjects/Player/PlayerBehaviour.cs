@@ -100,7 +100,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         if (IsInvincible)
             return;
         EffectManager.InstantiateHitEffect(transform.position);
-        _hpSystem.ChangeHp(damage);
+        TakeDamage(damage);
     }
     public void TakeDamage(float damage)
     {

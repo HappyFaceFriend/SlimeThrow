@@ -14,6 +14,7 @@ public class SlimeAttackBase : MonoBehaviour
     Utils.Timer _coolDownTimer;
     public bool IsCoolDownReady { get { return _coolDownTimer.IsOver; } }
 
+    Vector3 _targetFlowerPos;
     protected void Awake()
     {
         Slime = GetComponent<SlimeBehaviour>();
@@ -33,6 +34,28 @@ public class SlimeAttackBase : MonoBehaviour
         return null;
     }
 
+    public void StartFlowerAttack(Transform flowerTranform)
+    {
+        _targetFlowerPos = flowerTranform.position;
+        _attackCoroutine = StartCoroutine(FlowerAttackCoroutine());
+        _isAttackDone = false;
+    }
+
+
+    IEnumerator FlowerAttackCoroutine()
+    {
+        float eTime = 0f;
+        Vector3 originalPos = transform.position;
+        Vector3 targetPos = (_targetFlowerPos - transform.position).normalized * Slime.AttackRange.Value + originalPos;
+        while (eTime < Duration)
+        {
+            eTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(originalPos, targetPos, Slime.NormPosOfFlowerAttack);
+            yield return null;
+        }
+        transform.position = originalPos;
+        IsAttackDone = true;
+    }
     public virtual void StartAttack(Transform targetTransform)
     {
         OnStartAttack(targetTransform);
