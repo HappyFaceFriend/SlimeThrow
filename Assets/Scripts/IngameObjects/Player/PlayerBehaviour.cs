@@ -101,7 +101,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
             return;
         EffectManager.InstantiateHitEffect(transform.position);
         _hpSystem.ChangeHp(damage);
-        Debug.Log("2초 후에 장판 위에 있어" + damage + "만큼 피해를 입는다");
     }
     public void TakeDamage(float damage)
     {

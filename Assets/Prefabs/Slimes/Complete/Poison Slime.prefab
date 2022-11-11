@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: -1713587009, guid: 7028f3ee3267dd04eb6f366b61e90a65, type: 3}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
-      value: Poison Slime Variant
+      value: Poison Slime
       objectReference: {fileID: 0}
     - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_RootOrder
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9100d7638180ce4585c9b52eb5f1e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _landEffectPrefab: {fileID: 0}
+  _landEffectPrefab: {fileID: 8298487191741688216, guid: 159942d4956bac64c85219c0cb99b837, type: 3}
 --- !u!114 &6789458741255317167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,5 +114,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 5
-  _padtilePrefab: {fileID: 7438070302814020722, guid: 39fce6c13028aba47adbc19c2dbd13a9, type: 3}
+  _padtilePrefab: {fileID: 2737328821955075495, guid: b370fa18c462a24439b7f58105cdadd1, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}

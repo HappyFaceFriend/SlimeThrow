@@ -6,19 +6,24 @@ using static UnityEngine.GraphicsBuffer;
 public class JumpingAttack : SlimeAttackBase
 {
     [SerializeField] SlimeJumptile _jumpTile;
+    [SerializeField] GameObject _warningPrefab;
+    GameObject _instantiated;
     Transform _target;
 
     protected override void OnStartAttack(Transform targetTransform)
     {
         _target = targetTransform;
+        GameObject _instantiated = Instantiate(_warningPrefab, transform.position, Quaternion.identity);
+        Destroy(_instantiated, 0.35f);
     }
     public void AnimEvent_JumpingAttack()
     {
         SlimeJumptile jumptile = Instantiate(_jumpTile, transform.position, Quaternion.identity);
         jumptile.Init(_target.position, Slime);
-        Destroy(jumptile, 3f);
+        Destroy(jumptile, 0.35f);
+        
     }
-    
+
     protected override IEnumerator AttackCoroutine()
     {
         float eTime = 0f;

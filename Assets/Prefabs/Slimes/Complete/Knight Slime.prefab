@@ -100,4 +100,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 5
-  _jumpTile: {fileID: 1758562191305166658, guid: 3996b5b021d09eb4e8be06bcad6ea3b3, type: 3}
+  _jumpTile: {fileID: 592915751190434719, guid: 1d94e1f79858ab8418bced03835439d9, type: 3}
+  _warningPrefab: {fileID: 7772566373437317198, guid: f5f4039512eb90745a0454c7a6afc94d, type: 3}

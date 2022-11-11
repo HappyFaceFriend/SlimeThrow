@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SlimeMovement : MonoBehaviour
 {
-    enum State { MoveToTarget, MoveAroundTarget}
+    protected enum State { MoveToTarget, MoveAroundTarget}
 
-    State _state;
+    protected State _state;
     public Vector3 TargetPos { get { return _target.position; } }
 
-    Transform _player;
-    Transform _flower;
-    SlimeBehaviour _slime;
+    protected Transform _player;
+    protected Transform _flower;
+    protected SlimeBehaviour _slime;
 
-    Transform _target;
+    protected Transform _target;
 
-    float _rotateDir;
-    private void Awake()
+    protected float _rotateDir;
+    protected virtual void Awake()
     {
         _slime = GetComponent<SlimeBehaviour>();
         _state = State.MoveToTarget;
@@ -25,7 +25,7 @@ public class SlimeMovement : MonoBehaviour
         _target = GlobalRefs.Flower.transform;
     }
     
-    public void OnUpdate()
+    public virtual void OnUpdate()
     {
         if(_state == State.MoveToTarget)
         {

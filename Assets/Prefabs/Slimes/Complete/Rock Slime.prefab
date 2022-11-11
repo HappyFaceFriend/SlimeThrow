@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 1234644101, guid: f431ae16af462e24cad00566c4ca7cad, type: 3}
     - target: {fileID: 9193871382579501939, guid: 0b2905fa9482ef94c879a40a287d59d6, type: 3}
       propertyPath: m_Name
-      value: Rock Slime Variant
+      value: Rock Slime
       objectReference: {fileID: 0}
     - target: {fileID: 9193871382579501946, guid: 0b2905fa9482ef94c879a40a287d59d6, type: 3}
       propertyPath: m_RootOrder
@@ -87,4 +87,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499e58048d188364c8c3b2520acd3306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _landEffectPrefab: {fileID: 0}
+  _landEffectPrefab: {fileID: 4689502444195335572, guid: 943b5cff0c72571468943e30be208013, type: 3}

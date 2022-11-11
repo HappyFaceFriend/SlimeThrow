@@ -103,4 +103,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf66952028bdac84c9bc430bcacfedcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _landEffectPrefab: {fileID: 0}
+  _landEffectPrefab: {fileID: 858851325350936421, guid: f12fd4d9dae31974c89381f47a299f0a, type: 3}
