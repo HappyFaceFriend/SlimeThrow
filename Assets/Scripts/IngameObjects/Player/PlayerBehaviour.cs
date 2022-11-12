@@ -21,6 +21,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public PlayerInput Inputs { get { return _inputs; } }
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
+    public bool UpgradeGetHP = false;
+    public float _getHP;
 
     public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
 
@@ -113,6 +115,11 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Destroy(GetComponent<CircleCollider2D>());
         ChangeState(new PlayerStates.DeadState(this));
         _levelManager.OnPlayerDead();
+    }
+    public void SetUpgrade(float num)
+    {
+        UpgradeGetHP = (!UpgradeGetHP);
+        _getHP = num;
     }
 
 }

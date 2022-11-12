@@ -26,8 +26,12 @@ namespace Upgrades
 
         public void GenerateChange(List<StatMode> modes)
         {
-
+            for (int i = 0; i < modes.Count; i++)
+            {
+                var stat = modes[i];
+                if (stat._statToChange == StatMode.StatType.CurrentHP)
+                    GlobalRefs.Player.SetUpgrade(stat._applyValue);
+            }
         }
-
     }
 }
