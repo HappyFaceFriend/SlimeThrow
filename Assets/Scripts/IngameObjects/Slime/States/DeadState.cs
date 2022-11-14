@@ -7,7 +7,7 @@ namespace SlimeStates
     public class DeadState : SlimeState
     {
         KnockbackController _knockback;
-        public DeadState(SlimeBehaviour slime) : base("Dead", slime) { }
+        public DeadState(SlimeBehaviour slime) : base("Hitted", slime) { }
 
         public override void OnEnter()
         {
