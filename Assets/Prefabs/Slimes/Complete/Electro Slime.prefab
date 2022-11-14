@@ -7,17 +7,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1372328805832628303, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -478754437, guid: 8ceae03a4352af54592cb322f7bd6008, type: 3}
+      objectReference: {fileID: 861044181, guid: 9f87eb77e49a2034e8fa53d13b23263d, type: 3}
     - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 776117996, guid: 8ceae03a4352af54592cb322f7bd6008, type: 3}
+      objectReference: {fileID: 1594030876, guid: 9f87eb77e49a2034e8fa53d13b23263d, type: 3}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
-      value: Electro Slime Variant
+      value: Electro Slime
       objectReference: {fileID: 0}
     - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_RootOrder
@@ -89,9 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 0.666
-  _warningTime: 1.5
-  _padtilePrefab: {fileID: 4011525928401883279, guid: 7775a21b65522cb49bdc60d5ce15e4e5, type: 3}
-  _warningPrefab: {fileID: 5073582269476436944, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
+  _padtilePrefab: {fileID: 6617862994251030356, guid: bebe74a582e32ef45a74aecfba6bcb8f, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &2452362142967466312
 MonoBehaviour:
@@ -105,4 +119,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed460bdc100bc63488e3bd8485b66f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _landEffectPrefab: {fileID: 0}
+  _landEffectPrefab: {fileID: 6133293774974021902, guid: b8bc292b01d598e41959a0ceff9d30ab, type: 3}

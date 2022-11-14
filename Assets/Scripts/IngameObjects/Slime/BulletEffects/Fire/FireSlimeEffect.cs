@@ -40,7 +40,7 @@ public class FireSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         FireEffectInfo fireInfo = info as FireEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.Burn(fireInfo.Duration, fireInfo.DamagePerTick, 0.5f));
+        slime.ApplyBuff(new SlimeBuffs.Burn(fireInfo.Duration, fireInfo.DamagePerTick, 1f));
 
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)

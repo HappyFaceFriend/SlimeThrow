@@ -11,8 +11,14 @@ public class SlimeBehaviour : StateMachineBase
     protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
-    public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
-                                        CurrentState is SlimeStates.GrabbedState); } }
+    public bool IsAlive
+    {
+        get
+        {
+            return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
+                                        CurrentState is SlimeStates.GrabbedState);
+        }
+    }
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
@@ -87,7 +93,7 @@ public class SlimeBehaviour : StateMachineBase
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();
         TakeDamage(damage);
-        if(_hpSystem.IsDead)
+        if (_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
             //ChangeState(new SlimeStates.GrabbableState(this));
@@ -106,7 +112,8 @@ public class SlimeBehaviour : StateMachineBase
     }
     void OnDie()
     {
-        if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
+        //if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
+        if (true)
             ChangeState(new SlimeStates.GrabbableState(this));
         else
             ChangeState(new SlimeStates.DeadState(this));

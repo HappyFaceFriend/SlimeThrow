@@ -1393,6 +1393,7 @@ MonoBehaviour:
   _player: {fileID: 1815544615}
   _turret: {fileID: 1982071427}
   _flower: {fileID: 1845336812}
+  _upgradeManager: {fileID: 0}
 --- !u!4 &164896343
 Transform:
   m_ObjectHideFlags: 0
@@ -3414,6 +3415,7 @@ MonoBehaviour:
   _dustEffectPool: {fileID: 1612579920}
   _damageTextPool: {fileID: 2042183937}
   _smokeEffectPool: {fileID: 298143546}
+  _recoveryTextPool: {fileID: 0}
 --- !u!4 &370180594
 Transform:
   m_ObjectHideFlags: 0
@@ -6010,6 +6012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 7b18b6ad5296f634da49fb60546738c3, type: 2}
+  _panel: {fileID: 0}
   _nameText: {fileID: 686241762}
   _bodyText: {fileID: 2018250042}
   _iconImage: {fileID: 1594555269}
@@ -7919,6 +7922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 7b18b6ad5296f634da49fb60546738c3, type: 2}
+  _panel: {fileID: 0}
   _nameText: {fileID: 410329373}
   _bodyText: {fileID: 1537562027}
   _iconImage: {fileID: 1217969702}
@@ -9974,6 +9978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 7b18b6ad5296f634da49fb60546738c3, type: 2}
+  _panel: {fileID: 0}
   _nameText: {fileID: 377689273}
   _bodyText: {fileID: 122317707}
   _iconImage: {fileID: 509420297}
@@ -10975,6 +10980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followTarget: {fileID: 1982071428}
+  _originalOffset: {x: 0, y: 0}
 --- !u!1 &1132574915
 GameObject:
   m_ObjectHideFlags: 0
@@ -12537,6 +12543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396e137ae2366ad44b91ff9e71bddcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _upgradePanel: {fileID: 0}
 --- !u!1 &1302725356
 GameObject:
   m_ObjectHideFlags: 0
@@ -14100,11 +14107,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapSize: {x: 24, y: 15.5}
+  _gameOverSceneName: 
   _flower: {fileID: 1845336812}
   _dirts:
   - {fileID: 1605515060}
   - {fileID: 1578747098}
   _spawner: {fileID: 1713841413}
+  _stagePanel: {fileID: 0}
 --- !u!4 &1420246762
 Transform:
   m_ObjectHideFlags: 0
@@ -18474,6 +18483,7 @@ MonoBehaviour:
   - 33
   - 222
   _dontSpawn: 1
+  _spawnedSlimes: []
 --- !u!1 &1724763232
 GameObject:
   m_ObjectHideFlags: 0
@@ -19486,6 +19496,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8479817264885539398, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
+      propertyPath: _levelManager
+      value: 
+      objectReference: {fileID: 1420246761}
     - target: {fileID: 8479817264885539417, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
       propertyPath: m_RootOrder
       value: 2

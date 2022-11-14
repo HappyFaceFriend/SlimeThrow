@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ceae03a4352af54592cb322f7bd6008
+guid: 9f87eb77e49a2034e8fa53d13b23263d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Electro all_0
+      name: Electro all 1_0
       rect:
         serializedVersion: 2
         x: 3
@@ -124,20 +124,20 @@ TextureImporter:
         width: 26
         height: 19
       alignment: 9
-      pivot: {x: 0.49999997, y: 0.031420182}
+      pivot: {x: 0.4975541, y: 0.021379018}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db142edc6f46acf42a0babb416fb7082
-      internalID: 776117996
+      spriteID: 1e4c4b9a573fcf9429519fbde37c0727
+      internalID: 1594030876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Electro all_1
+      name: Electro all 1_1
       rect:
         serializedVersion: 2
         x: 34
@@ -145,20 +145,20 @@ TextureImporter:
         width: 27
         height: 20
       alignment: 9
-      pivot: {x: 0.5164868, y: 0.023052549}
+      pivot: {x: 0.516487, y: 0.032591343}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44827daa0ca20544ebce1fa6cd0ff7b1
-      internalID: 500363278
+      spriteID: 25789368fdc70ca499c366f7213597c3
+      internalID: -1048469158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Electro all_2
+      name: Electro all 1_2
       rect:
         serializedVersion: 2
         x: 68
@@ -166,20 +166,20 @@ TextureImporter:
         width: 10
         height: 4
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e7742ab3a1f91f4c9e806b9fa116483
-      internalID: -478754437
+      spriteID: f4672cd7cc3d6064dbb74fd63f7745a8
+      internalID: 861044181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Electro all_3
+      name: Electro all 1_3
       rect:
         serializedVersion: 2
         x: 82
@@ -187,20 +187,20 @@ TextureImporter:
         width: 10
         height: 2
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b342cb39d84b804b831a4a06d21049c
-      internalID: -547519364
+      spriteID: 942ad10678c8a764d86c6da189263bf3
+      internalID: -1025481533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Electro all_4
+      name: Electro all 1_4
       rect:
         serializedVersion: 2
         x: 69
@@ -208,20 +208,20 @@ TextureImporter:
         width: 8
         height: 3
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed54e6778d9fbc4db50ab3094698119
-      internalID: -1080211504
+      spriteID: 92472cdaa42a3a34db8e07c634166916
+      internalID: 1606451669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Electro all_5
+      name: Electro all 1_5
       rect:
         serializedVersion: 2
         x: 83
@@ -229,20 +229,20 @@ TextureImporter:
         width: 10
         height: 3
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ef2ca9c6271b384da69d0c9ef096610
-      internalID: -579860806
+      spriteID: 45a5ca86c262e8f41a879cd762ce2469
+      internalID: -137245581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Electro all_6
+      name: Electro all 1_6
       rect:
         serializedVersion: 2
         x: 72
@@ -250,20 +250,20 @@ TextureImporter:
         width: 3
         height: 2
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba456602466136e4a9c35b482b7af9aa
-      internalID: 1043663587
+      spriteID: 2b0874a2b18e7e8448b2fb9b084d7ba8
+      internalID: -819368699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Electro all_7
+      name: Electro all 1_7
       rect:
         serializedVersion: 2
         x: 85
@@ -271,14 +271,14 @@ TextureImporter:
         width: 6
         height: 4
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad680c493d35d6345bf51e14881c50c3
-      internalID: -1352927216
+      spriteID: 1886277d82bcc454fbfb07748b15b824
+      internalID: 960709374
       vertices: []
       indices: 
       edges: []
@@ -294,14 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Electro all_2: -478754437
-      Electro all_3: -547519364
-      Electro all_5: -579860806
-      Electro all_1: 500363278
-      Electro all_0: 776117996
-      Electro all_6: 1043663587
-      Electro all_4: -1080211504
-      Electro all_7: -1352927216
+      Electro all 1_0: 1594030876
+      Electro all 1_6: -819368699
+      Electro all 1_7: 960709374
+      Electro all 1_4: 1606451669
+      Electro all 1_1: -1048469158
+      Electro all 1_2: 861044181
+      Electro all 1_3: -1025481533
+      Electro all 1_5: -137245581
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

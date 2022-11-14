@@ -10,15 +10,16 @@ public class IceSlimeEffect : SlimeBulletEffect
         public float _freezeProb;
         public float _freezeTime;
         public float _frostbiteProb;
-        public int _frostbiteDam;
-        public int _frostbiteTime;
+        public int _frostbiteDamPerTick;
+        public float _frostbiteDuration;
         public IceEffectInfo()
         {
             this._freezeProb = 1f;
             this._freezeTime = 1f;
-            this._frostbiteProb = 0.3f;
-            this._frostbiteDam = 3;
-            this._freezeTime = 5;
+            this._frostbiteProb = 1f;
+            this._frostbiteDamPerTick = 3;
+            this._freezeTime = 2f;
+            this._frostbiteDuration = 5f;
         }
     }
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
@@ -35,6 +36,8 @@ public class IceSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         var iceInfo = info as IceEffectInfo;
+        slime.ApplyBuff(new SlimeBuffs.Freeze(iceInfo._freezeTime));
+        slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration, iceInfo._frostbiteDamPerTick, 1f,iceInfo._frostbiteProb));
 
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
