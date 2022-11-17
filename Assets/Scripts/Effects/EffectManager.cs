@@ -41,12 +41,12 @@ public class EffectManager : MonoBehaviour
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }
-    public static void InstantiateDamageTextEffect(Vector3 position, float damage)
+    public static void InstantiateDamageTextEffect(Vector3 position, float damage, DamageTextEffect.Type type)
     {
         DamageTextEffect effect = _instance._damageTextPool.Create<DamageTextEffect>();
-        effect.SetText((int)damage);
+        effect.SetText((int)damage, type);
         effect.transform.SetParent(_instance._canvas.transform);
-        effect.transform.position = position + new Vector3(0, 0.5f, 0);
+        effect.transform.position = Camera.main.WorldToScreenPoint(position) + new Vector3(0, 0.5f, 0);
         effect.transform.localScale = new Vector3(0.85f, 1, 1);
         effect.gameObject.SetActive(true);
     }

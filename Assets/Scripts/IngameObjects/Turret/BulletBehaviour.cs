@@ -16,7 +16,6 @@ public class BulletBehaviour : MonoBehaviour
     {
         _targetPosition = targetPosition;
         StartCoroutine(MoveCoroutine());
-        Debug.Log(_moveSpeed);
     }
     public void ApplyEffects(List<LandEffectInfo> landEffects, PlayerBehaviour player)
     {
@@ -27,7 +26,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         LandEffectBehaviour landEffect = Instantiate(_landEffectPrefab);
         landEffect.transform.position = transform.position;
-        landEffect.ApplyEffects(new List<LandEffectInfo>(_landEffectInfos));
+        landEffect.ApplyEffects(new List<LandEffectInfo>(_landEffectInfos), _player != null ? _player.DamageAsBullet.Value : 0);
         if(_player != null)
         {
             _player.LandWithBullet(transform.position);

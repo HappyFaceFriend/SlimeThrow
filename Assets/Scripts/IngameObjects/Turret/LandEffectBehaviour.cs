@@ -8,10 +8,10 @@ public class LandEffectBehaviour: MonoBehaviour
     List<LandEffectInfo> _landInfos;
     [SerializeField] float _duration;
 
-    public void ApplyEffects(List<LandEffectInfo> landInfos)
+    public void ApplyEffects(List<LandEffectInfo> landInfos, float additionalDamage)
     {
         _landInfos = landInfos;
-        _damage = 0;
+        _damage = additionalDamage;
         foreach (var info in landInfos)
             _damage += info.Damage;
     }

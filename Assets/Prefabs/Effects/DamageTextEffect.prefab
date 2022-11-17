@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 4853115578550846759}
+  _animator: {fileID: 4853115577170412932}
 --- !u!95 &4853115577170412932
 Animator:
   serializedVersion: 4
