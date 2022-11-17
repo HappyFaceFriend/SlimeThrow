@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093f89f93df7c6c4798a076719b9ba2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _white: {fileID: 2100000, guid: 0e851af3fdc7e714c883337ceedca3aa, type: 2}
+  _white: {fileID: 2100000, guid: bf23e3310efb44a47acbcf3e7facb5e1, type: 2}
 --- !u!114 &5081881716674794411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +323,7 @@ MonoBehaviour:
   _flip: {fileID: 5356116137300519249}
   _flasher: {fileID: 5081881716674794410}
   _squasher: {fileID: 5081881716674794411}
+  _normPosOfFlowerAttack: 0
 --- !u!114 &5640623954171796688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 0.67
   _normPosOfAttack: 0
+  _willReturn: 1
 --- !u!210 &5640623954171796648
 SortingGroup:
   m_ObjectHideFlags: 0

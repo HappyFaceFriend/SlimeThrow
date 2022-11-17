@@ -16,7 +16,7 @@ public class FlashWhenHitted : MonoBehaviour
         _default = GetComponentInChildren<SpriteRenderer>().material;
     }
 
-    public void Flash(float duration)
+    public void Flash(float duration = 0.1f)
     {
         Unflash();
         foreach (SpriteRenderer sprite in _sprites)
