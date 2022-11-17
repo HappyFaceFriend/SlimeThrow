@@ -16,10 +16,10 @@ public class FlashWhenHitted : MonoBehaviour
         _default = GetComponentInChildren<SpriteRenderer>().material;
     }
 
-    public void Flash(float duration)
+    public void Flash(float duration = 0.1f)
     {
         Unflash();
-        foreach (SpriteRenderer sprite in _sprites)
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
         {
             sprite.material = _white;
         }
@@ -28,7 +28,7 @@ public class FlashWhenHitted : MonoBehaviour
     public void Flash(int frames)
     {
         Unflash();
-        foreach (SpriteRenderer sprite in _sprites)
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
         {
             sprite.material = _white;
         }
@@ -47,7 +47,7 @@ public class FlashWhenHitted : MonoBehaviour
 
     void Unflash()
     {
-        foreach (SpriteRenderer sprite in _sprites)
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
         {
             sprite.material = _default;
         }
