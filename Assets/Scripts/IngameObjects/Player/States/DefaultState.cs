@@ -22,10 +22,12 @@ namespace PlayerStates
                 Player.ChangeState(new DashState(Player));
             else if (Player.Inputs.IsAttackPressed && Player.IsAbleToAttack)
             {
+                    Player.ChangeState(new AttackingState(Player));
+            }
+            else if (Player.Inputs.IsGrabFlowerPressed)
+            {
                 if (_grabController.GrabFlower() == GrabResult.Success)
                     Player.ChangeState(new GrabbingState(Player));
-                else
-                    Player.ChangeState(new AttackingState(Player));
             }
             if (Player.Inputs.IsGetInTurretPressed && Utils.Vectors.IsInDistance(transform.position, GlobalRefs.Turret.transform.position, Player.GetInTurretRange.Value))
                 Player.ChangeState(new EnterTurretState(Player));

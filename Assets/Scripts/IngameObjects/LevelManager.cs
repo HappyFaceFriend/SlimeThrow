@@ -53,9 +53,8 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        OnPlayerDead();
+        if(Input.GetKeyDown(KeyCode.P))
+            OnPlayerDead();
     }
     public void OnPlayerDead()
     {

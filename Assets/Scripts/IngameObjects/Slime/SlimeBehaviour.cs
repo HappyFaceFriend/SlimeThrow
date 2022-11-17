@@ -29,6 +29,7 @@ public class SlimeBehaviour : StateMachineBase
     public BuffableStat DamageAsBullet { get; private set; }
     public BuffableStat AttackRange { get; private set; }
     public BuffableStat AttackPower { get; private set; }
+    public BuffableStat FlowerAttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
 
@@ -43,6 +44,7 @@ public class SlimeBehaviour : StateMachineBase
         _hpSystem = new HpSystem(_data.MaxHp, OnDie);
         AttackSpeed = new BuffableStat(_data.AttackSpeed);
         AttackPower = new BuffableStat(_data.AttackPower);
+        FlowerAttackPower = new BuffableStat(_data.FlowerAttackPower);
         MoveSpeed = new BuffableStat(_data.MoveSpeed);
         DamageAsBullet = new BuffableStat(_data.DamageAsBullet);
         AttackRange = new BuffableStat(_data.AttackRange);
@@ -103,7 +105,7 @@ public class SlimeBehaviour : StateMachineBase
     public void TakeDamage(float damage) // 이거를 플레이어한테 달아주면 된다
     {
         _flasher.Flash(0.2f);
-        EffectManager.InstantiateDamageTextEffect(Camera.main.WorldToScreenPoint(transform.position), damage);
+        EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
         _hpSystem.ChangeHp(-damage);
     }
     void OnDie()
@@ -138,7 +140,11 @@ public class SlimeBehaviour : StateMachineBase
         var target = collision.collider.GetComponent<IAttackableBySlime>();
         if (target != null)
         {
-            target.OnHittedBySlime(this, AttackPower.Value);
+            if(collision.transform == GlobalRefs.Player.transform)
+                target.OnHittedBySlime(this, AttackPower.Value);
+            else if(collision.transform == GlobalRefs.Flower.transform)
+                target.OnHittedBySlime(this, FlowerAttackPower.Value);
+
         }
     }
 }

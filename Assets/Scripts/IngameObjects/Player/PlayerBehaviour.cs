@@ -18,6 +18,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat PushToTowerRange { get; private set; }
+    public BuffableStat DamageAsBullet { get; private set; }
     public PlayerInput Inputs { get { return _inputs; } }
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
@@ -46,6 +47,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         MoveSpeed = new BuffableStat(_movementSettings.MoveSpeed);
         PushToTowerRange = new BuffableStat(_combatSettings.PushToTowerRange);
         GetInTurretRange = new BuffableStat(_combatSettings.GetInTurretRange);
+        DamageAsBullet = new BuffableStat(_combatSettings.DamageAsBullet);
     }
 
     void MoveInBounds()
@@ -108,6 +110,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _hpSystem.ChangeHp(-damage);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+        EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.PlayerHitted);
     }
     void OnDie()
     {

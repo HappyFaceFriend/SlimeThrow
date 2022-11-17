@@ -46,7 +46,9 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
     }
     public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
+        Debug.Log("슬라임한테 꽃이 맞음 : " + damage);
         _hpSystem.ChangeHp(-damage);
+        EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.FlowerHitted);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
 }
