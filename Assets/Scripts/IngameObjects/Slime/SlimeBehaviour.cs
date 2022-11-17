@@ -24,6 +24,7 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] FlashWhenHitted _flasher;
     [SerializeField] SquashWhenHitted _squasher;
     [SerializeField] float _normPosOfFlowerAttack;
+    [SerializeField] bool _isGrabbableAtDeath = false;
     public float NormPosOfFlowerAttack { get { return _normPosOfFlowerAttack; } }
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
@@ -110,6 +111,11 @@ public class SlimeBehaviour : StateMachineBase
     }
     void OnDie()
     {
+        if(_isGrabbableAtDeath)
+        {
+            ChangeState(new SlimeStates.GrabbableState(this));
+            return;
+        }
         if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
             ChangeState(new SlimeStates.GrabbableState(this));
         else
