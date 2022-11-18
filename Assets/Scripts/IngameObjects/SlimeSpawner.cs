@@ -32,6 +32,7 @@ public class SlimeSpawner : MonoBehaviour
     public bool IsLastStage { get; private set; } = false;
 
     public bool _burnUpgrade = false;
+    public bool _slowUpgrade = false;
 
     public int CurrentRound { get { return _currentRound; } }
     public int CurrentStage { get { return _currentStage; } }
@@ -79,6 +80,11 @@ public class SlimeSpawner : MonoBehaviour
     {
         _currentRound = 1;
         _currentStage = 0;
+    }
+    public void Load(SaveData loadData)
+    {
+        _currentRound = loadData._round;
+        _currentStage = loadData._stage;
     }
     void StartStage()
     {
@@ -211,7 +217,10 @@ public class SlimeSpawner : MonoBehaviour
     public void SetBurn()
     {
         _burnUpgrade = (!_burnUpgrade);
-        Debug.Log(_burnUpgrade);
+    }
+    public void SetSlow()
+    {
+        _slowUpgrade = (!_slowUpgrade);
     }
     void SpawnSlime(float angle)
     {

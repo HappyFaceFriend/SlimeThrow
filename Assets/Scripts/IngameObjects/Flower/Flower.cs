@@ -16,6 +16,8 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
     FlowerState _flowerstate;
 
     HpSystem _hpSystem;
+
+    public HpSystem HPSystem { get { return _hpSystem; } }
     public Animator Animator
     {
         get { return _animator; }

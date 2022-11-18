@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using LitJson;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,7 +16,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] public SlimeSpawner _spawner;
     [SerializeField] StagePanel _stagePanel;
-    Utils.Timer BurnTimer;
+    List<string> _upgradeList;
 
     private void Start()
     {
@@ -25,7 +28,12 @@ public class LevelManager : MonoBehaviour
     {
         _spawner.SetBurn();
     }
-    
+
+    public void setSlow()
+    {
+        _spawner.SetSlow();
+    }
+
     void InitFlower()
     {
         int dirtIdx = Random.Range(0, _dirts.Count);
@@ -34,12 +42,15 @@ public class LevelManager : MonoBehaviour
     IEnumerator GameLoop()
     {
         //Init
+        SaveData LoadData = SaveDataManager.Instance.Load();
         InitFlower();
-        _spawner.Init();
+        LoadGame(LoadData);
         _stagePanel.Init();
         //Loop
         while (true)
         {
+            SaveData data = new SaveData(_spawner.CurrentRound, _spawner.CurrentStage, _upgradeList, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
+            SaveDataManager.Instance.Save(data);
             _spawner.StartNextStage();
             if (_spawner.IsLastStage)
                 break;
@@ -48,12 +59,13 @@ public class LevelManager : MonoBehaviour
 
             //업그레이드
             yield return GlobalRefs.UpgradeManager.SelectUpgrade();
+            _upgradeList.Add(GlobalRefs.UpgradeManager.Upgrades[GlobalRefs.UpgradeManager.Upgrades.Count - 1].Name);
         }
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
             OnPlayerDead();
     }
     public void OnPlayerDead()
@@ -79,5 +91,28 @@ public class LevelManager : MonoBehaviour
     {
         Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
         Gizmos.DrawWireCube(new Vector3(0, 0, 0.01f), new Vector3(_mapSize.x, _mapSize.y, 0.01f));
+    }
+    void LoadGame(SaveData data)
+    {
+        if (data == null)
+            _spawner.Init();
+        else
+        {
+            if (data._round == 1 && data._stage == 0)
+            {
+                _spawner.Init();
+            }
+            else
+            {
+                foreach (string name in data._upgrades)
+                {
+                    _upgradeList.Add(name);
+                }
+                _spawner.Load(data);
+                GlobalRefs.UpgradeManager.FindUpgrade(data._upgrades);
+                GlobalRefs.Player.HpSystem.ChangeHp(GlobalRefs.Player.MaxHp.Value - (float)data._playerHP);
+                GlobalRefs.Flower.HPSystem.ChangeHp(GlobalRefs.Flower.HPSystem.MaxHp.Value - (float)data._flowerHP);
+            }
+        }
     }
 }

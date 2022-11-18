@@ -15,7 +15,7 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
 
     public string GetLocalizedString(string string_ko)
     {
-        string code = SavaDataManager.Instance.GetLanguage;
+        string code = SaveDataManager.Instance.GetLanguage;
         var languageData = localizedStringData.Find(x => x["ko"] == string_ko);
         if (languageData == null)
             return string_ko;

@@ -1523,7 +1523,7 @@ MonoBehaviour:
   _turret: {fileID: 1982071427}
   _flower: {fileID: 1845336812}
   _upgradeManager: {fileID: 1302069758}
-  _levelManager: {fileID: 0}
+  _levelManager: {fileID: 1420246761}
 --- !u!4 &164896343
 Transform:
   m_ObjectHideFlags: 0
@@ -3933,6 +3933,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2006828473}
     m_Modifications:
+    - target: {fileID: 1825713863890268141, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713863890268141, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1825713864650393216, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
       propertyPath: _panel
       value: 
@@ -4024,6 +4032,14 @@ PrefabInstance:
     - target: {fileID: 1825713864650393244, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713864944065371, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713864944065371, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
@@ -15373,6 +15389,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &1490279665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490279667}
+  - component: {fileID: 1490279666}
+  m_Layer: 0
+  m_Name: GlobalDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490279666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490279665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d721cfc2d12215241b797c8412c7aa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringsFile: {fileID: 4900000, guid: 37c34dc6be3584e469cdce25539edabe, type: 3}
+--- !u!4 &1490279667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490279665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493802306
 GameObject:
   m_ObjectHideFlags: 0
@@ -18657,6 +18718,7 @@ MonoBehaviour:
   _dontSpawn: 0
   _spawnedSlimes: []
   _burnUpgrade: 0
+  _slowUpgrade: 0
 --- !u!1 &1724763232
 GameObject:
   m_ObjectHideFlags: 0
@@ -20148,6 +20210,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2006828473}
     m_Modifications:
+    - target: {fileID: 1825713863890268141, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713863890268141, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1825713864650393216, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
       propertyPath: _panel
       value: 
@@ -20239,6 +20309,14 @@ PrefabInstance:
     - target: {fileID: 1825713864650393244, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713864944065371, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713864944065371, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
@@ -23929,6 +24007,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2006828473}
     m_Modifications:
+    - target: {fileID: 1825713863890268141, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713863890268141, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1825713864650393216, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
       propertyPath: _panel
       value: 
@@ -24020,6 +24106,14 @@ PrefabInstance:
     - target: {fileID: 1825713864650393244, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713864944065371, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825713864944065371, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d75678ca1ba1747bb2a70ffe40629e, type: 3}

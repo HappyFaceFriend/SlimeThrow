@@ -28,6 +28,10 @@ namespace Upgrades
             {
                 GlobalRefs.LevelManger.setBurn();
             }
+            else if(debuff._typeToChange == DebuffModes.DebuffType.Snowy_Field)
+            {
+                GlobalRefs.LevelManger.setSlow();   
+            }
         }
     }
 }

@@ -1,5 +1,19 @@
 en	ko
-Light Footsteps1	가벼운 발걸음1	
+Pickup Basic	기본슬라임 잡기
+You are able to pick up dead Basic slime 100%	사망한 기본 슬라임을 100%의 확률로 집을 수 있다
+Pickup Fire	불슬라임 잡기
+You are able to pick up dead Fire slime 100%	사망한 불 슬라임을 100%의 확률로 집을 수 있다
+Pickup Ice	얼음슬라임 잡기
+You are able to pick up dead Ice slime 100%	사망한 얼음 슬라임을 100%의 확률로 집을 수 있다
+Pickup Electro	전기슬라임 잡기
+You are able to pick up dead Electro slime 100%	사망한 전기 슬라임을 100%의 확률로 집을 수 있다
+Pickup Poison	독슬라임 잡기
+You are able to pick up dead Poison slime 100%	사망한 독 슬라임을 100%의 확률로 집을 수 있다
+Pickup Rock	바위슬라임 잡기
+You are able to pick up dead Rock slime 100%	사망한 바위 슬라임을 100%의 확률로 집을 수 있다
+Pickup Sticky	끈끈이슬라임 잡기
+You are albe to pick up dead Sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
+Light Footsteps1	가벼운 발걸음1
 Player movement speed increased by 10%	플레이어의 이동속도가 10% 증가한다
 Aidkit1	구급상자1
 Player's MaxHp increased by 20 and CurrentHP increased by 30.	플레이어의 최대 체력이 20 증가하고, 현재 체력이 30 증가한다
@@ -13,23 +27,23 @@ Fierce Boy1	난폭한 소년1
 For 5 seconds of every time the player lands after shoot by cannon, currentHP, Attack power, attack speed and movement speed increased by 50%	플레이어가 포탄으로 착지후 5초간 체력, 공격력, 공격속도, 이동속도 모두 50% 증가한다
 The Hunter1	사냥꾼1
 After every kill by player itself, Player recovers HP by 1	플레이어가 슬라임을 죽일떄마다 체력 1 회복한다
-Iron Arm1	강철어깨1
+Far Away	멀리던지기1
 The range of player throwing slime to cannon widthens by 10%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 10% 증가한다
 Burning Ground	불타는 대지
 Every Slime spawned for first 10 seconds get Burn	첫 10초간 스폰되는 슬라임 모두 화상을 입는다
 Snowy Field	설원
-For the first 10 seconds, speed of every slime decreased by 5%		첫 10초간 모든 슬라임 이동속도 5% 감소한다
-The Predictor 예언자
-Before each stage, You can see the direction of slime waves.	스테이지 시작 5초전 웨이브 방향을 알 수 있다
+For the first 10 seconds, speed of every slime decreased by 5%	첫 10초간 모든 슬라임 이동속도 5% 감소한다
+The Predictor	예언자
+Before each stage, You can see the direction of slime waves	스테이지 시작 5초전 웨이브 방향을 알 수 있다
 Cloudy Cloud	자욱한 안개
-Cloud that covers center of the map stays for about 5 seconds.	맵의 중앙을 가리는 안개가 5초간 생성된다
+Cloud that covers center of the map stays for about 5 seconds	맵의 중앙을 가리는 안개가 5초간 생성된다
 Holes	구덩이
 Create extra dirt	구덩이 1개를 추가로 생성한다
 Piss Off	밀처내기
 Knukback effect from player's attack increased by 10%	플레이어의 기본 공격의 넉백 효과가 10% 증가한다
 Shoutgun	샷건
 For every cannonball, 3 small extra balls are created with damage 3	포탄 발사시 동시에 데미지 3의 작은 탄환 3개를 추가로 발사한다
-Auto-Load	자동장전
-Each time your cannonball kill more than 3 slimes, 1 bullet is auto-loaded	발사된 포탄이 한번에 3마리 이상의 슬라임 처치시, 1발을 자동으로 장전한다
 Gift from nature	재생의 바람
 Flower gets (?) HP recoverd	꽃의 체력이 ()만큼 회복한다
+Bullet Reload1	총알 장전1
+Number of slimes in magazine to reload increases by 1	장전할 수 있는 슬라임의 수가 1 늘어난다
