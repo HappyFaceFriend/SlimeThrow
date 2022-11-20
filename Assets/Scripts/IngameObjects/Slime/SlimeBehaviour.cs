@@ -92,7 +92,7 @@ public class SlimeBehaviour : StateMachineBase
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
         if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & FireSlayerOn & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
-            OnGetHitted(impactPosition, _hpSystem.CurrentHp, true);
+            OnGetHitted(impactPosition, 999f, true);
         else
             OnGetHitted(impactPosition, damage, false);
 
@@ -118,7 +118,10 @@ public class SlimeBehaviour : StateMachineBase
     public void TakeDamage(float damage) // 이거를 플레이어한테 달아주면 된다
     {
         _flasher.Flash();
-        EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
+        if(damage == 999f)
+            EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeSlayed);
+        else
+            EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
         _hpSystem.ChangeHp(-damage);
     }
     void OnDie()

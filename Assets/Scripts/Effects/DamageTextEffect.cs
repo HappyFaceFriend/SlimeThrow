@@ -6,7 +6,7 @@ using TMPro;
 
 public class DamageTextEffect : PooledObject
 {
-    public enum Type { PlayerHitted, SlimeHitted, FlowerHitted}
+    public enum Type { PlayerHitted, SlimeHitted, FlowerHitted, SlimeSlayed }
 
     Type _type;
     [SerializeField] TextMeshProUGUI _text;
@@ -19,7 +19,6 @@ public class DamageTextEffect : PooledObject
     }
     private void OnEnable()
     {
-
         _animator.SetTrigger(_type.ToString());
     }
     public void OnAnimEnd()
