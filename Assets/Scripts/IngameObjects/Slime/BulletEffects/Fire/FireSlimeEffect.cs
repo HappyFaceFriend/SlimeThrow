@@ -6,19 +6,20 @@ using UnityEngine;
 public class FireSlimeEffect : SlimeBulletEffect
 {
     public TinyFire _addtionalEffect;
-
-    class FireEffectInfo : AdditionalInfo
+    Utils.Timer burnTimer = new Utils.Timer(4f);
+    class BurnStat : AdditionalInfo
     {
         public float Probability { get; set; }
         public float Duration { get; set; }
         public int DamagePerTick { get; set; }
-        public FireEffectInfo()
+        public BurnStat()
         {
-            Probability = 1f; // 100га╥н
+            Probability = 1f;
             Duration = 4f;
             DamagePerTick = 5;
         }
     }
+
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
         GameObject effect;
@@ -39,21 +40,31 @@ public class FireSlimeEffect : SlimeBulletEffect
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
-        FireEffectInfo fireInfo = info as FireEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.Burn(fireInfo.Duration, fireInfo.DamagePerTick, 0.5f));
-
+        slime.ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
+        slime.IsOnFire = true;
+        float eTime = 0;
+        while(true)
+        {
+            eTime += Time.deltaTime;
+            burnTimer.Tick();
+            if (burnTimer.IsOver)
+            {
+                slime.IsOnFire = false;
+                break;
+            }
+        }
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
         duplicateInfo.Damage += Damage;
-        FireEffectInfo fireInfo = new FireEffectInfo();
-        fireInfo.DamagePerTick += 2;
-        fireInfo.Duration += 1;
-        duplicateInfo.AdditionalInfos = fireInfo;
+        BurnStat burn = new BurnStat();
+        burn.DamagePerTick += 2;
+        burn.Duration += 1;
+        duplicateInfo.AdditionalInfos = burn;
     }
     protected override AdditionalInfo GetAdditionalInfos()
     {
-        var infos = new FireEffectInfo();
+        var infos = new BurnStat(); 
         return infos;
     }
 

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51029a2838021ef499ed65c43bf7257e, type: 3}
+  m_Name: Burning Slime
+  m_EditorClassIdentifier: 
+  _name: "\uD0C0\uB4E4\uC5B4\uAC00\uB294 \uC2AC\uB77C\uC784"
+  _body: "\uD654\uC0C1\uC758 \uCD08\uB2F9 \uB370\uBBF8\uC9C0 1 \uC99D\uAC00"
+  _icon: {fileID: 0}
+  _upgradeMode:
+    _upgradeType: 0
+    _applyValue: 1
+    _applyType: 0

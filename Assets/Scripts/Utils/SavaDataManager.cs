@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 public class SaveDataManager : SingletonBehaviour<SaveDataManager>
 {
-    [SerializeField] string _language;
+    string _language = "ko";
     JsonData Data;
 
     public string GetLanguage { get { return _language; } }

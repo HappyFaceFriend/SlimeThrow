@@ -47,3 +47,13 @@ Gift from nature	재생의 바람
 Flower gets (?) HP recoverd	꽃의 체력이 ()만큼 회복한다
 Bullet Reload1	총알 장전1
 Number of slimes in magazine to reload increases by 1	장전할 수 있는 슬라임의 수가 1 늘어난다
+Burning Slime	타들어가는 슬라임
+Burning Damage per second increased by 1	화상의 초당 데미지 1 증가
+Remaining Flame	불씨
+Burn Duration is increased by 3 seconds	화상의 적용시간 3초 증가
+Critical Fire	치명적인 불꽃
+Slimes on Burn gets 20% more damage from Player	화상을 입은 슬라임에게 플레이어의 기본 공격 데미지 20% 증가
+Fire Cannon	파이어 캐논
+Every Bullet gets Burn effect	모든 포탄에 화상 적용
+Fire Slayer	파이어 슬래이어
+Slimes with less than 50% of HP, get instantly killed by Fire Slime Bullet	체력이 50% 이하인 슬라임이 불 슬라임 포탄을 맞을 시 처형

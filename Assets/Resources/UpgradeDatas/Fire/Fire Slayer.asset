@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51029a2838021ef499ed65c43bf7257e, type: 3}
+  m_Name: Fire Slayer
+  m_EditorClassIdentifier: 
+  _name: "\uD30C\uC774\uC5B4 \uC2AC\uB798\uC774\uC5B4"
+  _body: "\uCCB4\uB825\uC774 50% \uC774\uD558\uC778 \uC2AC\uB77C\uC784\uC774 \uBD88
+    \uC2AC\uB77C\uC784 \uD3EC\uD0C4\uC744 \uB9DE\uC744 \uC2DC \uCC98\uD615"
+  _icon: {fileID: 0}
+  _upgradeMode:
+    _upgradeType: 4
+    _applyValue: 0
+    _applyType: 0

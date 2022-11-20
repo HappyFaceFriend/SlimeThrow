@@ -31,8 +31,11 @@ public class SlimeSpawner : MonoBehaviour
     public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
 
-    public bool _burnUpgrade = false;
-    public bool _slowUpgrade = false;
+    public bool _burnUpgrade { get; set; } = false;
+    public bool _slowUpgrade { get; set; } = false;
+    public bool _criticalUpgrade { get; set; } = false;
+    public bool _fireBallUpgrade { get; set; } = false;
+    public bool _fireSlayerUpgrade { get; set; } = false;
 
     public int CurrentRound { get { return _currentRound; } }
     public int CurrentStage { get { return _currentStage; } }
@@ -237,10 +240,19 @@ public class SlimeSpawner : MonoBehaviour
         else  //Down
             spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);
         _spawnedSlimes.Add(Instantiate(Utils.Random.RandomElement(_slimePrefabs), spawnPoint, Quaternion.identity));
+        var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
         if (_burnUpgrade)
         {
-            var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
             slime.ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
+            slime.IsOnFire = true;
         }
+        if (_criticalUpgrade)
+            slime.CriticalOn = true;
+
+        if (_fireBallUpgrade)
+            slime.FireBallOn = true;
+
+        if (_fireSlayerUpgrade)
+            slime.FireSlayerOn = true;
     }
 }

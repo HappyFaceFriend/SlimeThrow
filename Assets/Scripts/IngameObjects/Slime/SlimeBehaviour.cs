@@ -9,7 +9,11 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] FlipObjectToPoint _flip;
 
     protected KnockbackController _knockback;
+    public bool IsOnFire { get; set; } = false;
+    public bool CriticalOn { get; set; } = false;
+    public bool FireBallOn { get; set; } = false;
     public bool IsGrabbable { get; set; } = false;
+    public bool FireSlayerOn { get; set; } = true;
     public bool PuttedInTurret { get; set; } = false;
     public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
                                         CurrentState is SlimeStates.GrabbedState); } }
@@ -76,18 +80,26 @@ public class SlimeBehaviour : StateMachineBase
         ChangeState(new SlimeStates.GrabbableState(this, true));
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
-    {
+    { 
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
-        OnGetHitted(impactPosition, damage);
+        if (IsOnFire & CriticalOn)
+            damage *= 1.2f;
+        OnGetHitted(impactPosition, damage, false);
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
-        OnGetHitted(impactPosition, damage);
+        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & FireSlayerOn & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
+            OnGetHitted(impactPosition, _hpSystem.CurrentHp, true);
+        else
+            OnGetHitted(impactPosition, damage, false);
+
+        if (!IsOnFire & FireBallOn)
+            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
     }
-    protected void OnGetHitted(Vector3 impactPosition, float damage)
+    protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
     {
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();

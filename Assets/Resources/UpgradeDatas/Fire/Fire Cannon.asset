@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51029a2838021ef499ed65c43bf7257e, type: 3}
+  m_Name: Fire Cannon
+  m_EditorClassIdentifier: 
+  _name: "\uD30C\uC774\uC5B4 \uCE90\uB17C"
+  _body: "\uBAA8\uB4E0 \uD3EC\uD0C4\uC5D0 \uD654\uC0C1 \uC801\uC6A9"
+  _icon: {fileID: 0}
+  _upgradeMode:
+    _upgradeType: 0
+    _applyValue: 0
+    _applyType: 0

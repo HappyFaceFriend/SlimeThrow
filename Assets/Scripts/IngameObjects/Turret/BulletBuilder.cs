@@ -10,6 +10,7 @@ public class BulletBuilder : MonoBehaviour
     List<LandEffectInfo> _landEffectInfos = new List<LandEffectInfo>();
     public int Count { get { return _count; } }
     [SerializeField] SlimeSlot [] _slots;
+    public string _slimeName;
     public bool upgrade1 = false;
     float upgradeValue;
 
@@ -21,6 +22,7 @@ public class BulletBuilder : MonoBehaviour
     }
     public void AddLandEffect(LandEffectInfo info)
     {
+        Debug.Log(1);
         _landEffectInfos.Add(info);
     }
     public void ApplyEffectsToBullet(BulletBehaviour bullet)
@@ -40,6 +42,7 @@ public class BulletBuilder : MonoBehaviour
     public void PushSlime(SlimeBehaviour slime)
     {
         _slots[_count].SetImage(slime.SlotIcon);
+        _slimeName = slime.name;
         _count++;
         slime.BulletEffect.OnAddToTurret(this);
     }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51029a2838021ef499ed65c43bf7257e, type: 3}
+  m_Name: Remaining Flame
+  m_EditorClassIdentifier: 
+  _name: "\uBD88\uC528"
+  _body: "\uD654\uC0C1\uC758 \uC801\uC6A9\uC2DC\uAC04 3\uCD08 \uC99D\uAC00"
+  _icon: {fileID: 0}
+  _upgradeMode:
+    _upgradeType: 1
+    _applyValue: 2
+    _applyType: 0

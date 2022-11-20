@@ -42,14 +42,13 @@ public class LevelManager : MonoBehaviour
     IEnumerator GameLoop()
     {
         //Init
-        SaveData LoadData = SaveDataManager.Instance.Load();
         InitFlower();
-        LoadGame(LoadData);
+        LoadGame();
         _stagePanel.Init();
         //Loop
         while (true)
         {
-            SaveData data = new SaveData(_spawner.CurrentRound, _spawner.CurrentStage, _upgradeList, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
+            SaveData data = new SaveData(_spawner.CurrentRound, _spawner.CurrentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
             SaveDataManager.Instance.Save(data);
             _spawner.StartNextStage();
             if (_spawner.IsLastStage)
@@ -59,7 +58,6 @@ public class LevelManager : MonoBehaviour
 
             //업그레이드
             yield return GlobalRefs.UpgradeManager.SelectUpgrade();
-            _upgradeList.Add(GlobalRefs.UpgradeManager.Upgrades[GlobalRefs.UpgradeManager.Upgrades.Count - 1].Name);
         }
     }
 
@@ -92,8 +90,9 @@ public class LevelManager : MonoBehaviour
         Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
         Gizmos.DrawWireCube(new Vector3(0, 0, 0.01f), new Vector3(_mapSize.x, _mapSize.y, 0.01f));
     }
-    void LoadGame(SaveData data)
+    void LoadGame()
     {
+        SaveData data = SaveDataManager.Instance.Load();
         if (data == null)
             _spawner.Init();
         else
@@ -104,10 +103,6 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                foreach (string name in data._upgrades)
-                {
-                    _upgradeList.Add(name);
-                }
                 _spawner.Load(data);
                 GlobalRefs.UpgradeManager.FindUpgrade(data._upgrades);
                 GlobalRefs.Player.HpSystem.ChangeHp(GlobalRefs.Player.MaxHp.Value - (float)data._playerHP);

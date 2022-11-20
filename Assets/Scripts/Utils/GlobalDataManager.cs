@@ -10,6 +10,7 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
 
     new void Awake()
     {
+        base.Awake();
         localizedStringData = FileUtils.ParseTSV(stringsFile.text);
     }
 
