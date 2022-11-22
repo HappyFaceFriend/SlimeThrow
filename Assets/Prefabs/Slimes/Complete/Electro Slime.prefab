@@ -31,6 +31,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1594030876, guid: 9f87eb77e49a2034e8fa53d13b23263d, type: 3}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: f2fe119329a62e84e8677b8b15fab70a, type: 2}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
       value: Electro Slime
@@ -105,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 0.666
-  _padtilePrefab: {fileID: 6617862994251030356, guid: bebe74a582e32ef45a74aecfba6bcb8f, type: 3}
+  _padtilePrefab: {fileID: 1187412481165815332, guid: 0772de19f61022e4f811d73086a1a2e7, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &2452362142967466312
 MonoBehaviour:
@@ -120,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _landEffectPrefab: {fileID: 6133293774974021902, guid: b8bc292b01d598e41959a0ceff9d30ab, type: 3}
+  _buffEffect: {fileID: 1035940225668863279, guid: ffb3a0b21db51fc40ae1db5434292430, type: 3}

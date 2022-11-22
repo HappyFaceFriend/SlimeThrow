@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1234644101, guid: f431ae16af462e24cad00566c4ca7cad, type: 3}
+    - target: {fileID: 4767532421782770014, guid: 0b2905fa9482ef94c879a40a287d59d6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 6ede19aa0c1f74e4bb6aaccdb7cf7d70, type: 2}
     - target: {fileID: 9193871382579501939, guid: 0b2905fa9482ef94c879a40a287d59d6, type: 3}
       propertyPath: m_Name
       value: Rock Slime

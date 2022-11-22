@@ -96,3 +96,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _landEffectPrefab: {fileID: 120809503910874998, guid: a6552e45801e18045af925b343e18b59, type: 3}
+  _freezeEffect: {fileID: 7719907623317397778, guid: 7b7fa510811306f4f97c0902fe22782e, type: 3}
+  _snowingEffect: {fileID: 7869323075412508331, guid: 0d3e14d697bbc564d97de8f72fab8bae, type: 3}

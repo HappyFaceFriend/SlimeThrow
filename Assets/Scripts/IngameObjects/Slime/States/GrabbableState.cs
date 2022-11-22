@@ -10,21 +10,32 @@ namespace SlimeStates
         Utils.Timer _timer;
         KnockbackController _knockback;
         Collider2D _collider;
+        GameObject _buff;
         public GrabbableState(SlimeBehaviour slime, bool thrown = false) : base("Grabbable", slime)
         {
             _isThrown = thrown;
             _knockback = slime.GetComponent<KnockbackController>();
             _collider = slime.GetComponent<Collider2D>();
+            if(slime.transform.childCount == 2)
+            {
+                _buff = slime.transform.GetChild(1).gameObject;
+                _buff.SetActive(false);
+            }
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
+           
             Slime.Flipper.enabled = false;
             _timer = new Utils.Timer(Slime.GrabbableDuration);
             if (!_isThrown)
                 Slime.IsGrabbable = true;
             SetAnimState();
+
+            /*var buff = Slime.transform.GetChild(1).gameObject;
+            if(buff != null)
+                buff.SetActive(false);*/
         }
         public override void OnUpdate()
         {

@@ -27,7 +27,7 @@ public class BuffManager<T> where T:StateMachineBase
                 _removeBuffs.Add(buff);
             }
         }
-        foreach(Buff<T> buff in _removeBuffs)
+        foreach (Buff<T> buff in _removeBuffs)
         {
             _buffList.Remove(buff);
         }

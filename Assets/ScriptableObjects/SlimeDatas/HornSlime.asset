@@ -15,8 +15,8 @@ MonoBehaviour:
   _maxHp: 30
   _attackPower: 5
   _attackSpeed: 0.5
-  _attackRange: 1
-  _sightRange: 4
+  _attackRange: 2.5
+  _sightRange: 5
   _moveSpeed: 0.7
   _damageAsBullet: 15
   _type: 0

@@ -9,14 +9,20 @@ public class SlimePadtile : MonoBehaviour
     [SerializeField] float _moveSpeed;
     public float _padDurationTime;
 
+    protected float _elaspsedTime;
+    protected float _damage;
+    protected SlimeBehaviour _slime;
+    protected bool _active = false;
+    protected bool _canDamage = true;
+
     Vector3 _moveDir = Vector3.zero;
     float _movedDistance = 0f;
-    SlimeBehaviour _slime;
-    float _damage;
     float _timer = 0f;
     float _damagetimer = 0f;
-    bool _canDamage = true;
-    bool _active = false;
+    SpriteRenderer _spriteRenderer;
+
+
+
     public float GetAngle(Vector3 start, Vector3 end)
     {
         Vector3 v = end - start;
@@ -27,10 +33,12 @@ public class SlimePadtile : MonoBehaviour
         _slime = shooter;
         _damage = shooter.AttackPower.Value;
         _moveDir = (targetPosition - transform.position).normalized;
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
     }
 
     public void Update()
     {
+        _elaspsedTime += Time.deltaTime;
         if (_active == false)
         {
             transform.position += _moveDir * _moveSpeed * Time.deltaTime;
@@ -47,7 +55,9 @@ public class SlimePadtile : MonoBehaviour
             if (_timer < _padDurationTime)
                 _timer += Time.deltaTime;
             else
-                Die();
+            {
+                StartCoroutine("Fadeout");
+            }
             if (_damagetimer < 2f)
                 _damagetimer += Time.deltaTime;
             else
@@ -67,7 +77,7 @@ public class SlimePadtile : MonoBehaviour
             {
                 if (_canDamage)
                 {
-                    player.OnHittedByPad(_slime, _damage);
+                    player.TakeDamage(_damage);
                     _canDamage = false;
                 }
             }
@@ -84,7 +94,7 @@ public class SlimePadtile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var target = collision.GetComponent<PlayerBehaviour>();
-       if(target != null)
+        if (target != null)
         {
             _active = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
@@ -93,9 +103,20 @@ public class SlimePadtile : MonoBehaviour
             transform.GetChild(1).gameObject.SetActive(false);
         }
     }
-    void Die()
+    protected void Die()
     {
         Destroy(gameObject);
     }
-  
+    IEnumerator Fadeout()
+    {
+
+        Color color = _spriteRenderer.material.color;
+        color.a -= 0.01f;
+        Debug.Log(color.a);
+        _spriteRenderer.material.color = color;
+        if(color.a < 0)
+            Destroy(gameObject);
+        yield return null;
+    }
 }
+

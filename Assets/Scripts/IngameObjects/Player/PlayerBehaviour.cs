@@ -59,6 +59,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     }
     public void ApplyBuff(Buff<PlayerBehaviour> buff)
     {
+        buff.SetOwner(this);
         _buffManager.AddBuff(buff);
     }
 
@@ -106,6 +107,12 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _hpSystem.ChangeHp(-damage);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+    }
+    public void RecoveHP(float amount)
+    {
+        _hpSystem.ChangeHp(amount);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+        Debug.Log("체력 " + amount + "회복");
     }
     void OnDie()
     {

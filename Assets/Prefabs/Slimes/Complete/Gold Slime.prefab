@@ -15,9 +15,17 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1240716400, guid: d847f7c2f92feda4eb4dd2fb1cd1b1b6, type: 3}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: bf0907a034310bb4d8786f192fc3091b, type: 2}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
-      value: GoldSlime Variant
+      value: Gold Slime
       objectReference: {fileID: 0}
     - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_RootOrder

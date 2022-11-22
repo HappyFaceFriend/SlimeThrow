@@ -6,9 +6,9 @@ using UnityEngine;
 public class MultiDirectionAttack : SlimeAttackBase
 {
     public int _numOfdirections;
-    Transform _target;
-    [SerializeField] SlimeProjectile _projectilePrefab;
-    [SerializeField] BulletSmoke _smokePrefab;
+    protected Transform _target;
+    [SerializeField] protected SlimeProjectile _projectilePrefab;
+    [SerializeField] protected BulletSmoke _smokePrefab;
     
     protected override void OnStartAttack(Transform targetTransform)
     {
@@ -37,13 +37,14 @@ public class MultiDirectionAttack : SlimeAttackBase
         float eTime = 0f;
         while (eTime < Duration)
         {
+            Debug.Log(eTime);
             eTime += Time.deltaTime;
             yield return null;
         }
         IsAttackDone = true;
     }
 
-    private float GetAngle(Vector3 vector)
+    protected float GetAngle(Vector3 vector)
     {
         Vector3 v = vector;
         return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;

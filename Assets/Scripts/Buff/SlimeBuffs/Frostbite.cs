@@ -29,7 +29,7 @@ namespace SlimeBuffs
                 {
                     _nextDamageTime += _interval;
                     Owner.TakeDamage(_damage);
-                    Debug.Log(ElapsedTime + " / " + Duration + " : took damage");
+                    Debug.Log("동상 데미지 " + _damage);
                 }
             }
         }

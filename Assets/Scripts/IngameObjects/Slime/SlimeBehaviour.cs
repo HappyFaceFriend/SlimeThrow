@@ -11,6 +11,7 @@ public class SlimeBehaviour : StateMachineBase
     protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
+
     public bool IsAlive
     {
         get
@@ -35,6 +36,7 @@ public class SlimeBehaviour : StateMachineBase
     public BuffableStat AttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
+
 
     protected CameraController _camera;
 
@@ -98,6 +100,11 @@ public class SlimeBehaviour : StateMachineBase
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
             //ChangeState(new SlimeStates.GrabbableState(this));
         }
+        else if(CurrentState is SlimeStates.FreezeState) // 안 죽었고 얼어 있는 상태면 맞아도 가만히 
+        {
+            _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            //ChangeState(new SlimeStates.HittedState(this));
+        }
         else
         {
             _camera.Shake(CameraController.ShakePower.SlimeHitted);
@@ -112,8 +119,8 @@ public class SlimeBehaviour : StateMachineBase
     }
     void OnDie()
     {
-        //if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
-        if (true)
+        if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
+        //if (true)
             ChangeState(new SlimeStates.GrabbableState(this));
         else
             ChangeState(new SlimeStates.DeadState(this));

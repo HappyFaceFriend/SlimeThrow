@@ -10,10 +10,14 @@ namespace SlimeBuffs
         float _duration;
         Modifier _modifier;
         bool _start = false;
-        public Freeze(float duration) : base(duration)
+        SlimeBehaviour _slime;
+
+        public Freeze(float duration, SlimeBehaviour slime, GameObject buffeffect) : base(duration)
         {
             _duration = duration;
             _modifier = new Modifier(0f, Modifier.ApplyType.Multiply);
+            _slime = slime;
+            _slime.ChangeState(new SlimeStates.FreezeState(slime));
         }
         public override void OnUpdate()
         {
@@ -30,6 +34,7 @@ namespace SlimeBuffs
                 {
                     Owner.MoveSpeed.RemoveModifier(_modifier);
                     Owner.AttackSpeed.RemoveModifier(_modifier);
+                    _slime.ChangeState(new SlimeStates.MoveState(_slime));
                     Debug.Log("±ú¾î³µ´Ù");
                 }
             }

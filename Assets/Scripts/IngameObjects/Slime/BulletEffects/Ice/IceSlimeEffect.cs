@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class IceSlimeEffect : SlimeBulletEffect
 {
+    public GameObject _freezeEffect;
+    public GameObject _snowingEffect;
     class IceEffectInfo : AdditionalInfo
     {
         public float _freezeProb;
@@ -24,20 +26,24 @@ public class IceSlimeEffect : SlimeBulletEffect
     }
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
-        GameObject[] effects = new GameObject[3];
-
-        effects[0] = Instantiate(effectPrefab, landPosition, Quaternion.identity);
-
-        effects[1] = Instantiate(effectPrefab, landPosition + new Vector3(0.5f, 0.2f, 0), Quaternion.identity);
-        //effects[2] = Instantiate(effectPrefab, landPosition + new Vector3(-0.2f, 0.4f, 0), Quaternion.identity);
-        Destroy(effects[0], 4.0f);
-        Destroy(effects[1], 4.0f);
+        GameObject effect;
+        effect = Instantiate(effectPrefab);
+        effect.transform.position = landPosition;
+        Destroy(effect, 3.0f);
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         var iceInfo = info as IceEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.Freeze(iceInfo._freezeTime));
+        slime.ApplyBuff(new SlimeBuffs.Freeze(iceInfo._freezeTime, slime, _freezeEffect));
+        GameObject icecube = Instantiate(_freezeEffect);
+        icecube.transform.parent = slime.transform;
+        icecube.transform.localPosition = Vector3.zero;
+        Destroy(icecube, iceInfo._freezeTime);
         slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration, iceInfo._frostbiteDamPerTick, 1f,iceInfo._frostbiteProb));
+        GameObject snowing = Instantiate(_snowingEffect);
+        snowing.transform.parent = slime.transform;
+        snowing.transform.localPosition = new Vector3(0f, 0.05f);
+        Destroy(snowing, iceInfo._frostbiteDuration);
 
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)

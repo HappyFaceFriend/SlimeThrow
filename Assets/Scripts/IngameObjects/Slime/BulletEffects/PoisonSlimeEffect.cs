@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PoisonSlimeEffect : SlimeBulletEffect
 {
+   public  BuffBubble _buffEffect;
     class PoisonEffectInfo : AdditionalInfo
     {
         public float Probability { get; set; }
@@ -27,7 +28,10 @@ public class PoisonSlimeEffect : SlimeBulletEffect
     {
         PoisonEffectInfo poisonInfo = info as PoisonEffectInfo;
         slime.ApplyBuff(new SlimeBuffs.Poisoned(poisonInfo.Duration, poisonInfo.DamagePerTick, 0.5f));
-    }
+        BuffBubble buffEffect = Instantiate(_buffEffect);
+        buffEffect.transform.SetParent(slime.transform, false);
+        buffEffect.GetComponent<BuffBubble>().SetDuration(poisonInfo.Duration);
+    }  
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
         duplicateInfo.Damage += Damage;

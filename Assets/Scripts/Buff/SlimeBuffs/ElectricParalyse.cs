@@ -11,12 +11,17 @@ namespace SlimeBuffs
         float _interval;
         float _nextDamageTime;
         float _duration;
-        public ElectricParalyse(float duration, float damage, float interval) : base(duration)
+        bool _active = false;
+        Modifier _modifier;
+        SlimeBehaviour _slime;
+        public ElectricParalyse(float duration, float damage, SlimeBehaviour slime) : base(duration)
         {
             _duration = duration;
             _damage = damage;
             _interval = 1f;
-            _nextDamageTime = 0f;
+            _modifier = new Modifier(0f, Modifier.ApplyType.Multiply);
+            _slime = slime;
+            _slime.ChangeState(new SlimeStates.FreezeState(slime));
         }
         public override void OnUpdate()
         {
@@ -28,10 +33,18 @@ namespace SlimeBuffs
                 Debug.Log(ElapsedTime + " / " + Duration + " : took damage");
                 
             }
-            if (ElapsedTime >= _duration)
-                Owner.MoveSpeed.AddModifier(new Modifier(-Owner.MoveSpeed.BaseValue, Modifier.ApplyType.Add));
-            else
-                Owner.MoveSpeed.RemoveModifier(new Modifier(-Owner.MoveSpeed.BaseValue, Modifier.ApplyType.Add));
+            if (!_active)
+            {
+                Debug.Log("모디파이어 추가한다");
+                Owner.MoveSpeed.AddModifier(_modifier);
+                _active = true;
+            }
+            else if (ElapsedTime > _duration)
+            {
+                Debug.Log("모디파이어 제거한다");
+                Owner.MoveSpeed.RemoveModifier(_modifier);
+                _slime.ChangeState(new SlimeStates.MoveState(_slime));
+            }
         }
 
     }

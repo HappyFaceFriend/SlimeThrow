@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireSlimeEffect : SlimeBulletEffect
 {
     public TinyFire _addtionalEffect;
+    public LittleFire _buffEffect;
 
     class FireEffectInfo : AdditionalInfo
     {
@@ -41,6 +42,9 @@ public class FireSlimeEffect : SlimeBulletEffect
     {
         FireEffectInfo fireInfo = info as FireEffectInfo;
         slime.ApplyBuff(new SlimeBuffs.Burn(fireInfo.Duration, fireInfo.DamagePerTick, 1f));
+        LittleFire buffEffect = Instantiate(_buffEffect);
+        buffEffect.transform.SetParent(slime.transform, false);
+        buffEffect.GetComponent<LittleFire>().SetDuration(fireInfo.Duration);
 
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)

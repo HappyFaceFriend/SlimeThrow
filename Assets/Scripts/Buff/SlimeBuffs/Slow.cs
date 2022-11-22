@@ -10,10 +10,12 @@ namespace SlimeBuffs
         float _duration;
         Modifier _modifier;
         bool _start = false;
-        public Slow(float duration) : base(duration)
+        float _slowPercent;
+        public Slow(float duration, float slowPercent) : base(duration)
         {
             _duration = duration;
-            _modifier = new Modifier(0.5f, Modifier.ApplyType.Multiply);
+            _slowPercent = slowPercent;
+            _modifier = new Modifier(1 - _slowPercent, Modifier.ApplyType.Multiply);
         }
         public override void OnUpdate()
         {

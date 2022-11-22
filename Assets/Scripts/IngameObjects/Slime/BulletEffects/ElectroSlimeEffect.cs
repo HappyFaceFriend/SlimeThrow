@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ElectroSlimeEffect : SlimeBulletEffect
 {
+    public GameObject _buffEffect;
     class ElectroEffectInfo : AdditionalInfo
     {
         public float Probability { get; set; }
@@ -25,7 +26,11 @@ public class ElectroSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         var ElectroInfo = info as ElectroEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(ElectroInfo.Duration, ElectroInfo.DamagePerTick, ElectroInfo.Probability));
+        slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(ElectroInfo.Duration, ElectroInfo.DamagePerTick, slime));
+        GameObject buffEffect = Instantiate(_buffEffect);
+        buffEffect.transform.SetParent(slime.transform, false);
+        Destroy(slime.transform.GetChild(1).gameObject, ElectroInfo.Duration);
+        
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
