@@ -13,8 +13,10 @@ public class SlimeBehaviour : StateMachineBase
     public bool CriticalOn { get; set; } = false;
     public bool FireBallOn { get; set; } = false;
     public bool IsGrabbable { get; set; } = false;
-    public bool FireSlayerOn { get; set; } = true;
+    public bool FireSlayerOn { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
+    public bool FlameBullet { get; set; } = false;
+    public bool BurningFist { get; set; } = false;
     public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
                                         CurrentState is SlimeStates.GrabbedState); } }
     public float GrabbableDuration { get { return _grabbableDuration; } }
@@ -30,6 +32,8 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] float _normPosOfFlowerAttack;
     [SerializeField] bool _isGrabbableAtDeath = false;
     public float NormPosOfFlowerAttack { get { return _normPosOfFlowerAttack; } }
+    public HpSystem HPSystem { get { return _hpSystem; } }
+    public SlimeData Data { get { return _data; } }
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public BuffableStat AttackRange { get; private set; }
@@ -80,7 +84,9 @@ public class SlimeBehaviour : StateMachineBase
         ChangeState(new SlimeStates.GrabbableState(this, true));
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
-    { 
+    {
+        if (BurningFist)
+            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, 2, 0.5f));
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
         if (IsOnFire & CriticalOn)

@@ -40,7 +40,12 @@ public class FireSlimeEffect : SlimeBulletEffect
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
-        slime.ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
+        float damage;
+        if (slime.FlameBullet)
+            damage = slime.HPSystem.MaxHp.Value * 0.1f;
+        else
+            damage = GlobalRefs.EffectStatManager._burn.DamagePerTick.Value;
+        slime.ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, damage, 0.5f));
         slime.IsOnFire = true;
         float eTime = 0;
         while(true)

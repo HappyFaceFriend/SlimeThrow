@@ -11,7 +11,7 @@ namespace Upgrades
         [System.Serializable]
         public class UpgradeMode
         {
-            public enum UpgradeType { Burning, Flames, Critical_Fire, Fire_Cannon, Fire_Slayer }
+            public enum UpgradeType { Burning, Flames, Critical_Fire, Fire_Cannon, Fire_Slayer, Flamemail, Flame_Bullet, Burning_Fist }
             public UpgradeType _upgradeType;
             public float _applyValue;
             public Modifier.ApplyType _applyType;
@@ -39,6 +39,12 @@ namespace Upgrades
                 GlobalRefs.LevelManger._spawner._fireBallUpgrade = true;
             else if (type == UpgradeMode.UpgradeType.Fire_Slayer)
                 GlobalRefs.LevelManger._spawner._fireSlayerUpgrade = true;
+            else if (type == UpgradeMode.UpgradeType.Flamemail)
+                GlobalRefs.Player._firemail = true;
+            else if (type == UpgradeMode.UpgradeType.Flame_Bullet)
+                GlobalRefs.LevelManger._spawner._flameBulletUpgrade = true;
+            else if (type == UpgradeMode.UpgradeType.Burning_Fist)
+                GlobalRefs.LevelManger._spawner._fistUpgrade = true;
         }
     }
 }

@@ -36,6 +36,8 @@ public class SlimeSpawner : MonoBehaviour
     public bool _criticalUpgrade { get; set; } = false;
     public bool _fireBallUpgrade { get; set; } = false;
     public bool _fireSlayerUpgrade { get; set; } = false;
+    public bool _flameBulletUpgrade { get; set; } = false;
+    public bool _fistUpgrade { get; set; } = false;
 
     public int CurrentRound { get { return _currentRound; } }
     public int CurrentStage { get { return _currentStage; } }
@@ -254,5 +256,11 @@ public class SlimeSpawner : MonoBehaviour
 
         if (_fireSlayerUpgrade)
             slime.FireSlayerOn = true;
+
+        if (_flameBulletUpgrade)
+            slime.FlameBullet = true;
+
+        if (_fistUpgrade)
+            slime.BurningFist = true;
     }
 }
