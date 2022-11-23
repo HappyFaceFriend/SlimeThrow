@@ -97,6 +97,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
+        SoundManager.Instance.PlaySFX("PlayerHitted");
     }
 
     public void OnHittedByPad(SlimeBehaviour slime, float damage)
@@ -105,6 +106,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
             return;
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
+        SoundManager.Instance.PlaySFX("PlayerHitted", 0.15f);
     }
     public void TakeDamage(float damage)
     {

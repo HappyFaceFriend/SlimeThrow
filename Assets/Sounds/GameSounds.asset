@@ -27,14 +27,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 8395d34860885e942995def6049ca2c7, type: 3}
   - _name: PlayerAttack
     _clip: {fileID: 8300000, guid: 14744249b5fb941f18fc51c5755de13b, type: 3}
+  - _name: PlayerRoll
+    _clip: {fileID: 8300000, guid: deb1e3f07fcb34eb289bfc2ae1d7b338, type: 3}
   - _name: EnterTurret
     _clip: {fileID: 8300000, guid: fa91f0f216d274c8d80f85b85a2e672e, type: 3}
   - _name: StartAiming
     _clip: {fileID: 8300000, guid: b167932ecb78e429982a22322fb018f6, type: 3}
   - _name: BulletShoot
     _clip: {fileID: 8300000, guid: cb25310cef94344fc9ee6b7fbdcfffb5, type: 3}
-  - _name: BulletLand
-    _clip: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
+  - _name: BulletLand1
+    _clip: {fileID: 8300000, guid: c8468b5c20e2bfa46a33421a773b4476, type: 3}
+  - _name: BulletLand2
+    _clip: {fileID: 8300000, guid: 02ac08f9fa2b449d8bbee4af3ea2ecd6, type: 3}
   - _name: Pickup
     _clip: {fileID: 8300000, guid: 09a73aa1c8e084a4584fdcb3e4392971, type: 3}
   - _name: ThrowAway

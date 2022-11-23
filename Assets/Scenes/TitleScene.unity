@@ -2369,8 +2369,8 @@ MonoBehaviour:
   _bgmSource: {fileID: 881889160}
   _sfxSource: {fileID: 881889159}
   _bgms: {fileID: 11400000, guid: afe5312838406d448881dd9d2dbef298, type: 2}
-  _uiSounds: {fileID: 0}
-  _gameSounds: {fileID: 0}
+  _uiSounds: {fileID: 11400000, guid: 8c6a7a352f1a0a34aa64785cc18e2438, type: 2}
+  _gameSounds: {fileID: 11400000, guid: 8c6a7a352f1a0a34aa64785cc18e2438, type: 2}
 --- !u!4 &881889162
 Transform:
   m_ObjectHideFlags: 0

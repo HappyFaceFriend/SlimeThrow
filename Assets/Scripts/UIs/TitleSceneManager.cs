@@ -41,7 +41,7 @@ public class TitleSceneManager : MonoBehaviour
     public void EnableCameraMove()
     {
         if(_canCameraMove == false)
-            SoundManager.Instance.PlayBGM("MainBGM");
+            SoundManager.Instance.PlayBGM("Main");
         _canCameraMove = true;
     }
 

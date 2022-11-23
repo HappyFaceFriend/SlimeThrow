@@ -18,6 +18,8 @@ public class TurretTargetingState : TurretState
         Turret.TargetMarker.position = mousePos;
         Turret.TargetMarker.gameObject.SetActive(true);
         Time.timeScale = 0.3f;
+
+        SoundManager.Instance.PlaySFX("StartAiming");
     }
     public override void OnUpdate()
     {

@@ -47,6 +47,8 @@ public class AttackController : MonoBehaviour
         _shovelAnimator.SetTrigger("onAttack");
         _hitBoxAnim.SetTrigger("Hit");
 
+        SoundManager.Instance.PlaySFX("PlayerAttack");
+
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(LayerMask.GetMask(Defs.SlimeLayer));
 

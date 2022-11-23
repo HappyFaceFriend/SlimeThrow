@@ -15,7 +15,8 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     public void PlayBGM(string name, float volume = 0.5f)
     {
         AudioClip sound = _bgms.GetSound(name);
-            _bgmSource.PlayOneShot(sound, volume);
+        _bgmSource.Stop();
+        _bgmSource.PlayOneShot(sound, volume);
     }
     public void PlaySFX(string name, float volume = 0.5f)
     {

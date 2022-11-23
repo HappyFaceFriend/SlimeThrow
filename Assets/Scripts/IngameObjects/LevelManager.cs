@@ -21,7 +21,11 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         if (_spawner != null)
+        {
             StartCoroutine(GameLoop());
+
+            SoundManager.Instance.PlayBGM("Game");
+        }
     }
 
     public void setBurn()

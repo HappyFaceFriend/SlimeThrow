@@ -107,11 +107,16 @@ public class SlimeBehaviour : StateMachineBase
         if(_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+            SoundManager.Instance.PlaySFX("SlimeLastHitted");
             //ChangeState(new SlimeStates.GrabbableState(this));
         }
         else
         {
             _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            if(Random.Range(0f,1f) > 0.5f)
+                SoundManager.Instance.PlaySFX("SlimeHitted1");
+            else
+                SoundManager.Instance.PlaySFX("SlimeHitted2");
             ChangeState(new SlimeStates.HittedState(this));
         }
     }
@@ -120,6 +125,10 @@ public class SlimeBehaviour : StateMachineBase
         _flasher.Flash();
         EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
         _hpSystem.ChangeHp(-damage);
+        if (Random.Range(0f, 1f) > 0.5f)
+            SoundManager.Instance.PlaySFX("SlimeHitted1", 0.15f);
+        else
+            SoundManager.Instance.PlaySFX("SlimeHitted2", 0.15f);
     }
     void OnDie()
     {
@@ -139,7 +148,7 @@ public class SlimeBehaviour : StateMachineBase
         if (PuttedInTurret)
             return;
         _camera.Shake(CameraController.ShakePower.SlimeHitted);
-        float smokeSpeed = 0.7f;
+        float smokeSpeed = 2f;
         float angleOffset = Random.Range(-15, 15);
         EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
         EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);

@@ -37,6 +37,7 @@ public class TurretBehaviour : StateMachineBase
         bulletObject.transform.position = _shootPosition.position;
         bulletObject.StartShoot(targetPosition);
         Animator.SetTrigger("Shoot");
+        SoundManager.Instance.PlaySFX("BulletShoot", 1.5f);
     }
     protected override StateBase GetInitialState()
     {

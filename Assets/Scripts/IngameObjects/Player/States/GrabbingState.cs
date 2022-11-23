@@ -15,6 +15,7 @@ namespace PlayerStates
             _movement = Player.GetComponent<MovementController>();
             _grabController = Player.GetComponent<GrabController>();
             SetAnimState();
+            SoundManager.Instance.PlaySFX("Pickup");
         }
 
 
