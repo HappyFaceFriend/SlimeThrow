@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac7b1fc9ea047b46937c82cb2e9848c, type: 3}
+  m_Name: GameSounds
+  m_EditorClassIdentifier: 
+  _sounds:
+  - _name: SlimeHitted1
+    _clip: {fileID: 8300000, guid: 45f46c55be1c248678d6a60bca4218ce, type: 3}
+  - _name: SlimeHitted2
+    _clip: {fileID: 8300000, guid: a20de80352b81764198d28f46fa2d7fe, type: 3}
+  - _name: SlimeAttack
+    _clip: {fileID: 8300000, guid: 53f05d31d332f4dec9ccb40258b0e87f, type: 3}
+  - _name: SlimeLastHitted
+    _clip: {fileID: 8300000, guid: 65cc7487eac13b4409ff52f7d3c624dc, type: 3}
+  - _name: SlimeExplode
+    _clip: {fileID: 8300000, guid: 92c25b29511c743658321b11fd809a48, type: 3}
+  - _name: PlayerHitted
+    _clip: {fileID: 8300000, guid: 8395d34860885e942995def6049ca2c7, type: 3}
+  - _name: PlayerAttack
+    _clip: {fileID: 8300000, guid: 14744249b5fb941f18fc51c5755de13b, type: 3}
+  - _name: EnterTurret
+    _clip: {fileID: 8300000, guid: fa91f0f216d274c8d80f85b85a2e672e, type: 3}
+  - _name: StartAiming
+    _clip: {fileID: 8300000, guid: b167932ecb78e429982a22322fb018f6, type: 3}
+  - _name: BulletShoot
+    _clip: {fileID: 8300000, guid: cb25310cef94344fc9ee6b7fbdcfffb5, type: 3}
+  - _name: BulletLand
+    _clip: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
+  - _name: Pickup
+    _clip: {fileID: 8300000, guid: 09a73aa1c8e084a4584fdcb3e4392971, type: 3}
+  - _name: ThrowAway
+    _clip: {fileID: 8300000, guid: 93339586e13414810901ad6e3957bf72, type: 3}
