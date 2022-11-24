@@ -9,9 +9,10 @@ public class SlimeProjectile : MonoBehaviour
 
     Vector3 _moveDir = Vector3.zero;
     float _movedDistance = 0f;
-    SlimeBehaviour _slime;
+    protected SlimeBehaviour _slime;
     private SpriteRenderer _spriteRenderer;
-    float _damage;
+    protected float _damage;
+    protected float _elapsedTime = 0f;
 
     public float GetAngle(Vector3 start, Vector3 end)
     {
@@ -29,6 +30,7 @@ public class SlimeProjectile : MonoBehaviour
 
     public void Update()
     {
+        _elapsedTime += Time.deltaTime;
         transform.position += _moveDir * _moveSpeed * Time.deltaTime;
         _movedDistance += _moveSpeed * Time.deltaTime;
         if (_movedDistance > _range)
@@ -45,7 +47,7 @@ public class SlimeProjectile : MonoBehaviour
             Die();
         }
     }
-    void Die()
+    protected void Die()
     {
         Destroy(gameObject);
     }

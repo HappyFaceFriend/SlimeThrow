@@ -100,11 +100,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireSlime_body
+      name: Fire_all_0
       rect:
         serializedVersion: 2
         x: 3
@@ -112,83 +124,41 @@ TextureImporter:
         width: 26
         height: 19
       alignment: 9
-      pivot: {x: 0.5, y: 0.05263158}
+      pivot: {x: 0.4951073, y: -0.008845003}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe7d0b34f3df2af48b80158a18439751
-      internalID: 638186437
+      spriteID: d8fb3a461bf7bc84fb483c56aafd4878
+      internalID: 623255537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireSlime_hitted
+      name: Fire_all_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 34
+        y: 7
+        width: 27
+        height: 20
       alignment: 9
-      pivot: {x: 0.5, y: 0.21875}
+      pivot: {x: 0.5141346, y: 0.042039372}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13afbcd5fc80ee441b6bb56af26ad974
-      internalID: 1914168656
+      spriteID: 9983f8909316a244db96d0f91b5a06ac
+      internalID: 668855052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireSlime_mouth2
-      rect:
-        serializedVersion: 2
-        x: 85
-        y: 6
-        width: 6
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd1c0803222cb4341b8785ffa2135622
-      internalID: -1520835780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fireslime_mouth1
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 5
-        width: 6
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7a39dfc42d0a5040bd5298cd92caa2f
-      internalID: -2129153153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireSlime_eye1
+      name: Fire_all_2
       rect:
         serializedVersion: 2
         x: 68
@@ -202,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55ada576be8d12f458e9f08f4646f607
-      internalID: -1661665041
+      spriteID: ea9838a2b4df07e49bf6979627f4c5d3
+      internalID: -1663970894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireSlime_eye3
+      name: Fire_all_3
       rect:
         serializedVersion: 2
         x: 82
-        y: 23
+        y: 25
         width: 10
-        height: 4
+        height: 2
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,19 +193,82 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c272ed0752cbf748b38161f2653c19b
-      internalID: 1168399434
+      spriteID: f67910ee75dd81d42a8eebd2d4b6b020
+      internalID: -301248829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireSlime_eye2
+      name: Fire_all_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 14
+        width: 8
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209645de266684c42b817653a5fcee95
+      internalID: 40095992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_all_5
       rect:
         serializedVersion: 2
         x: 83
-        y: 15
+        y: 16
         width: 10
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ec439b2c6cd0b4a9a9075bdf8a7592
+      internalID: -848687451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_all_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 6
+        width: 3
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe8a277b987fc64c88106eb30602206
+      internalID: 512068637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_all_7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 6
+        width: 6
         height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -244,8 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30d376dacb43a4b49898f917997235ef
-      internalID: -1987741753
+      spriteID: 42c2abea99306844cb0eb0f998bbc3ac
+      internalID: -1443209512
       vertices: []
       indices: 
       edges: []
@@ -261,13 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FireSlime_eye3: 1168399434
-      FireSlime_mouth2: -1520835780
-      FireSlime_hitted: 1914168656
-      FireSlime_body: 638186437
-      Fireslime_mouth1: -2129153153
-      FireSlime_eye1: -1661665041
-      FireSlime_eye2: -1987741753
+      Fire_all_0: 623255537
+      Fire_all_4: 40095992
+      Fire_all_6: 512068637
+      Fire_all_5: -848687451
+      Fire_all_3: -301248829
+      Fire_all_1: 668855052
+      Fire_all_2: -1663970894
+      Fire_all_7: -1443209512
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

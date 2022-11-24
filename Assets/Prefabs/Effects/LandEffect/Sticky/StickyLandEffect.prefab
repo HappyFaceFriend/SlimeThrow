@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 858851325350936422}
   - component: {fileID: 858851325350936423}
   - component: {fileID: 858851325350936420}
-  - component: {fileID: -2619745743651248206}
   m_Layer: 0
   m_Name: StickyLandEffect
   m_TagString: Untagged
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 177978493, guid: 77d92223102b0f444904eca8299fc00c, type: 3}
+  m_Sprite: {fileID: 1539938761, guid: 81cd20b7d68f37f40a4e08967a2a305f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,15 +105,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-2619745743651248206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858851325350936421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb519009988a7bc47a49ea22a40c6557, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

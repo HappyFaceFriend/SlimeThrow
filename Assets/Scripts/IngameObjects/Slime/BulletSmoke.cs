@@ -19,7 +19,5 @@ public class BulletSmoke : MonoBehaviour
         }
         else if (name == "Ice")
             _spriteRenderer.color = new Color(0, 0, 0, 1);
-        else
-            Debug.Log("맞는 색이 없다");
     }    
 }

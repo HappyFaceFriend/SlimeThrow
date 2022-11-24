@@ -121,7 +121,8 @@ public class SlimeSpawner : MonoBehaviour
             
         for (int i=2; i<=maxRound-1; i++)
         {
-            mainPool.Add(_attackSlimes[mainPoolIdx++]);
+            if (mainPoolIdx < _attackSlimes.Count)
+                mainPool.Add(_attackSlimes[mainPoolIdx++]);
             SlimeBehaviour[] attackPool = Utils.Random.RandomElements(mainPool, 3);
             int main = _allSlimes.FindIndex(x => x == attackPool[0]);
             int[] subs = new int[2];
@@ -166,6 +167,7 @@ public class SlimeSpawner : MonoBehaviour
     }
     public void Load(SaveData loadData)
     {
+        InitPools();
         _currentRound = loadData._round;
         _currentStage = loadData._stage;
     }
@@ -324,7 +326,6 @@ public class SlimeSpawner : MonoBehaviour
         if (_burnUpgrade)
         {
             slime.ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
-            slime.IsOnFire = true;
         }
         if (_criticalUpgrade)
             slime.CriticalOn = true;

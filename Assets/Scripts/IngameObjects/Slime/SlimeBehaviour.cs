@@ -9,14 +9,21 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] FlipObjectToPoint _flip;
 
     protected KnockbackController _knockback;
-    public bool IsOnFire { get; set; } = false;
+    public bool IsOnFire { get { return _buffManager.HasBuff(typeof(SlimeBuffs.Burn)); }  }
     public bool CriticalOn { get; set; } = false;
     public bool FireBallOn { get; set; } = false;
     public bool IsGrabbable { get; set; } = false;
     public bool FireSlayerOn { get; set; } = true;
     public bool PuttedInTurret { get; set; } = false;
-    public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
-                                        CurrentState is SlimeStates.GrabbedState); } }
+
+    public bool IsAlive
+    {
+        get
+        {
+            return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
+                                        CurrentState is SlimeStates.GrabbedState);
+        }
+    }
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
@@ -37,6 +44,7 @@ public class SlimeBehaviour : StateMachineBase
     public BuffableStat FlowerAttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
+
 
     protected CameraController _camera;
 
@@ -104,11 +112,16 @@ public class SlimeBehaviour : StateMachineBase
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();
         TakeDamage(damage);
-        if(_hpSystem.IsDead)
+        if (_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
             SoundManager.Instance.PlaySFX("SlimeLastHitted");
             //ChangeState(new SlimeStates.GrabbableState(this));
+        }
+        else if(CurrentState is SlimeStates.FreezeState) // 안 죽었고 얼어 있는 상태면 맞아도 가만히 
+        {
+            _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            //ChangeState(new SlimeStates.HittedState(this));
         }
         else
         {
@@ -138,6 +151,7 @@ public class SlimeBehaviour : StateMachineBase
             return;
         }
         if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
+        //if (true)
             ChangeState(new SlimeStates.GrabbableState(this));
         else
             ChangeState(new SlimeStates.DeadState(this));

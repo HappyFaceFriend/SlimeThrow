@@ -121,8 +121,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e78003224dee7a4896018a7ac2e7045
-      internalID: 2059297525
+      spriteID: ba77d55b7f69c354397ad700299aa269
+      internalID: -181010051
       vertices: []
       indices: 
       edges: []
@@ -140,10 +140,10 @@ TextureImporter:
       name: Rock Land Effect_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a24b67d19e63864c905969cd1c8af00
-      internalID: -9249040
+      spriteID: 7c9078571e9d1054797096010c761a3d
+      internalID: -1454602719
       vertices: []
       indices: 
       edges: []
@@ -161,10 +161,10 @@ TextureImporter:
       name: Rock Land Effect_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 459ccd0d70b697648af6ebd1a47f333d
-      internalID: -1219677751
+      spriteID: 4337f888965b2894ea109b70f3c12105
+      internalID: -1307951068
       vertices: []
       indices: 
       edges: []
@@ -182,10 +182,10 @@ TextureImporter:
       name: Rock Land Effect_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 288
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 509ec6000dde5824b874266e6b86ef3b
-      internalID: 242070376
+      spriteID: 23dbe146ccf76664faf831e52a873395
+      internalID: -335634033
       vertices: []
       indices: 
       edges: []
@@ -203,10 +203,10 @@ TextureImporter:
       name: Rock Land Effect_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,8 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f7c966343407b546a7bb07dda375a43
-      internalID: 1647572480
+      spriteID: 02dd7f6b052e5564f908a3f98c959d61
+      internalID: 1976033963
       vertices: []
       indices: 
       edges: []
@@ -224,10 +224,10 @@ TextureImporter:
       name: Rock Land Effect_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 480
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2467958569e4b245b0a202ad7cfd89b
-      internalID: -1826431929
+      spriteID: a12f997ac65407644bae16480e260890
+      internalID: 678808970
       vertices: []
       indices: 
       edges: []
@@ -245,10 +245,10 @@ TextureImporter:
       name: Rock Land Effect_6
       rect:
         serializedVersion: 2
-        x: 384
+        x: 576
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,8 +256,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c586a207cba823643b1f02b18ce3643d
-      internalID: -351800241
+      spriteID: 460e57901db38134c9063a4906fe7df5
+      internalID: -425859431
       vertices: []
       indices: 
       edges: []
@@ -266,10 +266,10 @@ TextureImporter:
       name: Rock Land Effect_7
       rect:
         serializedVersion: 2
-        x: 448
+        x: 672
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,8 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54400e3aad0edac4c8ddc5c983e19c71
-      internalID: -1234410929
+      spriteID: 3f62f7b218e72ec46a40b8f297ba5a1a
+      internalID: -1782264095
       vertices: []
       indices: 
       edges: []
@@ -287,10 +287,10 @@ TextureImporter:
       name: Rock Land Effect_8
       rect:
         serializedVersion: 2
-        x: 512
+        x: 768
         y: 0
-        width: 64
-        height: 32
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,8 +298,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d34a4aca89250944f9cbc946f71b0e53
-      internalID: -1114937963
+      spriteID: 69a6d85b25fbb44449cce4f9240f42b3
+      internalID: -1104489622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock Land Effect_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe15b1fa23a6eb45ac9a35b0e17b32d
+      internalID: 1990522905
       vertices: []
       indices: 
       edges: []
@@ -315,15 +336,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Rock Land Effect_1: -9249040
-      Rock Land Effect_5: -1826431929
-      Rock Land Effect_6: -351800241
-      Rock Land Effect_4: 1647572480
-      Rock Land Effect_3: 242070376
-      Rock Land Effect_8: -1114937963
-      Rock Land Effect_0: 2059297525
-      Rock Land Effect_7: -1234410929
-      Rock Land Effect_2: -1219677751
+      Rock Land Effect_1: -1454602719
+      Rock Land Effect_5: 678808970
+      Rock Land Effect_9: 1990522905
+      Rock Land Effect_6: -425859431
+      Rock Land Effect_4: 1976033963
+      Rock Land Effect_3: -335634033
+      Rock Land Effect_8: -1104489622
+      Rock Land Effect_0: -181010051
+      Rock Land Effect_7: -1782264095
+      Rock Land Effect_2: -1307951068
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

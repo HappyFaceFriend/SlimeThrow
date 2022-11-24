@@ -8,10 +8,12 @@ public class StickySlimeEffect : SlimeBulletEffect
     {
         public float Probability { get; set; }
         public float Duration { get; set; }
-        public int DamagePerTick { get; set; }
+        public float SlowPercent { get; set; }
         public StickyEffectInfo()
         {
-           
+            Probability = 1f;
+            Duration = 2.5f;
+            SlowPercent = 0.5f;
         }
     }
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
@@ -23,11 +25,12 @@ public class StickySlimeEffect : SlimeBulletEffect
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
-     
+        StickyEffectInfo StickyInfo = info as StickyEffectInfo;
+        slime.ApplyBuff(new SlimeBuffs.Slow(StickyInfo.Duration, StickyInfo.SlowPercent));
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
-        
+        duplicateInfo.Damage += Damage;
     }
     protected override AdditionalInfo GetAdditionalInfos()
     {

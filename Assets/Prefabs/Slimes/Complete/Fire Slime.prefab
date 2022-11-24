@@ -8,17 +8,45 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 948709063, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1702894428, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: _projectilePrefab
+      value: 
+      objectReference: {fileID: 175602042, guid: 268f672bdd2aaa048a9e7b2b0d61e8f7, type: 3}
     - target: {fileID: 1372328805832628289, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 638186437, guid: ffd0c7948b32b6348a5573849c205e47, type: 3}
+      objectReference: {fileID: 623255537, guid: ffd0c7948b32b6348a5573849c205e47, type: 3}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Controller
       value: 
@@ -93,3 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _landEffectPrefab: {fileID: 120809503910874998, guid: 3ca0cfba91732274ab1bb6a98f0ebd65, type: 3}
   _addtionalEffect: {fileID: 615507065834866165, guid: 258bdc1639ddc934c988e24f9f4dacf9, type: 3}
+  _buffEffect: {fileID: -3434691670958177263, guid: 1810c108ab598704da9b7d2235474da9, type: 3}

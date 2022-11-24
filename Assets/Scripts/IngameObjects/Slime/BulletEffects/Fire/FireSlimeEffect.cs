@@ -6,7 +6,7 @@ using UnityEngine;
 public class FireSlimeEffect : SlimeBulletEffect
 {
     public TinyFire _addtionalEffect;
-    Utils.Timer burnTimer = new Utils.Timer(4f);
+    public LittleFire _buffEffect;
     class BurnStat : AdditionalInfo
     {
         public float Probability { get; set; }
@@ -41,18 +41,10 @@ public class FireSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         slime.ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
-        slime.IsOnFire = true;
-        float eTime = 0;
-        while(true)
-        {
-            eTime += Time.deltaTime;
-            burnTimer.Tick();
-            if (burnTimer.IsOver)
-            {
-                slime.IsOnFire = false;
-                break;
-            }
-        }
+        LittleFire buffEffect = Instantiate(_buffEffect);
+        buffEffect.transform.SetParent(slime.transform, false);
+        buffEffect.GetComponent<LittleFire>().SetDuration(GlobalRefs.EffectStatManager._burn.Duration.Value);
+
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
