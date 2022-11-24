@@ -52,5 +52,6 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
         _hpSystem.ChangeHp(-damage);
         EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.FlowerHitted);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+        SoundManager.Instance.PlaySFX("PlayerHitted");
     }
 }
