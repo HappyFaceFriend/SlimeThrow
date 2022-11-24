@@ -100,7 +100,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         SoundManager.Instance.PlaySFX("PlayerHitted");
     }
 
-    public void OnHittedByPad(SlimeBehaviour slime, float damage)
+    public void OnHitted(float damage)
     {
         if (IsInvincible)
             return;
