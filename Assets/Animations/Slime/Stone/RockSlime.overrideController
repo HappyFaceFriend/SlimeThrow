@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: RockSlime
   m_Controller: {fileID: 9100000, guid: 4e9b0e223ff745f478d4dc2e56b2407a, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: b572700b36b118142b4d4ad88ad37353, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fdacc6ce59cebc7498db94b83276a861, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 90da6ded328fabb4f809c99e6454d452, type: 2}

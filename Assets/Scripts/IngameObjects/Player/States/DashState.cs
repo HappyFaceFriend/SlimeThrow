@@ -21,6 +21,7 @@ namespace PlayerStates
             _lastCurveValue = _settings.DashCurve.Evaluate(0);
             Player.IsInvincible = true;
             Player.GetComponent<CircleCollider2D>().enabled = false;
+            SoundManager.Instance.PlaySFX("PlayerRoll");
             SetAnimState();
         }
         public override void OnExit()

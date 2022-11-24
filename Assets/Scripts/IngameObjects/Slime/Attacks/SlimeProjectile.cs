@@ -46,10 +46,10 @@ public class SlimeProjectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var target = collision.collider.GetComponent<IAttackableBySlime>();
+        var target = collision.collider.GetComponent<PlayerBehaviour>();
         if (target != null)
         {
-            target.OnHittedBySlime(_slime, _damage);
+            target.OnHitted( _damage);
             Die();
         }
     }

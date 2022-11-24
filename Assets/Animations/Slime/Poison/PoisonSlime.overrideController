@@ -9,17 +9,15 @@ AnimatorOverrideController:
   m_Name: PoisonSlime
   m_Controller: {fileID: 9100000, guid: 4e9b0e223ff745f478d4dc2e56b2407a, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: b572700b36b118142b4d4ad88ad37353, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ed501dae7a6135a4fbcfc02e186c6275, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 1bc54801b099bbe4d94164d572b68089, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 1bc54801b099bbe4d94164d572b68089, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: e62a64a43156bef41b6cecf2dd9c7c3c, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: e62a64a43156bef41b6cecf2dd9c7c3c, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: fdacc6ce59cebc7498db94b83276a861, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: fdacc6ce59cebc7498db94b83276a861, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 06e47c83e618f774385a72cf9a1ef49e, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 06e47c83e618f774385a72cf9a1ef49e, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 7ce3b7192bac8e7488d2bf640bc093fa, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 7ce3b7192bac8e7488d2bf640bc093fa, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 1ef25b58c93cefd4da1929bd4b4c41f3, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 6ebd996f84784584f8f07e4edc1d4683, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fdacc6ce59cebc7498db94b83276a861, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ed501dae7a6135a4fbcfc02e186c6275, type: 2}

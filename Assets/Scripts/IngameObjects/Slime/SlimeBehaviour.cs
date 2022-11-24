@@ -9,8 +9,13 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] FlipObjectToPoint _flip;
 
     protected KnockbackController _knockback;
+    public bool IsOnFire { get { return _buffManager.HasBuff(typeof(SlimeBuffs.Burn)); }  }
+    public bool CriticalOn { get; set; } = false;
+    public bool FireBallOn { get; set; } = false;
     public bool IsGrabbable { get; set; } = false;
+    public bool FireSlayerOn { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
+
 
     public bool IsAlive
     {
@@ -27,6 +32,11 @@ public class SlimeBehaviour : StateMachineBase
         else
             return false;
     }
+
+    public bool FlameBullet { get; set; } = false;
+    public bool BurningFist { get; set; } = false;
+    
+
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
@@ -38,10 +48,16 @@ public class SlimeBehaviour : StateMachineBase
     BuffManager<SlimeBehaviour> _buffManager = new BuffManager<SlimeBehaviour>();
     [SerializeField] FlashWhenHitted _flasher;
     [SerializeField] SquashWhenHitted _squasher;
+    [SerializeField] float _normPosOfFlowerAttack;
+    [SerializeField] bool _isGrabbableAtDeath = false;
+    public float NormPosOfFlowerAttack { get { return _normPosOfFlowerAttack; } }
+    public HpSystem HPSystem { get { return _hpSystem; } }
+    public SlimeData Data { get { return _data; } }
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public BuffableStat AttackRange { get; private set; }
     public BuffableStat AttackPower { get; private set; }
+    public BuffableStat FlowerAttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
 
@@ -57,6 +73,7 @@ public class SlimeBehaviour : StateMachineBase
         _hpSystem = new HpSystem(_data.MaxHp, OnDie);
         AttackSpeed = new BuffableStat(_data.AttackSpeed);
         AttackPower = new BuffableStat(_data.AttackPower);
+        FlowerAttackPower = new BuffableStat(_data.FlowerAttackPower);
         MoveSpeed = new BuffableStat(_data.MoveSpeed);
         DamageAsBullet = new BuffableStat(_data.DamageAsBullet);
         AttackRange = new BuffableStat(_data.AttackRange);
@@ -88,17 +105,27 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
     {
+        if (BurningFist)
+            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, 2, 0.5f));
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
-        OnGetHitted(impactPosition, damage);
+        if (IsOnFire & CriticalOn)
+            damage *= 1.2f;
+        OnGetHitted(impactPosition, damage, false);
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
-        OnGetHitted(impactPosition, damage);
+        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & FireSlayerOn & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
+            OnGetHitted(impactPosition, 999f, true);
+        else
+            OnGetHitted(impactPosition, damage, false);
+
+        if (!IsOnFire & FireBallOn)
+            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
     }
-    protected void OnGetHitted(Vector3 impactPosition, float damage)
+    protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
     {
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();
@@ -106,6 +133,7 @@ public class SlimeBehaviour : StateMachineBase
         if (_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+            SoundManager.Instance.PlaySFX("SlimeLastHitted");
             //ChangeState(new SlimeStates.GrabbableState(this));
         }
         else if(CurrentState is SlimeStates.FreezeState) // 안 죽었고 얼어 있는 상태면 맞아도 가만히 
@@ -116,17 +144,33 @@ public class SlimeBehaviour : StateMachineBase
         else
         {
             _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            if(Random.Range(0f,1f) > 0.5f)
+                SoundManager.Instance.PlaySFX("SlimeHitted1");
+            else
+                SoundManager.Instance.PlaySFX("SlimeHitted2");
             ChangeState(new SlimeStates.HittedState(this));
         }
     }
     public void TakeDamage(float damage) // 이거를 플레이어한테 달아주면 된다
     {
-        _flasher.Flash(0.2f);
-        EffectManager.InstantiateDamageTextEffect(Camera.main.WorldToScreenPoint(transform.position), damage);
+        _flasher.Flash();
+        if(damage == 999f)
+            EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeSlayed);
+        else
+            EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
         _hpSystem.ChangeHp(-damage);
+        if (Random.Range(0f, 1f) > 0.5f)
+            SoundManager.Instance.PlaySFX("SlimeHitted1", 0.15f);
+        else
+            SoundManager.Instance.PlaySFX("SlimeHitted2", 0.15f);
     }
     void OnDie()
     {
+        if(_isGrabbableAtDeath)
+        {
+            ChangeState(new SlimeStates.GrabbableState(this));
+            return;
+        }
         if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
         //if (true)
             ChangeState(new SlimeStates.GrabbableState(this));
@@ -139,7 +183,7 @@ public class SlimeBehaviour : StateMachineBase
         if (PuttedInTurret)
             return;
         _camera.Shake(CameraController.ShakePower.SlimeHitted);
-        float smokeSpeed = 0.7f;
+        float smokeSpeed = 2f;
         float angleOffset = Random.Range(-15, 15);
         EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
         EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);
@@ -158,7 +202,11 @@ public class SlimeBehaviour : StateMachineBase
         var target = collision.collider.GetComponent<IAttackableBySlime>();
         if (target != null)
         {
-            target.OnHittedBySlime(this, AttackPower.Value);
+            if(collision.transform == GlobalRefs.Player.transform)
+                target.OnHittedBySlime(this, AttackPower.Value);
+            else if(collision.transform == GlobalRefs.Flower.transform)
+                target.OnHittedBySlime(this, FlowerAttackPower.Value);
+
         }
     }
 }

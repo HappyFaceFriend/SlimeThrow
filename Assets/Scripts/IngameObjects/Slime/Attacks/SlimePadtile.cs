@@ -77,7 +77,7 @@ public class SlimePadtile : MonoBehaviour
             {
                 if (_canDamage)
                 {
-                    player.TakeDamage(_damage);
+                    player.OnHitted(_damage);
                     _canDamage = false;
                 }
             }

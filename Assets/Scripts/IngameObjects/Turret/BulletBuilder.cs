@@ -10,6 +10,9 @@ public class BulletBuilder : MonoBehaviour
     List<LandEffectInfo> _landEffectInfos = new List<LandEffectInfo>();
     public int Count { get { return _count; } }
     [SerializeField] SlimeSlot [] _slots;
+    public string _slimeName;
+    public bool upgrade1 = false;
+    float upgradeValue;
 
     int _count = 0;
     PlayerBehaviour _player = null;
@@ -19,6 +22,7 @@ public class BulletBuilder : MonoBehaviour
     }
     public void AddLandEffect(LandEffectInfo info)
     {
+        Debug.Log(1);
         _landEffectInfos.Add(info);
     }
     public void ApplyEffectsToBullet(BulletBehaviour bullet)
@@ -38,14 +42,17 @@ public class BulletBuilder : MonoBehaviour
     public void PushSlime(SlimeBehaviour slime)
     {
         _slots[_count].SetImage(slime.SlotIcon);
+        _slimeName = slime.name;
         _count++;
         slime.BulletEffect.OnAddToTurret(this);
+        SoundManager.Instance.PlaySFX("EnterTurret");
     }
     public void PushPlayer(PlayerBehaviour player)
     {
         _slots[_count].SetImage(player.SlotIcon);
         _count++;
         _player = player;
+        SoundManager.Instance.PlaySFX("EnterTurret");
     }
     public void Clear()
     {
@@ -58,9 +65,19 @@ public class BulletBuilder : MonoBehaviour
         _player = null;
     }
 
+    public void Upgrade(float value)
+    {
+        upgrade1 = true;
+        upgradeValue = value;
+    }
+
     public BulletBehaviour CreateBullet()
     {
         BulletBehaviour bulletObject = Instantiate(_bulletPrefab).GetComponent<BulletBehaviour>();
+        if (upgrade1)
+        {
+            bulletObject._moveSpeed *= upgradeValue;
+        }
         ApplyEffectsToBullet(bulletObject);
         Clear();
         return bulletObject;

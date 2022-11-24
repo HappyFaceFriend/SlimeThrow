@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    [SerializeField] float _moveSpeed;
+    [SerializeField] public float _moveSpeed;
     [SerializeField] float _turretHeight;
     [SerializeField] float _maxZHeight;
     [SerializeField] LandEffectBehaviour _landEffectPrefab;
@@ -26,12 +26,13 @@ public class BulletBehaviour : MonoBehaviour
     {
         LandEffectBehaviour landEffect = Instantiate(_landEffectPrefab);
         landEffect.transform.position = transform.position;
-        landEffect.ApplyEffects(new List<LandEffectInfo>(_landEffectInfos));
+        landEffect.ApplyEffects(new List<LandEffectInfo>(_landEffectInfos), _player != null ? _player.DamageAsBullet.Value : 0);
         if(_player != null)
         {
             _player.LandWithBullet(transform.position);
         }
-        
+        SoundManager.Instance.PlaySFX("BulletLand1", 1.3f);
+        SoundManager.Instance.PlaySFX("BulletLand2", 1.3f);
         Destroy(gameObject);
     }
     IEnumerator MoveCoroutine()

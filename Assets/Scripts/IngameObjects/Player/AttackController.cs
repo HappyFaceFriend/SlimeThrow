@@ -47,6 +47,8 @@ public class AttackController : MonoBehaviour
         _shovelAnimator.SetTrigger("onAttack");
         _hitBoxAnim.SetTrigger("Hit");
 
+        SoundManager.Instance.PlaySFX("PlayerAttack");
+
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(LayerMask.GetMask(Defs.SlimeLayer));
 
@@ -57,6 +59,8 @@ public class AttackController : MonoBehaviour
         {
             if(collider.GetComponent<SlimeBehaviour>().IsAlive)
                 collider.GetComponent<SlimeBehaviour>().OnHittedByPlayer(_player, _player.AttackPower.Value);
+            if (!collider.GetComponent<SlimeBehaviour>().IsAlive && _player.UpgradeGetHP)
+                _player.HpSystem.ChangeHp(_player._getHP);
         }
         _coolDownTimer.Reset(1f / _player.AttackSpeed.Value);
     }

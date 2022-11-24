@@ -18,9 +18,14 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat PushToTowerRange { get; private set; }
+    public BuffableStat DamageAsBullet { get; private set; }
     public PlayerInput Inputs { get { return _inputs; } }
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
+    public bool UpgradeGetHP = false;
+    public float _getHP;
+
+    public bool _firemail { get; set; } = false;
 
     public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
 
@@ -44,6 +49,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         MoveSpeed = new BuffableStat(_movementSettings.MoveSpeed);
         PushToTowerRange = new BuffableStat(_combatSettings.PushToTowerRange);
         GetInTurretRange = new BuffableStat(_combatSettings.GetInTurretRange);
+        DamageAsBullet = new BuffableStat(_combatSettings.DamageAsBullet);
     }
 
     void MoveInBounds()
@@ -93,20 +99,25 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
+        if (_firemail & slime.Data.name == "FireSlime")
+            damage /= 2f;
         TakeDamage(damage);
+        SoundManager.Instance.PlaySFX("PlayerHitted");
     }
 
-    public void OnHittedByPad(SlimeBehaviour slime, float damage)
+    public void OnHitted(float damage)
     {
         if (IsInvincible)
             return;
         EffectManager.InstantiateHitEffect(transform.position);
-        _hpSystem.ChangeHp(damage);
+        TakeDamage(damage);
+        SoundManager.Instance.PlaySFX("PlayerHitted", 0.15f);
     }
     public void TakeDamage(float damage)
     {
         _hpSystem.ChangeHp(-damage);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+        EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.PlayerHitted);
     }
     public void RecoveHP(float amount)
     {
@@ -120,6 +131,11 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Destroy(GetComponent<CircleCollider2D>());
         ChangeState(new PlayerStates.DeadState(this));
         _levelManager.OnPlayerDead();
+    }
+    public void SetUpgrade(float num)
+    {
+        UpgradeGetHP = (!UpgradeGetHP);
+        _getHP = num;
     }
 
 }

@@ -7,19 +7,19 @@ public class FireSlimeEffect : SlimeBulletEffect
 {
     public TinyFire _addtionalEffect;
     public LittleFire _buffEffect;
-
-    class FireEffectInfo : AdditionalInfo
+    class BurnStat : AdditionalInfo
     {
         public float Probability { get; set; }
         public float Duration { get; set; }
         public int DamagePerTick { get; set; }
-        public FireEffectInfo()
+        public BurnStat()
         {
-            Probability = 1f; // 100га╥н
+            Probability = 1f;
             Duration = 4f;
             DamagePerTick = 5;
         }
     }
+
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
     {
         GameObject effect;
@@ -40,24 +40,28 @@ public class FireSlimeEffect : SlimeBulletEffect
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
-        FireEffectInfo fireInfo = info as FireEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.Burn(fireInfo.Duration, fireInfo.DamagePerTick, 1f));
+        float damage;
+        if (slime.FlameBullet)
+            damage = slime.HPSystem.MaxHp.Value * 0.1f;
+        else
+            damage = GlobalRefs.EffectStatManager._burn.DamagePerTick.Value;
+        slime.ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
         LittleFire buffEffect = Instantiate(_buffEffect);
         buffEffect.transform.SetParent(slime.transform, false);
-        buffEffect.GetComponent<LittleFire>().SetDuration(fireInfo.Duration);
+        buffEffect.GetComponent<LittleFire>().SetDuration(GlobalRefs.EffectStatManager._burn.Duration.Value);
 
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
         duplicateInfo.Damage += Damage;
-        FireEffectInfo fireInfo = new FireEffectInfo();
-        fireInfo.DamagePerTick += 2;
-        fireInfo.Duration += 1;
-        duplicateInfo.AdditionalInfos = fireInfo;
+        BurnStat burn = new BurnStat();
+        burn.DamagePerTick += 2;
+        burn.Duration += 1;
+        duplicateInfo.AdditionalInfos = burn;
     }
     protected override AdditionalInfo GetAdditionalInfos()
     {
-        var infos = new FireEffectInfo();
+        var infos = new BurnStat(); 
         return infos;
     }
 

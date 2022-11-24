@@ -12,8 +12,10 @@ public class PlayerInput : MonoBehaviour
     public bool IsMovePressed { get { return _moveInput != Vector3.zero; } }
     public bool IsDashPressed { get { return Input.GetKeyDown(KeyCode.Space); } }
     public bool IsReleasePressed { get { return Input.GetMouseButtonDown(0); } }
-    public bool IsAttackPressed { get { return Input.GetMouseButtonDown(0); } }
+    public bool IsAttackPressed { get { return Input.GetMouseButton(0); } }
     public bool IsGetInTurretPressed { get { return Input.GetKeyDown(KeyCode.E); } }
+    public bool IsGrabFlowerPressed { get { return Input.GetKeyDown(KeyCode.F); } }
+    public bool IsReleaseFlowerPressed { get { return Input.GetMouseButtonDown(0); } }
     private void Awake()
     {
         _moveInput = Vector3.zero;

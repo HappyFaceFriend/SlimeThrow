@@ -8,15 +8,20 @@ public class UpgradeManager : MonoBehaviour
     List<UpgradeData> _upgrades;
 
     UpgradeData[] _allUpgradeDatas;
+    List<string> _upgradeNames;
+
+    public List<string> UpgradesNames { get { return _upgradeNames; } }
 
     private void Awake()
     {
         _upgrades = new List<UpgradeData>();
+        _upgradeNames = new List<string>();
         _allUpgradeDatas = Resources.LoadAll<UpgradeData>(Defs.UpgradeAssetsPath);
     }
     public void AddUpgrade(UpgradeData data)
     {
         _upgrades.Add(data);
+        _upgradeNames.Add(data.Name);
         data.OnAdded();
     }
 
@@ -25,6 +30,20 @@ public class UpgradeManager : MonoBehaviour
         foreach (var upgrade in _upgrades)
         {
             upgrade.OnUpdate();
+        }
+    }
+
+    public void FindUpgrade(List<string> loadUpgrades)
+    {
+        foreach (UpgradeData data in _allUpgradeDatas)
+        {
+            foreach (string dataName in loadUpgrades)
+            {
+                if (data.Name == dataName)
+                {
+                    AddUpgrade(data);
+                }
+            }
         }
     }
 

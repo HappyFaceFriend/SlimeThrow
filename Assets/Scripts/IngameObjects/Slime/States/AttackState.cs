@@ -21,7 +21,17 @@ namespace SlimeStates
             base.OnEnter();
             _knockback.SuperArmor = true;
             Slime.Flipper.TargetPoint = _attackTarget.position;
-            _attack.StartAttack(_attackTarget);
+            if (_attackTarget == GlobalRefs.Flower.transform)
+            {
+                _attack.StartFlowerAttack(_attackTarget);
+                Slime.Animator.SetBool("IsFlowerAttack", true);
+            }
+            else
+            {
+                _attack.StartAttack(_attackTarget);
+                Slime.Animator.SetBool("IsFlowerAttack", false);
+            }
+            SoundManager.Instance.PlaySFX("SlimeAttack");
             SetAnimState();
         }
         public override void OnUpdate()

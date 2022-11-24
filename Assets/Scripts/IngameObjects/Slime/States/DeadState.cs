@@ -9,7 +9,7 @@ namespace SlimeStates
     public class DeadState : SlimeState
     {
         KnockbackController _knockback;
-        public DeadState(SlimeBehaviour slime) : base("Dead", slime) { }
+        public DeadState(SlimeBehaviour slime) : base("Hitted", slime) { }
 
         public override void OnEnter()
         {
@@ -31,6 +31,7 @@ namespace SlimeStates
             if(_knockback.IsKnockbackDone)
             {
                 EffectManager.InstantiateHitEffect(Slime.transform.position);
+                SoundManager.Instance.PlaySFX("SlimeExplode");
                 GameObject.Destroy(Slime.gameObject);
             }
         }

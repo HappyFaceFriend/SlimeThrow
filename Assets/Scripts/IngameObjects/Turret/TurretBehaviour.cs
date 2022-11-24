@@ -12,7 +12,7 @@ public class TurretBehaviour : StateMachineBase
     public bool IsMouseHovered { get { return _rigidbody.OverlapPoint(Utils.Inputs.GetMouseWordPos()); } }
 
     [SerializeField] Transform _shootPosition;
-    [SerializeField] BulletBuilder _bulletBuilder;
+    [SerializeField] public BulletBuilder _bulletBuilder;
     [SerializeField] Transform _targetMarker;
     [SerializeField] float _markerSpeed;
     Rigidbody2D _rigidbody;
@@ -37,6 +37,7 @@ public class TurretBehaviour : StateMachineBase
         bulletObject.transform.position = _shootPosition.position;
         bulletObject.StartShoot(targetPosition);
         Animator.SetTrigger("Shoot");
+        SoundManager.Instance.PlaySFX("BulletShoot", 1.5f);
     }
     protected override StateBase GetInitialState()
     {

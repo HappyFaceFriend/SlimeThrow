@@ -25,7 +25,6 @@ namespace PlayerBuffs
             {
                 _nextDamageTime += _interval;
                 Owner.TakeDamage(_damage);
-                Debug.Log(ElapsedTime + " / " + Duration + " : took damage");
             }
         }
 

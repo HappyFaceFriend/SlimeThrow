@@ -38,14 +38,25 @@ namespace Utils
         {
             return list[UnityEngine.Random.Range(0, list.Count)];
         }
-        public static T[] RandomElements<T>(T [] array, int count)
-        { 
-            int [] indicies = new int[array.Length];
+        public static T[] RandomElements<T>(T[] array, int count)
+        {
+            int[] indicies = new int[array.Length];
             for (int i = 0; i < array.Length; i++)
                 indicies[i] = i;
             Shuffle(indicies);
-            T [] result = new T[count];
-            for(int i=0; i<count; i++)
+            T[] result = new T[count];
+            for (int i = 0; i < count; i++)
+                result[i] = array[indicies[i]];
+            return result;
+        }
+        public static T[] RandomElements<T>(List<T> array, int count)
+        {
+            int[] indicies = new int[array.Count];
+            for (int i = 0; i < array.Count; i++)
+                indicies[i] = i;
+            Shuffle(indicies);
+            T[] result = new T[count];
+            for (int i = 0; i < count; i++)
                 result[i] = array[indicies[i]];
             return result;
         }

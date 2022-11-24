@@ -4,7 +4,23 @@ using UnityEngine;
 
 public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T Instance { get { return instance; } }
+    public static T Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = (T)FindObjectOfType(typeof(T));
+
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject(typeof(T).Name, typeof(T));
+                    instance = obj.GetComponent<T>();
+                }
+            }
+            return instance;
+        }
+    }
     static T instance = null;
 
     protected virtual void Awake()
