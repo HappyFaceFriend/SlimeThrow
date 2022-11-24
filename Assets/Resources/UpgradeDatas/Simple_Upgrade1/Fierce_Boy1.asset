@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85d1e42343d596479fa49a16d058aea, type: 3}
   m_Name: Fierce_Boy1
   m_EditorClassIdentifier: 
-  _name: "\uB09C\uD3ED \uC18C\uB1441"
-  _body: "\uD55C\uD50C\uB808\uC774\uC5B4\uAC00 \uD3EC\uD0C4\uC73C\uB85C \uCC29\uC9C0\uD6C4
-    5\uCD08\uAC04 \uCCB4\uB825, \uACF5\uACA9\uB825, \uACF5\uACA9\uC18D\uB3C4, \uC774\uB3D9\uC18D\uB3C4
-    \uBAA8\uB450 50% \uC99D\uAC00\uD55C\uB2E4"
+  _name: "\uB09C\uD3ED\uD55C \uC18C\uB1441"
+  _body: "\uD50C\uB808\uC774\uC5B4\uAC00 \uD3EC\uD0C4\uC73C\uB85C \uCC29\uC9C0\uD560\uB54C\uB9C8\uB2E4
+    \uCCB4\uB825, \uACF5\uACA9\uB825, \uACF5\uACA9\uC18D\uB3C4, \uC774\uB3D9\uC18D\uB3C4
+    \uBAA8\uB450 3%\uC529 \uC99D\uAC00\uD55C\uB2E4"
   _icon: {fileID: 759369426, guid: 8526789a8d0640b4088ad52c9ee23138, type: 3}
   _statModes:
   - _statToChange: 1
-    _applyValue: 1.5
+    _applyValue: 1.03
     _applyType: 1
   - _statToChange: 2
-    _applyValue: 1.5
+    _applyValue: 1.03
     _applyType: 1
   - _statToChange: 3
-    _applyValue: 1.5
+    _applyValue: 1.03
     _applyType: 1
   - _statToChange: 4
-    _applyValue: 1.5
+    _applyValue: 1.03
     _applyType: 1

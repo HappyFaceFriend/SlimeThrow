@@ -13,17 +13,12 @@ public class SlimeBehaviour : StateMachineBase
     public bool CriticalOn { get; set; } = false;
     public bool FireBallOn { get; set; } = false;
     public bool IsGrabbable { get; set; } = false;
-    public bool FireSlayerOn { get; set; } = true;
+    public bool FireSlayerOn { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
-
-    public bool IsAlive
-    {
-        get
-        {
-            return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
-                                        CurrentState is SlimeStates.GrabbedState);
-        }
-    }
+    public bool FlameBullet { get; set; } = false;
+    public bool BurningFist { get; set; } = false;
+    public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
+                                        CurrentState is SlimeStates.GrabbedState); } }
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
@@ -37,6 +32,8 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] float _normPosOfFlowerAttack;
     [SerializeField] bool _isGrabbableAtDeath = false;
     public float NormPosOfFlowerAttack { get { return _normPosOfFlowerAttack; } }
+    public HpSystem HPSystem { get { return _hpSystem; } }
+    public SlimeData Data { get { return _data; } }
     public BuffableStat MoveSpeed { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public BuffableStat AttackRange { get; private set; }
@@ -88,7 +85,9 @@ public class SlimeBehaviour : StateMachineBase
         ChangeState(new SlimeStates.GrabbableState(this, true));
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
-    { 
+    {
+        if (BurningFist)
+            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, 2, 0.5f));
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
         if (IsOnFire & CriticalOn)
@@ -100,7 +99,7 @@ public class SlimeBehaviour : StateMachineBase
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
         if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & FireSlayerOn & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
-            OnGetHitted(impactPosition, _hpSystem.CurrentHp, true);
+            OnGetHitted(impactPosition, 999f, true);
         else
             OnGetHitted(impactPosition, damage, false);
 
@@ -136,7 +135,10 @@ public class SlimeBehaviour : StateMachineBase
     public void TakeDamage(float damage) // 이거를 플레이어한테 달아주면 된다
     {
         _flasher.Flash();
-        EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
+        if(damage == 999f)
+            EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeSlayed);
+        else
+            EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
         _hpSystem.ChangeHp(-damage);
         if (Random.Range(0f, 1f) > 0.5f)
             SoundManager.Instance.PlaySFX("SlimeHitted1", 0.15f);
