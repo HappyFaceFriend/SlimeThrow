@@ -7,7 +7,7 @@ public class SlimeProjectile : MonoBehaviour
     [SerializeField] float _range;
     [SerializeField] float _moveSpeed;
 
-    Vector3 _moveDir = Vector3.zero;
+    protected Vector3 _moveDir = Vector3.zero;
     float _movedDistance = 0f;
     protected SlimeBehaviour _slime;
     private SpriteRenderer _spriteRenderer;
@@ -27,7 +27,13 @@ public class SlimeProjectile : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         _damage = shooter.AttackPower.Value;
     }
-
+    public void Init(Vector3 dir, float damage)
+    {
+        _moveDir = dir;
+        float angle = GetAngle(_moveDir, Vector3.zero) - 180f;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        _damage = damage;
+    }
     public void Update()
     {
         _elapsedTime += Time.deltaTime;
@@ -47,7 +53,7 @@ public class SlimeProjectile : MonoBehaviour
             Die();
         }
     }
-    protected void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
     }

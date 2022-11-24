@@ -20,6 +20,13 @@ public class SlimeBehaviour : StateMachineBase
                                         CurrentState is SlimeStates.GrabbedState);
         }
     }
+    public bool IsFever()
+    {
+        if(_hpSystem.CurrentHp <= _hpSystem.MaxHp.Value/2)
+            return true;
+        else
+            return false;
+    }
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
@@ -27,6 +34,7 @@ public class SlimeBehaviour : StateMachineBase
     public FlipObjectToPoint Flipper { get { return _flip; } }
 
     HpSystem _hpSystem;
+
     BuffManager<SlimeBehaviour> _buffManager = new BuffManager<SlimeBehaviour>();
     [SerializeField] FlashWhenHitted _flasher;
     [SerializeField] SquashWhenHitted _squasher;
