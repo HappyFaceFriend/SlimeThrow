@@ -82,22 +82,6 @@ public class SlimeSpawner : MonoBehaviour
         _spawnedSlimes = new List<SlimeBehaviour>();
         LabelTypes = new StageLabel.Type[_spawnSetCodes.Count * _stagePerRound];
         LabelImages = new List<Sprite>();
-        for(int i=0; i<_spawnSetCodes.Count; i++)
-        {
-            for(int j=0; j<_stagePerRound; j++)
-            {
-                if (j == _stagePerRound - 1)
-                {
-                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Boss;
-                    LabelImages.Add(null);
-                }
-                else
-                {
-                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Later;
-                    LabelImages.Add(null);
-                }
-            }
-        }
     }
     void InitPools()
     {
@@ -159,7 +143,24 @@ public class SlimeSpawner : MonoBehaviour
             pool.otherSlimes.AddRange(upgrades);
             _spawnPools.Add(pool);
         }
+        //label 이미지 설정
 
+        for (int i = 0; i < maxRound-2; i++)
+        {
+            for (int j = 0; j < _stagePerRound; j++)
+            {
+                if (j == _stagePerRound - 1)
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Boss;
+                    LabelImages.Add(_allSlimes[_spawnPools[i * _stagePerRound + j].mainSlime].SlotIcon);
+                }
+                else
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Later;
+                    LabelImages.Add(_allSlimes[_spawnPools[i * _stagePerRound + j].mainSlime].SlotIcon);
+                }
+            }
+        }
     }
     public void Init()
     {

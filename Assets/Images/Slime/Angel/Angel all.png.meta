@@ -325,6 +325,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: icon_Angel
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6675ae1a4a41c747b00c086f0a767d0
+      internalID: -2021674159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -340,6 +361,7 @@ TextureImporter:
       Angel all 1_1: -2099036465
       Angel all 1_7: -1365786649
       Angel all 1_5: 233143496
+      icon_Angel: -2021674159
       Angel all 1_3: -2055275981
       Angel all 1_6: -1310874358
       Angel all 1_0: 1118307844

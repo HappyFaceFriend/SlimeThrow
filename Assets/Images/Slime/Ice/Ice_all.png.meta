@@ -145,6 +145,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: icon_Ice
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4077e6a6d07045c49846f357cce140fb
+      internalID: -1868510928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -156,6 +177,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      icon_Ice: -1868510928
       IceSlime_body: -581524864
       IceSlime_hitted: -1018835981
   spritePackingTag: 
