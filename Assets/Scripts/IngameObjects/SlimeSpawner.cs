@@ -113,7 +113,7 @@ public class SlimeSpawner : MonoBehaviour
     {
         while (! (_isSpawnDone && _spawnedSlimes.Count == 0))
         {
-            _spawnedSlimes.RemoveAll(x => x == null);
+            _spawnedSlimes.RemoveAll(x => !x.IsAlive);
             yield return null;
         }
     }

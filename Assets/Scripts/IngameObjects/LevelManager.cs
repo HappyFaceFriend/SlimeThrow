@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
             if (_spawner.IsLastStage)
                 break;
             yield return _spawner.WaitUntilStageClear();
+            SoundManager.Instance.PlaySFX("LastSlimeDead");
             _stagePanel.SetToNextStage();
 
             //업그레이드
@@ -80,6 +81,7 @@ public class LevelManager : MonoBehaviour
     }
     void OpenGameOver()
     {
+        SoundManager.Instance.PlaySFX("GameOver");
         GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
         data.Round = _spawner.CurrentRound;
         data.Stage = _spawner.CurrentStage;

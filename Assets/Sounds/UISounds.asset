@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac7b1fc9ea047b46937c82cb2e9848c, type: 3}
+  m_Name: UISounds
+  m_EditorClassIdentifier: 
+  _sounds:
+  - _name: ButtonHover
+    _clip: {fileID: 8300000, guid: a5ca0c2ce5f9df540983be1cf0a9f759, type: 3}
+  - _name: ButtonClick
+    _clip: {fileID: 8300000, guid: d1214452bf9567342bd84455c4194238, type: 3}
+  - _name: MainSlimeWalk
+    _clip: {fileID: 8300000, guid: 746c8da6628aa4b5c910ecd4d7d4003c, type: 3}
+  - _name: LastSlimeDead
+    _clip: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
+  - _name: GameOver
+    _clip: {fileID: 8300000, guid: a95a49e8527c2ab44a18abf1ab9bfdb7, type: 3}
+  - _name: GameStartClicked
+    _clip: {fileID: 8300000, guid: 2fe418256694cba4fa8d0bab3fafd2d1, type: 3}
+  - _name: UpgradeClicked
+    _clip: {fileID: 8300000, guid: 2fe418256694cba4fa8d0bab3fafd2d1, type: 3}
