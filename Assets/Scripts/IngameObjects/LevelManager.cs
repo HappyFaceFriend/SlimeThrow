@@ -24,16 +24,6 @@ public class LevelManager : MonoBehaviour
             StartCoroutine(GameLoop());
     }
 
-    public void setBurn()
-    {
-        _spawner.SetBurn();
-    }
-
-    public void setSlow()
-    {
-        _spawner.SetSlow();
-    }
-
     void InitFlower()
     {
         int dirtIdx = Random.Range(0, _dirts.Count);

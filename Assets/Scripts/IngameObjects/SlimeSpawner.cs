@@ -30,9 +30,8 @@ public class SlimeSpawner : MonoBehaviour
     public StageLabel.Type[] LabelTypes { get; private set; }
     public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
+    public bool DebuffSet { get; private set; } = true;
 
-    public bool _burnUpgrade { get; set; } = false;
-    public bool _slowUpgrade { get; set; } = false;
     public bool _criticalUpgrade { get; set; } = false;
     public bool _fireBallUpgrade { get; set; } = false;
     public bool _fireSlayerUpgrade { get; set; } = false;
@@ -172,6 +171,7 @@ public class SlimeSpawner : MonoBehaviour
     IEnumerator StageCoroutine()
     {
         _isSpawnDone = false;
+        DebuffSet = true;
         int waveCount = GetWaveCount(_currentStage, _currentRound);
         List<SpawnSection> sections = GetRandomSections(_spawnSets[_currentRound - 1]);
         for (int i = 0; i < waveCount; i++)
@@ -198,8 +198,8 @@ public class SlimeSpawner : MonoBehaviour
                     section.spawnTimer.Reset(GetRandomSpawnInterval(_currentRound));
                 }
             }
-            if (eTime == 10)
-                SetBurn();
+            if (eTime > 10)
+                DebuffSet = false;
             yield return null;
         }
     }
@@ -219,14 +219,6 @@ public class SlimeSpawner : MonoBehaviour
             angle += 360;
         return angle;
     }
-    public void SetBurn()
-    {
-        _burnUpgrade = (!_burnUpgrade);
-    }
-    public void SetSlow()
-    {
-        _slowUpgrade = (!_slowUpgrade);
-    }
     void SpawnSlime(float angle)
     {
         angle = ClampAngle(angle);
@@ -243,11 +235,10 @@ public class SlimeSpawner : MonoBehaviour
             spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);
         _spawnedSlimes.Add(Instantiate(Utils.Random.RandomElement(_slimePrefabs), spawnPoint, Quaternion.identity));
         var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
-        if (_burnUpgrade)
-        {
+        if (GlobalRefs.UpgradeManager.GetCount("Burning_Ground") != 0 & DebuffSet )
             slime.ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
-            slime.IsOnFire = true;
-        }
+        if(GlobalRefs.UpgradeManager.GetCount("Snowy Field") != 0 & DebuffSet )
+
         if (_criticalUpgrade)
             slime.CriticalOn = true;
 

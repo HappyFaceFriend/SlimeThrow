@@ -33,9 +33,7 @@ namespace Upgrades
                 if (stat._statToChange == StatMode.StatType.MaxHp)
                     GlobalRefs.Player.MaxHp.AddModifier(modifier);
                 else if (stat._statToChange == StatMode.StatType.CurrentHP)
-                {
                     GlobalRefs.Player.HpSystem.ChangeHp(stat._applyValue);
-                }
                 else if (stat._statToChange == StatMode.StatType.AttackPower)
                     GlobalRefs.Player.AttackPower.AddModifier(modifier);
                 else if (stat._statToChange == StatMode.StatType.AttackSpeed)

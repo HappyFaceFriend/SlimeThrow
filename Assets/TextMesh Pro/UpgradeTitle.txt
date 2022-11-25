@@ -45,9 +45,9 @@ Bullet Reload1	총알 장전1
 Number of slimes in magazine to reload increases by 1	장전할 수 있는 슬라임의 수가 1 늘어난다
 Burning Slime	타들어가는 슬라임
 Burning Damage per second increased by 1	화상의 초당 데미지가 1 증가한다
-Remaining Flame	불씨
+Embers	불씨
 Burn Duration is increased by 3 seconds	화상의 적용시간이 3초 증가한다
-Flamemail	화염갑옷
+Fire Resistance	화염방어막
 Damage of Fire Slime decreases by 50%	불 슬라임의 공격의 피해가 50% 감소한다
 Light Footsteps2	가벼운 발걸음2
 Player movement speed increased by 25%	플레이어의 이동속도가 25% 증가한다
