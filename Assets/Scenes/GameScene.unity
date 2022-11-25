@@ -16523,7 +16523,11 @@ MonoBehaviour:
   - {fileID: 7514398595279066984, guid: 096792e971efe1148951cef9b322d9d4, type: 3}
   _buffSlimes:
   - {fileID: 3233892428816899128, guid: fba8dfcdea96bdd41a5c151d6cbedcb9, type: 3}
-  _bossSlimes: []
+  _bossSlimes:
+  - {fileID: 3659441307355379987, guid: ea47c61a7d2d4ff419f9d23a19f76222, type: 3}
+  - {fileID: 2156151733650460434, guid: 647cf7a335082094c838f2db3f17fdeb, type: 3}
+  - {fileID: 3397963216771188691, guid: a28e2dd649506914fb903c34a0783b75, type: 3}
+  - {fileID: 8597772758391383729, guid: 33d3f84b0182c4d4c9bb4dcca9df9f3c, type: 3}
   _levelManager: {fileID: 1793902159}
   _spawnSectionCount: 12
   _currentRound: 1
@@ -22666,67 +22670,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1963716342
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.103
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.037
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955328, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: _isGrabbableAtDeath
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864016776417955337, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
-      propertyPath: m_Name
-      value: Ice Slime
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
 --- !u!1 &1969126116
 GameObject:
   m_ObjectHideFlags: 0

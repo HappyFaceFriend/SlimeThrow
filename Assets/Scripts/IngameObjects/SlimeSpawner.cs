@@ -9,7 +9,7 @@ public class SlimeSpawner : MonoBehaviour
     struct SpawnPool
     {
         public int mainSlime;
-        //public int bossSlime;
+        public List<int> bossSlimes;
         public List<int> otherSlimes;
     }
     class SpawnSection
@@ -85,7 +85,8 @@ public class SlimeSpawner : MonoBehaviour
     }
     void InitPools()
     {
-        Utils.Random.Shuffle(_attackSlimes);
+        //Utils.Random.Shuffle(_attackSlimes);
+        _allSlimes.Add(_basicSlime);
         _allSlimes.AddRange(_upgradeSlimes);
         _allSlimes.AddRange(_attackSlimes);
         _allSlimes.AddRange(_specialSlimes);
@@ -104,7 +105,39 @@ public class SlimeSpawner : MonoBehaviour
         int[] specials = new int[_specialSlimes.Count];
         for (int j = 0; j < _specialSlimes.Count; j++)
             specials[j] = _allSlimes.FindIndex(x => x == _specialSlimes[j]);
-            
+
+        int[] attacks = new int[_attackSlimes.Count];
+        for (int j = 0; j < _attackSlimes.Count; j++)
+            attacks[j] = _allSlimes.FindIndex(x => x == _attackSlimes[j]);
+
+        int[] bosses = new int[_bossSlimes.Count];
+        for (int j = 0; j < _bossSlimes.Count; j++)
+            attacks[j] = _bossSlimes.FindIndex(x => x == _bossSlimes[j]);
+        //1-1
+        SpawnPool pool = new SpawnPool();
+        pool.mainSlime = 0;
+        pool.otherSlimes = new List<int>();
+        pool.bossSlimes = new List<int>();
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //1-2
+        pool.mainSlime = -1;
+        _spawnPools.Add(pool);
+        //1-3
+        pool.otherSlimes.AddRange(specials);
+        _spawnPools.Add(pool);
+        //1-4
+        pool.mainSlime = 0;
+        pool.otherSlimes = new List<int>();
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //1-5
+        pool.otherSlimes.Clear();
+        pool.otherSlimes.Add(bosses[0]);
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+
+
         for (int i=2; i<=maxRound-1; i++)
         {
             if (mainPoolIdx < _attackSlimes.Count)
@@ -115,7 +148,7 @@ public class SlimeSpawner : MonoBehaviour
             subs[0] = _allSlimes.FindIndex(x => x == attackPool[1]);
             subs[1] = _allSlimes.FindIndex(x => x == attackPool[2]);
 
-            SpawnPool pool = new SpawnPool();
+            pool = new SpawnPool();
             pool.mainSlime = main;
             pool.otherSlimes = new List<int>();
 
@@ -140,9 +173,53 @@ public class SlimeSpawner : MonoBehaviour
             pool.otherSlimes.Clear();
             //x - 5 : 메인보스 + 메인 + 강화3종
             //보스 넣어야함
+            print(pool.mainSlime);
+            print(pool.mainSlime - attacks[0]);
+            pool.bossSlimes.Add(bosses[pool.mainSlime - attacks[0]]);
             pool.otherSlimes.AddRange(upgrades);
             _spawnPools.Add(pool);
+            pool.bossSlimes.Clear();
         }
+        //6-1
+        pool = new SpawnPool();
+        pool.mainSlime = -1;
+        pool.otherSlimes = new List<int>();
+        pool.bossSlimes = new List<int>();
+        pool.otherSlimes.AddRange(Utils.Random.RandomElements(attacks, 5));
+        _spawnPools.Add(pool);
+        //6-2
+        pool.otherSlimes.Clear();
+        pool.otherSlimes.AddRange(specials);
+        _spawnPools.Add(pool);
+        //6-3
+        pool.otherSlimes.Clear();
+        pool.otherSlimes.AddRange(Utils.Random.RandomElements(attacks, 3));
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //6-4
+        pool.otherSlimes.Clear();
+        pool.otherSlimes.AddRange(specials);
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //6-5
+        pool.mainSlime = Utils.Random.RandomElement(attacks);
+        pool.otherSlimes.Clear();
+        pool.bossSlimes = new List<int>();
+        pool.bossSlimes.Add(bosses[pool.mainSlime - attacks[0]]);
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //6-6
+        pool.mainSlime = -1;
+        pool.bossSlimes.Clear();
+        pool.bossSlimes.AddRange(Utils.Random.RandomElements(bosses,2));
+        pool.otherSlimes.Clear();
+        pool.otherSlimes.AddRange(upgrades);
+        pool.otherSlimes.AddRange(specials);
+        pool.otherSlimes.AddRange(Utils.Random.RandomElements(attacks, 3));
+
+
+
+
         //label 이미지 설정
 
         for (int i = 0; i < maxRound-2; i++)
@@ -349,7 +426,7 @@ public class SlimeSpawner : MonoBehaviour
     {
         SpawnPool currentPool = _spawnPools[CurrentStage - 1 + (CurrentRound - 1) * _stagePerRound];
         float r = Random.Range(0f, 1f);
-        if (r < 0.3f)
+        if(currentPool.mainSlime == -1 || r < 0.3f)
             return _allSlimes[currentPool.mainSlime];
         else
             return _allSlimes[Utils.Random.RandomElement(currentPool.otherSlimes)];
