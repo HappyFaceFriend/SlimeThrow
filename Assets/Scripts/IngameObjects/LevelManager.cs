@@ -47,8 +47,12 @@ public class LevelManager : MonoBehaviour
     {
         //Init
         InitFlower();
-        LoadGame();
-        _stagePanel.Init();
+        //LoadGame();
+        _spawner.Init();
+        if (_spawner.CurrentStage == 0)
+            _stagePanel.Init(0);
+        else
+            _stagePanel.Init((_spawner.CurrentRound - 1) * _spawner.StagePerRound + (_spawner.CurrentStage - 1));
         //Loop
         while (true)
         {
