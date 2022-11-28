@@ -16522,7 +16522,7 @@ MonoBehaviour:
   - {fileID: 8694881231011927896, guid: ddded5407d5ac9746b0a323e05ceb10b, type: 3}
   - {fileID: 7514398595279066984, guid: 096792e971efe1148951cef9b322d9d4, type: 3}
   _buffSlimes:
-  - {fileID: 3233892428816899128, guid: fba8dfcdea96bdd41a5c151d6cbedcb9, type: 3}
+  - {fileID: 6043071047272164296, guid: 9e98e6d422575db40884c1b8cb571a52, type: 3}
   _bossSlimes:
   - {fileID: 3659441307355379987, guid: ea47c61a7d2d4ff419f9d23a19f76222, type: 3}
   - {fileID: 2156151733650460434, guid: 647cf7a335082094c838f2db3f17fdeb, type: 3}
