@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BasicSlime
+      name: icon_Basic
       rect:
         serializedVersion: 2
         x: 0
@@ -217,7 +217,7 @@ TextureImporter:
         width: 10
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,9 +240,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      icon_Basic: -517770132
       BasicSlime_eye3: 865650334
       BasicSlime_eye1: -993893967
-      BasicSlime: -517770132
       BasicSlime_eye2: -526047608
       BasicSlime_body: -1444682558
       BasicSlime_hitted: -1432902669

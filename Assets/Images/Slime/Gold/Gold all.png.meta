@@ -283,6 +283,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: icon_Gold
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10add4a91d871f947adf2519f5c220a2
+      internalID: -1011172016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -297,6 +318,7 @@ TextureImporter:
       Gold all_3: 922769958
       Gold all_1: 1847208781
       Gold all_5: 636647117
+      icon_Gold: -1011172016
       Gold all_4: 1915896090
       Gold all_0: 1240716400
       Gold all_6: -966223637

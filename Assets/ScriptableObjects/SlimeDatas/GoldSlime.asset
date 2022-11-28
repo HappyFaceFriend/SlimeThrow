@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 30
   _attackPower: 10
+  _flowerAttackPower: 3
   _attackSpeed: 0.4
   _attackRange: 3
   _sightRange: 6
   _moveSpeed: 0.5
   _damageAsBullet: 0
   _type: 0
-  _slotIcon: {fileID: 2029826809, guid: 738f0d39732af1a4a863d45892dfa687, type: 3}
+  _slotIcon: {fileID: -1011172016, guid: d847f7c2f92feda4eb4dd2fb1cd1b1b6, type: 3}

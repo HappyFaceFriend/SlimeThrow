@@ -19,16 +19,16 @@ public class StagePanel : MonoBehaviour
     {
         _layout = GetComponent<RectTransform>();
     }
-    public void Init()
+    public void Init(int offset)
     {
-        _currentIndex = 0;
+        _currentIndex = offset;
         for(int i=0; i< _showCount; i++)
         {
             StageLabel label = Instantiate(_stageLabelPrefab, transform);
             if(i == 0)
-                label.Init(StageLabel.Type.Current, _spawner.LabelImages[i]);
+                label.Init(StageLabel.Type.Current, _spawner.LabelImages[_currentIndex+i]);
             else
-                label.Init(_spawner.LabelTypes[i], _spawner.LabelImages[i]);
+                label.Init(_spawner.LabelTypes[i], _spawner.LabelImages[_currentIndex+i]);
             _stageLabels.Add(label);
         }
     }

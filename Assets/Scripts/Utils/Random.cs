@@ -38,6 +38,10 @@ namespace Utils
         {
             return list[UnityEngine.Random.Range(0, list.Count)];
         }
+        public static T RandomElement<T>(T[] list)
+        {
+            return list[UnityEngine.Random.Range(0, list.Length)];
+        }
         public static T[] RandomElements<T>(T[] array, int count)
         {
             int[] indicies = new int[array.Length];
