@@ -83,6 +83,15 @@ public class SlimeBehaviour : StateMachineBase
     {
         base.Update();
         _buffManager.OnUpdate();
+
+        if (transform.position.x < -GlobalRefs.LevelManger.MapSize.x / 2)
+            transform.position = new Vector3(-GlobalRefs.LevelManger.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.x > GlobalRefs.LevelManger.MapSize.x / 2)
+            transform.position = new Vector3(GlobalRefs.LevelManger.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.y < -GlobalRefs.LevelManger.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, -GlobalRefs.LevelManger.MapSize.y / 2, 0);
+        if (transform.position.y > GlobalRefs.LevelManger.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, GlobalRefs.LevelManger.MapSize.y / 2, 0);
     }
     public void ApplyBuff(Buff<SlimeBehaviour> buff)
     {

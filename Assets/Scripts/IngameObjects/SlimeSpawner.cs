@@ -131,6 +131,7 @@ public class SlimeSpawner : MonoBehaviour
         _spawnPools.Add(pool);
         //1-2
         pool = new SpawnPool();
+        pool.otherSlimes.AddRange(upgrades);
         _spawnPools.Add(pool);
         //1-3
         pool = new SpawnPool();
