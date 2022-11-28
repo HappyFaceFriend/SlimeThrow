@@ -7,11 +7,12 @@ public class SlimeProjectile : MonoBehaviour
     [SerializeField] float _range;
     [SerializeField] float _moveSpeed;
 
-    Vector3 _moveDir = Vector3.zero;
+    protected Vector3 _moveDir = Vector3.zero;
     float _movedDistance = 0f;
-    SlimeBehaviour _slime;
+    protected SlimeBehaviour _slime;
     private SpriteRenderer _spriteRenderer;
-    float _damage;
+    protected float _damage;
+    protected float _elapsedTime = 0f;
 
     public float GetAngle(Vector3 start, Vector3 end)
     {
@@ -26,9 +27,16 @@ public class SlimeProjectile : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         _damage = shooter.AttackPower.Value;
     }
-
+    public void Init(Vector3 dir, float damage)
+    {
+        _moveDir = dir;
+        float angle = GetAngle(_moveDir, Vector3.zero) - 180f;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        _damage = damage;
+    }
     public void Update()
     {
+        _elapsedTime += Time.deltaTime;
         transform.position += _moveDir * _moveSpeed * Time.deltaTime;
         _movedDistance += _moveSpeed * Time.deltaTime;
         if (_movedDistance > _range)
@@ -38,14 +46,14 @@ public class SlimeProjectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var target = collision.collider.GetComponent<IAttackableBySlime>();
+        var target = collision.collider.GetComponent<PlayerBehaviour>();
         if (target != null)
         {
-            target.OnHittedBySlime(_slime, _damage);
+            target.OnHitted( _damage);
             Die();
         }
     }
-    void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
     }

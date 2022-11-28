@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 226ab8cf136262749baa2eae5d732075
+guid: 17ecd7faee804d245886650a5c12f9e6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,28 +116,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Angel all_0
+      name: Angel all 1_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 7
+        width: 26
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.033465967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8340e234305897b49b40ffb3ae2a81ff
+      internalID: 1118307844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angel all 1_1
       rect:
         serializedVersion: 2
         x: 42
         y: 23
         width: 12
         height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.507067, y: 0.019423485}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f9a5343253da3444bdc6de56e26de22
-      internalID: 1449798741
+      spriteID: fe2a2b552a942a14a831699b4193a989
+      internalID: -2099036465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel all_1
+      name: Angel all 1_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 7
+        width: 27
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5157081, y: 0.05043087}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09abfaf7f36e6649bf96a2e6864e869
+      internalID: -490078293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Angel all 1_3
       rect:
         serializedVersion: 2
         x: 100
@@ -151,35 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dabe2f7da802c4e4e973589827a74a91
-      internalID: -1832726953
+      spriteID: ce0b35d283a62f24cb66a21fb9120e09
+      internalID: -2055275981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel all_2
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 6
-        width: 20
-        height: 15
-      alignment: 9
-      pivot: {x: 0.5042397, y: 0.03647782}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 989c656b411dc3f4d8f557220ed039f6
-      internalID: 752350592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Angel all_3
+      name: Angel all 1_4
       rect:
         serializedVersion: 2
         x: 32
@@ -187,41 +208,20 @@ TextureImporter:
         width: 32
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6533962a0aa16647b6a18cb8b2dfc82
-      internalID: -474258942
+      spriteID: ad55005dc995dac478615c6e6e770071
+      internalID: 919420315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel all_5
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 6
-        width: 21
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.04425016}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fbe1acf46574a840ad92fd60808d0d8
-      internalID: -1863124460
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Angel all_6
+      name: Angel all 1_5
       rect:
         serializedVersion: 2
         x: 114
@@ -235,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e39adff3e6e9c647843987778a78af1
-      internalID: -2100030604
+      spriteID: 1284eb2dfa2115143b501448d5282ab9
+      internalID: 233143496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel all_7
+      name: Angel all 1_6
       rect:
         serializedVersion: 2
         x: 101
@@ -256,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96b6ed500bd4aef44a30e572a080ffc6
-      internalID: 1617747659
+      spriteID: 51f023f862806a046a52d0a230921da6
+      internalID: -1310874358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel all_8
+      name: Angel all 1_7
       rect:
         serializedVersion: 2
         x: 115
@@ -277,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a87a44d0d1765cf4f8ae3303e453c0bf
-      internalID: -1703636830
+      spriteID: 626f8038bde68f847b4a19e792ced33d
+      internalID: -1365786649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel all_9
+      name: Angel all 1_8
       rect:
         serializedVersion: 2
         x: 104
@@ -298,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d017ef9acd775f4aa37f5e78d2048ab
-      internalID: -1376423639
+      spriteID: ebca814fcf8dc784399a80b5d6818e1f
+      internalID: 903994848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Angel all_10
+      name: Angel all 1_9
       rect:
         serializedVersion: 2
         x: 117
@@ -319,8 +319,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b8903a5671311d4eb0750a4c82d6c9f
-      internalID: 546994039
+      spriteID: 8f3d9c6cd3fe3f147bc248f69153a88f
+      internalID: -804875961
       vertices: []
       indices: 
       edges: []
@@ -336,17 +336,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Angel all_7: 1617747659
-      Angel all_4: -517123002
-      Angel all_10: 866211261
-      Angel all_8: -1703636830
-      Angel all_0: 1449798741
-      Angel all_5: -1863124460
-      Angel all_1: -1832726953
-      Angel all_6: -2100030604
-      Angel all_2: 752350592
-      Angel all_3: -474258942
-      Angel all_9: 805350177
+      Angel all 1_4: 919420315
+      Angel all 1_1: -2099036465
+      Angel all 1_7: -1365786649
+      Angel all 1_5: 233143496
+      Angel all 1_3: -2055275981
+      Angel all 1_6: -1310874358
+      Angel all 1_0: 1118307844
+      Angel all 1_9: 1743380499
+      Angel all 1_2: -490078293
+      Angel all 1_8: 903994848
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

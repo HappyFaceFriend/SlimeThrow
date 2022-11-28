@@ -26,6 +26,7 @@ public class UpgradeButton : MonoBehaviour
     public void OnClick()
     {
         GlobalRefs.UpgradeManager.AddUpgrade(_data);
+        SoundManager.Instance.PlaySFX("UpgradeClicked",0.8f);
         _panel.Close();
     }
     public void ApplyUIs(UpgradeData data)

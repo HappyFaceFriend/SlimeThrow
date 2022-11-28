@@ -15,6 +15,14 @@ public class BuffManager<T> where T:StateMachineBase
         _buffList.Add(newBuff);
         newBuff.OnStart();
     }
+
+    public bool HasBuff(System.Type buffType)
+    {
+        var result = _buffList.Find(x => x.GetType() == buffType);
+        if (result == null)
+            return false;
+        return true;
+    }
     public void OnUpdate()
     {
         List<Buff<T>> _removeBuffs = new List<Buff<T>>();
@@ -27,7 +35,7 @@ public class BuffManager<T> where T:StateMachineBase
                 _removeBuffs.Add(buff);
             }
         }
-        foreach(Buff<T> buff in _removeBuffs)
+        foreach (Buff<T> buff in _removeBuffs)
         {
             _buffList.Remove(buff);
         }

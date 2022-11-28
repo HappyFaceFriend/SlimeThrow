@@ -45,12 +45,14 @@ public class BulletBuilder : MonoBehaviour
         _slimeName = slime.name;
         _count++;
         slime.BulletEffect.OnAddToTurret(this);
+        SoundManager.Instance.PlaySFX("EnterTurret");
     }
     public void PushPlayer(PlayerBehaviour player)
     {
         _slots[_count].SetImage(player.SlotIcon);
         _count++;
         _player = player;
+        SoundManager.Instance.PlaySFX("EnterTurret");
     }
     public void Clear()
     {

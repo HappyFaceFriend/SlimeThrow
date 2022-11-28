@@ -9,16 +9,29 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] FlipObjectToPoint _flip;
 
     protected KnockbackController _knockback;
-    public bool IsOnFire { get; set; } = false;
-    public bool CriticalOn { get; set; } = false;
-    public bool FireBallOn { get; set; } = false;
     public bool IsGrabbable { get; set; } = false;
-    public bool FireSlayerOn { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
+
+    public bool IsAlive
+    {
+        get
+        {
+            return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
+                                        CurrentState is SlimeStates.GrabbedState);
+        }
+    }
+    public bool IsFever()
+    {
+        if(_hpSystem.CurrentHp <= _hpSystem.MaxHp.Value/2)
+            return true;
+        else
+            return false;
+    }
+
     public bool FlameBullet { get; set; } = false;
     public bool BurningFist { get; set; } = false;
-    public bool IsAlive { get { return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
-                                        CurrentState is SlimeStates.GrabbedState); } }
+    
+
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
@@ -26,6 +39,7 @@ public class SlimeBehaviour : StateMachineBase
     public FlipObjectToPoint Flipper { get { return _flip; } }
 
     HpSystem _hpSystem;
+
     BuffManager<SlimeBehaviour> _buffManager = new BuffManager<SlimeBehaviour>();
     [SerializeField] FlashWhenHitted _flasher;
     [SerializeField] SquashWhenHitted _squasher;
@@ -41,6 +55,7 @@ public class SlimeBehaviour : StateMachineBase
     public BuffableStat FlowerAttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
+
 
     protected CameraController _camera;
 
@@ -85,39 +100,48 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
     {
-        if (BurningFist)
-            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, 2, 0.5f));
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
-        if (IsOnFire & CriticalOn)
+        if (GlobalRefs.UpgradeManager.GetCount("Critical Fire") != 0 )
             damage *= 1.2f;
         OnGetHitted(impactPosition, damage, false);
+        if (GlobalRefs.UpgradeManager.GetCount("Burning Fist") != 0)
+            ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
-        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & FireSlayerOn & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
+        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & GlobalRefs.UpgradeManager.GetCount("Fire Slayer") != 0 & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
             OnGetHitted(impactPosition, 999f, true);
         else
             OnGetHitted(impactPosition, damage, false);
-
-        if (!IsOnFire & FireBallOn)
-            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
+        if (GlobalRefs.UpgradeManager.GetCount("Fire Cannon") != 0)
+            ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
     }
     protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
     {
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();
         TakeDamage(damage);
-        if(_hpSystem.IsDead)
+        if (_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+            SoundManager.Instance.PlaySFX("SlimeLastHitted");
             //ChangeState(new SlimeStates.GrabbableState(this));
+        }
+        else if(CurrentState is SlimeStates.FreezeState) // 안 죽었고 얼어 있는 상태면 맞아도 가만히 
+        {
+            _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            //ChangeState(new SlimeStates.HittedState(this));
         }
         else
         {
             _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            if(Random.Range(0f,1f) > 0.5f)
+                SoundManager.Instance.PlaySFX("SlimeHitted1");
+            else
+                SoundManager.Instance.PlaySFX("SlimeHitted2");
             ChangeState(new SlimeStates.HittedState(this));
         }
     }
@@ -129,6 +153,10 @@ public class SlimeBehaviour : StateMachineBase
         else
             EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.SlimeHitted);
         _hpSystem.ChangeHp(-damage);
+        if (Random.Range(0f, 1f) > 0.5f)
+            SoundManager.Instance.PlaySFX("SlimeHitted1", 0.15f);
+        else
+            SoundManager.Instance.PlaySFX("SlimeHitted2", 0.15f);
     }
     void OnDie()
     {
@@ -138,6 +166,7 @@ public class SlimeBehaviour : StateMachineBase
             return;
         }
         if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
+        //if (true)
             ChangeState(new SlimeStates.GrabbableState(this));
         else
             ChangeState(new SlimeStates.DeadState(this));
@@ -148,7 +177,7 @@ public class SlimeBehaviour : StateMachineBase
         if (PuttedInTurret)
             return;
         _camera.Shake(CameraController.ShakePower.SlimeHitted);
-        float smokeSpeed = 0.7f;
+        float smokeSpeed = 2f;
         float angleOffset = Random.Range(-15, 15);
         EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
         EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);

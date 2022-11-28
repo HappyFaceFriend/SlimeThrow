@@ -13,12 +13,13 @@ public class CollisionPadAttack : SlimeAttackBase
         _target = targetTransform;
     }
    
-    public void AnimEvent_ShootProjectile() // 이거 언제 호출되는 함수야
+    public void AnimEvent_ShootProjectile()
     {
         CollisionPadtile projectile = Instantiate(_padtilePrefab, transform.position, Quaternion.identity);
         projectile.Init(_target.position, Slime);
         BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
         Destroy(smoke.gameObject, 1f);
+        Destroy(projectile.gameObject, 1.8f);
     }
 
     protected override IEnumerator AttackCoroutine()

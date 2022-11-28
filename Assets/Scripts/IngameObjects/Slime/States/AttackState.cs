@@ -31,6 +31,7 @@ namespace SlimeStates
                 _attack.StartAttack(_attackTarget);
                 Slime.Animator.SetBool("IsFlowerAttack", false);
             }
+            SoundManager.Instance.PlaySFX("SlimeAttack");
             SetAnimState();
         }
         public override void OnUpdate()

@@ -7,8 +7,10 @@ public class CollisionPadtile : MonoBehaviour
 {
     [SerializeField] float _range;
     [SerializeField] GameObject _warningPrefab;
-    SlimeBehaviour _slime;
-    float _damage;
+
+    protected SlimeBehaviour _slime;
+    protected float _damage;
+
     float timer = 0f;
     bool _canAttack = false;
     public float _warningTime;
@@ -42,7 +44,7 @@ public class CollisionPadtile : MonoBehaviour
         var flower = collision.collider.GetComponent<Flower>();
         if (player != null)
         {
-            player.OnHittedBySlime(_slime, _damage);
+            player.OnHitted(_damage);
             Destroy(gameObject, 0.38f);
         }
         else if (flower != null)
@@ -52,7 +54,7 @@ public class CollisionPadtile : MonoBehaviour
             Die();
         }
     }
-    void Die()
+    protected void Die()
     {
         Destroy(gameObject);
     }

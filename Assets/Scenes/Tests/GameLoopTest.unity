@@ -3415,6 +3415,7 @@ MonoBehaviour:
   _dustEffectPool: {fileID: 1612579920}
   _damageTextPool: {fileID: 2042183937}
   _smokeEffectPool: {fileID: 298143546}
+  _recoveryTextPool: {fileID: 0}
 --- !u!4 &370180594
 Transform:
   m_ObjectHideFlags: 0
@@ -10979,6 +10980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followTarget: {fileID: 1982071428}
+  _originalOffset: {x: 0, y: 0}
 --- !u!1 &1132574915
 GameObject:
   m_ObjectHideFlags: 0
@@ -14105,11 +14107,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapSize: {x: 24, y: 15.5}
+  _gameOverSceneName: 
   _flower: {fileID: 1845336812}
   _dirts:
   - {fileID: 1605515060}
   - {fileID: 1578747098}
   _spawner: {fileID: 1713841413}
+  _stagePanel: {fileID: 0}
 --- !u!4 &1420246762
 Transform:
   m_ObjectHideFlags: 0
@@ -19492,6 +19496,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8479817264885539398, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
+      propertyPath: _levelManager
+      value: 
+      objectReference: {fileID: 1420246761}
     - target: {fileID: 8479817264885539417, guid: 7ac22c81960cca84699ed0b766e107f4, type: 3}
       propertyPath: m_RootOrder
       value: 2

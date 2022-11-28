@@ -22,11 +22,13 @@ public class TitleSceneManager : MonoBehaviour
     }
     public void NewGame()
     {
+        SoundManager.Instance.PlaySFX("GameStartClicked", 1f);
         SceneManager.LoadScene(_gameSceneName);
     }
 
     public void LoadGame()
     {
+        SoundManager.Instance.PlaySFX("GameStartClicked", 1f);
         Debug.Log("로딩 미구현");
         SceneManager.LoadScene("TitleScene");
     }
@@ -40,7 +42,18 @@ public class TitleSceneManager : MonoBehaviour
     }
     public void EnableCameraMove()
     {
+        if(_canCameraMove == false)
+            SoundManager.Instance.PlayBGM("Main");
         _canCameraMove = true;
+    }
+    public void ExplosionSound()
+    {
+        SoundManager.Instance.PlaySFX("BulletLand1", 1f);
+        SoundManager.Instance.PlaySFX("BulletLand2", 1f);
+    }
+    public void SlimeWalkSound()
+    {
+        SoundManager.Instance.PlaySFX("MainSlimeWalk");
     }
     private void Update()
     {

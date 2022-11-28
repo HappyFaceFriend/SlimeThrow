@@ -31,7 +31,8 @@ public class BulletBehaviour : MonoBehaviour
         {
             _player.LandWithBullet(transform.position);
         }
-        
+        SoundManager.Instance.PlaySFX("BulletLand1", 1.3f);
+        SoundManager.Instance.PlaySFX("BulletLand2", 1.3f);
         Destroy(gameObject);
     }
     IEnumerator MoveCoroutine()

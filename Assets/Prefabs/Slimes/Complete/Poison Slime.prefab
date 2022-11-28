@@ -27,6 +27,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1713587009, guid: 7028f3ee3267dd04eb6f366b61e90a65, type: 3}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 6a0d17496ac227a419efed436bfb2357, type: 2}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
       value: Poison Slime
@@ -101,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _landEffectPrefab: {fileID: 8298487191741688216, guid: 159942d4956bac64c85219c0cb99b837, type: 3}
+  _buffEffect: {fileID: -6890286734947844482, guid: 10ff5885b2988434db016b7da5857a31, type: 3}
 --- !u!114 &6789458741255317167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,5 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 5
-  _padtilePrefab: {fileID: 2737328821955075495, guid: b370fa18c462a24439b7f58105cdadd1, type: 3}
+  _padtilePrefab: {fileID: 7541426865152140847, guid: 0535e58d24f107e4380d69c63dd6bbb4, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}

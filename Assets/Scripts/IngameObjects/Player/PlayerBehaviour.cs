@@ -25,8 +25,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public bool UpgradeGetHP = false;
     public float _getHP;
 
-    public bool _firemail { get; set; } = false;
-
     public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
 
     PlayerInput _inputs;
@@ -65,6 +63,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     }
     public void ApplyBuff(Buff<PlayerBehaviour> buff)
     {
+        buff.SetOwner(this);
         _buffManager.AddBuff(buff);
     }
 
@@ -98,23 +97,31 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        if (_firemail & slime.Data.name == "FireSlime")
+        if (GlobalRefs.UpgradeManager.GetCount("Fire Resistance") != 0 )
             damage /= 2f;
         TakeDamage(damage);
+        SoundManager.Instance.PlaySFX("PlayerHitted");
     }
 
-    public void OnHittedByPad(SlimeBehaviour slime, float damage)
+    public void OnHitted(float damage)
     {
         if (IsInvincible)
             return;
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
+        SoundManager.Instance.PlaySFX("PlayerHitted", 0.15f);
     }
     public void TakeDamage(float damage)
     {
         _hpSystem.ChangeHp(-damage);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
         EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.PlayerHitted);
+    }
+    public void RecoveHP(float amount)
+    {
+        _hpSystem.ChangeHp(amount);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+        Debug.Log("체력 " + amount + "회복");
     }
     void OnDie()
     {

@@ -69,6 +69,7 @@ public class GrabController : MonoBehaviour
         _grabbedSlime.transform.SetParent(null);
         _grabbedSlime.OnReleasedAtGround(mouseVec.normalized, _player.PushToTowerRange.Value);
         _grabbedSlime = null;
+        SoundManager.Instance.PlaySFX("ThrowAway");
     }
     public void ReleaseFlower()
     {
@@ -87,6 +88,7 @@ public class GrabController : MonoBehaviour
             _grabbedFlower.OnReleasedAtGround();
             _grabbedFlower = null;
         }
+        SoundManager.Instance.PlaySFX("ThrowAway");
     }
 
     FlowerPlantPoint FindClosestDirt()

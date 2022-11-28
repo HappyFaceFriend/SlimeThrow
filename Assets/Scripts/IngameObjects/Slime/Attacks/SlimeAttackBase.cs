@@ -22,7 +22,7 @@ public class SlimeAttackBase : MonoBehaviour
     }
     public virtual Transform GetAttackableTarget()
     {
-        if(Utils.Vectors.IsInDistance(GlobalRefs.Flower.transform.position, transform.position, Slime.AttackRange.Value))
+        if(Utils.Vectors.IsInDistance(GlobalRefs.Flower.transform.position, transform.position, 1))
         {
             return GlobalRefs.Flower.transform;
         }
