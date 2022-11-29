@@ -19,12 +19,15 @@ namespace SlimeStates
         {
             base.OnUpdate();
             if (_knockback.IsKnockbackDone)
+            {
                 Slime.ChangeState(new MoveState(Slime));
+            }
         }
         public override void OnExit()
         {
             base.OnExit();
             Slime.Flipper.enabled = true;
+            Slime.Animator.ResetTrigger("Hitted");
         }
     }
 }

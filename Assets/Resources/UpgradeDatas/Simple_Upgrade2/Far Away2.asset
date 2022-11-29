@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: "\uBA40\uB9AC\uB358\uC9C0\uAE302"
   _body: "\uD50C\uB808\uC774\uC5B4\uAC00 \uB300\uD3EC\uC5D0 \uC2AC\uB77C\uC784\uC744
-    \uB123\uC744 \uC218 \uC788\uB294 \uBC94\uC704\uAC00 25% \uC99D\uAC00\uD55C\uB2E4"
+    \uB123\uC744 \uC218 \uC788\uB294 \uBC94\uC704\uAC00 50% \uC99D\uAC00\uD55C\uB2E4"
   _icon: {fileID: -752405894, guid: b20cbdff4e952e14ea216f2424f2b811, type: 3}
   _statModes:
   - _statToChange: 5
-    _applyValue: 1.25
+    _applyValue: 1.5
     _applyType: 1

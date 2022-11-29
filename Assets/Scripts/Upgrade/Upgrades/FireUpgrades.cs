@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Upgrades
 {
-    
     [CreateAssetMenu(menuName = "Upgrade Datas/Fire Upgrades")]
     public class FireUpgrades : UpgradeData
     {
@@ -25,5 +24,3 @@ namespace Upgrades
         }
     }
 }
-
-
