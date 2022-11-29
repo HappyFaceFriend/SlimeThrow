@@ -25,6 +25,10 @@ public class SlimeBehaviour : StateMachineBase
                                         CurrentState is SlimeStates.GrabbedState);
         }
     }
+    public bool IsSpawning
+    {
+        get { return CurrentState is SlimeStates.SpawnState; }
+    }
     public bool IsFever()
     {
         if(_hpSystem.CurrentHp <= _hpSystem.MaxHp.Value/2)
@@ -201,12 +205,12 @@ public class SlimeBehaviour : StateMachineBase
 
     protected override StateBase GetInitialState()
     {
-        return new SlimeStates.IdleState(this);
+        return new SlimeStates.SpawnState(this);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!IsAlive)
+        if (!IsAlive || IsSpawning)
             return;
         var target = collision.collider.GetComponent<IAttackableBySlime>();
         if (target != null)

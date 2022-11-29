@@ -21,6 +21,7 @@ public class SlimeHerd : MonoBehaviour
             StartCoroutine(SpawnSingleSlime(slime));
             yield return new WaitForSeconds(spawnInterval);
         }
+        Destroy(gameObject);
     }
     IEnumerator SpawnSingleSlime(SlimeBehaviour slime)
     {

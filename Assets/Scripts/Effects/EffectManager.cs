@@ -57,6 +57,7 @@ public class EffectManager : MonoBehaviour
         SpawnWarning warning = _instance._spawnWarningPool.Create<SpawnWarning>();
         warning.transform.position = position;
         warning.Slime = slime;
+        slime.transform.SetParent(null);
         warning.gameObject.SetActive(true);
         
     }
