@@ -8,6 +8,7 @@ public static class Defs
     public static string FlowerLayer = "Flowers";
 
     public static string UpgradeAssetsPath = "UpgradeDatas";
+    public static string SlimeHerdPrefabsPath = "SlimeHerds";
 
     public static class KnockBackDistance
     {
