@@ -22,10 +22,10 @@ PrefabInstance:
     - target: {fileID: 5073582268577550554, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f212bd36d86acfc468869dcfffc3a7af, type: 3}
+      objectReference: {fileID: 21300000, guid: 1ace7f8b33b39f64eabc91c283851dfc, type: 3}
     - target: {fileID: 5073582269476436944, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
       propertyPath: m_Name
-      value: test
+      value: KingIce Projectile
       objectReference: {fileID: 0}
     - target: {fileID: 5073582269476436946, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
       propertyPath: m_RootOrder

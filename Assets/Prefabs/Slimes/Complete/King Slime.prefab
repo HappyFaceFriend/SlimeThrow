@@ -365,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: d0e6eb7145db6a545b13182b05fd8f50, type: 2}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
-      value: King Slime Variant
+      value: King Slime
       objectReference: {fileID: 0}
     - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_RootOrder
@@ -411,8 +411,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6938963835695920365, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 11988c852ce57cd41ad11e707bf3d1dc, type: 2}
+    m_RemovedComponents:
+    - {fileID: 1702894428, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+--- !u!1 &3659441307355379998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 5946111205228744190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8120231042383928423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659441307355379998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b816950693aedc64a9f2015998c97cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 3
+  _numOfdirections: 10
+  _projectilePrefab: {fileID: 7763154171693699967, guid: 9a9c15ab8776e7348a62cbeadc00db77, type: 3}
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!4 &4724180782680186615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1372328807142265609, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}

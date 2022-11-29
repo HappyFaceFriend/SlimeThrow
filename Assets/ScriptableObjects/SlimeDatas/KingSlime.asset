@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
-  m_Name: FireSlime
+  m_Name: KingSlime
   m_EditorClassIdentifier: 
   _maxHp: 40
-  _attackPower: 5
-  _flowerAttackPower: 3
-  _attackSpeed: 0.4
-  _attackRange: 3
-  _sightRange: 6
-  _moveSpeed: 0.5
-  _damageAsBullet: 15
+  _attackPower: 10
+  _attackSpeed: 1
+  _attackRange: 7
+  _sightRange: 10
+  _moveSpeed: 0.2
+  _damageAsBullet: 0
   _type: 0
-  _slotIcon: {fileID: 2029826809, guid: 738f0d39732af1a4a863d45892dfa687, type: 3}
+  _slotIcon: {fileID: -517770132, guid: 89f81cf39634983408fadb01c5397fa4, type: 3}

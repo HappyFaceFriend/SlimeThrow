@@ -369,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 7f996a2f5a0107a4badfa36e68dffa91, type: 2}
     - target: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Name
-      value: KingIce Slime Variant
+      value: KingIce Slime
       objectReference: {fileID: 0}
     - target: {fileID: 6938963835695920361, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_RootOrder
@@ -415,10 +415,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1702894428, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
 --- !u!4 &294484235289166165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1372328807142265609, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_PrefabInstance: {fileID: 1665568927567909468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8597772758391383740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 1665568927567909468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2622119033201883122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597772758391383740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00364038334fbc44a3350d2a7e29899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 3
+  _numOfdirections: 10
+  _projectilePrefab: {fileID: 7763154171693699967, guid: 849bf560ecb749743b47a56d40f1151a, type: 3}
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
+  _stickPrefab: {fileID: 2296847571828211379, guid: e83b6677fa440114fb60c56865e911f5, type: 3}

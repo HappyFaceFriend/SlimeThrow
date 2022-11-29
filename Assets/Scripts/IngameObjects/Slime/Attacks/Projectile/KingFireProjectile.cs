@@ -6,6 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class KingFireProjectile : FireProjectile
 {
     [SerializeField] SlimeProjectile _childProjectile;
+
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
@@ -24,8 +25,8 @@ public class KingFireProjectile : FireProjectile
             Vector3 dir2 = Utils.Vectors.AngleToVector(baseAngle - offset);
             SlimeProjectile projectile1 = Instantiate(_childProjectile, transform.position, Quaternion.identity);
             SlimeProjectile projectile2 = Instantiate(_childProjectile, transform.position, Quaternion.identity);
-            projectile1.Init(dir1, 10);
-            projectile1.Init(dir2, 10);
+            projectile1.Init(-dir1, 10);
+            projectile2.Init(-dir2, 10);
 
         }
         Destroy(gameObject);

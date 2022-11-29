@@ -20,17 +20,19 @@ namespace PlayerBuffs
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if (!_start)
+            if(Random.Range(0f, 1f) <= _probability)
             {
-                Debug.Log("스턴걸린다");
-                Owner.MoveSpeed.AddModifier(_modifier);
-                _start = true;
-            }
-            else
-            {
-                if (ElapsedTime > _duration)
+                if (!_start)
                 {
-                    Owner.MoveSpeed.RemoveModifier(_modifier);
+                    Owner.MoveSpeed.AddModifier(_modifier);
+                    _start = true;
+                }
+                else
+                {
+                    if (ElapsedTime > _duration)
+                    {
+                        Owner.MoveSpeed.RemoveModifier(_modifier);
+                    }
                 }
             }
         }

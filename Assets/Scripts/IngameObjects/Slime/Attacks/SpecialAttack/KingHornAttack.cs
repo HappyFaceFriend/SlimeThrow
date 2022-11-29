@@ -2,26 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttack : SlimeAttackBase
+public class KingHornAttack : MeleeAttack
 {
-    protected Vector3 _targetPos;
-
-    [SerializeField] protected float _normPosOfAttack;
-
-    Collider2D[] _hitBoxColliders;
-    Vector3 _posBeforeAttack;
-    public bool _willReturn = true;
-    new protected void Awake()
-    {
-        base.Awake();
-        _posBeforeAttack = transform.position;
-    }
-
-    protected override void OnStartAttack(Transform targetTransform)
-    {
-        _targetPos = targetTransform.position;
-    }
-
     protected override IEnumerator AttackCoroutine()
     {
         float eTime = 0f;
