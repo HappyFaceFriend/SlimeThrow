@@ -13,6 +13,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ObjectPool _damageTextPool;
     [SerializeField] ObjectPool _smokeEffectPool;
     [SerializeField] ObjectPool _recoveryTextPool;
+    [SerializeField] ObjectPool _spawnWarningPool;
     private void Awake()
     {
         _instance = this;
@@ -49,5 +50,15 @@ public class EffectManager : MonoBehaviour
         effect.transform.position = Camera.main.WorldToScreenPoint(position) + new Vector3(0, 0.5f, 0);
         effect.transform.localScale = new Vector3(0.85f, 1, 1);
         effect.gameObject.SetActive(true);
+    }
+
+    public static void InstantiateSpawnWarning(Vector3 position, SlimeBehaviour slime)
+    {
+        SpawnWarning warning = _instance._spawnWarningPool.Create<SpawnWarning>();
+        warning.transform.position = position;
+        warning.Slime = slime;
+        slime.transform.SetParent(null);
+        warning.gameObject.SetActive(true);
+        
     }
 }
