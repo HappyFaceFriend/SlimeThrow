@@ -1191,6 +1191,8 @@ MonoBehaviour:
   _sliderBackEffect: {fileID: 690088273}
   effectSpeed: 1
   _text: {fileID: 331401313}
+  shakeDuration: 0.2
+  shakeMagnitude: 1.5
 --- !u!114 &68200208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11144,6 +11146,8 @@ MonoBehaviour:
   _sliderBackEffect: {fileID: 729686138}
   effectSpeed: 3
   _text: {fileID: 1888031044}
+  shakeDuration: 0.2
+  shakeMagnitude: 1.5
 --- !u!114 &999279424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15508,6 +15512,8 @@ MonoBehaviour:
   _sliderBackEffect: {fileID: 0}
   effectSpeed: 0
   _text: {fileID: 0}
+  shakeDuration: 0
+  shakeMagnitude: 0
 --- !u!114 &1400932312
 MonoBehaviour:
   m_ObjectHideFlags: 0
