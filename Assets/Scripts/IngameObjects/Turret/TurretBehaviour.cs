@@ -31,6 +31,10 @@ public class TurretBehaviour : StateMachineBase
     {
         _bulletBuilder.PushPlayer(player);
     }
+    public void RemovePlayer()
+    {
+        _bulletBuilder.RemovePlayer();
+    }
     public void Shoot(Vector3 targetPosition)
     {
         BulletBehaviour bulletObject = _bulletBuilder.CreateBullet();

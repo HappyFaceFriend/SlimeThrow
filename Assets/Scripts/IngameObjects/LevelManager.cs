@@ -58,13 +58,20 @@ public class LevelManager : MonoBehaviour
         {
             SaveData data = new SaveData(_spawner.CurrentRound, _spawner.CurrentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
             SaveDataManager.Instance.Save(data);
+
+            GlobalRefs.Player.EverythingStopped = false;
             _spawner.StartNextStage();
             if (_spawner.IsLastStage)
                 break;
             yield return _spawner.WaitUntilStageClear();
             SoundManager.Instance.PlaySFX("LastSlimeDead");
-            _stagePanel.SetToNextStage();
+            if(GlobalRefs.Player.CurrentState is PlayerStates.InTurretState)
+            {
+                GlobalRefs.Player.ForceOutOfTurret();
+            }
+            GlobalRefs.Player.EverythingStopped = true;
 
+            _stagePanel.SetToNextStage();
             //업그레이드
             yield return GlobalRefs.UpgradeManager.SelectUpgrade();
         }

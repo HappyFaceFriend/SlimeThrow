@@ -16,7 +16,9 @@ public class SlimeBehaviour : StateMachineBase
     public bool FireSlayerOn { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
 
+    [SerializeField] float _flowerAttackRange;
 
+    public float FlowerAttackRange { get { return _flowerAttackRange; } }
     public bool IsAlive
     {
         get
