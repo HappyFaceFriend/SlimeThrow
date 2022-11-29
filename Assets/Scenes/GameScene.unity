@@ -19886,7 +19886,6 @@ MonoBehaviour:
   _flower: {fileID: 1901327497}
   _upgradeManager: {fileID: 963630798}
   _levelManager: {fileID: 1793902159}
-  _effectStat: {fileID: 746226020}
 --- !u!4 &1746375428
 Transform:
   m_ObjectHideFlags: 0

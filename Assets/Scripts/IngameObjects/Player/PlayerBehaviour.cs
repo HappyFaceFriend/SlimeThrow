@@ -22,6 +22,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public PlayerInput Inputs { get { return _inputs; } }
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
+    public HpBar PlayerHPBar { get { return _hpBar; } }
     public bool UpgradeGetHP = false;
     public float _getHP;
 
