@@ -5,7 +5,6 @@ using UnityEngine;
 public class SlimeAttackBase : MonoBehaviour
 {
     [SerializeField] float _duration;
-
     protected float Duration { get { return _duration; } }
     Coroutine _attackCoroutine;
     protected SlimeBehaviour Slime { get; private set; }
@@ -22,7 +21,7 @@ public class SlimeAttackBase : MonoBehaviour
     }
     public virtual Transform GetAttackableTarget()
     {
-        if(Utils.Vectors.IsInDistance(GlobalRefs.Flower.transform.position, transform.position, 1))
+        if(Utils.Vectors.IsInDistance(GlobalRefs.Flower.transform.position, transform.position, Slime.FlowerAttackRange))
         {
             return GlobalRefs.Flower.transform;
         }

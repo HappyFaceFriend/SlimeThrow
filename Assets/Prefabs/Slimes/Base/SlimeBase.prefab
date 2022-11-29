@@ -321,9 +321,11 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: 82de2be4752b9464cb5a39fd3e15c330, type: 2}
   _grabbableDuration: 3
   _flip: {fileID: 5356116137300519249}
+  _flowerAttackRange: 1
   _flasher: {fileID: 5081881716674794410}
   _squasher: {fileID: 5081881716674794411}
   _normPosOfFlowerAttack: 0
+  _isGrabbableAtDeath: 0
 --- !u!114 &5640623954171796688
 MonoBehaviour:
   m_ObjectHideFlags: 0
