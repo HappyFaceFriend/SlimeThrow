@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 949171af191f44149995de92616e8ade
+guid: 0ac3397b2cda2d440bd32ebd5bd96e23
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,49 +104,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IceSlime_body
+      name: warning_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 6
-        width: 26
-        height: 19
-      alignment: 9
-      pivot: {x: 0.5, y: 0.05263158}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dc1041c93eff1f4fbb11535f61c73b1
-      internalID: -581524864
+      spriteID: 9088340e7f2f9a64c81436a34e830dac
+      internalID: -921943174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceSlime_hitted
+      name: warning_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 6
-        width: 27
-        height: 20
-      alignment: 9
-      pivot: {x: 0.5, y: 0.05}
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e352494609deb8d49abeeba38d8ca734
-      internalID: -1018835981
+      spriteID: fee655767cc654849aa44e1500352554
+      internalID: -941812455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icon_Ice
+      name: warning_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3a7fb6f35c51c419fb6b920e6fe8d9
+      internalID: -945260991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warning_3
       rect:
         serializedVersion: 2
         x: 96
@@ -154,14 +175,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4077e6a6d07045c49846f357cce140fb
-      internalID: -1868510928
+      spriteID: 48f99d5b9d762e246801948ea10b8e05
+      internalID: -2012411175
       vertices: []
       indices: 
       edges: []
@@ -177,9 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      icon_Ice: -1868510928
-      IceSlime_body: -581524864
-      IceSlime_hitted: -1018835981
+      warning_0: -921943174
+      warning_2: -945260991
+      warning_3: -2012411175
+      warning_1: -941812455
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

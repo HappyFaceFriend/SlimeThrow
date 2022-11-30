@@ -15,13 +15,13 @@ public class BulletBuilder : MonoBehaviour
 
     int _count = 0;
     PlayerBehaviour _player = null;
+    int _playerIdx = -1;
     private void Start()
     {
         Clear();
     }
     public void AddLandEffect(LandEffectInfo info)
     {
-        Debug.Log(1);
         _landEffectInfos.Add(info);
     }
     public void ApplyEffectsToBullet(BulletBehaviour bullet)
@@ -49,9 +49,23 @@ public class BulletBuilder : MonoBehaviour
     public void PushPlayer(PlayerBehaviour player)
     {
         _slots[_count].SetImage(player.SlotIcon);
-        _count++;
         _player = player;
+        _playerIdx = _count;
+        _count++;
         SoundManager.Instance.PlaySFX("EnterTurret");
+    }
+    public void RemovePlayer()
+    {
+        if(_player != null)
+        {
+            for(int i= _playerIdx; i<_count; i++)
+            {
+                _slots[i].SetImage(_slots[i + 1].Icon);
+            }
+            _player = null;
+            _playerIdx = -1;
+            _count--;
+        }
     }
     public void Clear()
     {

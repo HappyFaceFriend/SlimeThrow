@@ -128,10 +128,10 @@ TextureImporter:
       name: BasicSlime_hitted
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 66
+        y: 7
+        width: 27
+        height: 20
       alignment: 9
       pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}

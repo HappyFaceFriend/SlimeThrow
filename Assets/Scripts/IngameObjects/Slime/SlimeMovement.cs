@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlimeMovement : MonoBehaviour
 {
-    protected enum State { MoveToTarget, MoveAroundTarget}
+    protected enum State { MoveToTarget, MoveAroundTarget }
 
     protected State _state;
     public Vector3 TargetPos { get { return _target.position; } }
@@ -24,10 +24,10 @@ public class SlimeMovement : MonoBehaviour
         _flower = GlobalRefs.Flower.transform;
         _target = GlobalRefs.Flower.transform;
     }
-    
+
     public virtual void OnUpdate()
     {
-        if(_state == State.MoveToTarget)
+        if (_state == State.MoveToTarget)
         {
             Vector3 moveDir = (_target.position - transform.position).normalized;
             transform.position += moveDir * _slime.MoveSpeed.Value * Time.deltaTime;
@@ -42,8 +42,10 @@ public class SlimeMovement : MonoBehaviour
                 else if (_target == _flower && isPlayerInRange)
                     _target = _player;
             }
-            
-            if (Utils.Vectors.IsInDistance(_target.position, transform.position, _slime.AttackRange.Value))
+            float range = _slime.AttackRange.Value;
+            if (_target == _flower)
+                range = _slime.FlowerAttackRange;
+            if (Utils.Vectors.IsInDistance(_target.position, transform.position, range))
             {
                 _state = State.MoveAroundTarget;
                 Vector3 distanceVec = _target.position - transform.position;
@@ -56,7 +58,10 @@ public class SlimeMovement : MonoBehaviour
             Vector3 moveDir = new Vector3(-distanceVec.y, distanceVec.x, 0).normalized;
             transform.position += moveDir * _rotateDir * _slime.MoveSpeed.Value * Time.deltaTime;
 
-            if (!Utils.Vectors.IsInDistance(_target.position, transform.position, _slime.AttackRange.Value))
+            float range = _slime.AttackRange.Value;
+            if (_target == _flower)
+                range = _slime.FlowerAttackRange;
+            if (!Utils.Vectors.IsInDistance(_target.position, transform.position, range))
             {
                 _state = State.MoveToTarget;
             }

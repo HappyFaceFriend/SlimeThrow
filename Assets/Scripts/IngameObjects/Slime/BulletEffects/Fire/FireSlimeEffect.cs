@@ -41,11 +41,11 @@ public class FireSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         var fireinfo = info as BurnEffectInfo;
-        if (GlobalRefs.UpgradeManager.GetCount("Flame Bullet") != 0)
+        if (GlobalRefs.UpgradeManager.GetCount("È­¿°Åº") != 0)
             fireinfo.DamagePerTick = (int)(slime.HPSystem.MaxHp.Value / 10f);
         else
-            fireinfo.DamagePerTick += GlobalRefs.UpgradeManager.GetCount("Burning Slime");
-        slime.ApplyBuff(new SlimeBuffs.Burn(fireinfo.Duration + 3 * GlobalRefs.UpgradeManager.GetCount("Embers"), fireinfo.DamagePerTick , 0.5f));
+            fireinfo.DamagePerTick += GlobalRefs.UpgradeManager.GetCount("Å¸µé¾î°¡´Â ½½¶óÀÓ");
+        slime.ApplyBuff(new SlimeBuffs.Burn(fireinfo.Duration + 3 * GlobalRefs.UpgradeManager.GetCount("ºÒ¾¾"), fireinfo.DamagePerTick , 0.5f));
         LittleFire buffEffect = Instantiate(_buffEffect);
         buffEffect.transform.SetParent(slime.transform, false);
         buffEffect.GetComponent<LittleFire>().SetDuration(fireinfo.Duration);

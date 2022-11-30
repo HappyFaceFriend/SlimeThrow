@@ -21,6 +21,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public BuffableStat DamageAsBullet { get; private set; }
     public PlayerInput Inputs { get { return _inputs; } }
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
+    public bool EverythingStopped { get; set; }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
     public HpBar PlayerHPBar { get { return _hpBar; } }
     public bool UpgradeGetHP = false;
@@ -64,15 +65,26 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     }
     public void ApplyBuff(Buff<PlayerBehaviour> buff)
     {
+        if (EverythingStopped)
+            return;
         buff.SetOwner(this);
         _buffManager.AddBuff(buff);
     }
 
+    public void ForceOutOfTurret()
+    {
+        if(CurrentState is PlayerStates.InTurretState)
+        {
+            GlobalRefs.Turret.RemovePlayer();
+            LandWithBullet(new Vector3(1, 0, 0));
+        }
+    }
     new private void Update()
     {
         base.Update();
         _flip.TargetPoint = Utils.Inputs.GetMouseWordPos();
-        _buffManager.OnUpdate();
+        if(!EverythingStopped)
+            _buffManager.OnUpdate();
         MoveInBounds();
     }
     public void LandWithBullet(Vector3 landPosition)
@@ -93,12 +105,14 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     }
     public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
-        if (IsInvincible)
+        if (EverythingStopped)
+            return;
+        if (IsInvincible) 
             return;
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        if (GlobalRefs.UpgradeManager.GetCount("Fire Resistance") != 0 )
+        if (GlobalRefs.UpgradeManager.GetCount("È­¿°¹æ¾î¸·") != 0 )
             damage /= 2f;
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted");
@@ -106,6 +120,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
 
     public void OnHitted(float damage)
     {
+        if (EverythingStopped)
+            return;
         if (IsInvincible)
             return;
         EffectManager.InstantiateHitEffect(transform.position);
@@ -114,6 +130,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     }
     public void TakeDamage(float damage)
     {
+        if (EverythingStopped)
+            return;
         _hpSystem.ChangeHp(-damage);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
         EffectManager.InstantiateDamageTextEffect(transform.position, damage, DamageTextEffect.Type.PlayerHitted);
