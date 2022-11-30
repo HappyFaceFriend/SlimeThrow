@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SlimeHerd : MonoBehaviour
 {
-    public enum Type { Easy, Upgrade, Attack, Special, Boss }
+    public enum Difficulty { Easy, Normal, Hard, VeryHard }
     [SerializeField] float spawnInterval = 0.1f;
-    [SerializeField] Type type;
+    [SerializeField] Difficulty difficulty;
     [SerializeField] Vector2 _herdSize;
     [SerializeField] SlimeBehaviour _mainSlime;
     SlimeBehaviour [] _slimes;
