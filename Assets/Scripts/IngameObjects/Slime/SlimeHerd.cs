@@ -9,16 +9,31 @@ public class SlimeHerd : MonoBehaviour
     [SerializeField] Difficulty difficulty;
     [SerializeField] Vector2 _herdSize;
     [SerializeField] SlimeBehaviour _mainSlime;
-    SlimeBehaviour [] _slimes;
+
+
+    List<SlimeBehaviour> _slimes;
+    RandomSlime [] _randomSlimes;
+    
 
     public Vector2 HerdSize { get { return _herdSize; } }
     public SlimeBehaviour MainSlime { get { return _mainSlime; } }
 
     private void Awake()
     {
-        _slimes = GetComponentsInChildren<SlimeBehaviour>();
+        _slimes = new List<SlimeBehaviour>();
+        _slimes.AddRange(GetComponentsInChildren<SlimeBehaviour>());
+        _randomSlimes = GetComponentsInChildren<RandomSlime>();
         foreach (var slime in _slimes)
             slime.gameObject.SetActive(false);
+
+        foreach (var randomSlime in _randomSlimes)
+        {
+            SlimeBehaviour newSlime = randomSlime.InstantiateRandom();
+            newSlime.gameObject.SetActive(false);
+            newSlime.transform.SetParent(transform);
+            _slimes.Add(newSlime);
+            Destroy(randomSlime.gameObject);
+        }
 
         StartCoroutine(SpawnCoroutine());
     }
