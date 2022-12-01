@@ -8,13 +8,11 @@ namespace Upgrades
     public class BulletSpeedUp : UpgradeData
     {
         [SerializeField] float _applyValue;
-        [SerializeField] Modifier.ApplyType _applyType;
 
         public override void OnAdded()
         {
             base.OnAdded();
-            Modifier modifier = new Modifier(_applyValue, _applyType);
-            GlobalRefs.Turret._bulletBuilder.upgrade1 = true;
+            GlobalRefs.Turret._bulletBuilder.setValue(_applyValue);
         }
     }
 }

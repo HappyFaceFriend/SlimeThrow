@@ -23,10 +23,9 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public bool EverythingStopped { get; set; }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
+    public HpBar PlayerHPBar { get { return _hpBar; } }
     public bool UpgradeGetHP = false;
     public float _getHP;
-
-    public bool _firemail { get; set; } = false;
 
     public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
 
@@ -113,7 +112,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        if (_firemail & slime.Data.name == "FireSlime")
+        if (GlobalRefs.UpgradeManager.GetCount("È­¿°¹æ¾î¸·") != 0 )
             damage /= 2f;
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted");

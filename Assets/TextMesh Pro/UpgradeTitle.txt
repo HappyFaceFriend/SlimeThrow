@@ -14,25 +14,25 @@ You are able to pick up dead Rock slime 100%	사망한 바위 슬라임을 100%�
 Pickup Sticky	끈끈이슬라임 잡기
 You are albe to pick up dead Sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
 Light Footsteps1	가벼운 발걸음1
-Player movement speed increased by 10%	플레이어의 이동속도가 10% 증가한다
+Player movement speed increased by 20%	플레이어의 이동속도가 20% 증가한다
 Aidkit1	구급상자1
 Player's MaxHp increased by 20 and CurrentHP increased by 30	플레이어의 최대 체력이 20 증가하고, 현재 체력이 30 증가한다
 Fearsome Attack1	강인한 공격1
-Player Attack Power increased by 5	플레이어의 기본 공격력이 5 증가한다
+Player Attack Power increased by 3	플레이어의 기본 공격력이 3 증가한다
 Rapid Shooting1	급속사격1
-Fall speed of cannonball increased by 7%	포탄의 낙하 속도가 7% 증가한다
+Fall speed of cannonball increased by 20%	포탄의 낙하 속도가 20% 증가한다
 Carpet Bombing1	무차별 폭격1
-Range and Damage of cannonball increased by 10%	포탄의 데미지가 6% 증가한다
+Range and Damage of cannonball increased by 10%	포탄의 데미지가 10% 증가한다
 Fierce Boy1	난폭한 소년1
-Every time the player lands after shoot by cannon, currentHP, Attack power, attack speed and movement speed increases about 3%	플레이어가 포탄으로 착지할때마다 체력, 공격력, 공격속도, 이동속도가 모두 3%씩 증가한다
+Every time the player lands after shoot by cannon, currentHP, attack speed and movement speed increases about 5%	플레이어가 포탄으로 착지할때마다 체력, 공격속도, 이동속도가 모두 5%씩 증가한다
 The Hunter1	사냥꾼1
 After every kill by player itself, Player recovers HP by 1	플레이어가 슬라임을 죽일때마다 체력 1 회복한다
 Far Away1	멀리던지기1
-The range of player throwing slime to cannon widthens by 10%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 10% 증가한다
+The range of player throwing slime to cannon widthens by 20%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 20% 증가한다
 Burning Ground	불타는 대지
-Every Slime spawned for first 10 seconds get Burn	첫 10초간 스폰되는 슬라임 모두 화상을 입는다
+Every Slime spawned for the first 10 seconds get Burn	첫 10초간 스폰되는 슬라임 모두 화상을 입는다
 Snowy Field	설원
-For the first 10 seconds, speed of every slime decreased by 5%	첫 10초간 모든 슬라임 이동속도 5% 감소한다
+Every Slime spawned for the first 10 seconds get Frostbite.	첫 10초간 스폰되는 슬라임 모두 동상을 입는다.
 The Predictor	예언자
 Before each stage, You can see the direction of slime waves	스테이지 시작 5초전 웨이브 방향을 알 수 있다
 Holes	구덩이
@@ -45,28 +45,28 @@ Bullet Reload1	총알 장전1
 Number of slimes in magazine to reload increases by 1	장전할 수 있는 슬라임의 수가 1 늘어난다
 Burning Slime	타들어가는 슬라임
 Burning Damage per second increased by 1	화상의 초당 데미지가 1 증가한다
-Remaining Flame	불씨
+Embers	불씨
 Burn Duration is increased by 3 seconds	화상의 적용시간이 3초 증가한다
-Flamemail	화염갑옷
+Fire Resistance	화염방어막
 Damage of Fire Slime decreases by 50%	불 슬라임의 공격의 피해가 50% 감소한다
 Light Footsteps2	가벼운 발걸음2
-Player movement speed increased by 25%	플레이어의 이동속도가 25% 증가한다
+Player movement speed increased by 50%	플레이어의 이동속도가 50% 증가한다
 Aidkit2	구급상자2
 Player's MaxHp increased by 50 and CurrentHP increased by 50	플레이어의 최대 체력이 50 증가하고, 현재 체력이 50 증가한다
 Fearsome Attack2	강인한 공격2
-Player Attack Power increased by 8	플레이어의 기본 공격력이 8 증가한다
+Player Attack Power increased by 5	플레이어의 기본 공격력이 5 증가한다
 Rapid Shooting2	급속사격2
-Fall speed of cannonball increased by 25%	포탄의 낙하 속도가 25% 증가한다
+Fall speed of cannonball increased by 50%	포탄의 낙하 속도가 50% 증가한다
 Carpet Bombing2	무차별 폭격2
-Range and Damage of cannonball increased by 10%	포탄의 데미지가 10% 증가한다
+Range and Damage of cannonball increased by 30%	포탄의 데미지가 30% 증가한다
 Fierce Boy2	난폭한 소년2
-Every time the player lands after shoot by cannon, currentHP, Attack power, attack speed and movement speed increases about 3%	플레이어가 포탄으로 착지할때마다 체력, 공격력, 공격속도, 이동속도가 모두 3%씩 증가한다
+Every time the player lands after shoot by cannon, currentHP, attack speed and movement speed increases about 10%	플레이어가 포탄으로 착지할때마다 체력, 공격속도, 이동속도가 모두 10%씩 증가한다
 The Hunter2	사냥꾼2
 After every kill by player itself, Player recovers HP by 3	플레이어가 슬라임을 죽일때마다 체력을 3 회복한다
 Far Away2	멀리던지기2
-The range of player throwing slime to cannon widthens by 25%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 25% 증가한다
+The range of player throwing slime to cannon widthens by 50%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 50% 증가한다
 Critical Fire	치명적인 불꽃
-Slimes on Burn gets 20% more damage from Player	화상을 입은 슬라임에게 플레이어의 기본 공격 데미지가 20% 증가
+Slimes on Burn gets 50% more damage from Player	화상을 입은 슬라임에게 플레이어의 기본 공격 데미지가 50% 증가
 Fire Cannon	파이어 캐논
 Every Bullet gets Burn effect	모든 포탄에 화상을 적용한다
 Flame Bullet	화염탄

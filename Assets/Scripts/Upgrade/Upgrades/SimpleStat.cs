@@ -31,11 +31,17 @@ namespace Upgrades
                 var stat = modes[i];
                 Modifier modifier = new Modifier(stat._applyValue, stat._applyType);
                 if (stat._statToChange == StatMode.StatType.MaxHp)
+                {
                     GlobalRefs.Player.MaxHp.AddModifier(modifier);
+                    GlobalRefs.Player.PlayerHPBar.SetHp((int)GlobalRefs.Player.HpSystem.CurrentHp, (int)GlobalRefs.Player.HpSystem.MaxHp.Value);
+                }
+                    
                 else if (stat._statToChange == StatMode.StatType.CurrentHP)
                 {
                     GlobalRefs.Player.HpSystem.ChangeHp(stat._applyValue);
+                    GlobalRefs.Player.PlayerHPBar.SetHp((int)GlobalRefs.Player.HpSystem.CurrentHp, (int)GlobalRefs.Player.HpSystem.MaxHp.Value);
                 }
+                    
                 else if (stat._statToChange == StatMode.StatType.AttackPower)
                     GlobalRefs.Player.AttackPower.AddModifier(modifier);
                 else if (stat._statToChange == StatMode.StatType.AttackSpeed)

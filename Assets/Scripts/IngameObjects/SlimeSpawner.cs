@@ -59,14 +59,15 @@ public class SlimeSpawner : MonoBehaviour
     public StageLabel.Type[] LabelTypes { get; private set; }
     public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
-
-    public bool _burnUpgrade { get; set; } = false;
-    public bool _slowUpgrade { get; set; } = false;
     public bool _criticalUpgrade { get; set; } = false;
     public bool _fireBallUpgrade { get; set; } = false;
     public bool _fireSlayerUpgrade { get; set; } = false;
     public bool _flameBulletUpgrade { get; set; } = false;
     public bool _fistUpgrade { get; set; } = false;
+    public bool _burningGround { get; private set; } = false;
+    public bool _snowyField { get; private set; } = false;
+    public bool _burnOn { get; set; } = false;
+    public bool _snowyOn { get; set; } = false;
 
     public int CurrentRound { get { return _currentRound; } }
     public int CurrentStage { get { return _currentStage; } }
@@ -353,6 +354,10 @@ public class SlimeSpawner : MonoBehaviour
     {
         _stageText.text = "" + _currentRound + "-" + _currentStage;
         _isSpawnDone = false;
+        if (_burnOn)
+            _burningGround = true;
+        if (_snowyOn)
+            _snowyField = true;
         int waveCount = GetWaveCount(_currentStage, _currentRound);
         List<SpawnSection> sections = GetRandomSections(_spawnSets[_currentRound - 1]);
         for (int i = 0; i < waveCount; i++)
@@ -379,8 +384,11 @@ public class SlimeSpawner : MonoBehaviour
                     section.spawnTimer.Reset(GetRandomSpawnInterval(_currentRound));
                 }
             }
-            if (eTime == 10)
-                SetBurn();
+            if (eTime > 10)
+            {
+                _burningGround = false;
+                _snowyField = false;
+            }
             yield return null;
         }
     }
@@ -400,14 +408,15 @@ public class SlimeSpawner : MonoBehaviour
             angle += 360;
         return angle;
     }
-    public void SetBurn()
+    public void BurningOn()
     {
-        _burnUpgrade = (!_burnUpgrade);
+        _burnOn = true;
     }
-    public void SetSlow()
+    public void SnowyOn()
     {
-        _slowUpgrade = (!_slowUpgrade);
+        _snowyOn = true;
     }
+
     void SpawnSlime(float angle)
     {
         angle = ClampAngle(angle);
@@ -424,24 +433,10 @@ public class SlimeSpawner : MonoBehaviour
             spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);
         _spawnedSlimes.Add(Instantiate(GetRandomSlime(), spawnPoint, Quaternion.identity));
         var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
-        if (_burnUpgrade)
-        {
+        if (GlobalRefs.UpgradeManager.GetCount("불타는 대지") >= 1 & _burningGround)
             slime.ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
-        }
-        if (_criticalUpgrade)
-            slime.CriticalOn = true;
-
-        if (_fireBallUpgrade)
-            slime.FireBallOn = true;
-
-        if (_fireSlayerUpgrade)
-            slime.FireSlayerOn = true;
-
-        if (_flameBulletUpgrade)
-            slime.FlameBullet = true;
-
-        if (_fistUpgrade)
-            slime.BurningFist = true;
+        if (GlobalRefs.UpgradeManager.GetCount("설원") >= 1 & _snowyField)
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(5f, 1, 1f, 1f));
     }
     SlimeBehaviour GetRandomSlime()
     {
