@@ -172,7 +172,6 @@ public class SlimeBehaviour : StateMachineBase
             return;
         }
         if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
-        //if (true)
             ChangeState(new SlimeStates.GrabbableState(this));
         else
             ChangeState(new SlimeStates.DeadState(this));

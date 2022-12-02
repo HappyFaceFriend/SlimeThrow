@@ -41,7 +41,7 @@ public class FireSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         float damage;
-        if (slime.FlameBullet)
+        if (slime.FlameBullet)  
             damage = slime.HPSystem.MaxHp.Value * 0.1f;
         else
             damage = GlobalRefs.EffectStatManager._burn.DamagePerTick.Value;

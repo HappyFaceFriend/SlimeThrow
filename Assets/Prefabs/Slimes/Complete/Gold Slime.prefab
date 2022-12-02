@@ -77,12 +77,39 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 3fb87e79c797ceb48b6980357f8a40c0, type: 2}
     m_RemovedComponents:
     - {fileID: 1702894428, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+    - {fileID: 6938963835695920365, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+--- !u!95 &6194170774539951432 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 577770741951521669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7514398595279066981 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_PrefabInstance: {fileID: 577770741951521669}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6843513126750113896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7514398595279066981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe06b350d4d140448ae22f7cbc73a4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6194170774539951432}
+  _data: {fileID: 11400000, guid: 3fb87e79c797ceb48b6980357f8a40c0, type: 2}
+  _grabbableDuration: 0
+  _flip: {fileID: 0}
+  _flasher: {fileID: 0}
+  _squasher: {fileID: 0}
+  _normPosOfFlowerAttack: 0
+  _isGrabbableAtDeath: 0
+  _item: {fileID: 5704637130289757980, guid: d307ba6183f78fe439c72676af6ec29e, type: 3}
 --- !u!114 &5775593612738583974
 MonoBehaviour:
   m_ObjectHideFlags: 0
