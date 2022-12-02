@@ -9,14 +9,11 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] FlipObjectToPoint _flip;
 
     protected KnockbackController _knockback;
-    public bool IsOnFire { get { return _buffManager.HasBuff(typeof(SlimeBuffs.Burn)); }  }
-    public bool CriticalOn { get; set; } = false;
-    public bool FireBallOn { get; set; } = false;
     public bool IsGrabbable { get; set; } = false;
-    public bool FireSlayerOn { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
+    [SerializeField] float _flowerAttackRange;
 
-
+    public float FlowerAttackRange { get { return _flowerAttackRange; } }
     public bool IsAlive
     {
         get
@@ -24,6 +21,10 @@ public class SlimeBehaviour : StateMachineBase
             return !(CurrentState is SlimeStates.DeadState || CurrentState is SlimeStates.GrabbableState ||
                                         CurrentState is SlimeStates.GrabbedState);
         }
+    }
+    public bool IsSpawning
+    {
+        get { return CurrentState is SlimeStates.SpawnState; }
     }
     public bool IsFever()
     {
@@ -36,7 +37,6 @@ public class SlimeBehaviour : StateMachineBase
     public bool FlameBullet { get; set; } = false;
     public bool BurningFist { get; set; } = false;
     
-
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
 
@@ -83,6 +83,15 @@ public class SlimeBehaviour : StateMachineBase
     {
         base.Update();
         _buffManager.OnUpdate();
+
+        if (transform.position.x < -GlobalRefs.LevelManger.MapSize.x / 2)
+            transform.position = new Vector3(-GlobalRefs.LevelManger.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.x > GlobalRefs.LevelManger.MapSize.x / 2)
+            transform.position = new Vector3(GlobalRefs.LevelManger.MapSize.x / 2, transform.position.y, 0);
+        if (transform.position.y < -GlobalRefs.LevelManger.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, -GlobalRefs.LevelManger.MapSize.y / 2, 0);
+        if (transform.position.y > GlobalRefs.LevelManger.MapSize.y / 2)
+            transform.position = new Vector3(transform.position.x, GlobalRefs.LevelManger.MapSize.y / 2, 0);
     }
     public void ApplyBuff(Buff<SlimeBehaviour> buff)
     {
@@ -105,25 +114,24 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
     {
-        if (BurningFist)
-            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, 2, 0.5f));
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
-        if (IsOnFire & CriticalOn)
+        if (GlobalRefs.UpgradeManager.GetCount("치명적인 불꽃") != 0 )
             damage *= 1.2f;
         OnGetHitted(impactPosition, damage, false);
+        if (GlobalRefs.UpgradeManager.GetCount("불주먹") != 0 & _hpSystem.CurrentHp != 0)
+            ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
-        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & FireSlayerOn & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
+        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & GlobalRefs.UpgradeManager.GetCount("파이어 슬래이어") != 0 & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
             OnGetHitted(impactPosition, 999f, true);
         else
             OnGetHitted(impactPosition, damage, false);
-
-        if (!IsOnFire & FireBallOn)
-            ApplyBuff(new SlimeBuffs.Burn(GlobalRefs.EffectStatManager._burn.Duration.Value, GlobalRefs.EffectStatManager._burn.DamagePerTick.Value, 0.5f));
+        if (GlobalRefs.UpgradeManager.GetCount("파이어 캐논") != 0 & _hpSystem.CurrentHp != 0)
+            ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
     }
     protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
     {
@@ -191,12 +199,12 @@ public class SlimeBehaviour : StateMachineBase
 
     protected override StateBase GetInitialState()
     {
-        return new SlimeStates.IdleState(this);
+        return new SlimeStates.SpawnState(this);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!IsAlive)
+        if (!IsAlive || IsSpawning)
             return;
         var target = collision.collider.GetComponent<IAttackableBySlime>();
         if (target != null)

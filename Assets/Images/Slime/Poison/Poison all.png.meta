@@ -283,6 +283,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: icon_Poison
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba709952a434e4e4f88fb21aaf50c5d9
+      internalID: -1397067860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -295,9 +316,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Poison all_4: 800161508
+      icon_Poison: -599583595
       Poison all_1: -1347898037
       Poison all_7: 1337891956
-      Poison all_8: -599583595
       Poison all_3: -322156486
       Poison all_2: -1490162779
       Poison all_5: 1474795716

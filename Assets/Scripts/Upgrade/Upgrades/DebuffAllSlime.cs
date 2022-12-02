@@ -18,20 +18,15 @@ namespace Upgrades
         public override void OnAdded()
         {
             base.OnAdded();
-            Debuff(_debuffModes);
+            SetDebuff(_debuffModes);
         }
 
-        public void Debuff(DebuffModes modes)
+        public void SetDebuff(DebuffModes mode)
         {
-            var debuff = modes;
-            if (debuff._typeToChange == DebuffModes.DebuffType.Burning_Ground)
-            {
-                GlobalRefs.LevelManger.setBurn();
-            }
-            else if(debuff._typeToChange == DebuffModes.DebuffType.Snowy_Field)
-            {
-                GlobalRefs.LevelManger.setSlow();   
-            }
+            if (mode._typeToChange == DebuffModes.DebuffType.Burning_Ground)
+                GlobalRefs.LevelManger.Spawner.BurningOn = true;
+            else if (mode._typeToChange == DebuffModes.DebuffType.Snowy_Field)
+                GlobalRefs.LevelManger.Spawner.SnowyOn = true;
         }
     }
 }

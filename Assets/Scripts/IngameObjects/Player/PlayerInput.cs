@@ -9,16 +9,19 @@ public class PlayerInput : MonoBehaviour
     public Vector3 MoveInput { get { return _moveInput; } }
     public Vector3 LastMoveInput { get { return _lastMoveInput; } }
 
-    public bool IsMovePressed { get { return _moveInput != Vector3.zero; } }
-    public bool IsDashPressed { get { return Input.GetKeyDown(KeyCode.Space); } }
-    public bool IsReleasePressed { get { return Input.GetMouseButtonDown(0); } }
-    public bool IsAttackPressed { get { return Input.GetMouseButton(0); } }
-    public bool IsGetInTurretPressed { get { return Input.GetKeyDown(KeyCode.E); } }
-    public bool IsGrabFlowerPressed { get { return Input.GetKeyDown(KeyCode.F); } }
-    public bool IsReleaseFlowerPressed { get { return Input.GetMouseButtonDown(0); } }
+    PlayerBehaviour _player;
+
+    public bool IsMovePressed { get { return _moveInput != Vector3.zero && !_player.EverythingStopped; } }
+    public bool IsDashPressed { get { return Input.GetKeyDown(KeyCode.Space) && !_player.EverythingStopped; } }
+    public bool IsReleasePressed { get { return Input.GetMouseButtonDown(0) && !_player.EverythingStopped; } }
+    public bool IsAttackPressed { get { return Input.GetMouseButton(0) && !_player.EverythingStopped; } }
+    public bool IsGetInTurretPressed { get { return Input.GetKeyDown(KeyCode.E) && !_player.EverythingStopped; } }
+    public bool IsGrabFlowerPressed { get { return Input.GetKeyDown(KeyCode.F) && !_player.EverythingStopped; } }
+    public bool IsReleaseFlowerPressed { get { return Input.GetMouseButtonDown(0) && !_player.EverythingStopped; } }
     private void Awake()
     {
         _moveInput = Vector3.zero;
+        _player = GetComponent<PlayerBehaviour>();
         _lastMoveInput = new Vector3(1,0,0);
     }
     private void Update()

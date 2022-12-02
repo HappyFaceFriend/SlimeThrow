@@ -304,6 +304,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: icon_Horn
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e354674979b50b043b7643d74005141d
+      internalID: -1038117262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -320,6 +341,7 @@ TextureImporter:
       Horn All_5: 1048407931
       Horn All_4: -695261707
       Horn All_0: -1429497378
+      icon_Horn: -1038117262
       Horn All_2: -1839170550
       Horn All_3: -2093539129
       Horn All_1: -2078995406

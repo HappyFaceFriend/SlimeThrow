@@ -13,6 +13,7 @@ public class SlimeState : StateBase
     }
     public void SetAnimState()
     {
+        Slime.Animator.ResetTrigger(_name);
         Slime.Animator.SetTrigger(_name);
     }
 }

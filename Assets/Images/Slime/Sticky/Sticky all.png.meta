@@ -283,6 +283,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: icon_Sticky
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec46a33ea0cb30e4bb545776b2d649e4
+      internalID: -712703968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -298,6 +319,7 @@ TextureImporter:
       Sticky all_4: 1552011567
       Sticky all_0: -491827931
       Sticky all_2: -1688828335
+      icon_Sticky: -712703968
       Sticky all_6: -573858228
       Sticky all_1: -828276183
       Sticky all_5: 464607806

@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
 
 public class SlimeSpawner : MonoBehaviour
 {
     [System.Serializable]
-    struct SpawnPool
+    class SpawnPool
     {
         public int mainSlime;
-        //public int bossSlime;
+        public List<int> bossSlimes;
         public List<int> otherSlimes;
+        public int nextBossIdx;
+        public SpawnPool(int main = 0)
+        {
+            mainSlime = main;
+            bossSlimes = new List<int>();
+            otherSlimes = new List<int>();
+            nextBossIdx = 0;
+        }
     }
     class SpawnSection
     {
@@ -27,6 +36,8 @@ public class SlimeSpawner : MonoBehaviour
     [SerializeField] List<SlimeBehaviour> _buffSlimes;
     [SerializeField] List<SlimeBehaviour> _bossSlimes;
     List<SlimeBehaviour> _allSlimes = new List<SlimeBehaviour>();
+    [Header("References")]
+    [SerializeField] TextMeshProUGUI _stageText;
     [Header("Settings")]
     [SerializeField] LevelManager _levelManager;
     [SerializeField] int _spawnSectionCount;
@@ -48,17 +59,19 @@ public class SlimeSpawner : MonoBehaviour
     public StageLabel.Type[] LabelTypes { get; private set; }
     public List<Sprite> LabelImages { get; private set; }
     public bool IsLastStage { get; private set; } = false;
-
-    public bool _burnUpgrade { get; set; } = false;
-    public bool _slowUpgrade { get; set; } = false;
     public bool _criticalUpgrade { get; set; } = false;
     public bool _fireBallUpgrade { get; set; } = false;
     public bool _fireSlayerUpgrade { get; set; } = false;
     public bool _flameBulletUpgrade { get; set; } = false;
     public bool _fistUpgrade { get; set; } = false;
+    public bool _burningGround { get; private set; } = false;
+    public bool _snowyField { get; private set; } = false;
+    public bool _burnOn { get; set; } = false;
+    public bool _snowyOn { get; set; } = false;
 
     public int CurrentRound { get { return _currentRound; } }
     public int CurrentStage { get { return _currentStage; } }
+    public int StagePerRound { get { return _stagePerRound; } }
 
     private void Awake()
     {
@@ -82,26 +95,11 @@ public class SlimeSpawner : MonoBehaviour
         _spawnedSlimes = new List<SlimeBehaviour>();
         LabelTypes = new StageLabel.Type[_spawnSetCodes.Count * _stagePerRound];
         LabelImages = new List<Sprite>();
-        for(int i=0; i<_spawnSetCodes.Count; i++)
-        {
-            for(int j=0; j<_stagePerRound; j++)
-            {
-                if (j == _stagePerRound - 1)
-                {
-                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Boss;
-                    LabelImages.Add(null);
-                }
-                else
-                {
-                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Later;
-                    LabelImages.Add(null);
-                }
-            }
-        }
     }
     void InitPools()
     {
-        Utils.Random.Shuffle(_attackSlimes);
+        //Utils.Random.Shuffle(_attackSlimes);
+        _allSlimes.Add(_basicSlime);
         _allSlimes.AddRange(_upgradeSlimes);
         _allSlimes.AddRange(_attackSlimes);
         _allSlimes.AddRange(_specialSlimes);
@@ -120,7 +118,37 @@ public class SlimeSpawner : MonoBehaviour
         int[] specials = new int[_specialSlimes.Count];
         for (int j = 0; j < _specialSlimes.Count; j++)
             specials[j] = _allSlimes.FindIndex(x => x == _specialSlimes[j]);
-            
+
+        int[] attacks = new int[_attackSlimes.Count];
+        for (int j = 0; j < _attackSlimes.Count; j++)
+            attacks[j] = _allSlimes.FindIndex(x => x == _attackSlimes[j]);
+
+        int[] bosses = new int[_bossSlimes.Count];
+        for (int j = 0; j < _bossSlimes.Count; j++)
+            bosses[j] = _allSlimes.FindIndex(x => x == _bossSlimes[j]);
+        //1-1
+        SpawnPool pool = new SpawnPool();
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //1-2
+        pool = new SpawnPool();
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //1-3
+        pool = new SpawnPool();
+        pool.otherSlimes.AddRange(specials);
+        _spawnPools.Add(pool);
+        //1-4
+        pool = new SpawnPool();
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //1-5
+        pool = new SpawnPool();
+        pool.otherSlimes.Add(bosses[0]);
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+
+
         for (int i=2; i<=maxRound-1; i++)
         {
             if (mainPoolIdx < _attackSlimes.Count)
@@ -131,44 +159,115 @@ public class SlimeSpawner : MonoBehaviour
             subs[0] = _allSlimes.FindIndex(x => x == attackPool[1]);
             subs[1] = _allSlimes.FindIndex(x => x == attackPool[2]);
 
-            SpawnPool pool = new SpawnPool();
-            pool.mainSlime = main;
-            pool.otherSlimes = new List<int>();
 
             //x - 1 : 메인 + 서브2종 + 강화3종
+            pool = new SpawnPool(main);
             pool.otherSlimes.AddRange(subs);
             pool.otherSlimes.AddRange(upgrades);
             _spawnPools.Add(pool);
-            pool.otherSlimes.Clear();
             //x - 2 : 메인 + 강화 3종
+            pool = new SpawnPool(main);
             pool.otherSlimes.AddRange(upgrades);
             _spawnPools.Add(pool);
-            pool.otherSlimes.Clear();
             //x - 3 : 메인 + 서브2종 + 특수전부
+            pool = new SpawnPool(main);
             pool.otherSlimes.AddRange(subs);
             pool.otherSlimes.AddRange(specials);
             _spawnPools.Add(pool);
-            pool.otherSlimes.Clear();
             //x - 4 : 메인 + 서브2종 + 강화3종
+            pool = new SpawnPool(main);
             pool.otherSlimes.AddRange(subs);
             pool.otherSlimes.AddRange(upgrades);
             _spawnPools.Add(pool);
-            pool.otherSlimes.Clear();
             //x - 5 : 메인보스 + 메인 + 강화3종
             //보스 넣어야함
+            pool = new SpawnPool(main);
+            pool.bossSlimes.Add(bosses[i-2]);
             pool.otherSlimes.AddRange(upgrades);
             _spawnPools.Add(pool);
         }
+        //6-1
+        pool = new SpawnPool();
+        var tempslimes = Utils.Random.RandomElements(attacks, 5);
+        pool.mainSlime = tempslimes[0];
+        pool.otherSlimes.AddRange(tempslimes);
+        _spawnPools.Add(pool);
+        //6-2
+        pool = new SpawnPool(Utils.Random.RandomElement(specials));
+        pool.otherSlimes.AddRange(specials);
+        _spawnPools.Add(pool);
+        //6-3
+        pool = new SpawnPool(Utils.Random.RandomElement(attacks));
+        pool.otherSlimes.AddRange(Utils.Random.RandomElements(attacks, 3));
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //6-4
+        pool = new SpawnPool(Utils.Random.RandomElement(specials));
+        pool.otherSlimes.AddRange(specials);
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //6-5
+        pool = new SpawnPool(Utils.Random.RandomElement(attacks));
+        pool.bossSlimes.AddRange(Utils.Random.RandomElements(bosses,1));
+        pool.otherSlimes.AddRange(upgrades);
+        _spawnPools.Add(pool);
+        //6-6
+        pool = new SpawnPool(pool.bossSlimes[0]);
+        pool.bossSlimes.AddRange(Utils.Random.RandomElements(bosses,2));
+        pool.mainSlime = pool.bossSlimes[0];
+        pool.otherSlimes.AddRange(upgrades);
+        pool.otherSlimes.AddRange(specials);
+        pool.otherSlimes.AddRange(Utils.Random.RandomElements(attacks, 3));
+        _spawnPools.Add(pool);
 
+        
+        /*for(int i=0; i<maxRound; i++)
+        {
+            for(int j=0;j<_stagePerRound; j++)
+            {
+                print("[" + (i + 1) + "-" + (j + 1) + "]");
+                print("  main: " + _allSlimes[_spawnPools[i * _stagePerRound + j].mainSlime].name);
+
+                print("  others: " + _spawnPools[i * _stagePerRound + j].otherSlimes.Count);
+                for (int k = 0; k < _spawnPools[i * _stagePerRound + j].otherSlimes.Count; k++)
+                {
+                    print("    " + _allSlimes[_spawnPools[i * _stagePerRound + j].otherSlimes[k]].name);
+                }
+                print("  bosses: " + _spawnPools[i * _stagePerRound + j].bossSlimes.Count);
+                for (int k = 0; k < _spawnPools[i * _stagePerRound + j].bossSlimes.Count; k++)
+                {
+                    print("    " + _allSlimes[_spawnPools[i * _stagePerRound + j].bossSlimes[k]].name);
+                }
+            }
+        }*/
+        //label 이미지 설정
+
+        for (int i = 0; i < maxRound; i++)
+        {
+            for (int j = 0; j < _stagePerRound; j++)
+            {
+                if (_spawnPools[i * _stagePerRound + j].bossSlimes.Count > 0)
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Boss;
+                    LabelImages.Add(_allSlimes[_spawnPools[i * _stagePerRound + j].bossSlimes[0]].SlotIcon);
+                }
+                else
+                {
+                    LabelTypes[i * _stagePerRound + j] = StageLabel.Type.Later;
+                    LabelImages.Add(_allSlimes[_spawnPools[i * _stagePerRound + j].mainSlime].SlotIcon);
+                }
+            }
+        }
     }
     public void Init()
     {
-        _currentRound = 1;
-        _currentStage = 0;
+        //_currentRound = 1;
+        //_currentStage = 0;
         InitPools();
     }
     public void Load(SaveData loadData)
     {
+        //로드할땐 pools 정보 불러오기
         InitPools();
         _currentRound = loadData._round;
         _currentStage = loadData._stage;
@@ -253,7 +352,12 @@ public class SlimeSpawner : MonoBehaviour
     }
     IEnumerator StageCoroutine()
     {
+        _stageText.text = "" + _currentRound + "-" + _currentStage;
         _isSpawnDone = false;
+        if (_burnOn)
+            _burningGround = true;
+        if (_snowyOn)
+            _snowyField = true;
         int waveCount = GetWaveCount(_currentStage, _currentRound);
         List<SpawnSection> sections = GetRandomSections(_spawnSets[_currentRound - 1]);
         for (int i = 0; i < waveCount; i++)
@@ -280,8 +384,11 @@ public class SlimeSpawner : MonoBehaviour
                     section.spawnTimer.Reset(GetRandomSpawnInterval(_currentRound));
                 }
             }
-            if (eTime == 10)
-                SetBurn();
+            if (eTime > 10)
+            {
+                _burningGround = false;
+                _snowyField = false;
+            }
             yield return null;
         }
     }
@@ -301,14 +408,15 @@ public class SlimeSpawner : MonoBehaviour
             angle += 360;
         return angle;
     }
-    public void SetBurn()
+    public void BurningOn()
     {
-        _burnUpgrade = (!_burnUpgrade);
+        _burnOn = true;
     }
-    public void SetSlow()
+    public void SnowyOn()
     {
-        _slowUpgrade = (!_slowUpgrade);
+        _snowyOn = true;
     }
+
     void SpawnSlime(float angle)
     {
         angle = ClampAngle(angle);
@@ -325,30 +433,20 @@ public class SlimeSpawner : MonoBehaviour
             spawnPoint = new Vector3(-_mapSize.y / 2 / Mathf.Tan(angle * Mathf.Deg2Rad), -_mapSize.y / 2);
         _spawnedSlimes.Add(Instantiate(GetRandomSlime(), spawnPoint, Quaternion.identity));
         var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
-        if (_burnUpgrade)
-        {
+        if (GlobalRefs.UpgradeManager.GetCount("불타는 대지") >= 1 & _burningGround)
             slime.ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
-        }
-        if (_criticalUpgrade)
-            slime.CriticalOn = true;
-
-        if (_fireBallUpgrade)
-            slime.FireBallOn = true;
-
-        if (_fireSlayerUpgrade)
-            slime.FireSlayerOn = true;
-
-        if (_flameBulletUpgrade)
-            slime.FlameBullet = true;
-
-        if (_fistUpgrade)
-            slime.BurningFist = true;
+        if (GlobalRefs.UpgradeManager.GetCount("설원") >= 1 & _snowyField)
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(5f, 1, 1f, 1f));
     }
     SlimeBehaviour GetRandomSlime()
     {
         SpawnPool currentPool = _spawnPools[CurrentStage - 1 + (CurrentRound - 1) * _stagePerRound];
         float r = Random.Range(0f, 1f);
-        if (r < 0.3f)
+        if (currentPool.nextBossIdx < currentPool.bossSlimes.Count)
+        {
+            return _allSlimes[currentPool.nextBossIdx++];
+        }
+        if(currentPool.mainSlime == -1 || r < 0.3f)
             return _allSlimes[currentPool.mainSlime];
         else
             return _allSlimes[Utils.Random.RandomElement(currentPool.otherSlimes)];
