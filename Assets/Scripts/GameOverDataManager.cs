@@ -8,7 +8,6 @@ public class GameOverDataManager : MonoBehaviour
 {
     public class GameOverData
     {
-        public int Round;
         public int Stage;
     }
     static GameOverDataManager _instance = null;
@@ -40,7 +39,7 @@ public class GameOverDataManager : MonoBehaviour
     {
         if(_data != null)
         {
-            _clearedStageText.text = _data.Round.ToString() + " - " + _data.Stage.ToString();
+            _clearedStageText.text =  " stage " + _data.Stage.ToString();
         }
     }
 }

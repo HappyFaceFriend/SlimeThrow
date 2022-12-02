@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Difficulty { Easy, Normal, Hard, VeryHard, Special }
 public class SlimeHerd : MonoBehaviour
 {
-    public enum Difficulty { Easy, Normal, Hard, VeryHard }
-    [SerializeField] float spawnInterval = 0.1f;
-    [SerializeField] Difficulty difficulty;
+    [SerializeField] float _spawnInterval = 0.1f;
+    [SerializeField] Difficulty _difficulty;
     [SerializeField] Vector2 _herdSize;
     [SerializeField] SlimeBehaviour _mainSlime;
 
 
     List<SlimeBehaviour> _slimes;
     RandomSlime [] _randomSlimes;
-    
 
     public Vector2 HerdSize { get { return _herdSize; } }
+    public Difficulty Difficulty { get { return _difficulty; } }
     public SlimeBehaviour MainSlime { get { return _mainSlime; } }
 
     private void Awake()
@@ -23,8 +23,6 @@ public class SlimeHerd : MonoBehaviour
         _slimes = new List<SlimeBehaviour>();
         _slimes.AddRange(GetComponentsInChildren<SlimeBehaviour>());
         _randomSlimes = GetComponentsInChildren<RandomSlime>();
-        foreach (var slime in _slimes)
-            slime.gameObject.SetActive(false);
 
         foreach (var randomSlime in _randomSlimes)
         {
@@ -35,6 +33,12 @@ public class SlimeHerd : MonoBehaviour
             Destroy(randomSlime.gameObject);
         }
 
+        foreach (var slime in _slimes)
+        {
+            slime.gameObject.SetActive(false);
+            GlobalRefs.LevelManger.Spawner.OnAddNewSlime(slime);
+        }
+
         StartCoroutine(SpawnCoroutine());
     }
     IEnumerator SpawnCoroutine()
@@ -42,7 +46,7 @@ public class SlimeHerd : MonoBehaviour
         foreach(SlimeBehaviour slime in _slimes)
         {
             StartCoroutine(SpawnSingleSlime(slime));
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(_spawnInterval);
         }
         Destroy(gameObject);
     }
