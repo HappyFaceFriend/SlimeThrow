@@ -12,11 +12,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Vector2 _mapSize;
     [SerializeField] string _gameOverSceneName;
     [SerializeField] Flower _flower;
+    [SerializeField] SlimeHerdSpawner _spawner;
     [SerializeField] List<FlowerPlantPoint> _dirts;
 
-    [SerializeField] public SlimeSpawner _spawner;
     [SerializeField] StagePanel _stagePanel;
     List<string> _upgradeList;
+
+    int _currentStage;
+    public SlimeHerdSpawner Spawner { get { return _spawner; } }
 
     private void Start()
     {
@@ -36,37 +39,43 @@ public class LevelManager : MonoBehaviour
     IEnumerator GameLoop()
     {
         //Init
+        _currentStage = 0;
         InitFlower();
         //LoadGame();
-        _spawner.Init();
-        if (_spawner.CurrentStage == 0)
-            _stagePanel.Init(0);
-        else
-            _stagePanel.Init((_spawner.CurrentRound - 1) * _spawner.StagePerRound + (_spawner.CurrentStage - 1));
+        _stagePanel.SetStage(_currentStage);
         //Loop
-        while (true)
+        while (_currentStage < _spawner.MaxStage)
         {
-            SaveData data = new SaveData(_spawner.CurrentRound, _spawner.CurrentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
+            SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
             SaveDataManager.Instance.Save(data);
 
-            GlobalRefs.Player.EverythingStopped = false;
-            _spawner.StartNextStage();
-            if (_spawner.IsLastStage)
-                break;
-            yield return _spawner.WaitUntilStageClear();
-            SoundManager.Instance.PlaySFX("LastSlimeDead");
-            if(GlobalRefs.Player.CurrentState is PlayerStates.InTurretState)
-            {
-                GlobalRefs.Player.ForceOutOfTurret();
-            }
-            GlobalRefs.Player.EverythingStopped = true;
 
-            _stagePanel.SetToNextStage();
+            _spawner.StartStage(_currentStage);
+
+            while (_spawner.IsSpawning)
+                yield return null;
+            while (_spawner.LeftSlimes > 0)
+                yield return null;
+            SoundManager.Instance.PlaySFX("LastSlimeDead");
+
             //업그레이드
+            GlobalRefs.Player.EverythingStopped = true;
+            ResetPlayer();
             yield return GlobalRefs.UpgradeManager.SelectUpgrade();
+
+            GlobalRefs.Player.EverythingStopped = false;
+            _currentStage++;
+            _stagePanel.SetStage(_currentStage);
         }
     }
 
+    void ResetPlayer()
+    {
+        if (GlobalRefs.Player.CurrentState is PlayerStates.InTurretState)
+        {
+            GlobalRefs.Player.ForceOutOfTurret();
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -84,8 +93,7 @@ public class LevelManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("GameOver");
         GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
-        data.Round = _spawner.CurrentRound;
-        data.Stage = _spawner.CurrentStage;
+        data.Stage = _currentStage;
 
         GameOverDataManager.SetData(data);
 
@@ -100,21 +108,13 @@ public class LevelManager : MonoBehaviour
     void LoadGame()
     {
         SaveData data = SaveDataManager.Instance.Load();
-        if (data == null)
-            _spawner.Init();
-        else
-        {
-            if (data._round == 1 && data._stage == 0)
-            {
-                _spawner.Init();
-            }
-            else
-            {
-                _spawner.Load(data);
+        if (data != null)
+        { 
+                _currentStage = data._stage;
                 GlobalRefs.UpgradeManager.FindUpgrade(data._upgrades);
                 GlobalRefs.Player.HpSystem.ChangeHp(GlobalRefs.Player.MaxHp.Value - (float)data._playerHP);
                 GlobalRefs.Flower.HPSystem.ChangeHp(GlobalRefs.Flower.HPSystem.MaxHp.Value - (float)data._flowerHP);
-            }
+           
         }
     }
 }

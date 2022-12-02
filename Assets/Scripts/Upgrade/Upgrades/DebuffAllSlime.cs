@@ -24,9 +24,9 @@ namespace Upgrades
         public void SetDebuff(DebuffModes mode)
         {
             if (mode._typeToChange == DebuffModes.DebuffType.Burning_Ground)
-                GlobalRefs.LevelManger._spawner.BurningOn();
+                GlobalRefs.LevelManger.Spawner.BurningOn = true;
             else if (mode._typeToChange == DebuffModes.DebuffType.Snowy_Field)
-                GlobalRefs.LevelManger._spawner.SnowyOn();
+                GlobalRefs.LevelManger.Spawner.SnowyOn = true;
         }
     }
 }

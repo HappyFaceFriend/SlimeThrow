@@ -16,7 +16,6 @@ namespace SlimeStates
             base.OnEnter();
             //슬라임 등장 사운드
             SetAnimState();
-            Debug.Log("!!!");
             Slime.StartCoroutine(Wait());
         }
         public override void OnUpdate()

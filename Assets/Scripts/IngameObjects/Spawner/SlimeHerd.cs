@@ -2,23 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Difficulty { Easy, Normal, Hard, VeryHard, Special }
 public class SlimeHerd : MonoBehaviour
 {
-    public enum Type { Easy, Upgrade, Attack, Special, Boss }
-    [SerializeField] float spawnInterval = 0.1f;
-    [SerializeField] Type type;
+    [SerializeField] float _spawnInterval = 0.1f;
+    [SerializeField] Difficulty _difficulty;
     [SerializeField] Vector2 _herdSize;
     [SerializeField] SlimeBehaviour _mainSlime;
-    SlimeBehaviour [] _slimes;
+
+
+    List<SlimeBehaviour> _slimes;
+    RandomSlime [] _randomSlimes;
 
     public Vector2 HerdSize { get { return _herdSize; } }
+    public Difficulty Difficulty { get { return _difficulty; } }
     public SlimeBehaviour MainSlime { get { return _mainSlime; } }
 
     private void Awake()
     {
-        _slimes = GetComponentsInChildren<SlimeBehaviour>();
+        _slimes = new List<SlimeBehaviour>();
+        _slimes.AddRange(GetComponentsInChildren<SlimeBehaviour>());
+        _randomSlimes = GetComponentsInChildren<RandomSlime>();
+
+        foreach (var randomSlime in _randomSlimes)
+        {
+            SlimeBehaviour newSlime = randomSlime.InstantiateRandom();
+            newSlime.gameObject.SetActive(false);
+            newSlime.transform.SetParent(transform);
+            _slimes.Add(newSlime);
+            Destroy(randomSlime.gameObject);
+        }
+
         foreach (var slime in _slimes)
+        {
             slime.gameObject.SetActive(false);
+            GlobalRefs.LevelManger.Spawner.OnAddNewSlime(slime);
+        }
 
         StartCoroutine(SpawnCoroutine());
     }
@@ -27,7 +46,7 @@ public class SlimeHerd : MonoBehaviour
         foreach(SlimeBehaviour slime in _slimes)
         {
             StartCoroutine(SpawnSingleSlime(slime));
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(_spawnInterval);
         }
         Destroy(gameObject);
     }
