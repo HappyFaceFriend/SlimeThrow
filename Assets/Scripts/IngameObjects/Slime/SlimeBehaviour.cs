@@ -79,6 +79,12 @@ public class SlimeBehaviour : StateMachineBase
         AttackRange = new BuffableStat(_data.AttackRange);
         SightRange = new BuffableStat(_data.SightRange);
     }
+
+    void Start()
+    {
+        base.Start();
+        GlobalRefs.LevelManger.Spawner.OnAddNewSlime(this);
+    }
     private void Update()
     {
         base.Update();
@@ -97,10 +103,6 @@ public class SlimeBehaviour : StateMachineBase
     {
         buff.SetOwner(this);
         _buffManager.AddBuff(buff);
-    }
-    new protected void Start()
-    {
-        base.Start();
     }
     public void SetGrabbed(GrabController grabController)
     {
@@ -191,6 +193,7 @@ public class SlimeBehaviour : StateMachineBase
         if (PuttedInTurret)
             return;
         _camera.Shake(CameraController.ShakePower.SlimeHitted);
+        SoundManager.Instance.PlaySFX("SlimeExplode");
         float smokeSpeed = 2f;
         float angleOffset = Random.Range(-15, 15);
         EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
