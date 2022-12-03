@@ -140,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5670455739507198791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.815, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5670455739965134352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.321, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,9 +270,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 361152499
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -921164841
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9d2efed99c6160e45b99ec449c021baa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -362,6 +362,8 @@ MonoBehaviour:
   _bulletBuilder: {fileID: 5670455740937238620}
   _targetMarker: {fileID: 1567917044}
   _markerSpeed: 8
+  _body: {fileID: 5670455739507198788}
+  _shootEffectPrefab: {fileID: 0}
 --- !u!114 &5670455740937238620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +382,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _slimeName: 
 --- !u!95 &5670455740937238621
 Animator:
   serializedVersion: 4

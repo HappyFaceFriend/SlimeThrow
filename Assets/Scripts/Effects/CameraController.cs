@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public enum ShakePower { SlimeHitted, BulletLanded, SlimeLastHitted }
+    public enum ShakePower { SlimeHitted, BulletLanded, SlimeLastHitted, BulletShooted }
     [Header("Camera Shakes")]
     [SerializeField] CameraShakeParams _slimeHitted;
     [SerializeField] CameraShakeParams _bulletLanded;
     [SerializeField] CameraShakeParams _slimeLastHitted;
+    [SerializeField] CameraShakeParams _bulletShooted;
 
     [Header("Other Params")]
     [SerializeField] float _followSpeed;
@@ -56,6 +57,8 @@ public class CameraController : MonoBehaviour
             StartCoroutine(ShakeCoroutine(_bulletLanded));
         else if (power == ShakePower.SlimeLastHitted)
             StartCoroutine(ShakeCoroutine(_slimeLastHitted));
+        else if (power == ShakePower.BulletShooted)
+            StartCoroutine(ShakeCoroutine(_bulletShooted));
         _currentPower = power;
     }
 

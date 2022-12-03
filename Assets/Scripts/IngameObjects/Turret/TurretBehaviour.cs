@@ -18,6 +18,7 @@ public class TurretBehaviour : StateMachineBase
     [SerializeField] Transform _targetMarker;
     [SerializeField] float _markerSpeed;
     [SerializeField] Transform _body;
+    [SerializeField] GameObject _shootEffectPrefab;
     Rigidbody2D _rigidbody;
 
     public void SetBodyRotation(Vector3 rotation)
@@ -49,6 +50,9 @@ public class TurretBehaviour : StateMachineBase
         bulletObject.StartShoot(targetPosition);
         Animator.SetTrigger("Shoot");
         SoundManager.Instance.PlaySFX("BulletShoot", 1.5f);
+        EffectManager.InstantiateHitEffect(_shootPosition.position + new Vector3(0, 0.5f, 0), 1.5f, true);
+        Camera.main.GetComponent<CameraController>().Shake(CameraController.ShakePower.BulletShooted);
+        Instantiate(_shootEffectPrefab, _shootPosition.position, Quaternion.identity);
         IsShooting = true;
     }
     public void AnimEvent_ShootOver()
