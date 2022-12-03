@@ -363,7 +363,7 @@ MonoBehaviour:
   _targetMarker: {fileID: 1567917044}
   _markerSpeed: 8
   _body: {fileID: 5670455739507198788}
-  _shootEffectPrefab: {fileID: 0}
+  _shootEffectPrefab: {fileID: 6305788923300432430, guid: 4b44c50b20bbafb41b69c7da31b868d5, type: 3}
 --- !u!114 &5670455740937238620
 MonoBehaviour:
   m_ObjectHideFlags: 0
