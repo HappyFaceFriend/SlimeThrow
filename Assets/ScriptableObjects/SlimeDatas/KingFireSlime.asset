@@ -22,3 +22,4 @@ MonoBehaviour:
   _damageAsBullet: 0
   _type: 0
   _slotIcon: {fileID: -1665694988, guid: ffd0c7948b32b6348a5573849c205e47, type: 3}
+  _slimeColor: {r: 0.9843138, g: 0.2784314, b: 0.039215688, a: 1}

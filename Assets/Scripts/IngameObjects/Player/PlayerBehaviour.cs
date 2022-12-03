@@ -23,6 +23,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public bool EverythingStopped { get; set; }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
+    public Color Color { get { return _combatSettings.Color; } }
     public HpBar PlayerHPBar { get { return _hpBar; } }
     public bool UpgradeGetHP = false;
     public float _getHP;

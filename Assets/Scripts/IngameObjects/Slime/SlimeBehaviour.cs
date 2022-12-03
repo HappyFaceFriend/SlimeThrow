@@ -39,6 +39,7 @@ public class SlimeBehaviour : StateMachineBase
     
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
+    public Color Color{ get { return _data.Color; } }
 
     public SlimeBulletEffect BulletEffect { get; private set; }
     public FlipObjectToPoint Flipper { get { return _flip; } }
