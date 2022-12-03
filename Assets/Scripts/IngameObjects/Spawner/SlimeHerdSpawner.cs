@@ -99,8 +99,13 @@ public class SlimeHerdSpawner : MonoBehaviour
             if (!lighting)
                 SpawnHerdRandomPos(GetRandomHerd(difficulty, mainSlime), currentAreaIdx);
             float waitTime = spawnData.SpawnInterval * Random.Range(0.85f, 1.1f);
-            yield return new WaitForSeconds(waitTime);
-            eTime += waitTime;
+            float eTime2 = 0f;
+            while(eTime2 <= waitTime && eTime < spawnData.Duration)
+            {
+                eTime2 += Time.deltaTime;
+                eTime += Time.deltaTime;
+                yield return null;
+            }
         }
         IsSpawning = false;
     }

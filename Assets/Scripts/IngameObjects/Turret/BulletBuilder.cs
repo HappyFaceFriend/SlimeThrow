@@ -65,10 +65,10 @@ public class BulletBuilder : MonoBehaviour
             {
                 _slots[i].SetImage(_slots[i + 1].Icon);
             }
+            _colors.Remove(_player.Color);
             _player = null;
             _playerIdx = -1;
             _count--;
-            _colors.Remove(_player.Color);
         }
     }
     public void Clear()

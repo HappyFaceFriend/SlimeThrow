@@ -105,12 +105,19 @@ public class CameraController : MonoBehaviour
     {
         _pixelPerfect.enabled = false;
         float originalSize = _camera.orthographicSize;
-        _camera.orthographicSize = _lastHitZoomSize;
         _followSpeed *= 30;
         Time.timeScale = _lastHitTimeScale;
         StartCoroutine(ShakeCoroutine(_slimeLastHitted));
 
-        yield return new WaitForSecondsRealtime(_lastHitDuration);
+        float eTime = 0f;
+        float zoomDuration = 0.1f;
+        while(eTime <= zoomDuration)
+        {
+            eTime += Time.unscaledDeltaTime;
+            _camera.orthographicSize = Mathf.Lerp(originalSize, _lastHitZoomSize, (eTime / zoomDuration));
+        }
+        _camera.orthographicSize = _lastHitZoomSize;
+        yield return new WaitForSecondsRealtime(_lastHitDuration - zoomDuration);
 
         _camera.orthographicSize = originalSize;
         _followSpeed /= 30;
