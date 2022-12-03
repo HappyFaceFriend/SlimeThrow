@@ -9,7 +9,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     [SerializeField] PlayerCombatSettings _combatSettings;
     [SerializeField] HpBar _hpBar;
     [SerializeField] LevelManager _levelManager;
-    public bool IsInvincible { get; set; }
+    public bool IsInvincible { get; private set; }
     public bool IsTargetable { get; private set; }
     public BuffableStat GetInTurretRange { get; private set; }
     public BuffableStat MaxHp { get { return _hpSystem.MaxHp; } }
@@ -23,7 +23,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
     public bool EverythingStopped { get; set; }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
+    public Color Color { get { return _combatSettings.Color; } }
     public HpBar PlayerHPBar { get { return _hpBar; } }
+    Utils.Timer _invincibleTimer;
+
     public bool UpgradeGetHP = false;
     public float _getHP = 0;
 
@@ -50,8 +53,24 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         PushToTowerRange = new BuffableStat(_combatSettings.PushToTowerRange);
         GetInTurretRange = new BuffableStat(_combatSettings.GetInTurretRange);
         DamageAsBullet = new BuffableStat(_combatSettings.DamageAsBullet);
+        _invincibleTimer = new Utils.Timer(1f);
+        _invincibleTimer.Off();
     }
 
+    public void SetInvincible(bool invincible, float duration = -1)
+    {
+        IsInvincible = invincible;
+        if(invincible)
+        {
+            if (duration > 0)
+            {
+                _invincibleTimer.On();
+                _invincibleTimer.Reset(duration);
+            }
+            else
+                _invincibleTimer.Off();
+        }
+    }
     void MoveInBounds()
     {
         if (transform.position.x < -_levelManager.MapSize.x / 2)
@@ -85,13 +104,20 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _flip.TargetPoint = Utils.Inputs.GetMouseWordPos();
         if(!EverythingStopped)
             _buffManager.OnUpdate();
+        if(IsInvincible && _invincibleTimer.IsOn)
+        {
+            _invincibleTimer.Tick();
+            if(_invincibleTimer.IsOver)
+            {
+                IsInvincible = false;
+            }
+        }
         MoveInBounds();
     }
     public void LandWithBullet(Vector3 landPosition)
     {
         transform.position = landPosition;
         ChangeState(new PlayerStates.DefaultState(this));
-        IsInvincible = false;
         IsTargetable = true;
     }
     protected override StateBase GetInitialState()
@@ -118,12 +144,14 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         SoundManager.Instance.PlaySFX("PlayerHitted");
     }
 
-    public void OnHitted(float damage)
+    public void OnHitted(float damage, Vector3 impactPosition, bool knockback)
     {
         if (EverythingStopped)
             return;
         if (IsInvincible)
             return;
+        if(knockback)
+            _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted", 0.15f);
@@ -146,6 +174,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _flip.enabled = false;
         Destroy(GetComponent<CircleCollider2D>());
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.enabled = enabled;
+        }
         ChangeState(new PlayerStates.DeadState(this));
         _levelManager.OnPlayerDead();
     }

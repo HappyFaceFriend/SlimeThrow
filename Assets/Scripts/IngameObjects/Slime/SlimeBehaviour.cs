@@ -10,6 +10,7 @@ public class SlimeBehaviour : StateMachineBase
 
     protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
+    public bool IsLastSlimeToDie { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
     [SerializeField] float _flowerAttackRange;
 
@@ -39,6 +40,7 @@ public class SlimeBehaviour : StateMachineBase
     
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
+    public Color Color{ get { return _data.Color; } }
 
     public SlimeBulletEffect BulletEffect { get; private set; }
     public FlipObjectToPoint Flipper { get { return _flip; } }
@@ -83,7 +85,7 @@ public class SlimeBehaviour : StateMachineBase
     void Start()
     {
         base.Start();
-        GlobalRefs.LevelManger.Spawner.OnAddNewSlime(this);
+        //GlobalRefs.LevelManger.Spawner.OnAddNewSlime(this);
     }
     private void Update()
     {
@@ -193,13 +195,46 @@ public class SlimeBehaviour : StateMachineBase
     {
         if (PuttedInTurret)
             return;
-        _camera.Shake(CameraController.ShakePower.SlimeHitted);
-        SoundManager.Instance.PlaySFX("SlimeExplode");
-        float smokeSpeed = 2f;
-        float angleOffset = Random.Range(-15, 15);
-        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
-        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);
-        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(315 + angleOffset) * smokeSpeed);
+        if(IsLastSlimeToDie)
+        {
+            SoundManager.Instance.PlaySFX("SlimeExplode");
+            SoundManager.Instance.PlaySFXDelayed("SlimeExplode", 0.05f);
+            _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+            float smokeSpeed = 15f;
+            float angleOffset = Random.Range(-45, 45);
+            float bigScale = 5;
+            float fastSpeed = 30;
+            float[] angles = new float[4];
+            for (int i = 0; i < 4; i++)
+                angles[i] = 90 * i + angleOffset + Random.Range(-10, 10);
+
+            for(int i=0; i<4; i++)
+                EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i]) * fastSpeed, bigScale);
+            for (int j=0; j<5; j++)
+            {
+                float speed = smokeSpeed * (1 - 0.1f * j);
+                float moreOffset = Random.Range(-5f, 5f);
+                float scale = 3;
+                for (int i = 0; i < 4; i++)
+                    EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i] + moreOffset)
+                                * speed, scale);
+
+            }
+
+            EffectManager.InstantiateHitEffect(transform.position, 4);
+        }
+        else
+        {
+            _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            EffectManager.InstantiateHitEffect(transform.position, 1.5f);
+            SoundManager.Instance.PlaySFX("SlimeExplode");
+            float smokeSpeed = 2f;
+            float angleOffset = Random.Range(-15, 15);
+            EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
+            EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);
+            EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(315 + angleOffset) * smokeSpeed);
+
+        }
     }
 
     protected override StateBase GetInitialState()

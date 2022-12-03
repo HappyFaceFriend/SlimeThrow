@@ -9,6 +9,7 @@ namespace Utils
         float _duration;
 
         public bool IsOver { get { return _eTime >= _duration; } }
+        public bool IsOn { get; private set; } = true;
         public Timer(float duration, bool startWithOver = false)
         {
             _duration = duration;
@@ -19,7 +20,16 @@ namespace Utils
         }
         public void Tick()
         {
-            _eTime += Time.deltaTime;
+            if(IsOn)
+                _eTime += Time.deltaTime;
+        }
+        public void On()
+        {
+            IsOn = true;
+        }
+        public void Off()
+        {
+            IsOn = false;
         }
         public void Reset(float newDuration = -1f)
         {

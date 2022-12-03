@@ -15,6 +15,7 @@ public class SlimeData : ScriptableObject
     [SerializeField] float _damageAsBullet;
     [SerializeField] SlimeType _type;
     [SerializeField] Sprite _slotIcon;
+    [SerializeField] Color _slimeColor = Color.white;
 
     public float MaxHp { get { return _maxHp; } }
     public float AttackPower { get { return _attackPower; } }
@@ -26,6 +27,7 @@ public class SlimeData : ScriptableObject
     public float DamageAsBullet { get { return _damageAsBullet; } }
     public SlimeType Type { get { return _type; } }
     public Sprite SlotIcon { get { return _slotIcon; } }
+    public Color Color { get { return _slimeColor; } }
 }
 
 public enum SlimeType

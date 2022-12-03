@@ -35,11 +35,12 @@ public class EffectManager : MonoBehaviour
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }
-    public static void InstantiateSmokeEffect(Vector3 position, Vector3 velocity)
+    public static void InstantiateSmokeEffect(Vector3 position, Vector3 velocity, float scale = 1f)
     {
         PooledEffect effect = _instance._smokeEffectPool.Create<PooledEffect>();
         effect.SetVelocity(velocity);
         effect.transform.position = position;
+        effect.transform.localScale = (new Vector3(scale, scale, 1));
         effect.gameObject.SetActive(true);
     }
     public static void InstantiateDamageTextEffect(Vector3 position, float damage, DamageTextEffect.Type type)
@@ -47,7 +48,7 @@ public class EffectManager : MonoBehaviour
         DamageTextEffect effect = _instance._damageTextPool.Create<DamageTextEffect>();
         effect.SetText((int)damage, type);
         effect.transform.SetParent(_instance._canvas.transform);
-        effect.transform.position = Camera.main.WorldToScreenPoint(position) + new Vector3(0, 0.5f, 0);
+        effect.transform.position = position + new Vector3(0, 0.5f, 0);
         effect.transform.localScale = new Vector3(0.85f, 1, 1);
         effect.gameObject.SetActive(true);
     }

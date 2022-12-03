@@ -8,6 +8,7 @@ public class BulletBuilder : MonoBehaviour
     [SerializeField] GameObject _defaultLandPrefab;
 
     List<LandEffectInfo> _landEffectInfos = new List<LandEffectInfo>();
+    List<Color> _colors = new List<Color>();
     public int Count { get { return _count; } }
     [SerializeField] SlimeSlot [] _slots;
     public string _slimeName;
@@ -36,7 +37,7 @@ public class BulletBuilder : MonoBehaviour
             else
                 dup.OnAddDuplicate(dup);
         }
-        bullet.ApplyEffects(realLandEffects, _player);
+        bullet.ApplyEffects(realLandEffects, _player, _colors);
     }
     public void PushSlime(SlimeBehaviour slime)
     {
@@ -44,6 +45,7 @@ public class BulletBuilder : MonoBehaviour
         _slimeName = slime.name;
         _count++;
         slime.BulletEffect.OnAddToTurret(this);
+        _colors.Add(slime.Color);
         SoundManager.Instance.PlaySFX("EnterTurret");
     }
     public void PushPlayer(PlayerBehaviour player)
@@ -52,6 +54,7 @@ public class BulletBuilder : MonoBehaviour
         _player = player;
         _playerIdx = _count;
         _count++;
+        _colors.Add(player.Color);
         SoundManager.Instance.PlaySFX("EnterTurret");
     }
     public void RemovePlayer()
@@ -62,6 +65,7 @@ public class BulletBuilder : MonoBehaviour
             {
                 _slots[i].SetImage(_slots[i + 1].Icon);
             }
+            _colors.Remove(_player.Color);
             _player = null;
             _playerIdx = -1;
             _count--;
@@ -75,6 +79,7 @@ public class BulletBuilder : MonoBehaviour
             _slots[i].SetImage(null);
         }
         _landEffectInfos.Clear();
+        _colors.Clear();
         _player = null;
     }
 

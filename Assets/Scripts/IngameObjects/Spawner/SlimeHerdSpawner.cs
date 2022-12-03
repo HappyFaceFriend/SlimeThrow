@@ -23,12 +23,15 @@ public class SlimeHerdSpawner : MonoBehaviour
     SlimeHerd[] _allHerds;
     List<SlimeHerd>[] _herdsByDifficulty;
 
-    List<SlimeBehaviour> _spawnedSlimes;
+    [SerializeField]List<SlimeBehaviour> _spawnedSlimes;
 
     public bool _isBurningOn { get; set; } = false;
     public bool _stopBurn { get; set; } = true;
     public bool _isSnowyOn { get; set; } = false;
     public bool _stopSnowy { get; set; } = true;
+
+    List<SlimeBehaviour> _recentDead = new List<SlimeBehaviour>();
+    public List<SlimeBehaviour> RecentDead { get { return _recentDead; } }
 
     private void Awake()
     {
@@ -102,12 +105,20 @@ public class SlimeHerdSpawner : MonoBehaviour
             if (!lighting)
                 SpawnHerdRandomPos(GetRandomHerd(difficulty, mainSlime), currentAreaIdx);
             float waitTime = spawnData.SpawnInterval * Random.Range(0.85f, 1.1f);
+
             yield return new WaitForSeconds(waitTime);
             eTime += waitTime;
             if (eTime >= 10)
             {
                 _stopBurn = true;
                 _stopSnowy = true;
+            }
+            float eTime2 = 0f;
+            while(eTime2 <= waitTime && eTime < spawnData.Duration)
+            {
+                eTime2 += Time.deltaTime;
+                eTime += Time.deltaTime;
+                yield return null;
             }
         }
         IsSpawning = false;
@@ -174,7 +185,10 @@ public class SlimeHerdSpawner : MonoBehaviour
     }
     private void Update()
     {
-        _spawnedSlimes.RemoveAll(x => !x.IsAlive);
+        var dead = _spawnedSlimes.FindAll(x => !x.IsAlive || x==null);
+        _spawnedSlimes.RemoveAll(x => !x.IsAlive || x == null);
+        if (dead.Count > 0)
+            _recentDead = dead;
     }
     void SpawnHerdRandomPos(SlimeHerd herd, int areaIdx)
     {

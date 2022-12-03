@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee633d41119865d47b72b12f67f03c02, type: 3}
   m_Name: BulletLanded
   m_EditorClassIdentifier: 
-  Magnitude: 0.3
-  Duration: 0.2
+  Magnitude: 0.7
+  Duration: 0.3
   Curve: 0

@@ -14,12 +14,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Flower _flower;
     [SerializeField] SlimeHerdSpawner _spawner;
     [SerializeField] List<FlowerPlantPoint> _dirts;
+    [SerializeField] float _timeAfterStageClear;
 
     [SerializeField] StagePanel _stagePanel;
     List<string> _upgradeList;
 
     int _currentStage;
     public SlimeHerdSpawner Spawner { get { return _spawner; } }
+    public bool IsLastEffect { get; private set; } = false;
 
     private void Start()
     {
@@ -50,22 +52,29 @@ public class LevelManager : MonoBehaviour
             SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
             SaveDataManager.Instance.Save(data);
 
+            yield return _stagePanel.StartNewStage(_currentStage);
+            yield return new WaitForSeconds(1f);
             _spawner.StartStage(_currentStage);
 
-            while (_spawner.IsSpawning)
+            while (!(!_spawner.IsSpawning && _spawner.LeftSlimes == 0))
                 yield return null;
-            while (_spawner.LeftSlimes > 0)
-                yield return null;
+            foreach(SlimeBehaviour slime in _spawner.RecentDead)
+            {
+                slime.IsLastSlimeToDie = true;
+            }
             SoundManager.Instance.PlaySFX("LastSlimeDead");
+            yield return Camera.main.GetComponent<CameraController>().LastHitCoroutine();
+
+            yield return new WaitForSeconds(1f);
+            GlobalRefs.Player.EverythingStopped = true;
+            yield return new WaitForSeconds(_timeAfterStageClear);
 
             //업그레이드
-            GlobalRefs.Player.EverythingStopped = true;
             ResetPlayer();
             yield return GlobalRefs.UpgradeManager.SelectUpgrade(_currentStage);
 
             GlobalRefs.Player.EverythingStopped = false;
             _currentStage++;
-            _stagePanel.SetStage(_currentStage);
         }
     }
 

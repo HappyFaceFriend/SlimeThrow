@@ -43,7 +43,7 @@ public class PoisonPadtile : SlimePadtile
             {
                 if (_canDamage)
                 {
-                    player.OnHitted(_damage);
+                    player.OnHitted(_damage, transform.position, false);
                     _canDamage = false;
                     if (Random.Range(0f, 1f) <= _buffProbability && !_buffed)
                     {

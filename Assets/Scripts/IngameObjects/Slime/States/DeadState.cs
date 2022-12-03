@@ -30,7 +30,6 @@ namespace SlimeStates
             base.OnUpdate();
             if(_knockback.IsKnockbackDone)
             {
-                EffectManager.InstantiateHitEffect(Slime.transform.position);
                 GameObject.Destroy(Slime.gameObject);
             }
         }
