@@ -309,6 +309,7 @@ MonoBehaviour:
   _turretHeight: 1
   _maxZHeight: 3
   _landEffectPrefab: {fileID: 176326653859540629, guid: 25538323aafac7c42b4605456f95c191, type: 3}
+  _defaultLandEffectPrefab: {fileID: 1148395602288700253, guid: 5aa785f1ed682bf46a040882c8ce0ca7, type: 3}
   _one: {fileID: 3515105276206415345}
   _two:
   - {fileID: 9110459445354204677}

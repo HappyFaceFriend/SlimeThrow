@@ -10,6 +10,7 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] float _maxZHeight;
 
     [SerializeField] LandEffectBehaviour _landEffectPrefab;
+    [SerializeField] LandParticleEffect _defaultLandEffectPrefab;
 
     [Header("Images")]
     [SerializeField] SpriteRenderer _one;
@@ -17,6 +18,7 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] SpriteRenderer [] _three;
     Vector3 _targetPosition;
     PlayerBehaviour _player;
+    List<Color> _colors;
 
     List<LandEffectInfo> _landEffectInfos;
     public void StartShoot(Vector3 targetPosition)
@@ -28,6 +30,8 @@ public class BulletBehaviour : MonoBehaviour
     {
         _landEffectInfos = landEffects;
         _player = player;
+        _colors = new List<Color>();
+        _colors.AddRange(colors);
 
         _one.gameObject.SetActive(colors.Count == 1);
         foreach (var sprite in _two)
@@ -55,6 +59,8 @@ public class BulletBehaviour : MonoBehaviour
 
     void OnLand()
     {
+        LandParticleEffect particle = Instantiate(_defaultLandEffectPrefab, transform.position, Quaternion.identity);
+        particle.Init(_colors);
         LandEffectBehaviour landEffect = Instantiate(_landEffectPrefab);
         landEffect.transform.position = transform.position;
         landEffect.ApplyEffects(new List<LandEffectInfo>(_landEffectInfos), _player != null ? _player.DamageAsBullet.Value : 0);
