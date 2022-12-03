@@ -7,11 +7,18 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     [SerializeField] TextAsset stringsFile;
 
     List<Dictionary<string, string>> localizedStringData;
+    bool _load = false;
+    public bool Load { get { return _load; } }
 
     new void Awake()
     {
         base.Awake();
         localizedStringData = FileUtils.ParseTSV(stringsFile.text);
+    }
+
+    public void SetLoad()
+    {
+        _load = true;
     }
 
     public string GetLocalizedString(string string_ko)

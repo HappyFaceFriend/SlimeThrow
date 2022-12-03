@@ -43,14 +43,14 @@ public class LevelManager : MonoBehaviour
         //Init
         _currentStage = 0;
         InitFlower();
-        //LoadGame();
+        if(GlobalDataManager.Instance.Load)
+            //LoadGame();
         _stagePanel.SetStage(_currentStage);
         //Loop
         while (_currentStage < _spawner.MaxStage)
         {
             SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
             SaveDataManager.Instance.Save(data);
-
 
             _spawner.StartStage(_currentStage);
 
@@ -120,11 +120,12 @@ public class LevelManager : MonoBehaviour
         SaveData data = SaveDataManager.Instance.Load();
         if (data != null)
         { 
-                _currentStage = data._stage;
-                GlobalRefs.UpgradeManager.FindUpgrade(data._upgrades);
-                GlobalRefs.Player.HpSystem.ChangeHp(GlobalRefs.Player.MaxHp.Value - (float)data._playerHP);
-                GlobalRefs.Flower.HPSystem.ChangeHp(GlobalRefs.Flower.HPSystem.MaxHp.Value - (float)data._flowerHP);
-           
+            _currentStage = data._stage;
+            GlobalRefs.UpgradeManager.FindUpgrade(data._upgrades);
+            GlobalRefs.Player.HpSystem.ChangeHp((float)data._playerHP - GlobalRefs.Player.MaxHp.Value);
+            GlobalRefs.Player.PlayerHPBar.SetHp((int)GlobalRefs.Player.HpSystem.CurrentHp, (int)GlobalRefs.Player.HpSystem.MaxHp.Value);
+            GlobalRefs.Flower.HPSystem.ChangeHp((float)data._flowerHP - GlobalRefs.Flower.HPSystem.MaxHp.Value);
+            GlobalRefs.Flower.HPBar.SetHp((int)GlobalRefs.Flower.HPSystem.CurrentHp, (int)GlobalRefs.Flower.HPSystem.MaxHp.Value);
         }
     }
 }

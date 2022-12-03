@@ -18,6 +18,7 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
     HpSystem _hpSystem;
 
     public HpSystem HPSystem { get { return _hpSystem; } }
+    public HpBar HPBar { get { return _hpBar; } }
     public Animator Animator
     {
         get { return _animator; }
