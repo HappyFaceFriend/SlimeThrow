@@ -35,12 +35,8 @@ Burning Ground	불타는 대지
 Every Slime spawned for the first 10 seconds get Burn	첫 10초간 스폰되는 슬라임 모두 화상을 입는다
 Snowy Field	설원
 Every Slime spawned for the first 10 seconds get Frostbite.	첫 10초간 스폰되는 슬라임 모두 동상을 입는다.
-The Predictor	예언자
-Before each stage, You can see the direction of slime waves	스테이지 시작 5초전 웨이브 방향을 알 수 있다
 Holes	구덩이
 Create extra dirt	구덩이 1개를 추가로 생성한다
-Shoutgun	샷건
-For every cannonball, 3 small extra balls are created with damage 3	포탄 발사시 동시에 데미지 3의 작은 탄환 3개를 추가로 발사한다
 Gift from nature	재생의 바람
 Flower gets (?) HP recoverd	꽃의 체력이 ()만큼 회복한다
 Bullet Reload1	총알 장전1

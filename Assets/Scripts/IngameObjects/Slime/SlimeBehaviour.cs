@@ -37,7 +37,7 @@ public class SlimeBehaviour : StateMachineBase
 
     public bool FlameBullet { get; set; } = false;
     public bool BurningFist { get; set; } = false;
-    
+
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
     public Color Color{ get { return _data.Color; } }
@@ -62,7 +62,6 @@ public class SlimeBehaviour : StateMachineBase
     public BuffableStat FlowerAttackPower { get; private set; }
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
-
 
     protected CameraController _camera;
 
@@ -91,7 +90,7 @@ public class SlimeBehaviour : StateMachineBase
     {
         base.Update();
         _buffManager.OnUpdate();
-        if (_hpSystem.CurrentHp <= 0)
+        if (_hpSystem.IsDead)
             _buffManager.TerminateBuff();
         if (transform.position.x < -GlobalRefs.LevelManger.MapSize.x / 2)
             transform.position = new Vector3(-GlobalRefs.LevelManger.MapSize.x / 2, transform.position.y, 0);
@@ -131,6 +130,7 @@ public class SlimeBehaviour : StateMachineBase
     {
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
+        damage *= GlobalRefs.LevelManger.Spawner.ExtraDamage.Value;
         if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & GlobalRefs.UpgradeManager.GetCount("파이어 슬래이어") != 0 & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
             OnGetHitted(impactPosition, 999f, true);
         else

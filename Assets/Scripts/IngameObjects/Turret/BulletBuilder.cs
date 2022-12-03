@@ -12,11 +12,16 @@ public class BulletBuilder : MonoBehaviour
     public int Count { get { return _count; } }
     [SerializeField] SlimeSlot [] _slots;
     public string _slimeName;
-    float _upgradeValue = 1;
+    public BuffableStat Speed { get; set; }
 
     int _count = 0;
     PlayerBehaviour _player = null;
     int _playerIdx = -1;
+
+    private void Awake()
+    {
+        Speed = new BuffableStat(1);
+    }
     private void Start()
     {
         Clear();
@@ -83,15 +88,10 @@ public class BulletBuilder : MonoBehaviour
         _player = null;
     }
 
-    public void setValue(float value)
-    {
-        _upgradeValue += value;
-    }
-
     public BulletBehaviour CreateBullet()
     {
         BulletBehaviour bulletObject = Instantiate(_bulletPrefab).GetComponent<BulletBehaviour>();
-        bulletObject._moveSpeed *= _upgradeValue;
+        bulletObject._moveSpeed *= Speed.Value;
         ApplyEffectsToBullet(bulletObject);
         Clear();
         return bulletObject;

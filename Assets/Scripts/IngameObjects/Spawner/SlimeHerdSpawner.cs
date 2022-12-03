@@ -29,6 +29,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     public bool _stopBurn { get; set; } = true;
     public bool _isSnowyOn { get; set; } = false;
     public bool _stopSnowy { get; set; } = true;
+    public BuffableStat ExtraDamage { get; set; }
 
     List<SlimeBehaviour> _recentDead = new List<SlimeBehaviour>();
     public List<SlimeBehaviour> RecentDead { get { return _recentDead; } }
@@ -37,6 +38,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     {
         _allHerds = Resources.LoadAll<SlimeHerd>(Defs.SlimeHerdPrefabsPath);
         _herdsByDifficulty = new List<SlimeHerd>[System.Enum.GetValues(typeof(Difficulty)).Length];
+        ExtraDamage = new BuffableStat(1);
         for (int i = 0; i < _herdsByDifficulty.Length; i++)
             _herdsByDifficulty[i] = new List<SlimeHerd>();
         for (int i = 0; i < _allHerds.Length; i++)

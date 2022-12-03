@@ -52,9 +52,9 @@ public class SlimeHerd : MonoBehaviour
     IEnumerator SpawnSingleSlime(SlimeBehaviour slime)
     {
         EffectManager.InstantiateSpawnWarning(slime.transform.position, slime);
-        if(GlobalRefs.UpgradeManager.GetCount("불타는 대지") >= 1)
+        if(GlobalRefs.LevelManger.Spawner._isBurningOn && !GlobalRefs.LevelManger.Spawner._stopBurn)
             slime.ApplyBuff(new SlimeBuffs.Burn(8f, 1, 0.8f));
-        if(GlobalRefs.UpgradeManager.GetCount("설원") >= 1)
+        if(GlobalRefs.LevelManger.Spawner._isSnowyOn && !GlobalRefs.LevelManger.Spawner._stopSnowy)
             slime.ApplyBuff(new SlimeBuffs.Frostbite(5f, 1, 1f, 1f));
         yield return null;
     }
