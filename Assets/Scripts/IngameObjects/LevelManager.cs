@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Flower _flower;
     [SerializeField] SlimeHerdSpawner _spawner;
     [SerializeField] List<FlowerPlantPoint> _dirts;
+    [SerializeField] float _timeAfterStageClear;
 
     [SerializeField] StagePanel _stagePanel;
     List<string> _upgradeList;
@@ -54,9 +55,13 @@ public class LevelManager : MonoBehaviour
 
             while (_spawner.IsSpawning)
                 yield return null;
+
             while (_spawner.LeftSlimes > 0)
                 yield return null;
             SoundManager.Instance.PlaySFX("LastSlimeDead");
+            Camera.main.GetComponent<CameraController>().StartLastHitEffect();
+
+            yield return new WaitForSeconds(_timeAfterStageClear);
 
             //업그레이드
             GlobalRefs.Player.EverythingStopped = true;

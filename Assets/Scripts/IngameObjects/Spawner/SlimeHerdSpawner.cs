@@ -23,7 +23,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     SlimeHerd[] _allHerds;
     List<SlimeHerd>[] _herdsByDifficulty;
 
-    List<SlimeBehaviour> _spawnedSlimes;
+    [SerializeField]List<SlimeBehaviour> _spawnedSlimes;
 
     //Upgrade Related
     public bool BurningOn { get; set; } = false;
@@ -166,7 +166,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     }
     private void Update()
     {
-        _spawnedSlimes.RemoveAll(x => !x.IsAlive);
+        _spawnedSlimes.RemoveAll(x => !x.IsAlive || x==null);
     }
     void SpawnHerdRandomPos(SlimeHerd herd, int areaIdx)
     {

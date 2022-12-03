@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee633d41119865d47b72b12f67f03c02, type: 3}
-  m_Name: BulletLanded
+  m_Name: LastHit
   m_EditorClassIdentifier: 
-  Magnitude: 0.7
-  Duration: 0.3
+  Magnitude: 0.6
+  Duration: 0.13
   Curve: 0

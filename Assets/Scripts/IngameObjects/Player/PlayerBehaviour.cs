@@ -172,6 +172,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _flip.enabled = false;
         Destroy(GetComponent<CircleCollider2D>());
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.enabled = enabled;
+        }
         ChangeState(new PlayerStates.DeadState(this));
         _levelManager.OnPlayerDead();
     }
