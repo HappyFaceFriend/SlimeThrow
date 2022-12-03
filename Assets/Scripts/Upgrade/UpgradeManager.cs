@@ -7,8 +7,9 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] UpgradePanel _upgradePanel;
     List<UpgradeData> _upgrades;
 
-    UpgradeData[] _allUpgradeDatas;
+    List<UpgradeData>[] _allUpgradeDatas;
     List<string> _upgradeNames;
+
 
     public List<string> UpgradesNames { get { return _upgradeNames; } }
 
@@ -16,7 +17,13 @@ public class UpgradeManager : MonoBehaviour
     {
         _upgrades = new List<UpgradeData>();
         _upgradeNames = new List<string>();
-        _allUpgradeDatas = Resources.LoadAll<UpgradeData>(Defs.UpgradeAssetsPath);
+        UpgradeData [] allDatas = Resources.LoadAll<UpgradeData>(Defs.UpgradeAssetsPath);
+        _allUpgradeDatas = new List<UpgradeData>[System.Enum.GetValues(typeof(Rarity)).Length];
+        for (int i = 0; i < _allUpgradeDatas.Length; i++)
+            _allUpgradeDatas[i] = new List<UpgradeData>();
+        for (int i = 0; i < allDatas.Length; i++)
+            _allUpgradeDatas[(int)allDatas[i].Rarity].Add(allDatas[i]);
+
     }
     public void AddUpgrade(UpgradeData data)
     {
@@ -35,13 +42,16 @@ public class UpgradeManager : MonoBehaviour
 
     public void FindUpgrade(List<string> loadUpgrades)
     {
-        foreach (UpgradeData data in _allUpgradeDatas)
+        foreach(List<UpgradeData> datas in _allUpgradeDatas)
         {
-            foreach (string dataName in loadUpgrades)
+            foreach (UpgradeData data in datas)
             {
-                if (data.Name == dataName)
+                foreach (string dataName in loadUpgrades)
                 {
-                    AddUpgrade(data);
+                    if (data.Name == dataName)
+                    {
+                        AddUpgrade(data);
+                    }
                 }
             }
         }
@@ -68,9 +78,10 @@ public class UpgradeManager : MonoBehaviour
     {
         return _upgrades.FindAll(x => x == data).Count;
     }
-    public IEnumerator SelectUpgrade()
+    public IEnumerator SelectUpgrade(float [] rarityWeights)
     {
-        UpgradeData[] datas = Utils.Random.RandomElements(_allUpgradeDatas, 3);
+        
+        UpgradeData[] datas = Utils.Random.RandomElements(_allUpgradeDatas[0], 3);
         _upgradePanel.SetUpgrades(datas);
 
         _upgradePanel.Open();
