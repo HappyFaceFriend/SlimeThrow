@@ -93,22 +93,24 @@ public class UpgradeManager : MonoBehaviour
         for (int i = 0; i < datas.Length; i++)
         {
             int rarity = Utils.Random.RandomIndexByWeight(weights.Weights);
-            datas[i] = Utils.Random.RandomElement(_allUpgradeDatas[rarity]);
 
-            bool isDuplicate = true;
-            while (isDuplicate)
+            bool needReroll = true;
+            int count = 0;
+            while (needReroll && count < 50)
             {
-                isDuplicate = false;
+                datas[i] = Utils.Random.RandomElement(_allUpgradeDatas[rarity]);
+                needReroll = false;
                 for (int j = 0; j < i; j++)
                 {
                     if (datas[j] == datas[i])
                     {
-                        isDuplicate = true;
+                        needReroll = true;
                         break;
                     }
                 }
-                if (isDuplicate)
-                    datas[i] = Utils.Random.RandomElement(_allUpgradeDatas[rarity]);
+                if (datas[i].MaxCount > 0 && _upgrades.FindAll(x => x == datas[i]).Count >= datas[i].MaxCount)
+                    needReroll = true;
+                count++;
             }
         }
         return datas;
