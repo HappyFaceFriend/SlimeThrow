@@ -101,6 +101,7 @@ public class BulletBehaviour : MonoBehaviour
                 break;
             float rotation = Mathf.Lerp(0, _rotationAmount * rotDirection, movedDistance / totalDistance);
             transform.rotation = Quaternion.Euler(0, 0, rotation);
+            _player.transform.position = transform.position;
             lastShadowPos = shadowPos;
             yield return null;
         }
