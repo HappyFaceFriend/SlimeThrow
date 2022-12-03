@@ -97,11 +97,7 @@ public class CameraController : MonoBehaviour
         _shakeOffset = Vector3.zero;
     }
 
-    public void StartLastHitEffect()
-    {
-        StartCoroutine(LastHitCoroutine());
-    }
-    IEnumerator LastHitCoroutine()
+    public IEnumerator LastHitCoroutine()
     {
         _pixelPerfect.enabled = false;
         float originalSize = _camera.orthographicSize;

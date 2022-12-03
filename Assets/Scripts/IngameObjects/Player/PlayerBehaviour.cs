@@ -144,12 +144,14 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         SoundManager.Instance.PlaySFX("PlayerHitted");
     }
 
-    public void OnHitted(float damage)
+    public void OnHitted(float damage, Vector3 impactPosition, bool knockback)
     {
         if (EverythingStopped)
             return;
         if (IsInvincible)
             return;
+        if(knockback)
+            _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted", 0.15f);

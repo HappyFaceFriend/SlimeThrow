@@ -10824,7 +10824,7 @@ MonoBehaviour:
     Weights:
     - 0.7
     - 0.25
-    - 0.05
+    - 0
 --- !u!4 &963630799
 Transform:
   m_ObjectHideFlags: 0
@@ -21176,7 +21176,7 @@ MonoBehaviour:
   _dirts:
   - {fileID: 1606459063}
   - {fileID: 1861091889}
-  _timeAfterStageClear: 3
+  _timeAfterStageClear: 1.5
   _stagePanel: {fileID: 1080433382}
 --- !u!4 &1793902160
 Transform:

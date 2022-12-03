@@ -64,12 +64,13 @@ public class LevelManager : MonoBehaviour
                 slime.IsLastSlimeToDie = true;
             }
             SoundManager.Instance.PlaySFX("LastSlimeDead");
-            Camera.main.GetComponent<CameraController>().StartLastHitEffect();
+            yield return Camera.main.GetComponent<CameraController>().LastHitCoroutine();
 
+            yield return new WaitForSeconds(1f);
+            GlobalRefs.Player.EverythingStopped = true;
             yield return new WaitForSeconds(_timeAfterStageClear);
 
             //업그레이드
-            GlobalRefs.Player.EverythingStopped = true;
             ResetPlayer();
             yield return GlobalRefs.UpgradeManager.SelectUpgrade(_currentStage);
 
