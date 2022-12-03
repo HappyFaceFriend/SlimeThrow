@@ -17,6 +17,8 @@ MonoBehaviour:
     5 \uC99D\uAC00\uD55C\uB2E4\uC5B4\uC758 \uAE30\uBCF8 \uACF5\uACA9\uB825\uC774
     8 \uC99D\uAC00\uD55C\uB2E4"
   _icon: {fileID: 1339950607, guid: 3aed63955bfc1a5458b7960a93caabfe, type: 3}
+  _rarity: 1
+  _maxCount: 1
   _statModes:
   - _statToChange: 2
     _applyValue: 5
