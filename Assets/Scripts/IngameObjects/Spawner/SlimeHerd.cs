@@ -35,6 +35,7 @@ public class SlimeHerd : MonoBehaviour
 
         foreach (var slime in _slimes)
         {
+            GlobalRefs.LevelManger.Spawner.OnAddNewSlime(slime);
             slime.gameObject.SetActive(false);
         }
 

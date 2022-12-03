@@ -29,8 +29,8 @@ public class SlimeHerdSpawner : MonoBehaviour
     public bool BurningOn { get; set; } = false;
     public bool SnowyOn { get; set; } = false;
 
-
-
+    List<SlimeBehaviour> _recentDead = new List<SlimeBehaviour>();
+    public List<SlimeBehaviour> RecentDead { get { return _recentDead; } }
     private void Awake()
     {
         _allHerds = Resources.LoadAll<SlimeHerd>(Defs.SlimeHerdPrefabsPath);
@@ -171,7 +171,10 @@ public class SlimeHerdSpawner : MonoBehaviour
     }
     private void Update()
     {
-        _spawnedSlimes.RemoveAll(x => !x.IsAlive || x==null);
+        var dead = _spawnedSlimes.FindAll(x => !x.IsAlive || x==null);
+        _spawnedSlimes.RemoveAll(x => !x.IsAlive || x == null);
+        if (dead.Count > 0)
+            _recentDead = dead;
     }
     void SpawnHerdRandomPos(SlimeHerd herd, int areaIdx)
     {

@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
 
     int _currentStage;
     public SlimeHerdSpawner Spawner { get { return _spawner; } }
+    public bool IsLastEffect { get; private set; } = false;
 
     private void Start()
     {
@@ -58,6 +59,10 @@ public class LevelManager : MonoBehaviour
 
             while (_spawner.LeftSlimes > 0)
                 yield return null;
+            foreach(SlimeBehaviour slime in _spawner.RecentDead)
+            {
+                slime.IsLastSlimeToDie = true;
+            }
             SoundManager.Instance.PlaySFX("LastSlimeDead");
             Camera.main.GetComponent<CameraController>().StartLastHitEffect();
 

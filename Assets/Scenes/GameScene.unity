@@ -4132,7 +4132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e3a63bfa5aa0b448a80f897cf6821b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 1596724668}
+  _canvas: {fileID: 1576627983}
   _circleHitPool: {fileID: 215261744}
   _dustEffectPool: {fileID: 309792897}
   _damageTextPool: {fileID: 84638927}
@@ -14286,6 +14286,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4769916746c3fb4e9784befa41a96bd, type: 2}
   timeScale: 1
   lighting: 0
+  _spawnedSlimes: []
 --- !u!4 &1263642498
 Transform:
   m_ObjectHideFlags: 0
