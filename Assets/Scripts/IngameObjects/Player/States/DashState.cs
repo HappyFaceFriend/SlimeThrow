@@ -7,7 +7,7 @@ namespace PlayerStates
     public class DashState : PlayerState
     {
 
-        float _invincibleBonusTime = 0.7f;
+        float _invincibleBonusTime = 0.4f;
         Vector3 _dashDir;
         float _eTime;
         float _lastCurveValue;

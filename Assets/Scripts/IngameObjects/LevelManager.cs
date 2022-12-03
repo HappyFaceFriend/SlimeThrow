@@ -52,12 +52,11 @@ public class LevelManager : MonoBehaviour
             SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
             SaveDataManager.Instance.Save(data);
 
+            yield return _stagePanel.StartNewStage(_currentStage);
+            yield return new WaitForSeconds(1f);
             _spawner.StartStage(_currentStage);
 
-            while (_spawner.IsSpawning)
-                yield return null;
-
-            while (_spawner.LeftSlimes > 0)
+            while (!(!_spawner.IsSpawning && _spawner.LeftSlimes == 0))
                 yield return null;
             foreach(SlimeBehaviour slime in _spawner.RecentDead)
             {
@@ -76,7 +75,6 @@ public class LevelManager : MonoBehaviour
 
             GlobalRefs.Player.EverythingStopped = false;
             _currentStage++;
-            _stagePanel.SetStage(_currentStage);
         }
     }
 
