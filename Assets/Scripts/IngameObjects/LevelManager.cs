@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
             //업그레이드
             GlobalRefs.Player.EverythingStopped = true;
             ResetPlayer();
-            yield return GlobalRefs.UpgradeManager.SelectUpgrade();
+            yield return GlobalRefs.UpgradeManager.SelectUpgrade(_currentStage);
 
             GlobalRefs.Player.EverythingStopped = false;
             _currentStage++;

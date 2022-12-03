@@ -11000,6 +11000,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradePanel: {fileID: 628259090}
+  _upgradeWeights:
+  - FromStage: 0
+    ToStage: 30
+    Weights:
+    - 0.7
+    - 0.25
+    - 0.05
 --- !u!4 &963630799
 Transform:
   m_ObjectHideFlags: 0
