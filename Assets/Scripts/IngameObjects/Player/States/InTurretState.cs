@@ -6,7 +6,7 @@ namespace PlayerStates
 {
     public class InTurretState : PlayerState
     {
-        float _invincibleBonusTime = 0.7f;
+        float _invincibleBonusTime = 0.4f;
         SpriteRenderer[] _sprites;
         public InTurretState(PlayerBehaviour player) : base("Default", player) { }
         public override void OnEnter()
