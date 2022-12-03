@@ -60,7 +60,11 @@ public class AttackController : MonoBehaviour
             if(collider.GetComponent<SlimeBehaviour>().IsAlive)
                 collider.GetComponent<SlimeBehaviour>().OnHittedByPlayer(_player, _player.AttackPower.Value);
             if (!collider.GetComponent<SlimeBehaviour>().IsAlive && _player.UpgradeGetHP)
+            {
                 _player.HpSystem.ChangeHp(_player._getHP);
+                _player.PlayerHPBar.SetHp((int)_player.HpSystem.CurrentHp, (int)_player.HpSystem.MaxHp.Value);
+            }
+                
         }
         _coolDownTimer.Reset(1f / _player.AttackSpeed.Value);
     }

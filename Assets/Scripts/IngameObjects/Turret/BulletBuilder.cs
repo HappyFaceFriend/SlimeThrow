@@ -11,7 +11,7 @@ public class BulletBuilder : MonoBehaviour
     public int Count { get { return _count; } }
     [SerializeField] SlimeSlot [] _slots;
     public string _slimeName;
-    float _upgradeValue;
+    float _upgradeValue = 1;
 
     int _count = 0;
     PlayerBehaviour _player = null;
@@ -80,16 +80,13 @@ public class BulletBuilder : MonoBehaviour
 
     public void setValue(float value)
     {
-        _upgradeValue = value;
+        _upgradeValue += value;
     }
 
     public BulletBehaviour CreateBullet()
     {
         BulletBehaviour bulletObject = Instantiate(_bulletPrefab).GetComponent<BulletBehaviour>();
-        if (GlobalRefs.UpgradeManager.GetCount("Rapid_Shooting") != 0 )
-        {
-            bulletObject._moveSpeed *= _upgradeValue;
-        }
+        bulletObject._moveSpeed *= _upgradeValue;
         ApplyEffectsToBullet(bulletObject);
         Clear();
         return bulletObject;

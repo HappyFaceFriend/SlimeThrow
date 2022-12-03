@@ -17,7 +17,7 @@ MonoBehaviour:
     \uD604\uC7AC \uCCB4\uB825\uC774 30 \uC99D\uAC00\uD55C\uB2E4 "
   _icon: {fileID: -650200321, guid: 73f5f4f775a6d66468988773c5b8d489, type: 3}
   _rarity: 0
-  _maxCount: 0
+  _maxCount: 1
   _statModes:
   - _statToChange: 0
     _applyValue: 20

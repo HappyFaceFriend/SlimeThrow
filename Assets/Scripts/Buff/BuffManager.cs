@@ -40,4 +40,17 @@ public class BuffManager<T> where T:StateMachineBase
             _buffList.Remove(buff);
         }
     }
+    public void TerminateBuff()
+    {
+        List<Buff<T>> _removeBuffs = new List<Buff<T>>();
+        foreach(Buff<T> buff in _buffList)
+        {
+            buff.OnEnd();
+            _removeBuffs.Add(buff);
+        }
+        foreach(Buff<T> buff in _removeBuffs)
+        {
+            _buffList.Remove(buff);
+        }
+    }
 }

@@ -7,8 +7,10 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     [SerializeField] TextAsset stringsFile;
 
     List<Dictionary<string, string>> localizedStringData;
-    bool _load = false;
+
+    private bool _load = false;
     public bool Load { get { return _load; } }
+
 
     new void Awake()
     {

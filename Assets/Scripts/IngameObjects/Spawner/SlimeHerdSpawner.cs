@@ -25,11 +25,10 @@ public class SlimeHerdSpawner : MonoBehaviour
 
     List<SlimeBehaviour> _spawnedSlimes;
 
-    //Upgrade Related
-    public bool BurningOn { get; set; } = false;
-    public bool SnowyOn { get; set; } = false;
-
-
+    public bool _isBurningOn { get; set; } = false;
+    public bool _stopBurn { get; set; } = true;
+    public bool _isSnowyOn { get; set; } = false;
+    public bool _stopSnowy { get; set; } = true;
 
     private void Awake()
     {
@@ -49,6 +48,10 @@ public class SlimeHerdSpawner : MonoBehaviour
     }
     public void StartStage(int stage)
     {
+        if (_isBurningOn)
+            _stopBurn = false;
+        if (_isSnowyOn)
+            _stopSnowy = false;
         StartCoroutine(StartSpawning(stage));
     }
     private void OnDrawGizmos()
@@ -101,6 +104,11 @@ public class SlimeHerdSpawner : MonoBehaviour
             float waitTime = spawnData.SpawnInterval * Random.Range(0.85f, 1.1f);
             yield return new WaitForSeconds(waitTime);
             eTime += waitTime;
+            if (eTime >= 10)
+            {
+                _stopBurn = true;
+                _stopSnowy = true;
+            }
         }
         IsSpawning = false;
     }

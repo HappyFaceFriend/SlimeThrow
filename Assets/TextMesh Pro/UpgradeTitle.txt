@@ -12,7 +12,9 @@ You are able to pick up dead Poison slime 100%	사망한 독 슬라임을 100%�
 Pickup Rock	바위슬라임 잡기
 You are able to pick up dead Rock slime 100%	사망한 바위 슬라임을 100%의 확률로 집을 수 있다
 Pickup Sticky	끈끈이슬라임 잡기
-You are albe to pick up dead Sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
+You are able to pick up dead Sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
+Pickup Horn	뿔슬라임 잡기
+You are able to pick up dead Horn slime 100%	사망한 뿔 슬라임을 100%의 확률로 집을 수 있다
 Light Footsteps1	가벼운 발걸음1
 Player movement speed increased by 20%	플레이어의 이동속도가 20% 증가한다
 Aidkit1	구급상자1

@@ -25,7 +25,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
     public HpBar PlayerHPBar { get { return _hpBar; } }
     public bool UpgradeGetHP = false;
-    public float _getHP;
+    public float _getHP = 0;
 
     public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
 
@@ -151,8 +151,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     }
     public void SetUpgrade(float num)
     {
-        UpgradeGetHP = (!UpgradeGetHP);
-        _getHP = num;
+        UpgradeGetHP = true;
+        _getHP += num;
     }
-
 }

@@ -10,7 +10,6 @@ public class SlimeHerd : MonoBehaviour
     [SerializeField] Vector2 _herdSize;
     [SerializeField] SlimeBehaviour _mainSlime;
 
-
     List<SlimeBehaviour> _slimes;
     RandomSlime [] _randomSlimes;
 
@@ -52,6 +51,10 @@ public class SlimeHerd : MonoBehaviour
     IEnumerator SpawnSingleSlime(SlimeBehaviour slime)
     {
         EffectManager.InstantiateSpawnWarning(slime.transform.position, slime);
+        if(GlobalRefs.UpgradeManager.GetCount("불타는 대지") >= 1)
+            slime.ApplyBuff(new SlimeBuffs.Burn(8f, 1, 0.8f));
+        if(GlobalRefs.UpgradeManager.GetCount("설원") >= 1)
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(5f, 1, 1f, 1f));
         yield return null;
     }
     private void OnDrawGizmos()
