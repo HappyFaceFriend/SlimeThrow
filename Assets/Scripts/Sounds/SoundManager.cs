@@ -27,6 +27,15 @@ public class SoundManager : SingletonBehaviour<SoundManager>
 
             _sfxSource.PlayOneShot(sound, volume);
     }
+    public void PlaySFXDelayed(string name, float delay, float volume = 0.5f)
+    {
+        StartCoroutine(DelayedSound(name, delay, volume));
+    }
+    IEnumerator DelayedSound(string name, float delay, float volume)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        PlaySFX(name, volume);
+    }
     void PlayBGM(AudioClip bgm, float volume = 0.5f)
     {
         _bgmSource.PlayOneShot(bgm, volume);

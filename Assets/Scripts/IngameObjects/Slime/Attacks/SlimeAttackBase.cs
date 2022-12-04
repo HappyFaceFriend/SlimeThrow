@@ -45,7 +45,7 @@ public class SlimeAttackBase : MonoBehaviour
     {
         float eTime = 0f;
         Vector3 originalPos = transform.position;
-        Vector3 targetPos = (_targetFlowerPos - transform.position).normalized * Slime.AttackRange.Value + originalPos;
+        Vector3 targetPos = _targetFlowerPos;
         while (eTime < Duration)
         {
             eTime += Time.deltaTime;

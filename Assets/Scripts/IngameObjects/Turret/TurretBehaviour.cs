@@ -9,14 +9,22 @@ public class TurretBehaviour : StateMachineBase
     public Transform TargetMarker { get { return _targetMarker; } }
     public float MarkerSpeed { get { return _markerSpeed; } }
 
+    public bool IsShooting { get; private set; }
     public bool IsMouseHovered { get { return _rigidbody.OverlapPoint(Utils.Inputs.GetMouseWordPos()); } }
+    public Vector3 BodyRotation { get { return _body.rotation.eulerAngles; } }
 
     [SerializeField] Transform _shootPosition;
     [SerializeField] public BulletBuilder _bulletBuilder;
     [SerializeField] Transform _targetMarker;
     [SerializeField] float _markerSpeed;
+    [SerializeField] Transform _body;
+    [SerializeField] GameObject _shootEffectPrefab;
     Rigidbody2D _rigidbody;
 
+    public void SetBodyRotation(Vector3 rotation)
+    {
+        _body.rotation = Quaternion.Euler(rotation);
+    }
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -42,6 +50,14 @@ public class TurretBehaviour : StateMachineBase
         bulletObject.StartShoot(targetPosition);
         Animator.SetTrigger("Shoot");
         SoundManager.Instance.PlaySFX("BulletShoot", 1.5f);
+        EffectManager.InstantiateHitEffect(_shootPosition.position + new Vector3(0, 0.5f, 0), 1.5f, true);
+        Camera.main.GetComponent<CameraController>().Shake(CameraController.ShakePower.BulletShooted);
+        Instantiate(_shootEffectPrefab, _shootPosition.position, Quaternion.identity);
+        IsShooting = true;
+    }
+    public void AnimEvent_ShootOver()
+    {
+        IsShooting = false;
     }
     protected override StateBase GetInitialState()
     {

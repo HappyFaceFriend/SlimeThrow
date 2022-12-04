@@ -29,6 +29,10 @@ public class TurretTargetingState : TurretState
         mousePos.z = 0;
 
         Turret.TargetMarker.position = mousePos;
+
+        float rot = (Turret.transform.position.x - mousePos.x) * 1.7f;
+        Turret.SetBodyRotation(new Vector3(0, 0, rot));
+
         if (Input.GetMouseButtonUp(1))
         {
             Turret.Shoot(Turret.TargetMarker.position);

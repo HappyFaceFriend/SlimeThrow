@@ -10,6 +10,7 @@ public class SlimeBehaviour : StateMachineBase
 
     protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
+    public bool IsLastSlimeToDie { get; set; } = false;
     public bool PuttedInTurret { get; set; } = false;
     [SerializeField] float _flowerAttackRange;
 
@@ -36,9 +37,10 @@ public class SlimeBehaviour : StateMachineBase
 
     public bool FlameBullet { get; set; } = false;
     public bool BurningFist { get; set; } = false;
-    
+
     public float GrabbableDuration { get { return _grabbableDuration; } }
     public Sprite SlotIcon { get { return _data.SlotIcon; } }
+    public Color Color{ get { return _data.Color; } }
 
     public SlimeBulletEffect BulletEffect { get; private set; }
     public FlipObjectToPoint Flipper { get { return _flip; } }
@@ -61,7 +63,6 @@ public class SlimeBehaviour : StateMachineBase
     public BuffableStat AttackSpeed { get; private set; }
     public BuffableStat SightRange { get; private set; }
 
-
     protected CameraController _camera;
 
     protected virtual void Awake()
@@ -79,11 +80,18 @@ public class SlimeBehaviour : StateMachineBase
         AttackRange = new BuffableStat(_data.AttackRange);
         SightRange = new BuffableStat(_data.SightRange);
     }
+
+    void Start()
+    {
+        base.Start();
+        //GlobalRefs.LevelManger.Spawner.OnAddNewSlime(this);
+    }
     private void Update()
     {
         base.Update();
         _buffManager.OnUpdate();
-
+        if (_hpSystem.IsDead)
+            _buffManager.TerminateBuff();
         if (transform.position.x < -GlobalRefs.LevelManger.MapSize.x / 2)
             transform.position = new Vector3(-GlobalRefs.LevelManger.MapSize.x / 2, transform.position.y, 0);
         if (transform.position.x > GlobalRefs.LevelManger.MapSize.x / 2)
@@ -97,10 +105,6 @@ public class SlimeBehaviour : StateMachineBase
     {
         buff.SetOwner(this);
         _buffManager.AddBuff(buff);
-    }
-    new protected void Start()
-    {
-        base.Start();
     }
     public void SetGrabbed(GrabController grabController)
     {
@@ -119,13 +123,14 @@ public class SlimeBehaviour : StateMachineBase
         if (GlobalRefs.UpgradeManager.GetCount("치명적인 불꽃") != 0 )
             damage *= 1.2f;
         OnGetHitted(impactPosition, damage, false);
-        if (GlobalRefs.UpgradeManager.GetCount("불주먹") != 0 & _hpSystem.CurrentHp != 0)
+        if (GlobalRefs.UpgradeManager.GetCount("불주먹") >= 1 & _hpSystem.CurrentHp >= 0)
             ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
+        damage *= GlobalRefs.LevelManger.Spawner.ExtraDamage.Value;
         if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & GlobalRefs.UpgradeManager.GetCount("파이어 슬래이어") != 0 & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
             OnGetHitted(impactPosition, 999f, true);
         else
@@ -189,12 +194,46 @@ public class SlimeBehaviour : StateMachineBase
     {
         if (PuttedInTurret)
             return;
-        _camera.Shake(CameraController.ShakePower.SlimeHitted);
-        float smokeSpeed = 2f;
-        float angleOffset = Random.Range(-15, 15);
-        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
-        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);
-        EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(315 + angleOffset) * smokeSpeed);
+        if(IsLastSlimeToDie)
+        {
+            SoundManager.Instance.PlaySFX("SlimeExplode");
+            SoundManager.Instance.PlaySFXDelayed("SlimeExplode", 0.05f);
+            _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+            float smokeSpeed = 15f;
+            float angleOffset = Random.Range(-45, 45);
+            float bigScale = 5;
+            float fastSpeed = 30;
+            float[] angles = new float[4];
+            for (int i = 0; i < 4; i++)
+                angles[i] = 90 * i + angleOffset + Random.Range(-10, 10);
+
+            for(int i=0; i<4; i++)
+                EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i]) * fastSpeed, bigScale);
+            for (int j=0; j<5; j++)
+            {
+                float speed = smokeSpeed * (1 - 0.1f * j);
+                float moreOffset = Random.Range(-5f, 5f);
+                float scale = 3;
+                for (int i = 0; i < 4; i++)
+                    EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i] + moreOffset)
+                                * speed, scale);
+
+            }
+
+            EffectManager.InstantiateHitEffect(transform.position, 4);
+        }
+        else
+        {
+            _camera.Shake(CameraController.ShakePower.SlimeHitted);
+            EffectManager.InstantiateHitEffect(transform.position, 1.5f);
+            SoundManager.Instance.PlaySFX("SlimeExplode");
+            float smokeSpeed = 2f;
+            float angleOffset = Random.Range(-15, 15);
+            EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(90 + angleOffset) * smokeSpeed);
+            EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(225 + angleOffset) * smokeSpeed);
+            EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(315 + angleOffset) * smokeSpeed);
+
+        }
     }
 
     protected override StateBase GetInitialState()

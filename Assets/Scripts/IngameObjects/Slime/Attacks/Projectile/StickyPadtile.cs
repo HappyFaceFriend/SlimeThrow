@@ -44,7 +44,7 @@ public class StickyPadtile : SlimePadtile
             {
                 if (_canDamage)
                 {
-                    player.OnHitted( _damage);
+                    player.OnHitted( _damage, transform.position, false);
                     _canDamage = false;
                 }
             }

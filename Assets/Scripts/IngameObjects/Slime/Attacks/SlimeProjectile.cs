@@ -49,7 +49,7 @@ public class SlimeProjectile : MonoBehaviour
         var target = collision.collider.GetComponent<PlayerBehaviour>();
         if (target != null)
         {
-            target.OnHitted( _damage);
+            target.OnHitted( _damage, transform.position, true);
             Die();
         }
     }

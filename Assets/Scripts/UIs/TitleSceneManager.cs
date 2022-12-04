@@ -30,7 +30,9 @@ public class TitleSceneManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("GameStartClicked", 1f);
         Debug.Log("로딩 미구현");
-        SceneManager.LoadScene("TitleScene");
+        GlobalDataManager.Instance.SetLoad();
+        SceneManager.LoadScene(_gameSceneName);
+        
     }
     public void Settings()
     {

@@ -78,6 +78,23 @@ namespace Utils
             return new Vector3(UnityEngine.Random.Range(minVec.x, maxVec.x),
                 UnityEngine.Random.Range(minVec.y, maxVec.y), UnityEngine.Random.Range(minVec.z, maxVec.z));
         }
+
+        public static int RandomIndexByWeight(float [] weights)
+        {
+            float sum = 0;
+            for (int i = 0; i < weights.Length; i++)
+                sum += weights[i];
+
+            float w = 0;
+            float r = UnityEngine.Random.Range(0f, sum);
+            for(int i=0; i<weights.Length; i++)
+            {
+                w += weights[i];
+                if (r < w)
+                    return i;
+            }
+            return -1;
+        }
     }
 
 }

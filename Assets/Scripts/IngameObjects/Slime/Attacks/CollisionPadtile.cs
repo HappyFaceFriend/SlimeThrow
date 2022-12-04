@@ -44,7 +44,7 @@ public class CollisionPadtile : MonoBehaviour
         var flower = collision.collider.GetComponent<Flower>();
         if (player != null)
         {
-            player.OnHitted(_damage);
+            player.OnHitted(_damage, transform.position, false);
             Destroy(gameObject, 0.38f);
         }
         else if (flower != null)

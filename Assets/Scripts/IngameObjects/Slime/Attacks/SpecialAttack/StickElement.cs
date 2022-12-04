@@ -17,7 +17,7 @@ public class StickElement : MonoBehaviour
             if(!_hitted)
             {
                 _hitted = true;
-                target.OnHitted(_damage);
+                target.OnHitted(_damage, target.transform.position, false);
             }
         }
     }

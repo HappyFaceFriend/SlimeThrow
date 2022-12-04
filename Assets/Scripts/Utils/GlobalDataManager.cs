@@ -8,10 +8,19 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
 
     List<Dictionary<string, string>> localizedStringData;
 
+    private bool _load = false;
+    public bool Load { get { return _load; } }
+
+
     new void Awake()
     {
         base.Awake();
         localizedStringData = FileUtils.ParseTSV(stringsFile.text);
+    }
+
+    public void SetLoad()
+    {
+        _load = true;
     }
 
     public string GetLocalizedString(string string_ko)

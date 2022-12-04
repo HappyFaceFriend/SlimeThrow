@@ -15,6 +15,15 @@ public class StagePanel : MonoBehaviour
     [SerializeField] int _showCount;
     [SerializeField] bool _noIcons;
 
+    [Header("Anim Settings")]
+    [SerializeField] float _downDuration;
+    [SerializeField] float _stayDuration;
+    [SerializeField] float _upDuration;
+    [SerializeField] float _targetScale;
+    [SerializeField] Animator _stageTextPanel;
+
+
+    Vector3 _stageTextOriginalPos;
     RectTransform _layout;
 
     int _currentIndex;
@@ -23,6 +32,28 @@ public class StagePanel : MonoBehaviour
     {
         _layout = GetComponent<RectTransform>();
     }
+    private void Start()
+    {
+        _stageTextOriginalPos = _stageTextPanel.transform.position;
+    }
+
+    void SetTextPosition(float y)
+    {
+        _stageTextPanel.transform.position = new Vector3(_stageTextPanel.transform.position.x, y, _stageTextPanel.transform.position.z);
+    }
+    public IEnumerator StartNewStage(int stage)
+    {
+        SetStage(stage);
+        Vector3 center = Camera.main.WorldToScreenPoint(new Vector3(0, 0, 0));
+        StartCoroutine(Utils.Lerp.EaseCoroutine(x => _stageTextPanel.transform.localScale = new Vector3(x,x,1),1, _targetScale, _downDuration));
+        yield return Utils.Lerp.EaseCoroutine(y => SetTextPosition(y), _stageTextOriginalPos.y, center.y, _downDuration);
+        _stageTextPanel.SetTrigger("Shake");
+        yield return new WaitForSeconds(_stayDuration);
+        //위로 올리기
+        StartCoroutine(Utils.Lerp.EaseCoroutine(x => _stageTextPanel.transform.localScale = new Vector3(x, x, 1), _targetScale, 1, _downDuration));
+        yield return Utils.Lerp.EaseCoroutine(y => SetTextPosition(y), center.y, _stageTextOriginalPos.y, _downDuration);
+    }
+
     public void SetStage(int stage)
     {
         _stageText.text = "Stage " + (stage + 1);

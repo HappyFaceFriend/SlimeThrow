@@ -12,7 +12,9 @@ You are able to pick up dead Poison slime 100%	사망한 독 슬라임을 100%�
 Pickup Rock	바위슬라임 잡기
 You are able to pick up dead Rock slime 100%	사망한 바위 슬라임을 100%의 확률로 집을 수 있다
 Pickup Sticky	끈끈이슬라임 잡기
-You are albe to pick up dead Sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
+You are able to pick up dead Sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
+Pickup Horn	뿔슬라임 잡기
+You are able to pick up dead Horn slime 100%	사망한 뿔 슬라임을 100%의 확률로 집을 수 있다
 Light Footsteps1	가벼운 발걸음1
 Player movement speed increased by 20%	플레이어의 이동속도가 20% 증가한다
 Aidkit1	구급상자1
@@ -33,12 +35,8 @@ Burning Ground	불타는 대지
 Every Slime spawned for the first 10 seconds get Burn	첫 10초간 스폰되는 슬라임 모두 화상을 입는다
 Snowy Field	설원
 Every Slime spawned for the first 10 seconds get Frostbite.	첫 10초간 스폰되는 슬라임 모두 동상을 입는다.
-The Predictor	예언자
-Before each stage, You can see the direction of slime waves	스테이지 시작 5초전 웨이브 방향을 알 수 있다
 Holes	구덩이
 Create extra dirt	구덩이 1개를 추가로 생성한다
-Shoutgun	샷건
-For every cannonball, 3 small extra balls are created with damage 3	포탄 발사시 동시에 데미지 3의 작은 탄환 3개를 추가로 발사한다
 Gift from nature	재생의 바람
 Flower gets (?) HP recoverd	꽃의 체력이 ()만큼 회복한다
 Bullet Reload1	총알 장전1

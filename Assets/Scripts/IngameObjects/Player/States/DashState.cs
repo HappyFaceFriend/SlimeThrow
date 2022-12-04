@@ -6,6 +6,8 @@ namespace PlayerStates
 {
     public class DashState : PlayerState
     {
+
+        float _invincibleBonusTime = 0.4f;
         Vector3 _dashDir;
         float _eTime;
         float _lastCurveValue;
@@ -19,7 +21,7 @@ namespace PlayerStates
             _dashDir = Player.Inputs.LastMoveInput;
             _eTime = 0f;
             _lastCurveValue = _settings.DashCurve.Evaluate(0);
-            Player.IsInvincible = true;
+            Player.SetInvincible(true);
             Player.GetComponent<CircleCollider2D>().enabled = false;
             SoundManager.Instance.PlaySFX("PlayerRoll");
             SetAnimState();
@@ -27,7 +29,7 @@ namespace PlayerStates
         public override void OnExit()
         {
             base.OnExit();
-            Player.IsInvincible = false;
+            Player.SetInvincible(true, _invincibleBonusTime);
             Player.GetComponent<CircleCollider2D>().enabled = true;
         }
         public override void OnUpdate()

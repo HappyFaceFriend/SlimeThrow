@@ -10,6 +10,10 @@ public class Buff<T>  where T : StateMachineBase
     {
         Owner = owner;
     }
+    public T GetOwner()
+    {
+        return Owner;
+    }
     public virtual bool IsOver()
     {
         return false;

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95dff475ef8970a47b41d5f184c686e2, type: 3}
+  m_Name: Light Footsteps2
+  m_EditorClassIdentifier: 
+  _name: "\uAC00\uBCBC\uC6B4 \uBC1C\uAC78\uC74C2"
+  _body: "\uD50C\uB808\uC774\uC5B4\uC758 \uC774\uB3D9\uC18D\uB3C4\uAC00 50% \uC99D\uAC00\uD55C\uB2E4"
+  _icon: {fileID: 1402902332, guid: 4781b0c632eee144dab509b0715051e0, type: 3}
+  _rarity: 1
+  _maxCount: 1
+  _statModes:
+  - _statToChange: 4
+    _applyValue: 1.5
+    _applyType: 1

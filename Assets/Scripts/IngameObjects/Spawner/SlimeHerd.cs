@@ -10,7 +10,6 @@ public class SlimeHerd : MonoBehaviour
     [SerializeField] Vector2 _herdSize;
     [SerializeField] SlimeBehaviour _mainSlime;
 
-
     List<SlimeBehaviour> _slimes;
     RandomSlime [] _randomSlimes;
 
@@ -35,8 +34,8 @@ public class SlimeHerd : MonoBehaviour
 
         foreach (var slime in _slimes)
         {
-            slime.gameObject.SetActive(false);
             GlobalRefs.LevelManger.Spawner.OnAddNewSlime(slime);
+            slime.gameObject.SetActive(false);
         }
 
         StartCoroutine(SpawnCoroutine());
@@ -53,6 +52,10 @@ public class SlimeHerd : MonoBehaviour
     IEnumerator SpawnSingleSlime(SlimeBehaviour slime)
     {
         EffectManager.InstantiateSpawnWarning(slime.transform.position, slime);
+        if(GlobalRefs.LevelManger.Spawner._isBurningOn && !GlobalRefs.LevelManger.Spawner._stopBurn)
+            slime.ApplyBuff(new SlimeBuffs.Burn(8f, 1, 0.8f));
+        if(GlobalRefs.LevelManger.Spawner._isSnowyOn && !GlobalRefs.LevelManger.Spawner._stopSnowy)
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(5f, 1, 1f, 1f));
         yield return null;
     }
     private void OnDrawGizmos()
