@@ -10,13 +10,12 @@ namespace Upgrades
         [System.Serializable]
         public class StatMode
         {
-            public enum StatType { MaxHp, CurrentHP, AttackPower, AttackSpeed, MoveSpeed, PushToTowerRange }
+            public enum StatType { Hunter, Fierce }
             public StatType _statToChange;
             public float _applyValue;
-            public Modifier.ApplyType _applyType;
         }
 
-        [SerializeField] List<StatMode> _statModes;
+        [SerializeField] StatMode _statModes;
 
         public override void OnAdded()
         {
@@ -24,14 +23,13 @@ namespace Upgrades
             GenerateChange(_statModes);
         }
 
-        public void GenerateChange(List<StatMode> modes)
+        public void GenerateChange(StatMode modes)
         {
-            for (int i = 0; i < modes.Count; i++)
-            {
-                var stat = modes[i];
-                if (stat._statToChange == StatMode.StatType.CurrentHP)
-                    GlobalRefs.Player.SetUpgrade(stat._applyValue);
-            }
+            var stat = modes;
+            if (stat._statToChange == StatMode.StatType.Hunter)
+                GlobalRefs.Player.SetHunter(stat._applyValue);
+            else if (stat._statToChange == StatMode.StatType.Fierce)
+                GlobalRefs.Player.SetFierce(stat._applyValue);
         }
     }
 }

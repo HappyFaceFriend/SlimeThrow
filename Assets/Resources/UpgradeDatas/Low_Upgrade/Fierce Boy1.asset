@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c85d1e42343d596479fa49a16d058aea, type: 3}
-  m_Name: Fierce Boy2
+  m_Name: Fierce Boy1
   m_EditorClassIdentifier: 
   _name: 
   _body: 
   _icon: {fileID: 0}
   _rarity: 0
   _maxCount: 1
-  _statModes:
-    _statToChange: 0
-    _applyValue: 0
+  _statModes: []
