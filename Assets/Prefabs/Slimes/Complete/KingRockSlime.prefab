@@ -290,28 +290,24 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1702894428, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
     - {fileID: 3189093803713607899, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+    - {fileID: 6938963835695920365, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+--- !u!114 &269928469277796777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7232530855273365871, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 7485518032006965446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d683ab2fac29dfb42843b41302c6c384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &553309595966217254 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_PrefabInstance: {fileID: 7485518032006965446}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &403095368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553309595966217254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c0571118f165d4e81ca30b1d0ed17c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 3
-  _numOfdirections: 10
-  _projectilePrefab: {fileID: 4819902492845863690, guid: 511b194ff50f0204d834b5f6d50ba8c1, type: 3}
-  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!60 &3424798196137786062
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -350,6 +346,70 @@ PolygonCollider2D:
       - {x: 0.8410566, y: -0.03036879}
       - {x: 0.8476615, y: 0.40071273}
       - {x: 0.72227, y: 0.73295087}
+--- !u!114 &403095368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553309595966217254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c0571118f165d4e81ca30b1d0ed17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 3
+  _numOfdirections: 10
+  _projectilePrefab: {fileID: 4819902492845863690, guid: 511b194ff50f0204d834b5f6d50ba8c1, type: 3}
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
+--- !u!114 &467252277621801285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553309595966217254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049108ce9d377964288ab49e67a5304b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 4184789705040287243}
+  _data: {fileID: 0}
+  _grabbableDuration: 0
+  _flip: {fileID: 269928469277796777}
+  _flowerAttackRange: 0
+  _flasher: {fileID: 1111331118288573266}
+  _squasher: {fileID: 1111331118288573267}
+  _normPosOfFlowerAttack: 0
+  _isGrabbableAtDeath: 0
+--- !u!114 &1111331118288573266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7533918814969527188, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 7485518032006965446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093f89f93df7c6c4798a076719b9ba2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1111331118288573267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7533918814969527189, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 7485518032006965446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79209c00f5179624594a9417f11cbfd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &4184789705040287243 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 7485518032006965446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8424716726382263247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1372328807142265609, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}

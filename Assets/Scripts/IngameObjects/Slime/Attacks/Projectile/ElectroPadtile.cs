@@ -27,5 +27,19 @@ public class ElectroPadtile : CollisionPadtile
             flower.OnHittedBySlime(_slime, _damage);
             Die();
         }
+
+    }
+    private void Update()
+    {
+        if (timer < _warningTime)
+            timer += Time.deltaTime;
+        else
+        {
+            _canAttack = true;
+            Destroy(warning);
+            child = transform.GetChild(0).gameObject;
+            child.SetActive(true);
+            collider.enabled = true;
+        }
     }
 }

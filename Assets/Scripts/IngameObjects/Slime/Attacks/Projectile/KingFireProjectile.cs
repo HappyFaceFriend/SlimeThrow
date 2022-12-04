@@ -5,17 +5,21 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class KingFireProjectile : FireProjectile
 {
+    bool _split = false;
     [SerializeField] SlimeProjectile _childProjectile;
-
+    private void Start()
+    {
+        if (_slime.IsFever())
+            _split = true;
+    }
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
-
     }
 
    protected override void Die()
-   {;
-        if (_slime.IsFever())
+   {
+        if (_split)
         { 
             Vector3 basedir = _moveDir;
             basedir = basedir.normalized;

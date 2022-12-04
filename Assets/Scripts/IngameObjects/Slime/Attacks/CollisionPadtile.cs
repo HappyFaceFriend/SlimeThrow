@@ -11,12 +11,12 @@ public class CollisionPadtile : MonoBehaviour
     protected SlimeBehaviour _slime;
     protected float _damage;
 
-    float timer = 0f;
-    bool _canAttack = false;
+    protected float timer = 0f;
+    protected bool _canAttack = false;
     public float _warningTime;
-    GameObject warning;
-    GameObject child;
-    PolygonCollider2D collider;
+    protected GameObject warning;
+    protected GameObject child;
+    protected PolygonCollider2D collider;
     public void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         _slime = shooter;
