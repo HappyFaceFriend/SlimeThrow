@@ -21,6 +21,7 @@ public class StagePanel : MonoBehaviour
     [SerializeField] float _upDuration;
     [SerializeField] float _targetScale;
     [SerializeField] Animator _stageTextPanel;
+    [SerializeField] Transform _stageTextTarget;
 
 
     Vector3 _stageTextOriginalPos;
@@ -44,7 +45,7 @@ public class StagePanel : MonoBehaviour
     public IEnumerator StartNewStage(int stage)
     {
         SetStage(stage);
-        Vector3 center = Camera.main.WorldToScreenPoint(new Vector3(0, 0, 0));
+        Vector3 center = _stageTextTarget.transform.position;
         StartCoroutine(Utils.Lerp.EaseCoroutine(x => _stageTextPanel.transform.localScale = new Vector3(x,x,1),1, _targetScale, _downDuration));
         yield return Utils.Lerp.EaseCoroutine(y => SetTextPosition(y), _stageTextOriginalPos.y, center.y, _downDuration);
         _stageTextPanel.SetTrigger("Shake");

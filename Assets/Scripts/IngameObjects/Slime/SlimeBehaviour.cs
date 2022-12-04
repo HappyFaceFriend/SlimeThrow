@@ -118,6 +118,8 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
     {
+        if (CurrentState is SlimeStates.SpawnState || !IsAlive)
+            return;
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
         if (GlobalRefs.UpgradeManager.GetCount("치명적인 불꽃") != 0 )
@@ -128,6 +130,8 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
+        if (CurrentState is SlimeStates.SpawnState || !IsAlive)
+            return;
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
         damage *= GlobalRefs.LevelManger.Spawner.ExtraDamage.Value;
@@ -143,6 +147,7 @@ public class SlimeBehaviour : StateMachineBase
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();
         TakeDamage(damage);
+        EffectManager.InstantiateSlimeHitParticle(transform.position, Data.Color);
         if (_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
@@ -238,6 +243,7 @@ public class SlimeBehaviour : StateMachineBase
             EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(315 + angleOffset) * smokeSpeed);
 
         }
+        EffectManager.InstantiateSlimeDieParticle(transform.position, Data.Color);
     }
 
     protected override StateBase GetInitialState()

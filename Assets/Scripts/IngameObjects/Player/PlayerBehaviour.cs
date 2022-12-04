@@ -30,6 +30,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public bool UpgradeGetHP = false;
     public float _getHP = 0;
 
+    public PlayerCombatSettings CombatSettings { get { return _combatSettings; } }
     public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
 
     PlayerInput _inputs;
@@ -112,7 +113,14 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
                 IsInvincible = false;
             }
         }
+        UpdateAnimSpeeds();
+
         MoveInBounds();
+    }
+    void UpdateAnimSpeeds()
+    {
+        Animator.SetFloat("MoveSpeedModifier", MoveSpeed.Value / _movementSettings.MoveSpeed);
+        Animator.SetFloat("AttackSpeedModifier", AttackSpeed.Value / _combatSettings.AttackSpeed);
     }
     public void LandWithBullet(Vector3 landPosition)
     {
