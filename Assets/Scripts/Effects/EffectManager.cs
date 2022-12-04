@@ -14,9 +14,25 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ObjectPool _smokeEffectPool;
     [SerializeField] ObjectPool _recoveryTextPool;
     [SerializeField] ObjectPool _spawnWarningPool;
+    [SerializeField] ObjectPool _slimeHitParticlePool;
+    [SerializeField] ObjectPool _slimeDieParticlePool;
     private void Awake()
     {
         _instance = this;
+    }
+    public static void InstantiateSlimeHitParticle(Vector3 position, Color color)
+    {
+        HitEffectParticle effect = _instance._slimeHitParticlePool.Create<HitEffectParticle>();
+        effect.Init(color);
+        effect.transform.position = position;
+        effect.gameObject.SetActive(true);
+    }
+    public static void InstantiateSlimeDieParticle(Vector3 position, Color color)
+    {
+        HitEffectParticle effect = _instance._slimeDieParticlePool.Create<HitEffectParticle>();
+        effect.Init(color);
+        effect.transform.position = position;
+        effect.gameObject.SetActive(true);
     }
     public static CircleEffect InstantiateHitEffect(Vector3 position, float scale = 1f, bool noLine = false)
     {

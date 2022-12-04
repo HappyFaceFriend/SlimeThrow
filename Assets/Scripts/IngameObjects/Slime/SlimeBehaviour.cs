@@ -147,6 +147,7 @@ public class SlimeBehaviour : StateMachineBase
         EffectManager.InstantiateHitEffect(transform.position);
         _squasher.Squash();
         TakeDamage(damage);
+        EffectManager.InstantiateSlimeHitParticle(transform.position, Data.Color);
         if (_hpSystem.IsDead)
         {
             _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
@@ -239,6 +240,7 @@ public class SlimeBehaviour : StateMachineBase
             EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(315 + angleOffset) * smokeSpeed);
 
         }
+        EffectManager.InstantiateSlimeDieParticle(transform.position, Data.Color);
     }
 
     protected override StateBase GetInitialState()
