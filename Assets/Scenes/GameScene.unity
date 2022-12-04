@@ -5032,6 +5032,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &486760282
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930563, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930567, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: _isGrabbableAtDeath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 147796247482930570, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
+      propertyPath: m_Name
+      value: Poison Slime
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
 --- !u!1 &498125505
 GameObject:
   m_ObjectHideFlags: 0

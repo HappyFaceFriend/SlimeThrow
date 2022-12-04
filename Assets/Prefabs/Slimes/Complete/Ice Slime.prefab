@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1702894428, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: _projectilePrefab
+      value: 
+      objectReference: {fileID: -5461551402997548723, guid: a4bb02beef0dd01498381f4e8a7df696, type: 3}
     - target: {fileID: 1372328805832628289, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -19,6 +23,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -581524864, guid: 949171af191f44149995de92616e8ade, type: 3}
+    - target: {fileID: 1372328807142265654, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6769678720940457677, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
       propertyPath: m_Controller
       value: 

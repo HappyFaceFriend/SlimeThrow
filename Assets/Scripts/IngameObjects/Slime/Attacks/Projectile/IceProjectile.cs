@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingRockProjectile : SlimeProjectile
+public class IceProjectile : SlimeProjectile
 {
     [SerializeField] GameObject _buffPrefab;
-    [SerializeField] GameObject _landEffectPrefab;
+    public float _buffProbability;
     public float _duration;
-    float _probability;
-
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
@@ -20,18 +18,12 @@ public class KingRockProjectile : SlimeProjectile
         if (target != null)
         {
             target.OnHittedBySlime(_slime, _damage);
-            target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _probability, _buffPrefab));
+            if (Random.Range(0f, 1f) <= _buffProbability)
+            {
+                target.ApplyBuff(new PlayerBuffs.PlayerFreeze(_duration, _buffProbability, _buffPrefab));
+            }
             Die();
         }
-    }
-    private void OnDestroy()
-    {
-        GameObject effect = Instantiate(_landEffectPrefab, transform.position, Quaternion.identity);
-        Destroy(effect, 3.0f);
-    }
-    public void SetProb(float prob)
-    {
-        _probability = prob;
     }
 
 }

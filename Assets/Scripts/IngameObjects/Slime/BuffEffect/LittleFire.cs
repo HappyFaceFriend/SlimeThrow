@@ -9,8 +9,13 @@ public class LittleFire : MonoBehaviour
     float _timer = 0;
     bool _finish = false;
     bool _looping = false;
-    float _duration;
-    float _flashTime;
+    public float _duration;
+    public LittleFire(float duration)
+    {
+        _duration = duration;
+ 
+    }
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();

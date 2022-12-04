@@ -5,31 +5,31 @@ using UnityEngine;
 
 namespace PlayerBuffs
 {
-    public class PlayerStun : TimedBuff<PlayerBehaviour>
+    public class PlayerFreeze : TimedBuff<PlayerBehaviour>
     {
-        GameObject _shockPrefab;
-         float _duration;
+        GameObject _freezePrefab;
+        float _duration;
         Modifier _modifier;
         bool _start = false;
         float _probability;
 
-        public PlayerStun(float duration, float probability, GameObject shockPrefab) : base(duration)
+        public PlayerFreeze(float duration, float probability, GameObject freezePrefab) : base(duration)
         {
             _duration = duration;
             _modifier = new Modifier(0, Modifier.ApplyType.Multiply);
             _probability = probability;
-            _shockPrefab = shockPrefab;
+            _freezePrefab = freezePrefab;
         }
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if(Random.Range(0f, 1f) <= _probability)
+            if (Random.Range(0f, 1f) <= _probability)
             {
                 if (!_start)
                 {
                     Owner.MoveSpeed.AddModifier(_modifier);
                     _start = true;
-                    Owner.InstantiateBuff(_shockPrefab, Owner.transform.position + new Vector3(0,0.7f,0), _duration);
+                    Owner.InstantiateBuff(_freezePrefab, Owner.transform.position, _duration);
                 }
                 else
                 {

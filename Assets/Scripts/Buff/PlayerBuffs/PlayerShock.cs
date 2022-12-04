@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PlayerBuffs
 {
-    public class PlayerStun : TimedBuff<PlayerBehaviour>
+    public class PlayerShock : TimedBuff<PlayerBehaviour>
     {
         GameObject _shockPrefab;
          float _duration;
@@ -13,7 +13,7 @@ namespace PlayerBuffs
         bool _start = false;
         float _probability;
 
-        public PlayerStun(float duration, float probability, GameObject shockPrefab) : base(duration)
+        public PlayerShock(float duration, float probability, GameObject shockPrefab) : base(duration)
         {
             _duration = duration;
             _modifier = new Modifier(0, Modifier.ApplyType.Multiply);
@@ -29,7 +29,7 @@ namespace PlayerBuffs
                 {
                     Owner.MoveSpeed.AddModifier(_modifier);
                     _start = true;
-                    Owner.InstantiateBuff(_shockPrefab, Owner.transform.position + new Vector3(0,0.7f,0), _duration);
+                    Owner.InstantiateBuff(_shockPrefab, Owner.transform.position, _duration);
                 }
                 else
                 {
