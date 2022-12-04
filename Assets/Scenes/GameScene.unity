@@ -6706,6 +6706,8 @@ GameObject:
   - component: {fileID: 628259092}
   - component: {fileID: 628259091}
   - component: {fileID: 628259090}
+  - component: {fileID: 628259094}
+  - component: {fileID: 628259095}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
@@ -6816,6 +6818,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628259088}
   m_CullTransparentMesh: 1
+--- !u!95 &628259094
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628259088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a90d073dd55d944d819c976563624d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &628259095
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628259088}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &646236176
 GameObject:
   m_ObjectHideFlags: 0
@@ -18494,6 +18528,7 @@ GameObject:
   - component: {fileID: 1594510558}
   - component: {fileID: 1594510557}
   - component: {fileID: 1594510556}
+  - component: {fileID: 1594510559}
   m_Layer: 5
   m_Name: SlimeSlot (2)
   m_TagString: Untagged
@@ -18574,6 +18609,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594510554}
   m_CullTransparentMesh: 1
+--- !u!225 &1594510559
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594510554}
+  m_Enabled: 1
+  m_Alpha: 0.66
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1596724665
 GameObject:
   m_ObjectHideFlags: 0
@@ -21016,6 +21063,7 @@ GameObject:
   - component: {fileID: 1786065956}
   - component: {fileID: 1786065955}
   - component: {fileID: 1786065954}
+  - component: {fileID: 1786065957}
   m_Layer: 5
   m_Name: SlimeSlot
   m_TagString: Untagged
@@ -21096,6 +21144,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786065952}
   m_CullTransparentMesh: 1
+--- !u!225 &1786065957
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786065952}
+  m_Enabled: 1
+  m_Alpha: 0.66
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1793902158
 GameObject:
   m_ObjectHideFlags: 0
@@ -21662,6 +21722,7 @@ GameObject:
   - component: {fileID: 1836608144}
   - component: {fileID: 1836608143}
   - component: {fileID: 1836608142}
+  - component: {fileID: 1836608145}
   m_Layer: 5
   m_Name: SlimeSlot (1)
   m_TagString: Untagged
@@ -21742,6 +21803,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836608140}
   m_CullTransparentMesh: 1
+--- !u!225 &1836608145
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836608140}
+  m_Enabled: 1
+  m_Alpha: 0.66
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1840815474
 GameObject:
   m_ObjectHideFlags: 0
