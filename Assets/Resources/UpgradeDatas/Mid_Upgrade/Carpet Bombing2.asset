@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3d5fa30bf3d644b949f230dac3ba56, type: 3}
   m_Name: Carpet Bombing2
   m_EditorClassIdentifier: 
-  _name: 
-  _body: 
+  _name: "\uBB34\uCC28\uBCC4 \uD3ED\uACA92"
+  _body: "\uD3EC\uD0C4\uC758 \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD55C\uB2E4"
   _icon: {fileID: 0}
   _rarity: 0
   _maxCount: 1
   _statMode:
-    _statToChange: 0
-    _applyValue: 0
+    _statToChange: 1
+    _applyValue: 0.3
     _applyType: 0

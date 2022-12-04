@@ -17,4 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 910662184, guid: d452a80d14b8d2a4da1b06db37270bd5, type: 3}
   _rarity: 1
   _maxCount: 1
-  _applyValue: 0.5
+  _statMode:
+    _statToChange: 0
+    _applyValue: 0.5
+    _applyType: 0
