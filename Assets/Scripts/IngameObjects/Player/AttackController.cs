@@ -39,7 +39,10 @@ public class AttackController : MonoBehaviour
             _pivot.rotation = Quaternion.RotateTowards(_pivot.rotation, newRotation, 1800 * Time.deltaTime);
 
         }
-            _coolDownTimer.Tick();
+
+        _hitBoxAnim.SetFloat("AttackSpeedModifier", _player.AttackSpeed.Value / _player.CombatSettings.AttackSpeed);
+        _shovelAnimator.SetFloat("AttackSpeedModifier", _player.AttackSpeed.Value / _player.CombatSettings.AttackSpeed)
+;        _coolDownTimer.Tick();
     }
 
     public void Attack()
