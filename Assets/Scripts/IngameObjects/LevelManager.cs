@@ -108,8 +108,11 @@ public class LevelManager : MonoBehaviour
         GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
         data.Stage = _currentStage;
         data.SlimeKilled = _slimeKilled;
+        data.Upgrades = new UpgradeData[GlobalRefs.UpgradeManager.SelectedUpgrades.Count];
+        for (int i = 0; i < data.Upgrades.Length; i++)
+            data.Upgrades[i] = GlobalRefs.UpgradeManager.SelectedUpgrades[i];
 
-        GameOverDataManager.SetData(data);
+        GameOverDataManager.Data = data;
 
         SceneManager.LoadScene(_gameOverSceneName, LoadSceneMode.Additive);
 
