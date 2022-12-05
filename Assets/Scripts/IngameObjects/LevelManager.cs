@@ -17,6 +17,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float _timeAfterStageClear;
 
     [SerializeField] StagePanel _stagePanel;
+
+    [Header("Test")]
+    [SerializeField] string state;
     List<string> _upgradeList;
 
     int _currentStage;
@@ -51,18 +54,26 @@ public class LevelManager : MonoBehaviour
             //LoadGame();
         _stagePanel.SetStage(_currentStage);
         //Loop
+        state = "Before loop";
         while (_currentStage < _spawner.MaxStage)
         {
             SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp);
             SaveDataManager.Instance.Save(data);
 
+            state = "Save";
             yield return _stagePanel.StartNewStage(_currentStage);
             yield return new WaitForSeconds(1f);
             _spawner.StartStage(_currentStage);
+            state = "StartStage";
 
             while (!(!_spawner.IsSpawning && _spawner.LeftSlimes == 0))
+            {
+                state = "spawning : " + Spawner.IsSpawning.ToString() + " / leftSlimes : " + Spawner.LeftSlimes;
                 yield return null;
-            foreach(SlimeBehaviour slime in _spawner.RecentDead)
+            }
+
+            state = "Stage Clear";
+            foreach (SlimeBehaviour slime in _spawner.RecentDead)
             {
                 slime.IsLastSlimeToDie = true;
             }
@@ -72,11 +83,13 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             GlobalRefs.Player.EverythingStopped = true;
             yield return new WaitForSeconds(_timeAfterStageClear);
+            state = "EverythingStopped";
 
             //업그레이드
             ResetPlayer();
             yield return GlobalRefs.UpgradeManager.SelectUpgrade(_currentStage);
 
+            state = "upgrade over";
             GlobalRefs.Player.EverythingStopped = false;
             _currentStage++;
         }
