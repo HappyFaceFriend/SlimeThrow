@@ -182,7 +182,7 @@ public class SlimeBehaviour : StateMachineBase
         else
             SoundManager.Instance.PlaySFX("SlimeHitted2", 0.15f);
     }
-    void OnDie()
+    protected virtual void OnDie()
     {
         if(_isGrabbableAtDeath)
         {
@@ -190,10 +190,13 @@ public class SlimeBehaviour : StateMachineBase
             return;
         }
         if(Random.Range(0f, 1f) <= GlobalRefs.UpgradeManager.GetGrabProbability(_data))
-        //if (true)
             ChangeState(new SlimeStates.GrabbableState(this));
         else
+        {
+            if (this.transform.childCount == 2)
+                this.transform.GetChild(1).gameObject.SetActive(false);
             ChangeState(new SlimeStates.DeadState(this));
+        }
     }
 
     private void OnDestroy()

@@ -1393,7 +1393,8 @@ MonoBehaviour:
   _player: {fileID: 1815544615}
   _turret: {fileID: 1982071427}
   _flower: {fileID: 1845336812}
-  _upgradeManager: {fileID: 0}
+  _upgradeManager: {fileID: 1302069758}
+  _levelManager: {fileID: 1420246761}
 --- !u!4 &164896343
 Transform:
   m_ObjectHideFlags: 0
@@ -3416,6 +3417,7 @@ MonoBehaviour:
   _damageTextPool: {fileID: 2042183937}
   _smokeEffectPool: {fileID: 298143546}
   _recoveryTextPool: {fileID: 0}
+  _spawnWarningPool: {fileID: 0}
 --- !u!4 &370180594
 Transform:
   m_ObjectHideFlags: 0
@@ -7812,7 +7814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.04833, y: -115.465}
+  m_AnchoredPosition: {x: 84.048325, y: -115.465}
   m_SizeDelta: {x: 100, y: 163.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757352557
@@ -10449,10 +10451,16 @@ MonoBehaviour:
   _slimeHitted: {fileID: 11400000, guid: 79d8a6e20f5d3274f9f375075c7b1649, type: 2}
   _bulletLanded: {fileID: 11400000, guid: 1e54128c06afcaf48a526b5d731b48a7, type: 2}
   _slimeLastHitted: {fileID: 11400000, guid: 1e54128c06afcaf48a526b5d731b48a7, type: 2}
+  _bulletShooted: {fileID: 0}
   _followSpeed: 3
   _followTarget: {fileID: 1815544616}
   _minDistanceFromEdge: 0.5
   _levelManager: {fileID: 1420246761}
+  _cameraSpeed: 0
+  _lastHitZoomSize: 0
+  _lastHitDuration: 0
+  _lastHitTimeScale: 0
+  _lastHit: {fileID: 0}
 --- !u!1 &1081275801
 GameObject:
   m_ObjectHideFlags: 0
@@ -12544,6 +12552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradePanel: {fileID: 0}
+  _upgradeWeights: []
 --- !u!1 &1302725356
 GameObject:
   m_ObjectHideFlags: 0
@@ -14109,10 +14118,11 @@ MonoBehaviour:
   _mapSize: {x: 24, y: 15.5}
   _gameOverSceneName: 
   _flower: {fileID: 1845336812}
+  _spawner: {fileID: 0}
   _dirts:
   - {fileID: 1605515060}
   - {fileID: 1578747098}
-  _spawner: {fileID: 1713841413}
+  _timeAfterStageClear: 0
   _stagePanel: {fileID: 0}
 --- !u!4 &1420246762
 Transform:
@@ -18466,11 +18476,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d647a972b94f2748a4300fa5ed750c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slimePrefabs:
-  - {fileID: 6009788027667017333, guid: 529de05f3774ef24ca8d0b1bbb20b666, type: 3}
-  - {fileID: 2127461521900035769, guid: 45acfd3b100444c4e902c6d1ea7ba29a, type: 3}
-  _spawnSectionCount: 12
+  _basicSlime: {fileID: 0}
+  _upgradeSlimes: []
+  _attackSlimes: []
+  _specialSlimes: []
+  _buffSlimes: []
+  _bossSlimes: []
+  _stageText: {fileID: 0}
   _levelManager: {fileID: 1420246761}
+  _spawnSectionCount: 12
   _currentRound: 1
   _currentStage: 0
   _stagePerRound: 6
@@ -18484,6 +18498,7 @@ MonoBehaviour:
   - 222
   _dontSpawn: 1
   _spawnedSlimes: []
+  _spawnPools: []
 --- !u!1 &1724763232
 GameObject:
   m_ObjectHideFlags: 0

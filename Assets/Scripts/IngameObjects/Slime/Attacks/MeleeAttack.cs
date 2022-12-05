@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MeleeAttack : SlimeAttackBase
 {
-    Vector3 _targetPos;
+    protected Vector3 _targetPos;
 
-    [SerializeField] float _normPosOfAttack;
+    [SerializeField] protected float _normPosOfAttack;
 
     Collider2D[] _hitBoxColliders;
     Vector3 _posBeforeAttack;

@@ -37,7 +37,6 @@ public class MultiDirectionAttack : SlimeAttackBase
         float eTime = 0f;
         while (eTime < Duration)
         {
-            Debug.Log(eTime);
             eTime += Time.deltaTime;
             yield return null;
         }

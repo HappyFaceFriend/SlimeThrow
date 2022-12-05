@@ -51,6 +51,7 @@ public class EffectManager : MonoBehaviour
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }
+
     public static void InstantiateSmokeEffect(Vector3 position, Vector3 velocity, float scale = 1f)
     {
         PooledEffect effect = _instance._smokeEffectPool.Create<PooledEffect>();

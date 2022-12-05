@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/Slime/Gold/CoinSpin.anim.meta
+guid: 3c221aace6bea95448a028edeea8c412
+========
+guid: f0fd6178a3656ee4e81f6790351923e1
+>>>>>>>> b791616f9093330a369d0fbe787c010e878c08cc:Assets/Animations/Slime/Base/Spawn.anim.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
