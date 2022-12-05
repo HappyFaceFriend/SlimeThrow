@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e4f8369298b2f4a8e225806e3197e1, type: 3}
   m_Name: Ice Bullet
   m_EditorClassIdentifier: 
-  _name: Ice Bullet
-  _body: 
+  _name: "\uBE59\uACB0\uD0C4"
+  _body: "\uC5BC\uC74C\uC2AC\uB77C\uC784 \uD3EC\uD0C4\uC5D0 \uB9DE\uC740 \uC2AC\uB77C\uC784\uC740
+    5%\uC758 \uD655\uB960\uB85C \uC601\uC6D0\uD788 \uBE59\uACB0\uB41C\uB2E4"
   _icon: {fileID: 0}
-  _rarity: 0
+  _rarity: 1
   _maxCount: 1
   _upgradeMode:
-    _upgradeType: 0
+    _upgradeType: 2

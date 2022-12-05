@@ -8,8 +8,6 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] float _grabbableDuration;
     [SerializeField] FlipObjectToPoint _flip;
 
-    public GameObject _freezeEffect;
-    public LittleFire _buffEffect;
     protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
     public bool IsLastSlimeToDie { get; set; } = false;
@@ -128,20 +126,9 @@ public class SlimeBehaviour : StateMachineBase
             damage *= 1.2f;
         OnGetHitted(impactPosition, damage, false);
         if (GlobalRefs.UpgradeManager.GetCount("ºÒÁÖ¸Ô") >= 1 && _hpSystem.CurrentHp >= 0)
-        {
             ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
-            LittleFire buffEffect = Instantiate(_buffEffect);
-            buffEffect.transform.SetParent(this.transform, false);
-            buffEffect.GetComponent<LittleFire>().SetDuration(4f);
-        }
-        if (GlobalRefs.UpgradeManager.GetCount("³Ãµ¿°í") >= 1 && _hpSystem.CurrentHp >= 0)
-        {
-            ApplyBuff(new SlimeBuffs.Freeze(1f, this, _freezeEffect));
-            GameObject icecube = Instantiate(_freezeEffect);
-            icecube.transform.parent = this.transform;
-            icecube.transform.localPosition = Vector3.zero;
-            Destroy(icecube, 1f);
-        }   
+        /*if (GlobalRefs.UpgradeManager.GetCount("³Ãµ¿°í") >= 1 && _hpSystem.CurrentHp >= 0)
+            ApplyBuff(new SlimeBuffs.Freeze(1f, this, _freezeEffect));*/ 
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {
@@ -155,12 +142,7 @@ public class SlimeBehaviour : StateMachineBase
         else
             OnGetHitted(impactPosition, damage, false);
         if (GlobalRefs.UpgradeManager.GetCount("ÆÄÀÌ¾î Ä³³í") != 0 & _hpSystem.CurrentHp != 0)
-        {
             ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
-            LittleFire buffEffect = Instantiate(_buffEffect);
-            buffEffect.transform.SetParent(this.transform, false);
-            buffEffect.GetComponent<LittleFire>().SetDuration(4f);
-        }  
     }
     protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
     {

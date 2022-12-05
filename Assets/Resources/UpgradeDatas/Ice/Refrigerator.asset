@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e4f8369298b2f4a8e225806e3197e1, type: 3}
   m_Name: Refrigerator
   m_EditorClassIdentifier: 
-  _name: 
-  _body: 
+  _name: "\uB0C9\uB3D9\uACE0"
+  _body: "\uBAA8\uB4E0 \uD3C9\uD0C0 0.3\uCD08\uC758 \uBE59\uACB0 \uC801\uC6A9"
   _icon: {fileID: 0}
-  _rarity: 0
+  _rarity: 2
   _maxCount: 1
   _upgradeMode:
-    _upgradeType: 0
+    _upgradeType: 3
