@@ -188,7 +188,10 @@ public class SlimeHerdSpawner : MonoBehaviour
         var dead = _spawnedSlimes.FindAll(x => !x.IsAlive || x==null);
         _spawnedSlimes.RemoveAll(x => !x.IsAlive || x == null);
         if (dead.Count > 0)
+        {
             _recentDead = dead;
+            GlobalRefs.LevelManger.SlimeKilled += dead.Count;
+        }
     }
     void SpawnHerdRandomPos(SlimeHerd herd, int areaIdx)
     {

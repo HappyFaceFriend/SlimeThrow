@@ -8,6 +8,7 @@ public class TitleSceneManager : MonoBehaviour
 
     static bool _isFirst = true;
     [SerializeField] string _gameSceneName;
+    [SerializeField] string _settingSceneName;
     [SerializeField] Animator _animator;
     [SerializeField] float _cameraMoveMagnitude;
 
@@ -36,7 +37,7 @@ public class TitleSceneManager : MonoBehaviour
     }
     public void Settings()
     {
-        Debug.Log("로딩 미구현");
+        SceneManager.LoadScene(_settingSceneName);
     }
     public void Exit()
     {

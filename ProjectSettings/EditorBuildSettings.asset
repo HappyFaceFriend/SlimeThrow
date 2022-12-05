@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tests/JY_test.unity
     guid: 2364f8a116a51284fbfcd6f6b5cdb4e6
+  - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: eef61aca95b5eb846b2c52ef78cb8c52
   m_configObjects: {}

@@ -19,6 +19,5 @@ MonoBehaviour:
   _rarity: 0
   _maxCount: 1
   _statModes:
-  - _statToChange: 1
+    _statToChange: 0
     _applyValue: 1
-    _applyType: 0
