@@ -41,7 +41,7 @@ public class BulletBehaviour : MonoBehaviour
             sprite.gameObject.SetActive(colors.Count == 3);
 
         for (int i = 0; i < colors.Count; i++)
-            colors[i] *= 0.8f;
+            colors[i] *= 1f;
 
         if (colors.Count == 1)
             _one.color = colors[0];
