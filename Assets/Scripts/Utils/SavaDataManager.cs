@@ -12,6 +12,7 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
     JsonData Data;
 
     public string GetLanguage { get { return _language; } }
+    public float GetVolume { get { return _volume; } }
 
     public void UpdateLanguage()
     {

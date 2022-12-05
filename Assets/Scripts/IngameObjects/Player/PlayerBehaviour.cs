@@ -139,6 +139,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
             AttackSpeed.AddModifier(mod);
             MoveSpeed.AddModifier(mod);
         }
+        Debug.Log(AttackSpeed.Value);
     }
     protected override StateBase GetInitialState()
     {

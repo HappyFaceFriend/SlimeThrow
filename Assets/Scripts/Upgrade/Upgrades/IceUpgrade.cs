@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Upgrades
 {
-    [CreateAssetMenu(menuName = "Upgrade Datas/Fire Upgrades")]
-    public class FireUpgrades : UpgradeData
+    [CreateAssetMenu(menuName = "Upgrade Datas/Ice Upgrades")]
+    public class IceUpgrade : UpgradeData
     {
         [System.Serializable]
         public class UpgradeMode
         {
-            public enum UpgradeType { Burning, Flames, Critical_Fire, Fire_Cannon, Fire_Slayer, Flamemail, Flame_Bullet, Burning_Fist }
+            public enum UpgradeType { SnowIce, Freeze, IceCoal, Freezer}
             public UpgradeType _upgradeType;
         }
 
@@ -22,3 +22,5 @@ namespace Upgrades
         }
     }
 }
+
+

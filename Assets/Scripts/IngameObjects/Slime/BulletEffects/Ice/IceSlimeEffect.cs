@@ -34,12 +34,19 @@ public class IceSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         var iceInfo = info as IceEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.Freeze(iceInfo._freezeTime, slime, _freezeEffect));
+        if (GlobalRefs.UpgradeManager.GetCount("ºù°áÅº") >= 1)
+        {
+            iceInfo._freezeProb = 0.05f;
+            iceInfo._freezeTime = 1000f;
+        }
+        else
+            iceInfo._freezeTime += GlobalRefs.UpgradeManager.GetCount("¾óÀ½ ¶¯");
+        slime.ApplyBuff(new SlimeBuffs.Freeze(100f, slime, _freezeEffect));
         GameObject icecube = Instantiate(_freezeEffect);
         icecube.transform.parent = slime.transform;
         icecube.transform.localPosition = Vector3.zero;
         Destroy(icecube, iceInfo._freezeTime);
-        slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration, iceInfo._frostbiteDamPerTick, 1f,iceInfo._frostbiteProb));
+        slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration, iceInfo._frostbiteDamPerTick + GlobalRefs.UpgradeManager.GetCount("¼³ºù"), 1f,iceInfo._frostbiteProb));
         GameObject snowing = Instantiate(_snowingEffect);
         snowing.transform.parent = slime.transform;
         snowing.transform.localPosition = new Vector3(0f, 0.05f);

@@ -41,6 +41,10 @@ Embers	불씨
 Burn Duration is increased by 3 seconds	화상의 적용시간이 3초 증가한다
 Fire Resistance	화염방어막
 Damage of Fire Slime decreases by 50%	불 슬라임의 공격의 피해가 50% 감소한다
+Snow Ice	설빙
+Damage of Frostbite increased by 1	동상의 초당 데미지가 1 증가한다
+Ice Break	얼음 땡
+Frozen time of Freeze increased by 1 second	빙결의 빙결시간이 1초 증가한다
 Light Footsteps2	가벼운 발걸음2
 Player movement speed increased by 50%	플레이어의 이동속도가 50% 증가한다
 Aidkit2	구급상자2
@@ -63,7 +67,11 @@ Fire Cannon	파이어 캐논
 Every Bullet gets Burn effect	모든 포탄에 화상을 적용한다
 Flame Bullet	화염탄
 The damage of Burn fixed at 10% of Slimes MaxHp	화상의 초당 데미지가 슬라임 최대 체력의 10%로 고정된다
+Ice Bullet	빙결탄
+Slimes hit by ice slime bullet freezes eternally for about 5% of possibilities	얼음슬라임 포탄에 맞은 슬라임은 5%의 확률로 영원히 빙결된다
 Fire Slayer	파이어 슬래이어
 Slimes with less than 50% of HP, get instantly killed by Fire Slime Bullet	체력이 50% 이하인 슬라임이 불 슬라임 포탄을 맞을 시 처형된다
 Burning Fist	불주먹
-Every attack by Fire slime applies Burn effect with damage per tick at 2	모든 평타 초당 데미지 2의 화상 적용
+Every attack of Player applies Burn effect with damage per tick at 2	모든 평타 초당 데미지 2의 화상 적용
+Refrigerator	냉동고
+Every attack of Player applies 0.3 second of freeze	모든 평타 0.3초의 빙결 적용
