@@ -22,6 +22,8 @@ public class UpgradeManager : MonoBehaviour
 
     public List<string> UpgradesNames { get { return _upgradeNames; } }
 
+    public List<UpgradeData> SelectedUpgrades { get { return _upgrades; } }
+
     private void Awake()
     {
         _upgrades = new List<UpgradeData>();
