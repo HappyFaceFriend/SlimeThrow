@@ -20,6 +20,9 @@ public class LevelManager : MonoBehaviour
     List<string> _upgradeList;
 
     int _currentStage;
+    int _slimeKilled;
+
+    public int SlimeKilled { get { return _slimeKilled; } set { _slimeKilled = value; } }
     public SlimeHerdSpawner Spawner { get { return _spawner; } }
     public bool IsLastEffect { get; private set; } = false;
 
@@ -42,6 +45,7 @@ public class LevelManager : MonoBehaviour
     {
         //Init
         _currentStage = 0;
+        _slimeKilled = 0;
         InitFlower();
         if(GlobalDataManager.Instance.Load)
             //LoadGame();
@@ -103,8 +107,12 @@ public class LevelManager : MonoBehaviour
         SoundManager.Instance.PlaySFX("GameOver");
         GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
         data.Stage = _currentStage;
+        data.SlimeKilled = _slimeKilled;
+        data.Upgrades = new UpgradeData[GlobalRefs.UpgradeManager.SelectedUpgrades.Count];
+        for (int i = 0; i < data.Upgrades.Length; i++)
+            data.Upgrades[i] = GlobalRefs.UpgradeManager.SelectedUpgrades[i];
 
-        GameOverDataManager.SetData(data);
+        GameOverDataManager.Data = data;
 
         SceneManager.LoadScene(_gameOverSceneName, LoadSceneMode.Additive);
 

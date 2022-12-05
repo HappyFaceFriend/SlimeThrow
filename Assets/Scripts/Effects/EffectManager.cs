@@ -16,6 +16,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ObjectPool _spawnWarningPool;
     [SerializeField] ObjectPool _slimeHitParticlePool;
     [SerializeField] ObjectPool _slimeDieParticlePool;
+    [SerializeField] ObjectPool _stickyFootstepPool;
     private void Awake()
     {
         _instance = this;
@@ -48,6 +49,12 @@ public class EffectManager : MonoBehaviour
     public static void InstantiateDustEffect(Vector3 position)
     {
         PooledObject effect = _instance._dustEffectPool.Create<PooledObject>();
+        effect.transform.position = position;
+        effect.gameObject.SetActive(true);
+    }
+    public static void InstantiateStickyFootstep(Vector3 position)
+    {
+        PooledObject effect = _instance._stickyFootstepPool.Create<PooledObject>();
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }

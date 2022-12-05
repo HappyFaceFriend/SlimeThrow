@@ -26,7 +26,7 @@ Fall speed of cannonball increased by 20%	포탄의 낙하 속도가 20% 증가�
 Carpet Bombing1	무차별 폭격1
 Range and Damage of cannonball increased by 10%	포탄의 데미지가 10% 증가한다
 Fierce Boy1	난폭한 소년1
-Every time the player lands after shoot by cannon, currentHP, attack speed and movement speed increases about 5%	플레이어가 포탄으로 착지할때마다 체력, 공격속도, 이동속도가 모두 5%씩 증가한다
+Every time the player lands after shoot by cannon, the player's currentHP increases by 5 and attack speed and movement speed increases about 5%	플레이어가 포탄으로 착지할때마다 체력을 5 얻고 공격속도, 이동속도가 모두 5%씩 증가한다
 The Hunter1	사냥꾼1
 After every kill by player itself, Player recovers HP by 1	플레이어가 슬라임을 죽일때마다 체력 1 회복한다
 Far Away1	멀리던지기1
@@ -35,12 +35,6 @@ Burning Ground	불타는 대지
 Every Slime spawned for the first 10 seconds get Burn	첫 10초간 스폰되는 슬라임 모두 화상을 입는다
 Snowy Field	설원
 Every Slime spawned for the first 10 seconds get Frostbite.	첫 10초간 스폰되는 슬라임 모두 동상을 입는다.
-Holes	구덩이
-Create extra dirt	구덩이 1개를 추가로 생성한다
-Gift from nature	재생의 바람
-Flower gets (?) HP recoverd	꽃의 체력이 ()만큼 회복한다
-Bullet Reload1	총알 장전1
-Number of slimes in magazine to reload increases by 1	장전할 수 있는 슬라임의 수가 1 늘어난다
 Burning Slime	타들어가는 슬라임
 Burning Damage per second increased by 1	화상의 초당 데미지가 1 증가한다
 Embers	불씨
@@ -58,7 +52,7 @@ Fall speed of cannonball increased by 50%	포탄의 낙하 속도가 50% 증가�
 Carpet Bombing2	무차별 폭격2
 Range and Damage of cannonball increased by 30%	포탄의 데미지가 30% 증가한다
 Fierce Boy2	난폭한 소년2
-Every time the player lands after shoot by cannon, currentHP, attack speed and movement speed increases about 10%	플레이어가 포탄으로 착지할때마다 체력, 공격속도, 이동속도가 모두 10%씩 증가한다
+Every time the player lands after shoot by cannon, the player's currentHP increases by 10 and attack speed and movement speed increases about 10%	플레이어가 포탄으로 착지할때마다 체력을 10 얻고 공격속도, 이동속도가 모두 10%씩 증가한다
 The Hunter2	사냥꾼2
 After every kill by player itself, Player recovers HP by 3	플레이어가 슬라임을 죽일때마다 체력을 3 회복한다
 Far Away2	멀리던지기2

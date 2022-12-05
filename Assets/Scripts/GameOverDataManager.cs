@@ -9,6 +9,8 @@ public class GameOverDataManager : MonoBehaviour
     public class GameOverData
     {
         public int Stage;
+        public int SlimeKilled;
+        public UpgradeData[] Upgrades;
     }
     static GameOverDataManager _instance = null;
     static GameOverDataManager _safeInstance
@@ -21,25 +23,11 @@ public class GameOverDataManager : MonoBehaviour
         }
     }
 
-    [SerializeField] TextMeshProUGUI _clearedStageText;
 
-    static GameOverData _data;
+    GameOverData _data;
 
-    public static void SetData(GameOverData gameOverData)
-    {
-        _data = gameOverData;
-    }
+    public static GameOverData Data { get { return _safeInstance._data; } set { _safeInstance._data = value; } }
 
-    private void Awake()
-    {
-        _safeInstance.UpdatePanel();
-    }
 
-    void UpdatePanel()
-    {
-        if(_data != null)
-        {
-            _clearedStageText.text =  " stage " + _data.Stage.ToString();
-        }
-    }
+
 }

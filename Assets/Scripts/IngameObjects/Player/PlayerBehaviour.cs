@@ -27,8 +27,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public HpBar PlayerHPBar { get { return _hpBar; } }
     Utils.Timer _invincibleTimer;
 
-    public bool UpgradeGetHP = false;
-    public float _getHP = 0;
+    public bool HunterGetHP = false;
+    public bool FierceOn = false;
+    public float _getHP;
+    public float _fierceNum;
 
     public PlayerCombatSettings CombatSettings { get { return _combatSettings; } }
     public Sprite SlotIcon { get { return _combatSettings.SlotIcon; } }
@@ -56,6 +58,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         DamageAsBullet = new BuffableStat(_combatSettings.DamageAsBullet);
         _invincibleTimer = new Utils.Timer(1f);
         _invincibleTimer.Off();
+        _getHP = 0;
+        _fierceNum = 1;
     }
 
     public void SetInvincible(bool invincible, float duration = -1)
@@ -127,6 +131,14 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         transform.position = landPosition;
         ChangeState(new PlayerStates.DefaultState(this));
         IsTargetable = true;
+        if (FierceOn)
+        {
+            _hpSystem.ChangeHp(_fierceNum * 100);
+            _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+            Modifier mod = new Modifier(_fierceNum, Modifier.ApplyType.Multiply);
+            AttackSpeed.AddModifier(mod);
+            MoveSpeed.AddModifier(mod);
+        }
     }
     protected override StateBase GetInitialState()
     {
@@ -189,17 +201,23 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         ChangeState(new PlayerStates.DeadState(this));
         _levelManager.OnPlayerDead();
     }
-    public void SetUpgrade(float num)
+    public void SetHunter(float num)
     {
-        UpgradeGetHP = true;
+        HunterGetHP = true;
         _getHP += num;
     }
+
     public void InstantiateBuff(GameObject prefab, Vector3 position ,float duration)
     {
         GameObject buff = Instantiate(prefab, position, Quaternion.identity);
         buff.transform.SetParent(this.transform);
         Destroy(buff, duration);
     }
-   
+
+    public void SetFierce(float num)
+    {
+        FierceOn = true;
+        _fierceNum += num;
+    }
 
 }
