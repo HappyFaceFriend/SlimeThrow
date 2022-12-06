@@ -7,12 +7,9 @@ using Newtonsoft.Json.Linq;
 
 public class SaveDataManager : SingletonBehaviour<SaveDataManager>
 {
-    string _language = "ko";
+    string _language = "en";
     float _volume = 0.5f;
     JsonData Data;
-
-    public string GetLanguage { get { return _language; } }
-    public float GetVolume { get { return _volume; } }
 
     public void UpdateLanguage()
     {

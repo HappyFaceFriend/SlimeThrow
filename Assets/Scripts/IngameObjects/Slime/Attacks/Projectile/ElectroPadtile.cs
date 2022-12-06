@@ -24,7 +24,11 @@ public class ElectroPadtile : CollisionPadtile
                 player.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _buffProbability, _shockPrefab));
 
             player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration, _buffProbability, _shockPrefab));
-
+            if(GlobalRefs.UpgradeManager.GetCount("ÁøÈ­") >= 1)
+            {
+                Modifier modifier = new Modifier(1.1f, Modifier.ApplyType.Multiply);
+                GlobalRefs.Player.AttackSpeed.AddModifier(modifier);
+            }
             Destroy(gameObject, 0.38f);
         }
 

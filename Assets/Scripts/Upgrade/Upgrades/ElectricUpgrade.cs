@@ -10,7 +10,7 @@ namespace Upgrades
         [System.Serializable]
         public class UpgradeMode
         {
-            public enum UpgradeType { Charge, Fry, Mega, Nonconduct }
+            public enum UpgradeType { Charge, Fry, Mega, Static, Nonconduct, Evolution }
             public UpgradeType _upgradeType;
         }
 

@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
         state = "Before loop";
         while (_currentStage < _spawner.MaxStage)
         {
-            SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp, SaveDataManager.Instance.GetLanguage, (double)SaveDataManager.Instance.GetVolume);
+            SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
             SaveDataManager.Instance.Save(data);
 
             state = "Save";

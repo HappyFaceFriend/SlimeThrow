@@ -1804,7 +1804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d721cfc2d12215241b797c8412c7aa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stringsFile: {fileID: 4900000, guid: 37c34dc6be3584e469cdce25539edabe, type: 3}
+  stringsFile1: {fileID: 4900000, guid: 37c34dc6be3584e469cdce25539edabe, type: 3}
 --- !u!4 &143234514
 Transform:
   m_ObjectHideFlags: 0
