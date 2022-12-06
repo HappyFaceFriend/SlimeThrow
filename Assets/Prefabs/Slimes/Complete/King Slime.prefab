@@ -429,22 +429,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6938963835695920352, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_PrefabInstance: {fileID: 5946111205228744190}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8120231042383928423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3659441307355379998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b816950693aedc64a9f2015998c97cfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 3
-  _numOfdirections: 10
-  _projectilePrefab: {fileID: 7763154171693699967, guid: 9a9c15ab8776e7348a62cbeadc00db77, type: 3}
-  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &3690278676649987593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +450,22 @@ MonoBehaviour:
   _squasher: {fileID: 4181890899367884395}
   _normPosOfFlowerAttack: 0
   _isGrabbableAtDeath: 0
+--- !u!114 &8120231042383928423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659441307355379998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b816950693aedc64a9f2015998c97cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 3
+  _numOfdirections: 10
+  _projectilePrefab: {fileID: -6879477883348273298, guid: 9a9c15ab8776e7348a62cbeadc00db77, type: 3}
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &3952973951092526225 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7232530855273365871, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}

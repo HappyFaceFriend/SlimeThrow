@@ -14,13 +14,13 @@ public class JumpingAttack : SlimeAttackBase
     {
         _target = targetTransform;
         GameObject _instantiated = Instantiate(_warningPrefab, transform.position, Quaternion.identity);
-        Destroy(_instantiated, 0.35f);
+        Destroy(_instantiated.gameObject, 0.35f);
     }
     public void AnimEvent_JumpingAttack()
     {
         SlimeJumptile jumptile = Instantiate(_jumpTile, transform.position, Quaternion.identity);
         jumptile.Init(_target.position, Slime);
-        Destroy(jumptile, 0.35f);
+        Destroy(jumptile.gameObject, 0.35f);
         
     }
 

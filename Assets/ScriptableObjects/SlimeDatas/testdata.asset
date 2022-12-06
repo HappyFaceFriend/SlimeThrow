@@ -16,7 +16,7 @@ MonoBehaviour:
   _attackPower: 5
   _flowerAttackPower: 3
   _attackSpeed: 0.5
-  _attackRange: 1
+  _attackRange: 5
   _sightRange: 4
   _moveSpeed: 0.7
   _damageAsBullet: 15

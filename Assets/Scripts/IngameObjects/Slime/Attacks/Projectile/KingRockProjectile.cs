@@ -20,14 +20,14 @@ public class KingRockProjectile : SlimeProjectile
         if (target != null)
         {
             target.OnHittedBySlime(_slime, _damage);
-            target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _probability, _buffPrefab));
+            target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _probability));
             Die();
         }
     }
     private void OnDestroy()
     {
         GameObject effect = Instantiate(_landEffectPrefab, transform.position, Quaternion.identity);
-        Destroy(effect, 3.0f);
+        Destroy(effect.gameObject, 3.0f);
     }
     public void SetProb(float prob)
     {

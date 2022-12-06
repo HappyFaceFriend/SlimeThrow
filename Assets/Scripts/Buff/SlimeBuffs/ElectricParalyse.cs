@@ -14,6 +14,7 @@ namespace SlimeBuffs
         bool _active = false;
         Modifier _modifier;
         SlimeBehaviour _slime;
+        ElectricShock _buff;
         public ElectricParalyse(float duration, float damage, SlimeBehaviour slime) : base(duration)
         {
             _duration = duration;
@@ -22,6 +23,13 @@ namespace SlimeBuffs
             _modifier = new Modifier(0f, Modifier.ApplyType.Multiply);
             _slime = slime;
             _slime.ChangeState(new SlimeStates.FreezeState(slime));
+        }
+        public override void OnStart()
+        {
+            base.OnStart();
+            _buff = EffectManager.InstantiateShock();
+            _buff.transform.SetParent(Owner.transform);
+            _buff.transform.localPosition = Vector3.zero;
         }
         public override void OnUpdate()
         {
@@ -39,11 +47,11 @@ namespace SlimeBuffs
             }
             else if (ElapsedTime > _duration)
             {
+                Owner.gameObject.GetComponentInChildren<ElectricShock>().gameObject.SetActive(false);
                 Owner.MoveSpeed.RemoveModifier(_modifier);
                 _slime.ChangeState(new SlimeStates.MoveState(_slime));
             }
         }
-
     }
 }
 

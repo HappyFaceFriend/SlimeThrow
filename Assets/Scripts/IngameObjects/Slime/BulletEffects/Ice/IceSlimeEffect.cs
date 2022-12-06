@@ -20,7 +20,6 @@ public class IceSlimeEffect : SlimeBulletEffect
             this._freezeTime = 1f;
             this._frostbiteProb = 1f;
             this._frostbiteDamPerTick = 3;
-            this._freezeTime = 2f;
             this._frostbiteDuration = 5f;
         }
     }
@@ -29,7 +28,7 @@ public class IceSlimeEffect : SlimeBulletEffect
         GameObject effect;
         effect = Instantiate(effectPrefab);
         effect.transform.position = landPosition;
-        Destroy(effect, 3.0f);
+        Destroy(effect.gameObject, 3.0f);
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
@@ -41,16 +40,12 @@ public class IceSlimeEffect : SlimeBulletEffect
         }
         else
             iceInfo._freezeTime += GlobalRefs.UpgradeManager.GetCount("¾óÀ½ ¶¯");
-        slime.ApplyBuff(new SlimeBuffs.Freeze(100f, slime, _freezeEffect));
-        GameObject icecube = Instantiate(_freezeEffect);
-        icecube.transform.parent = slime.transform;
-        icecube.transform.localPosition = Vector3.zero;
-        Destroy(icecube, iceInfo._freezeTime);
+        slime.ApplyBuff(new SlimeBuffs.Freeze(iceInfo._freezeTime, slime));
         slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration, iceInfo._frostbiteDamPerTick + GlobalRefs.UpgradeManager.GetCount("¼³ºù"), 1f,iceInfo._frostbiteProb));
         GameObject snowing = Instantiate(_snowingEffect);
         snowing.transform.parent = slime.transform;
         snowing.transform.localPosition = new Vector3(0f, 0.05f);
-        Destroy(snowing, iceInfo._frostbiteDuration);
+        Destroy(snowing.gameObject, iceInfo._frostbiteDuration);
 
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)

@@ -11,20 +11,21 @@ namespace PlayerBuffs
         float _interval;
         float _nextDamageTime;
         float _duration;
-        GameObject _buff;
-        public PlayerBurn(float duration, float damage, float interval, GameObject burnPrefab) : base(duration)
+        LittleFire _buff;
+        public PlayerBurn(float duration, float damage, float interval) : base(duration)
         {
             _duration = duration;
             _damage = damage;
             _interval = 1f;
             _nextDamageTime = 0f;
-            _buff = burnPrefab;
         }
 
         public override void OnStart()
         {
             base.OnStart();
-             Owner.InstantiateBuff(_buff, Owner.transform.position, _duration);
+            _buff = EffectManager.InstantiateFireBurning();
+            _buff.transform.SetParent(Owner.transform);
+            _buff.transform.localPosition = Vector3.zero;
         }
         public override void OnUpdate()
         {
@@ -35,7 +36,11 @@ namespace PlayerBuffs
                 Owner.TakeDamage(_damage);
             }
         }
-
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Owner.gameObject.GetComponentInChildren<LittleFire>().gameObject.SetActive(false);
+        }
     }
 }
 

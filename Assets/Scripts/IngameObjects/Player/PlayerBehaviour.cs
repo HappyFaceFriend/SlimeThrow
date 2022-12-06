@@ -208,12 +208,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _getHP += num;
     }
 
-    public void InstantiateBuff(GameObject prefab, Vector3 position ,float duration)
-    {
-        GameObject buff = Instantiate(prefab, position, Quaternion.identity);
-        buff.transform.SetParent(this.transform);
-        Destroy(buff, duration);
-    }
 
     public void SetFierce(float num)
     {

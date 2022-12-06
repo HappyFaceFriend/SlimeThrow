@@ -33,10 +33,10 @@ public class FireSlimeEffect : SlimeBulletEffect
         }
         effect = Instantiate(effectPrefab);
         effect.transform.position = landPosition;
-        Destroy(effect, 3.0f);
-        Destroy(addtional[0], 3.0f);
-        Destroy(addtional[1], 3.0f);
-        Destroy(addtional[2], 3.0f);
+        Destroy(effect.gameObject, 3.0f);
+        Destroy(addtional[0].gameObject, 3.0f);
+        Destroy(addtional[1].gameObject, 3.0f);
+        Destroy(addtional[2].gameObject, 3.0f);
     }
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {

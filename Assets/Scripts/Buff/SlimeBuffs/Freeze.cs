@@ -11,8 +11,9 @@ namespace SlimeBuffs
         Modifier _modifier;
         bool _start = false;
         SlimeBehaviour _slime;
-
-        public Freeze(float duration, SlimeBehaviour slime, GameObject buffeffect) : base(duration)
+        IceCube _buff;
+      
+        public Freeze(float duration, SlimeBehaviour slime) : base(duration)
         {
             _duration = duration;
             _modifier = new Modifier(0f, Modifier.ApplyType.Multiply);
@@ -27,6 +28,9 @@ namespace SlimeBuffs
                 Owner.MoveSpeed.AddModifier(_modifier);
                 Owner.AttackSpeed.AddModifier(_modifier);
                 _start = true;
+                _buff = EffectManager.InstantiateIceCube();
+                _buff.transform.SetParent(Owner.transform);
+                _buff.transform.localPosition = Vector3.zero;
             }
             else
             {
@@ -39,7 +43,11 @@ namespace SlimeBuffs
                 }
             }
         }
-
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Owner.gameObject.GetComponentInChildren<IceCube>().gameObject.SetActive(false);
+        }
     }
 }
 

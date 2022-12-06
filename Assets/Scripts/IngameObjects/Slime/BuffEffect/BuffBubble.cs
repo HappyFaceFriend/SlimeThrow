@@ -24,7 +24,7 @@ public class BuffBubble : MonoBehaviour
             else
             {
                 GameObject bubble = Instantiate(_bubblePrefab, position, Quaternion.identity);
-                Destroy(bubble, 1f);
+                Destroy(bubble.gameObject, 1f);
                 _genTime = 0;
             }
         }

@@ -12,6 +12,7 @@ namespace SlimeBuffs
         float _nextDamageTime;
         float _probability;
         float _duration;
+        Snowing _buff;
         public Frostbite(float duration, float damage, float interval, float prob) : base(duration)
         {
             _duration = duration;
@@ -27,13 +28,20 @@ namespace SlimeBuffs
             {
                 if ((ElapsedTime >= _nextDamageTime) && (ElapsedTime <= _duration))
                 {
+                    _buff = EffectManager.InstantiateSnowing();
+                    _buff.transform.SetParent(Owner.transform);
+                    _buff.transform.localPosition = Vector3.zero;
                     _nextDamageTime += _interval;
                     Owner.TakeDamage(_damage);
                     Debug.Log("동상 데미지 " + _damage);
                 }
             }
         }
-
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Owner.gameObject.GetComponentInChildren<Snowing>().gameObject.SetActive(false);
+        }
     }
 }
 

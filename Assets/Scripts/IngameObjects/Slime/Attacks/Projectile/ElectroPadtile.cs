@@ -7,7 +7,6 @@ public class ElectroPadtile : CollisionPadtile
 {
     public float _buffProbability;
     public float _duration;
-    public GameObject _shockPrefab;
     public void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
@@ -21,9 +20,9 @@ public class ElectroPadtile : CollisionPadtile
             player.OnHittedBySlime(_slime, _damage);
 
             if(GlobalRefs.UpgradeManager.GetCount("비전도체") <= 0)
-                player.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _buffProbability, _shockPrefab));
+                player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration, _buffProbability));
 
-            player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration, _buffProbability, _shockPrefab));
+            player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration, _buffProbability));
 
             Destroy(gameObject, 0.38f);
         }
@@ -36,7 +35,7 @@ public class ElectroPadtile : CollisionPadtile
         else
         {
             _canAttack = true;
-            Destroy(warning);
+            Destroy(warning.gameObject);
             child = transform.GetChild(0).gameObject;
             child.SetActive(true);
             collider.enabled = true;

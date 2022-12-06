@@ -9,8 +9,7 @@ public class IntervalMultiAttack : MultiDirectionAttack
     public float _interval = 0.05f;
     float _waitingTime;
     int _i;
-
- 
+    bool _first = false;
     public new void AnimEvent_ShootProjectile()
     {
         BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
@@ -20,20 +19,31 @@ public class IntervalMultiAttack : MultiDirectionAttack
     protected override IEnumerator AttackCoroutine()
     {
         float eTime = 0f;
-        while (eTime < Duration)
+        while ( eTime < Duration)
         {
             eTime += Time.deltaTime;
             if (_waitingTime <= _interval) // 아직 못 쏘는 때임
                 _waitingTime += Time.deltaTime;
             else
             {
-                Shoothing();
-                yield return new WaitForSeconds(_interval);
-                _waitingTime = 0f;
-                
+                if(!_first)
+                {
+                    yield return new WaitForSeconds(1.19f);
+                    Shoothing();
+                    _waitingTime = 0f;
+                    _first = true;
+                }
+                else
+                {
+                    Shoothing();
+                    yield return new WaitForSeconds(_interval);
+                    _waitingTime = 0f;
+                }
+
             }
         }
         IsAttackDone = true;
+        _first=false;
         _i = 0;
     }
 

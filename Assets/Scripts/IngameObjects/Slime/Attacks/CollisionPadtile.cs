@@ -32,7 +32,7 @@ public class CollisionPadtile : MonoBehaviour
         else
         {
             _canAttack = true;
-            Destroy(warning);
+            Destroy(warning.gameObject);
             child = transform.GetChild(0).gameObject;
             child.SetActive(true);
             collider.enabled = true;

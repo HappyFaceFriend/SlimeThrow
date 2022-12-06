@@ -8,7 +8,7 @@ public class SlimeAttackBase : MonoBehaviour
     protected float Duration { get { return _duration; } }
     Coroutine _attackCoroutine;
     protected SlimeBehaviour Slime { get; private set; }
-    bool _isAttackDone;
+    public bool _isAttackDone;
     public bool IsAttackDone { get { return _isAttackDone; } protected set { _isAttackDone = value; } }
     Utils.Timer _coolDownTimer;
     public bool IsCoolDownReady { get { return _coolDownTimer.IsOver; } }

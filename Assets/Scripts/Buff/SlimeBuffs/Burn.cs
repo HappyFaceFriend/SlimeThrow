@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -12,9 +13,13 @@ namespace SlimeBuffs
         float _interval;
         float _nextDamageTime;
         float _duration;
+        LittleFire _buff;
         public override void OnStart()
         {
-            EffectManager.InstantiateFireBurning(Owner.transform.position);
+            base.OnStart();
+            _buff = EffectManager.InstantiateFireBurning();
+            _buff.transform.SetParent(Owner.transform);
+            _buff.transform.localPosition = Vector3.zero;
         }
         public Burn(float duration, float damage, float interval) : base(duration)
         {
@@ -33,6 +38,11 @@ namespace SlimeBuffs
             }
         }
 
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Owner.gameObject.GetComponentInChildren<LittleFire>().gameObject.SetActive(false);
+        }
     }
 }
 

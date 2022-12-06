@@ -11,6 +11,7 @@ namespace SlimeBuffs
         float _interval;
         float _nextDamageTime;
         float _duration;
+        BuffBubble _buff;
         public Poisoned(float duration, float damage, float interval) : base(duration)
         {
             _duration = duration;
@@ -18,6 +19,15 @@ namespace SlimeBuffs
             _interval = interval;
             _nextDamageTime = 0f;
         }
+        public override void OnStart()
+        {
+            base.OnStart();
+            _buff = EffectManager.InstantiateBubble();
+            _buff.transform.SetParent(Owner.transform);
+            _buff.transform.localPosition = Vector3.zero;
+            _buff.SetDuration(_duration);
+        }
+
         public override void OnUpdate()
         {
             base.OnUpdate();
@@ -27,7 +37,11 @@ namespace SlimeBuffs
                 Owner.TakeDamage(_damage);
             }
         }
-
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Owner.gameObject.GetComponentInChildren<BuffBubble>().gameObject.SetActive(false);
+        }
     }
 }
 

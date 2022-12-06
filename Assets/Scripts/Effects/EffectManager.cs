@@ -17,7 +17,13 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ObjectPool _slimeHitParticlePool;
     [SerializeField] ObjectPool _slimeDieParticlePool;
     [SerializeField] ObjectPool _stickyFootstepPool;
-    [SerializeField] ObjectPool _fireBurningPool;
+    [SerializeField] LittleFire _burnPrefab;
+    [SerializeField] IceCube _freezePrefab;
+    [SerializeField] Snowing _frostbitePrefab;
+    [SerializeField] ElectricShock _stunPrefab;
+    [SerializeField] BuffBubble _poisonedPrefab;
+
+
     private void Awake()
     {
         _instance = this;
@@ -53,19 +59,43 @@ public class EffectManager : MonoBehaviour
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }
-    public static void InstantiateFireBurning(Vector3 position)
+    public static LittleFire InstantiateFireBurning()
     {
-        PooledObject effect = _instance._fireBurningPool.Create<PooledObject>();
-        effect.transform.position = position;
-        effect.gameObject.SetActive(true);
+        LittleFire effect = Instantiate(EffectManager._instance._burnPrefab);
+        return effect;
     }
+    public static IceCube InstantiateIceCube()
+    {
+        IceCube effect = Instantiate(EffectManager._instance._freezePrefab);
+        return effect;
+    }
+    public static Snowing InstantiateSnowing()
+    {
+        Snowing effect = Instantiate(EffectManager._instance._frostbitePrefab);
+        return effect;
+    }
+    public static ElectricShock InstantiateShock()
+    {
+        ElectricShock effect = Instantiate(EffectManager._instance._stunPrefab);
+        return effect;
+    }
+    public static BuffBubble InstantiateBubble()
+    {
+        BuffBubble effect = Instantiate(EffectManager._instance._poisonedPrefab);
+        return effect;
+    }
+
     public static void InstantiateStickyFootstep(Vector3 position)
     {
         PooledObject effect = _instance._stickyFootstepPool.Create<PooledObject>();
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }
-
+    public static PooledObject InstantiateStickyFootstep()
+    {
+        PooledObject effect = _instance._stickyFootstepPool.Create<PooledObject>();
+        return effect;
+    }
     public static void InstantiateSmokeEffect(Vector3 position, Vector3 velocity, float scale = 1f)
     {
         PooledEffect effect = _instance._smokeEffectPool.Create<PooledEffect>();

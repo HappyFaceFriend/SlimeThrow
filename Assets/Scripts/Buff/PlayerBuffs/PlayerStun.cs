@@ -7,18 +7,17 @@ namespace PlayerBuffs
 {
     public class PlayerStun : TimedBuff<PlayerBehaviour>
     {
-        GameObject _shockPrefab;
-         float _duration;
+        ElectricShock _buff;
+        float _duration;
         Modifier _modifier;
         bool _start = false;
         float _probability;
 
-        public PlayerStun(float duration, float probability, GameObject shockPrefab) : base(duration)
+        public PlayerStun(float duration, float probability) : base(duration)
         {
             _duration = duration;
             _modifier = new Modifier(0, Modifier.ApplyType.Multiply);
             _probability = probability;
-            _shockPrefab = shockPrefab;
         }
         public override void OnUpdate()
         {
@@ -27,9 +26,11 @@ namespace PlayerBuffs
             {
                 if (!_start)
                 {
+                    _buff = EffectManager.InstantiateShock();
+                    _buff.transform.SetParent(Owner.transform);
+                    _buff.transform.localPosition = Vector3.zero;
                     Owner.MoveSpeed.AddModifier(_modifier);
                     _start = true;
-                    Owner.InstantiateBuff(_shockPrefab, Owner.transform.position + new Vector3(0,0.7f,0), _duration);
                 }
                 else
                 {
@@ -39,6 +40,11 @@ namespace PlayerBuffs
                     }
                 }
             }
+        }
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Owner.gameObject.GetComponentInChildren<ElectricShock>().gameObject.SetActive(false);
         }
     }
 }

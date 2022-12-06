@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FireProjectile : SlimeProjectile
 {
-    [SerializeField] GameObject _buffPrefab;
     public float _buffProbability;
     public float _duration;
     public int _damagePerTick;
@@ -22,7 +21,7 @@ public class FireProjectile : SlimeProjectile
             target.OnHittedBySlime(_slime, _damage);
             if (Random.Range(0f, 1f) <= _buffProbability)
             {
-                target.ApplyBuff(new PlayerBuffs.PlayerBurn(_duration, _damagePerTick, 1f, _buffPrefab));
+                target.ApplyBuff(new PlayerBuffs.PlayerBurn(_duration, _damagePerTick, 1f));
             }
             Die();
         }

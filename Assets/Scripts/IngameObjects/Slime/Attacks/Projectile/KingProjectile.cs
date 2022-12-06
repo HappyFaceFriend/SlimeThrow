@@ -33,6 +33,6 @@ public class KingProjectile : SlimeProjectile
             projectile2.Init(-dir2, 10);
 
         }
-        Destroy(gameObject);
+        Destroy(gameObject.gameObject);
     }
 }
