@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Difficulty { Easy, Normal, Hard, VeryHard, Special }
+public enum Difficulty { Easy, Normal, Hard, VeryHard, Special, Boss }
 public class SlimeHerd : MonoBehaviour
 {
     [SerializeField] float _spawnInterval = 0.1f;

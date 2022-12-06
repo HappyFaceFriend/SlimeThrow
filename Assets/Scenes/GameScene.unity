@@ -14490,23 +14490,21 @@ MonoBehaviour:
   _spawnDataPerStage:
   - {fileID: 11400000, guid: b4769916746c3fb4e9784befa41a96bd, type: 2}
   - {fileID: 11400000, guid: b4769916746c3fb4e9784befa41a96bd, type: 2}
-  - {fileID: 11400000, guid: b4769916746c3fb4e9784befa41a96bd, type: 2}
   - {fileID: 11400000, guid: 33fc21f16304d9f4dbf0ab9ea18ca2ac, type: 2}
   - {fileID: 11400000, guid: 33fc21f16304d9f4dbf0ab9ea18ca2ac, type: 2}
-  - {fileID: 11400000, guid: 33fc21f16304d9f4dbf0ab9ea18ca2ac, type: 2}
-  - {fileID: 11400000, guid: 82faa3c08acb6df44a9551517fc24046, type: 2}
   - {fileID: 11400000, guid: 82faa3c08acb6df44a9551517fc24046, type: 2}
   - {fileID: 11400000, guid: 82faa3c08acb6df44a9551517fc24046, type: 2}
   - {fileID: 11400000, guid: 9f74c8c9cc1ce034494ec157f2c079c4, type: 2}
   - {fileID: 11400000, guid: 9f74c8c9cc1ce034494ec157f2c079c4, type: 2}
   - {fileID: 11400000, guid: 9f74c8c9cc1ce034494ec157f2c079c4, type: 2}
-  - {fileID: 11400000, guid: 9f74c8c9cc1ce034494ec157f2c079c4, type: 2}
+  - {fileID: 11400000, guid: c2f27958543e1f74dbb3de639c9a5904, type: 2}
   - {fileID: 11400000, guid: 40f9cfb442ca8104295c48461cf7ff48, type: 2}
   - {fileID: 11400000, guid: 40f9cfb442ca8104295c48461cf7ff48, type: 2}
   - {fileID: 11400000, guid: 40f9cfb442ca8104295c48461cf7ff48, type: 2}
   timeScale: 1
-  lighting: 0
+  code: 
   _spawnedSlimes: []
+  eTime: 0
 --- !u!4 &1263642498
 Transform:
   m_ObjectHideFlags: 0
@@ -21394,6 +21392,7 @@ MonoBehaviour:
   - {fileID: 1861091889}
   _timeAfterStageClear: 1.5
   _stagePanel: {fileID: 1080433382}
+  state: 
 --- !u!4 &1793902160
 Transform:
   m_ObjectHideFlags: 0

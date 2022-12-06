@@ -10,7 +10,7 @@ public class StageSpawnData : ScriptableObject
     public float HardWeight;
     public float VeryHardWeight;
 
-    public List<SlimeHerd> Bosses;
+    public List<SlimeHerd> MustSpawns;
     public List<SlimeBehaviour> MainSlimeCandidates;
 
     public float MainSlimeWeight;
