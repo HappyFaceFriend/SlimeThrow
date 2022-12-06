@@ -16,11 +16,11 @@ MonoBehaviour:
   NormalWeight: 0.6
   HardWeight: 0.4
   VeryHardWeight: 0
-  Bosses: []
+  MustSpawns: []
   MainSlimeCandidates:
   - {fileID: 2243384798116598786, guid: 427807377da2a8245bad1b5e4f07c72a, type: 3}
   - {fileID: 147796247482930567, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
   - {fileID: 6406124441371963539, guid: de41f0d0f4b724f49a385b76ac43fac4, type: 3}
   MainSlimeWeight: 0.5
-  SpawnInterval: 4
-  Duration: 5
+  SpawnInterval: 5
+  Duration: 30

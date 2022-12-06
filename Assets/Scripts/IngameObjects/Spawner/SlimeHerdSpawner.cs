@@ -12,7 +12,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     List<int> _selectedMainIndicies;
     [Header("Test")]
     [SerializeField] float  timeScale = 1;
-    [SerializeField] bool lighting = false;
+    [SerializeField] string code = "";
 
     public StageLabel.Type[] LabelTypes { get; private set; }
     public List<Sprite> LabelImages { get; private set; }
@@ -24,6 +24,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     List<SlimeHerd>[] _herdsByDifficulty;
 
     [SerializeField]List<SlimeBehaviour> _spawnedSlimes;
+    [SerializeField] float eTime = 0f;
 
     public bool _isBurningOn { get; set; } = false;
     public bool _stopBurn { get; set; } = true;
@@ -82,30 +83,36 @@ public class SlimeHerdSpawner : MonoBehaviour
     IEnumerator StartSpawning(int currentStage)
     {
         int currentAreaIdx = Random.Range(0, _spawnAreas.Length);
-        float eTime = 0f;
+        //float eTime = 0f;
         StageSpawnData spawnData = _spawnDataPerStage[currentStage];
+        List<SlimeHerd> mustSpawns = new List<SlimeHerd>();
+        mustSpawns.AddRange(spawnData.MustSpawns);
         IsSpawning = true;
+        eTime = 0;
         while(eTime < spawnData.Duration)
         {
             eTime += Time.deltaTime;
             Time.timeScale = timeScale;
-            if (lighting)
-                _spawnAreas[currentAreaIdx].GetComponent<SpriteRenderer>().enabled = true;
             currentAreaIdx = SelectNextArea(currentAreaIdx);
-            if (lighting)
-                _spawnAreas[currentAreaIdx].GetComponent<SpriteRenderer>().enabled = false;
 
             SlimeBehaviour mainSlime = spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]];
             if (Random.Range(0f, 1f) > spawnData.MainSlimeWeight && spawnData.MainSlimeCandidates.Count > 1)
             {
-                while(mainSlime != spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]])
+                int count = 0;
+                while(mainSlime != spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]] && count < 25)
+                {
+                    count++;
                     mainSlime = Utils.Random.RandomElement(spawnData.MainSlimeCandidates);
+                }
             }
 
-            Difficulty difficulty = GetDifficulty(spawnData);
-
-            if (!lighting)
-                SpawnHerdRandomPos(GetRandomHerd(difficulty, mainSlime), currentAreaIdx);
+            if(mustSpawns.Count > 0)
+            {
+                SpawnHerdRandomPos(mustSpawns[0], currentAreaIdx);
+                mustSpawns.RemoveAt(0);
+            }
+            else
+                SpawnHerdRandomPos(GetRandomHerd(GetDifficulty(spawnData), mainSlime), currentAreaIdx);
             float waitTime = spawnData.SpawnInterval * Random.Range(0.85f, 1.1f);
             
             float eTime2 = 0f;
@@ -132,6 +139,12 @@ public class SlimeHerdSpawner : MonoBehaviour
         {
             if (herds[i].MainSlime.Data == mainSlime.Data)
                 mainHerds.Add(herds[i]);
+        }
+
+        if(mainHerds.Count == 0)
+        {
+            difficulty -= 1;
+            return GetRandomHerd(difficulty, mainSlime);
         }
 
         return Utils.Random.RandomElement(mainHerds);
