@@ -10,6 +10,7 @@ public class PoisonPadtile : SlimePadtile
     public int _damagePerTick;
     float _nextDamageTime;
     bool _buffed = false;
+    public GameObject _buffPrefab;
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
@@ -27,7 +28,7 @@ public class PoisonPadtile : SlimePadtile
             transform.GetChild(1).gameObject.SetActive(false);
             if (Random.Range(0f, 1f) <= _buffProbability && !_buffed)
             {
-                target.ApplyBuff(new PlayerBuffs.PlayerPoisoned(_duration, _damagePerTick, 1f));
+                target.ApplyBuff(new PlayerBuffs.PlayerPoisoned(_duration, _damagePerTick, 1f, _buffPrefab));
                 _buffed = true;
             }
         }
@@ -47,7 +48,7 @@ public class PoisonPadtile : SlimePadtile
                     _canDamage = false;
                     if (Random.Range(0f, 1f) <= _buffProbability && !_buffed)
                     {
-                        player.ApplyBuff(new PlayerBuffs.PlayerPoisoned(_duration, _damagePerTick, 1f));
+                        player.ApplyBuff(new PlayerBuffs.PlayerPoisoned(_duration, _damagePerTick, 1f, _buffPrefab));
                         _buffed = true;
                     }
                 }

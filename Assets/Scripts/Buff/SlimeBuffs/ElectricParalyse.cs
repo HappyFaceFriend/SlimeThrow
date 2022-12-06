@@ -30,18 +30,15 @@ namespace SlimeBuffs
             {
                 _nextDamageTime += _interval;
                 Owner.TakeDamage(_damage);
-                Debug.Log(ElapsedTime + " / " + Duration + " : took damage");
                 
             }
             if (!_active)
             {
-                Debug.Log("모디파이어 추가한다");
                 Owner.MoveSpeed.AddModifier(_modifier);
                 _active = true;
             }
             else if (ElapsedTime > _duration)
             {
-                Debug.Log("모디파이어 제거한다");
                 Owner.MoveSpeed.RemoveModifier(_modifier);
                 _slime.ChangeState(new SlimeStates.MoveState(_slime));
             }

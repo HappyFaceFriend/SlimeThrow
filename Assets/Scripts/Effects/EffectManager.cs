@@ -17,6 +17,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ObjectPool _slimeHitParticlePool;
     [SerializeField] ObjectPool _slimeDieParticlePool;
     [SerializeField] ObjectPool _stickyFootstepPool;
+    [SerializeField] ObjectPool _fireBurningPool;
     private void Awake()
     {
         _instance = this;
@@ -49,6 +50,12 @@ public class EffectManager : MonoBehaviour
     public static void InstantiateDustEffect(Vector3 position)
     {
         PooledObject effect = _instance._dustEffectPool.Create<PooledObject>();
+        effect.transform.position = position;
+        effect.gameObject.SetActive(true);
+    }
+    public static void InstantiateFireBurning(Vector3 position)
+    {
+        PooledObject effect = _instance._fireBurningPool.Create<PooledObject>();
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }

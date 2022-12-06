@@ -18,30 +18,46 @@ public class KingElectroAttack : SlimeAttackBase
     }
     public void AnimEvent_ShootProjectile()
     {
-        Vector3 baseVector = _target.position - transform.position;
-        float baseAngle = GetAngle(baseVector);
-        for (int i = 0; i < _numOfdirections; i++)
+        if(!Slime.IsFever())
         {
-            float offset = 0 + (360 / _numOfdirections) * i;
-            float currentAngle = baseAngle + offset;
-            Vector2 tempdir = Utils.Vectors.AngleToVector(currentAngle);
-            Vector3 targetPos = new Vector3(tempdir.x, tempdir.y, 0) * _magnitude + transform.position;
-            if(!Slime.IsFever())
+            Vector3 baseVector = _target.position - transform.position;
+            float baseAngle = GetAngle(baseVector);
+            ElectroPadtile projectile;
+            for (int i = 0; i < _numOfdirections; i++)
             {
-                ElectroPadtile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+                float offset = 0 + (360 / _numOfdirections) * i;
+                float currentAngle = baseAngle + offset;
+                Vector2 tempdir = Utils.Vectors.AngleToVector(currentAngle);
+                Vector3 targetPos = new Vector3(tempdir.x, tempdir.y, 0) * _magnitude + transform.position;
+                projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
                 projectile.Init(targetPos, Slime);
-                Destroy(projectile, 2.5f);
+                Destroy(projectile.gameObject, 1.8f);
             }
-            else
-            {
-                ElectroPadtile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-                projectile.Init(targetPos, Slime);
-                Destroy(projectile, 2.5f);
-            }
+            BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
+            smoke.SetColor(name);
+            Destroy(smoke.gameObject, 1f);
         }
-        BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
-        smoke.SetColor(name);
-        Destroy(smoke.gameObject, 1f);
+        else
+        {
+            Vector3 baseVector = _target.position - transform.position;
+            float baseAngle = GetAngle(baseVector);
+            _numOfdirections += 5;
+            ElectroPadtile projectile;
+            for (int i = 0; i < _numOfdirections; i++)
+            {
+                float offset = 0 + (360 / _numOfdirections) * i;
+                float currentAngle = baseAngle + offset;
+                Vector2 tempdir = Utils.Vectors.AngleToVector(currentAngle);
+                Vector3 targetPos = new Vector3(tempdir.x, tempdir.y, 0) * _magnitude * 1.5f + transform.position;
+                projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+                projectile.Init(targetPos, Slime);
+                Destroy(projectile.gameObject, 1.8f);
+            }
+            BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
+            smoke.SetColor(name);
+            _numOfdirections -= 5;
+            Destroy(smoke.gameObject, 1f);
+        }
     }
 
     protected override IEnumerator AttackCoroutine()

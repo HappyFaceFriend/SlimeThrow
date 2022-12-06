@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6549890664110068885}
   - component: {fileID: 6549890664110068884}
   - component: {fileID: -3434691670958177263}
+  - component: {fileID: 2197601374608880980}
   m_Layer: 0
   m_Name: LittleFire
   m_TagString: Untagged
@@ -116,5 +117,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99bf3996b15fec24cac3f7c44ba654e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 4
+--- !u!114 &2197601374608880980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549890664110068843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab5cd31c4da5e34bbf151cd05109db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

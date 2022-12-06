@@ -7,6 +7,7 @@ public class ElectroPadtile : CollisionPadtile
 {
     public float _buffProbability;
     public float _duration;
+    public GameObject _shockPrefab;
     public void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
@@ -18,15 +19,13 @@ public class ElectroPadtile : CollisionPadtile
         if (player != null)
         {
             player.OnHittedBySlime(_slime, _damage);
-            if(GlobalRefs.UpgradeManager.GetCount("비전도체") <= 0)
-                player.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _buffProbability));
-            Destroy(gameObject, 0.38f);
-        }
-        else if (flower != null)
-        {
 
-            flower.OnHittedBySlime(_slime, _damage);
-            Die();
+            if(GlobalRefs.UpgradeManager.GetCount("비전도체") <= 0)
+                player.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _buffProbability, _shockPrefab));
+
+            player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration, _buffProbability, _shockPrefab));
+
+            Destroy(gameObject, 0.38f);
         }
 
     }
