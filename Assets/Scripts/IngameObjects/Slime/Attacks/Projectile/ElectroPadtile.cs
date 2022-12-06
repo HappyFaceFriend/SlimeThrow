@@ -18,7 +18,8 @@ public class ElectroPadtile : CollisionPadtile
         if (player != null)
         {
             player.OnHittedBySlime(_slime, _damage);
-            player.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _buffProbability));
+            if(GlobalRefs.UpgradeManager.GetCount("비전도체") <= 0)
+                player.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _buffProbability));
             Destroy(gameObject, 0.38f);
         }
         else if (flower != null)

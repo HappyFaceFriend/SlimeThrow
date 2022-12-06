@@ -26,7 +26,10 @@ public class ElectroSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         var ElectroInfo = info as ElectroEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(ElectroInfo.Duration, ElectroInfo.DamagePerTick, slime));
+        if(GlobalRefs.UpgradeManager.GetCount("백만볼트") >= 1 && slime.HPSystem.CurrentHp <= slime.HPSystem.MaxHp.Value * 0.5f)
+            slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(ElectroInfo.Duration + GlobalRefs.UpgradeManager.GetCount("지져버리기"), (ElectroInfo.DamagePerTick + GlobalRefs.UpgradeManager.GetCount("전류충전")) * 2, slime));
+        else
+            slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(ElectroInfo.Duration + GlobalRefs.UpgradeManager.GetCount("지져버리기"), ElectroInfo.DamagePerTick + GlobalRefs.UpgradeManager.GetCount("전류충전"), slime));
         GameObject buffEffect = Instantiate(_buffEffect);
         buffEffect.transform.SetParent(slime.transform, false);
         Destroy(slime.transform.GetChild(1).gameObject, ElectroInfo.Duration);

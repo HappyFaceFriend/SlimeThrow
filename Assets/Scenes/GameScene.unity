@@ -21394,6 +21394,7 @@ MonoBehaviour:
   - {fileID: 1861091889}
   _timeAfterStageClear: 1.5
   _stagePanel: {fileID: 1080433382}
+  state: 
 --- !u!4 &1793902160
 Transform:
   m_ObjectHideFlags: 0
