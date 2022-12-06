@@ -112,7 +112,6 @@ public class SlimePadtile : MonoBehaviour
 
         Color color = _spriteRenderer.material.color;
         color.a -= 0.01f;
-        Debug.Log(color.a);
         _spriteRenderer.material.color = color;
         if(color.a < 0)
             Destroy(gameObject);

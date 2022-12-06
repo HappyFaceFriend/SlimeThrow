@@ -241,6 +241,7 @@ MonoBehaviour:
   _buffProbability: 1
   _duration: 3
   _damagePerTick: 10
+  _buffPrefab: {fileID: 8089616676242830108, guid: b76aaad148e80584ab15bad7c03913b9, type: 3}
 --- !u!1001 &3260763001841892176
 PrefabInstance:
   m_ObjectHideFlags: 0

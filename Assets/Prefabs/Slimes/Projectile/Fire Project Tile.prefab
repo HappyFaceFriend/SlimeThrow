@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 5
   _moveSpeed: 5
+  _buffPrefab: {fileID: 6549890664110068843, guid: 1810c108ab598704da9b7d2235474da9, type: 3}
   _buffProbability: 1
   _duration: 4
   _damagePerTick: 5

@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 4184789705040287243}
-  _data: {fileID: 0}
+  _data: {fileID: 11400000, guid: f951064300df06644b7a1a383bbd0cdf, type: 2}
   _grabbableDuration: 0
   _flip: {fileID: 269928469277796777}
   _flowerAttackRange: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KingRockProjectile : SlimeProjectile
 {
+    [SerializeField] GameObject _buffPrefab;
     [SerializeField] GameObject _landEffectPrefab;
     public float _duration;
     float _probability;
@@ -19,7 +20,7 @@ public class KingRockProjectile : SlimeProjectile
         if (target != null)
         {
             target.OnHittedBySlime(_slime, _damage);
-            target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _probability));
+            target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _probability, _buffPrefab));
             Die();
         }
     }
