@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8078931919047794413}
   - component: {fileID: 8078931919047794414}
   m_Layer: 0
-  m_Name: SlimeHerd
+  m_Name: BasicBoss
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

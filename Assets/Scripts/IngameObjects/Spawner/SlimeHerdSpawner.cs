@@ -141,6 +141,12 @@ public class SlimeHerdSpawner : MonoBehaviour
                 mainHerds.Add(herds[i]);
         }
 
+        if(mainHerds.Count == 0)
+        {
+            difficulty -= 1;
+            return GetRandomHerd(difficulty, mainSlime);
+        }
+
         return Utils.Random.RandomElement(mainHerds);
     }
     Difficulty GetDifficulty(StageSpawnData spawnData)
