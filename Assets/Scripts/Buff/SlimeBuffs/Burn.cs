@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 namespace SlimeBuffs
@@ -11,6 +12,10 @@ namespace SlimeBuffs
         float _interval;
         float _nextDamageTime;
         float _duration;
+        public override void OnStart()
+        {
+            EffectManager.InstantiateFireBurning(Owner.transform.position);
+        }
         public Burn(float duration, float damage, float interval) : base(duration)
         {
             _duration = duration;

@@ -6,7 +6,7 @@ using UnityEngine;
 public class FireSlimeEffect : SlimeBulletEffect
 {
     public TinyFire _addtionalEffect;
-    public LittleFire _buffEffect;
+
     class BurnEffectInfo : AdditionalInfo
     {
         public float Probability { get; set; }
@@ -51,9 +51,7 @@ public class FireSlimeEffect : SlimeBulletEffect
         else
             fireinfo.DamagePerTick += GlobalRefs.UpgradeManager.GetCount("타들어가는 슬라임");
         slime.ApplyBuff(new SlimeBuffs.Burn(fireinfo.Duration + 3 * GlobalRefs.UpgradeManager.GetCount("불씨"), fireinfo.DamagePerTick , 0.5f));
-        LittleFire buffEffect = Instantiate(_buffEffect);
-        buffEffect.transform.SetParent(slime.transform, false);
-        buffEffect.GetComponent<LittleFire>().SetDuration(fireinfo.Duration);
+
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
