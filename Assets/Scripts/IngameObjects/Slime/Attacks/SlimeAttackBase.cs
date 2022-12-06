@@ -67,7 +67,8 @@ public class SlimeAttackBase : MonoBehaviour
 
     public void StopAttack()
     {
-        StopCoroutine(_attackCoroutine);
+        if(_attackCoroutine != null)
+            StopCoroutine(_attackCoroutine);
         _isAttackDone = true;
         _coolDownTimer.Reset(1f / Slime.AttackSpeed.Value);
     }
