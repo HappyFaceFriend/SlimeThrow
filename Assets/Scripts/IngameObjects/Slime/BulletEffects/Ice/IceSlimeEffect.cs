@@ -34,18 +34,20 @@ public class IceSlimeEffect : SlimeBulletEffect
     {
         var iceInfo = info as IceEffectInfo;
         if (GlobalRefs.UpgradeManager.GetCount("ºù°áÅº") >= 1)
-        {
-            iceInfo._freezeProb = 0.05f;
             iceInfo._freezeTime = 1000f;
-        }
         else
             iceInfo._freezeTime += GlobalRefs.UpgradeManager.GetCount("¾óÀ½ ¶¯");
+
         slime.ApplyBuff(new SlimeBuffs.Freeze(iceInfo._freezeTime, slime));
         slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration, iceInfo._frostbiteDamPerTick + GlobalRefs.UpgradeManager.GetCount("¼³ºù"), 1f,iceInfo._frostbiteProb));
-        GameObject snowing = Instantiate(_snowingEffect);
-        snowing.transform.parent = slime.transform;
-        snowing.transform.localPosition = new Vector3(0f, 0.05f);
-        Destroy(snowing.gameObject, iceInfo._frostbiteDuration);
+        if(GlobalRefs.UpgradeManager.GetCount("ÇÑÆÄ") >= 1)
+        {
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration + GlobalRefs.UpgradeManager.GetCount("°¨±â"), 5, 1f, iceInfo._frostbiteProb));
+            Modifier modifier = new Modifier(1.5f, Modifier.ApplyType.Multiply);
+            slime.MoveSpeed.AddModifier(modifier);
+        }
+        else
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration + GlobalRefs.UpgradeManager.GetCount("°¨±â"), iceInfo._frostbiteDamPerTick + GlobalRefs.UpgradeManager.GetCount("¼³ºù"), 1f,iceInfo._frostbiteProb));
 
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)

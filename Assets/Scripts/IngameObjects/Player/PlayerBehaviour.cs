@@ -163,6 +163,8 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
             damage /= 2f;
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted");
+        if (GlobalRefs.UpgradeManager.GetCount("Á¤Àü±â") >= 1)
+            slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(2f, 3, slime));
     }
 
     public void OnHitted(float damage, Vector3 impactPosition, bool knockback)

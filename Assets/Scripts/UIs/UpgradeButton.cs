@@ -21,7 +21,7 @@ public class UpgradeButton : MonoBehaviour
     {
         if (_data != null)
             ApplyUIs(_data);
-        _currentLanguage = SaveDataManager.Instance.GetLanguage;
+        _currentLanguage = SaveDataManager.Instance.Language;
     }
     public void OnClick()
     {
@@ -37,12 +37,12 @@ public class UpgradeButton : MonoBehaviour
         _bodyText.text = data.Body;
         LocalizeText(_bodyText);
         _iconImage.sprite = data.Icon;
-        _currentLanguage = SaveDataManager.Instance.GetLanguage;
+        _currentLanguage = SaveDataManager.Instance.Language;
     }
 
     private void Update()
     {
-        if(_currentLanguage != SaveDataManager.Instance.GetLanguage)
+        if(_currentLanguage != SaveDataManager.Instance.Language)
         {
             LocalizeText(_nameText);
             LocalizeText(_bodyText);

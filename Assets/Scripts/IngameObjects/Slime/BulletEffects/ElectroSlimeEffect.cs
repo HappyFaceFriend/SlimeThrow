@@ -13,7 +13,7 @@ public class ElectroSlimeEffect : SlimeBulletEffect
         {
             Probability = 1f;
             Duration = 2f;
-            DamagePerTick = 5;
+            DamagePerTick = 3;
         }
     }
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)
