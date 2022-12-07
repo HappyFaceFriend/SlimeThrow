@@ -47,10 +47,15 @@ public class SlimeHerdSpawner : MonoBehaviour
 
         _selectedMainIndicies = new List<int>();
         for (int i = 0; i < MaxStage; i++)
-            _selectedMainIndicies.Add(Utils.Random.RandomIndex(_spawnDataPerStage[i].MainSlimeCandidates));
+        {
+            if (_spawnDataPerStage[i].MainSlimeCandidates.Count == 0)
+                _selectedMainIndicies.Add(-1);
+            else
+                _selectedMainIndicies.Add(Utils.Random.RandomIndex(_spawnDataPerStage[i].MainSlimeCandidates));
+        }
 
         _spawnedSlimes = new List<SlimeBehaviour>();
-        InitLabels();
+        //InitLabels();
     }
     public void StartStage(int stage)
     {
@@ -68,7 +73,7 @@ public class SlimeHerdSpawner : MonoBehaviour
             Gizmos.DrawWireCube(rect.center, rect.size);
         }
     }
-
+    /*
     void InitLabels()
     {
         LabelTypes = new StageLabel.Type[MaxStage];
@@ -78,7 +83,7 @@ public class SlimeHerdSpawner : MonoBehaviour
             LabelTypes[i] = StageLabel.Type.Later;
             LabelImages.Add(_spawnDataPerStage[i].MainSlimeCandidates[_selectedMainIndicies[i]].SlotIcon);
         }
-    }
+    }*/
     
     IEnumerator StartSpawning(int currentStage)
     {
@@ -95,14 +100,21 @@ public class SlimeHerdSpawner : MonoBehaviour
             Time.timeScale = timeScale;
             currentAreaIdx = SelectNextArea(currentAreaIdx);
 
-            SlimeBehaviour mainSlime = spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]];
-            if (Random.Range(0f, 1f) > spawnData.MainSlimeWeight && spawnData.MainSlimeCandidates.Count > 1)
+            SlimeBehaviour mainSlime;
+            if (_selectedMainIndicies[currentStage] == -1)
+                mainSlime = null;
+            else
             {
-                int count = 0;
-                while(mainSlime != spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]] && count < 25)
+                mainSlime = spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]];
+
+                if (Random.Range(0f, 1f) > spawnData.MainSlimeWeight && spawnData.MainSlimeCandidates.Count > 1)
                 {
-                    count++;
-                    mainSlime = Utils.Random.RandomElement(spawnData.MainSlimeCandidates);
+                    int count = 0;
+                    while (mainSlime != spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]] && count < 25)
+                    {
+                        count++;
+                        mainSlime = Utils.Random.RandomElement(spawnData.MainSlimeCandidates);
+                    }
                 }
             }
 
@@ -135,16 +147,23 @@ public class SlimeHerdSpawner : MonoBehaviour
         List<SlimeHerd> herds = _herdsByDifficulty[(int)difficulty];
         List<SlimeHerd> mainHerds = new List<SlimeHerd>();
 
-        for(int i=0; i<herds.Count; i++)
+        if(mainSlime == null)
         {
-            if (herds[i].MainSlime.Data == mainSlime.Data)
-                mainHerds.Add(herds[i]);
+            mainHerds.AddRange(herds);
         }
-
-        if(mainHerds.Count == 0)
+        else
         {
-            difficulty -= 1;
-            return GetRandomHerd(difficulty, mainSlime);
+            for (int i = 0; i < herds.Count; i++)
+            {
+                if (herds[i].MainSlime.Data == mainSlime.Data)
+                    mainHerds.Add(herds[i]);
+            }
+
+            if (mainHerds.Count == 0)
+            {
+                difficulty -= 1;
+                return GetRandomHerd(difficulty, mainSlime);
+            }
         }
 
         return Utils.Random.RandomElement(mainHerds);
@@ -234,6 +253,6 @@ public class SlimeHerdSpawner : MonoBehaviour
                 break;
             }
         }
-        Instantiate(herd, targetPosition, Quaternion.identity);
+        Instantiate(herd, targetPosition, Quaternion.identity).gameObject.SetActive(true);
     }
 }
