@@ -10992,6 +10992,10 @@ MonoBehaviour:
     - 0.7
     - 0.25
     - 0
+  _firstUpgrades:
+  - {fileID: 11400000, guid: f310f6d859a567942bac8fc09b2aa49f, type: 2}
+  - {fileID: 11400000, guid: e40f523211d41264296ba11ad5d93d34, type: 2}
+  - {fileID: 11400000, guid: 20408a13575c69b439d48c33fe31db10, type: 2}
 --- !u!4 &963630799
 Transform:
   m_ObjectHideFlags: 0

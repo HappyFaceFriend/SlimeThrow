@@ -19,5 +19,5 @@ MonoBehaviour:
   MustSpawns: []
   MainSlimeCandidates: []
   MainSlimeWeight: 0.4
-  SpawnInterval: 5
+  SpawnInterval: 8
   Duration: 30

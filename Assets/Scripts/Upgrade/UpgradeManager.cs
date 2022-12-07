@@ -14,6 +14,8 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] UpgradePanel _upgradePanel;
     [SerializeField] UpgradeWeights[] _upgradeWeights;
+
+    [SerializeField] UpgradeData[] _firstUpgrades;
     List<UpgradeData> _upgrades;
 
     List<UpgradeData>[] _allUpgradeDatas;
@@ -119,16 +121,23 @@ public class UpgradeManager : MonoBehaviour
     public IEnumerator SelectUpgrade(int currentStage)
     {
         UpgradeWeights upgradeWeights = _upgradeWeights[0];
-        for(int i=0; i<_upgradeWeights.Length; i++)
+        if(currentStage == 0)
         {
-            if(_upgradeWeights[i].FromStage <= currentStage && currentStage < _upgradeWeights[i].ToStage)
-            {
-                upgradeWeights = _upgradeWeights[i];
-                break;
-            }
+            _upgradePanel.SetUpgrades(_firstUpgrades);
         }
-        UpgradeData[] datas = GetRandomUpgrades(upgradeWeights);
-        _upgradePanel.SetUpgrades(datas);
+        else
+        {
+            for (int i = 0; i < _upgradeWeights.Length; i++)
+            {
+                if (_upgradeWeights[i].FromStage <= currentStage && currentStage < _upgradeWeights[i].ToStage)
+                {
+                    upgradeWeights = _upgradeWeights[i];
+                    break;
+                }
+            }
+            UpgradeData[] datas = GetRandomUpgrades(upgradeWeights);
+            _upgradePanel.SetUpgrades(datas);
+        }
 
         _upgradePanel.Open();
         while(_upgradePanel.IsOpen)

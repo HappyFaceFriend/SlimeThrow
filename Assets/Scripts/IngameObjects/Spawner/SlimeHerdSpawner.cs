@@ -163,8 +163,7 @@ public class SlimeHerdSpawner : MonoBehaviour
 
             if (mainHerds.Count == 0)
             {
-                difficulty -= 1;
-                return GetRandomHerd(difficulty, mainSlime);
+                mainHerds.AddRange(herds);
             }
         }
 
