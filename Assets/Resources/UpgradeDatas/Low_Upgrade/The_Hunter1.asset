@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: "\uC0AC\uB0E5\uAFBC1"
   _body: "\uD50C\uB808\uC774\uC5B4\uAC00 \uC2AC\uB77C\uC784\uC744 \uC8FD\uC77C\uB54C\uB9C8\uB2E4
     \uCCB4\uB825 1 \uD68C\uBCF5\uD55C\uB2E4"
-  _icon: {fileID: 923389426, guid: 4c8f357e782d50e468216455d3dc9071, type: 3}
+  _icon: {fileID: -1923719703, guid: 091881fc000543740a93395848fa211c, type: 3}
   _rarity: 0
   _maxCount: 1
   _statModes:

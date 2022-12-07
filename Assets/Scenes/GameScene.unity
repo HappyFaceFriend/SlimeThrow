@@ -1805,6 +1805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stringsFile1: {fileID: 4900000, guid: 37c34dc6be3584e469cdce25539edabe, type: 3}
+  stringsFile2: {fileID: 0}
 --- !u!4 &143234514
 Transform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 091881fc000543740a93395848fa211c
+guid: 79cb5e6b641985847970dd5c685d80c4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: The_Hunter_0
+      name: Carpet_Bombing_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a800b837b6bc0742b96c95f2aa417d3
-      internalID: -1923719703
+      spriteID: 65dc37b4cfd0b544e9f094c2009d5fb0
+      internalID: 253066836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The_Hunter_1
+      name: Carpet_Bombing_1
       rect:
         serializedVersion: 2
         x: 64
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5c053e63de82384ea98f1f6a1b62d3c
-      internalID: 2025149894
+      spriteID: d58afd5d2d5954d4cbde68f51650b1ab
+      internalID: 463723094
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      The_Hunter_1: 2025149894
-      The_Hunter_0: -1923719703
+      Carpet_Bombing_0: 253066836
+      Carpet_Bombing_1: 463723094
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
