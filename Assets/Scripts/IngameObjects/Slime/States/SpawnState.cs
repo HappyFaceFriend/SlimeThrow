@@ -27,7 +27,8 @@ namespace SlimeStates
         IEnumerator Wait()
         {
             yield return new WaitForSeconds(duration);
-            Slime.ChangeState(new IdleState(Slime));
+            if (!GlobalRefs.LevelManger.IsGameOver)
+                    Slime.ChangeState(new MoveState(Slime));
         }
         public override void OnExit()
         {

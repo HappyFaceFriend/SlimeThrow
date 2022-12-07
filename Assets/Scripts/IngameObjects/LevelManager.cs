@@ -29,11 +29,14 @@ public class LevelManager : MonoBehaviour
     public SlimeHerdSpawner Spawner { get { return _spawner; } }
     public bool IsLastEffect { get; private set; } = false;
 
+    public bool IsGameOver { get; private set; } = false;
+
+    Coroutine _gameLoop = null;
     private void Start()
     {
         if (_spawner != null)
         {
-            StartCoroutine(GameLoop());
+            _gameLoop = StartCoroutine(GameLoop());
 
             SoundManager.Instance.PlayBGM("Game");
         }
@@ -104,15 +107,35 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            OnPlayerDead();
     }
     public void OnPlayerDead()
     {
-        OpenGameOver();
+        StopGame();
+        StartCoroutine(PlayerDieCoroutine());
     }
     public void OnFlowerDead()
     {
+        StopGame();
+        StartCoroutine(FlowerDieCoroutine());
+    }
+    void StopGame()
+    {
+        IsGameOver = true;
+
+        GlobalRefs.Player.EverythingStopped = true;
+        if (_gameLoop != null)
+            StopCoroutine(_gameLoop);
+        _spawner.StopSpawning();
+        _spawner.StopAllSlimes();
+    }
+    IEnumerator PlayerDieCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(4f);
+        OpenGameOver();
+    }
+    IEnumerator FlowerDieCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(3f);
         OpenGameOver();
     }
     void OpenGameOver()
@@ -127,6 +150,7 @@ public class LevelManager : MonoBehaviour
 
         GameOverDataManager.Data = data;
 
+        
         SceneManager.LoadScene(_gameOverSceneName, LoadSceneMode.Additive);
 
     }
