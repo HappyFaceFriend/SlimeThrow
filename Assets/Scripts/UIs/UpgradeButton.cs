@@ -13,7 +13,7 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] UpgradePanel _panel;
     [SerializeField] TextMeshProUGUI _nameText;
     [SerializeField] TextMeshProUGUI _bodyText;
-    [SerializeField] Image _iconImage;
+    [SerializeField] UpgradeIcon _icon;
 
     string _currentLanguage;
 
@@ -36,7 +36,7 @@ public class UpgradeButton : MonoBehaviour
         LocalizeText(_nameText);
         _bodyText.text = data.Body;
         LocalizeText(_bodyText);
-        _iconImage.sprite = data.Icon;
+        _icon.Init(data);
         _currentLanguage = SaveDataManager.Instance.Language;
     }
 

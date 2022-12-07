@@ -15,6 +15,7 @@ public class GameOverScene : MonoBehaviour
     [SerializeField] TextMeshProUGUI _slimeKilledText;
     [SerializeField] Transform _upgradesParent;
     [SerializeField] UpgradeIcon _upgradeIconPrefab;
+    [SerializeField] float _upgradeIconSize;
 
     [SerializeField] Panel _mainPanel;
     private void Start()
@@ -43,6 +44,7 @@ public class GameOverScene : MonoBehaviour
             {
                 UpgradeIcon icon = Instantiate(_upgradeIconPrefab, _upgradesParent);
                 icon.Init(data.Upgrades[i]);
+                icon.GetComponent<RectTransform>().sizeDelta = new Vector2(_upgradeIconSize, _upgradeIconSize);
             }
         }
     }

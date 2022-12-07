@@ -1421,6 +1421,7 @@ MonoBehaviour:
   _slimeKilledText: {fileID: 1508369675}
   _upgradesParent: {fileID: 1498222455}
   _upgradeIconPrefab: {fileID: 1129541070480691885, guid: a5df0a87de1958b4c92d55eb9d5bc450, type: 3}
+  _upgradeIconSize: 32
   _mainPanel: {fileID: 2138756559}
 --- !u!4 &1257979726
 Transform:
