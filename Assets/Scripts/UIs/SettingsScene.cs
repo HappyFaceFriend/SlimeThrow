@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsScene : MonoBehaviour
@@ -11,6 +12,19 @@ public class SettingsScene : MonoBehaviour
     [SerializeField] Image enButtonPressed;
     [SerializeField] Image enButtonNotPressed;
 
+    [SerializeField] Panel _mainPanel;
+
+    public void ExitScene()
+    {
+        StartCoroutine(ClosePanel());
+    }
+    IEnumerator ClosePanel()
+    {
+        _mainPanel.Close();
+        while (_mainPanel.gameObject.activeSelf)
+            yield return null;
+        SceneManager.UnloadSceneAsync("SettingsScene");
+    }
     private void Start()
     {
         volumeSlider.value = SaveDataManager.Instance.Volume;
