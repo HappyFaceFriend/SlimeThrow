@@ -35,6 +35,11 @@ public class SlimeHerd : MonoBehaviour
         foreach (var slime in _slimes)
         {
             GlobalRefs.LevelManger.Spawner.OnAddNewSlime(slime);
+            Vector3 spawnPosition = slime.transform.position;
+            if (transform.position.x > 0)
+                spawnPosition.x *= -1;
+            if (transform.position.y < 0)
+                spawnPosition.y *= -1;
             slime.gameObject.SetActive(false);
         }
 
