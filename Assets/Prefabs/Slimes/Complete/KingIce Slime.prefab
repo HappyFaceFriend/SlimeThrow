@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5399799394401791121}
-  _data: {fileID: 0}
+  _data: {fileID: 11400000, guid: 86b05a63906350e46ae4edf41d83ed1d, type: 2}
   _grabbableDuration: 0
   _flip: {fileID: 8305295646882140979}
   _flowerAttackRange: 0
@@ -479,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 3
+  _isAttackDone: 0
   _numOfdirections: 10
   _projectilePrefab: {fileID: 7763154171693699967, guid: 849bf560ecb749743b47a56d40f1151a, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}

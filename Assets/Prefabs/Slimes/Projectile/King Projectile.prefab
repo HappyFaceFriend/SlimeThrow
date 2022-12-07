@@ -91,6 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e818796de21bc994f8bd04a0b5f4d10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 5
+  _range: 7
   _moveSpeed: 5
   _childProjectile: {fileID: 5073582269476436947, guid: 835a1979635289c4f84eef006db10a7f, type: 3}

@@ -260,11 +260,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7994852718416900448}
-  _data: {fileID: 11400000, guid: 82de2be4752b9464cb5a39fd3e15c330, type: 2}
+  _data: {fileID: 11400000, guid: f951064300df06644b7a1a383bbd0cdf, type: 2}
   _grabbableDuration: 0
   _flip: {fileID: 6295692134607228610}
+  _flowerAttackRange: 0
   _flasher: {fileID: 6596662824292906041}
   _squasher: {fileID: 6596662824292906040}
+  _normPosOfFlowerAttack: 0
+  _isGrabbableAtDeath: 0
   _currentPlayer: {fileID: 0}
   _recoverHp: 10
 --- !u!114 &8048135602473549736

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: GoldSlime
   m_EditorClassIdentifier: 
-  _maxHp: 30
-  _attackPower: 10
-  _flowerAttackPower: 3
+  _maxHp: 100
+  _attackPower: 35
+  _flowerAttackPower: 4
   _attackSpeed: 0.4
-  _attackRange: 3
-  _sightRange: 6
-  _moveSpeed: 0.5
+  _attackRange: 3.5
+  _sightRange: 7
+  _moveSpeed: 1
   _damageAsBullet: 0
   _type: 0
   _slotIcon: {fileID: -1011172016, guid: d847f7c2f92feda4eb4dd2fb1cd1b1b6, type: 3}

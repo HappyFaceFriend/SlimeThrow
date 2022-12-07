@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03d230043ea9164c8512392b9fcc484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 8
+  _range: 7
   _moveSpeed: 5
-  _buffPrefab: {fileID: 1129391291736589831, guid: b2b389770df6ae244a8df6a9baab9427, type: 3}
   _landEffectPrefab: {fileID: 4689502444195335572, guid: 943b5cff0c72571468943e30be208013, type: 3}
   _duration: 1
+  _probability: 1

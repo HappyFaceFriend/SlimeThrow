@@ -9,6 +9,7 @@ public class StickyPadtile : SlimePadtile
     public float _duration;
     public float _slowPercent;
     bool _buffed = false;
+    bool _onPad = false;
 
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {

@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4603958889914320970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8163417505381282403}
+    m_Modifications:
+    - target: {fileID: 535006525641646331, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_Name
+      value: Poison Bottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938363458491807645, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1377b67d4dcbc7041b1dff75c7df18eb, type: 3}
 --- !u!1001 &7079998635138933098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,5 +180,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 5
+  _isAttackDone: 0
   _padtilePrefab: {fileID: 7541426865152140847, guid: 0535e58d24f107e4380d69c63dd6bbb4, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
+--- !u!4 &8163417505381282403 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1372328807142265609, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+  m_PrefabInstance: {fileID: 7079998635138933098}
+  m_PrefabAsset: {fileID: 0}

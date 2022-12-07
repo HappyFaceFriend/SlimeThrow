@@ -16,9 +16,9 @@ public class TinyFire : MonoBehaviour
     }
     public void Update()
     {
-        if(timer < 1f)
+        if(timer < 0.5f)
         {
-            _vertical.y += -3.0f * Time.deltaTime;
+            _vertical.y += -6.0f * Time.deltaTime;
             transform.position += _vertical * Time.deltaTime;
             transform.position += _horizontal * Time.deltaTime;
             timer += Time.deltaTime;

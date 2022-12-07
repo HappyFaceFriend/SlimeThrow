@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: BasicSlime
   m_EditorClassIdentifier: 
-  _maxHp: 20
-  _attackPower: 5
-  _flowerAttackPower: 3
-  _attackSpeed: 0.5
-  _attackRange: 1
+  _maxHp: 40
+  _attackPower: 20
+  _flowerAttackPower: 1
+  _attackSpeed: 1
+  _attackRange: 1.5
   _sightRange: 4
   _moveSpeed: 0.7
   _damageAsBullet: 15

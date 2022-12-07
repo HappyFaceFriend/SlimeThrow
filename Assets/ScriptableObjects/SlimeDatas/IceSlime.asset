@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: IceSlime
   m_EditorClassIdentifier: 
-  _maxHp: 20
-  _attackPower: 5
+  _maxHp: 60
+  _attackPower: 25
   _flowerAttackPower: 3
-  _attackSpeed: 0.4
-  _attackRange: 3
+  _attackSpeed: 0.5
+  _attackRange: 9
   _sightRange: 6
   _moveSpeed: 0.5
-  _damageAsBullet: 15
+  _damageAsBullet: 30
   _type: 0
   _slotIcon: {fileID: -1868510928, guid: 949171af191f44149995de92616e8ade, type: 3}
   _slimeColor: {r: 1, g: 1, b: 1, a: 1}

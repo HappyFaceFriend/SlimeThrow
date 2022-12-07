@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 5
-  _moveSpeed: 3
+  _moveSpeed: 5
   _padDurationTime: 6
   _duration: 2
   _slowPercent: 0.8

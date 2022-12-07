@@ -4220,8 +4220,9 @@ MonoBehaviour:
   _burnPrefab: {fileID: -3434691670958177263, guid: 1810c108ab598704da9b7d2235474da9, type: 3}
   _freezePrefab: {fileID: 6714805616647929523, guid: 7b7fa510811306f4f97c0902fe22782e, type: 3}
   _frostbitePrefab: {fileID: -8997599535313938432, guid: 0d3e14d697bbc564d97de8f72fab8bae, type: 3}
-  _stunPrefab: {fileID: 3535861403580283121, guid: ffb3a0b21db51fc40ae1db5434292430, type: 3}
+  _shockPrefab: {fileID: 3535861403580283121, guid: ffb3a0b21db51fc40ae1db5434292430, type: 3}
   _poisonedPrefab: {fileID: -6890286734947844482, guid: 10ff5885b2988434db016b7da5857a31, type: 3}
+  _stunPrefab: {fileID: -8429736540458833258, guid: b2b389770df6ae244a8df6a9baab9427, type: 3}
 --- !u!4 &357586810
 Transform:
   m_ObjectHideFlags: 0

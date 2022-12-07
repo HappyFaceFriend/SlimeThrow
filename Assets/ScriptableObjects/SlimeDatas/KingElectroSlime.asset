@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
-  m_Name: KingHornSlime
+  m_Name: KingElectroSlime
   m_EditorClassIdentifier: 
   _maxHp: 400
-  _attackPower: 55
+  _attackPower: 50
   _flowerAttackPower: 0
-  _attackSpeed: 0.2
-  _attackRange: 5
-  _sightRange: 5
-  _moveSpeed: 0.5
+  _attackSpeed: 1
+  _attackRange: 7
+  _sightRange: 10
+  _moveSpeed: 0.3
   _damageAsBullet: 0
   _type: 0
   _slotIcon: {fileID: -517770132, guid: 89f81cf39634983408fadb01c5397fa4, type: 3}
-  _slimeColor: {r: 0.13333334, g: 0.8431373, b: 0.5529412, a: 1}
+  _slimeColor: {r: 0.14509805, g: 0.90196085, b: 0.9294118, a: 1}

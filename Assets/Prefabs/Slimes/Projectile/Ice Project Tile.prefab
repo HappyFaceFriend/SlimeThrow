@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b57f01652c5c0c4cbae588c69d2c256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 5
+  _range: 8
   _moveSpeed: 5
-  _buffPrefab: {fileID: 7719907623317397778, guid: 7b7fa510811306f4f97c0902fe22782e, type: 3}
   _buffProbability: 1
   _duration: 1

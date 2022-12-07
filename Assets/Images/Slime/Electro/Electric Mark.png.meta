@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11a84442ce29449418e543afde9e6ee9
+guid: f801f709b7016ce4bb75b7580cc9cb23
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -114,62 +114,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Knight_all_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 2
-        width: 27
-        height: 29
-      alignment: 9
-      pivot: {x: 0.49999994, y: 0.06710319}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7c8700b78580c5540800000000000000
-      internalID: 4997878862588180679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_all_1
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 16
-        width: 18
-        height: 15
-      alignment: 9
-      pivot: {x: 0.5047124, y: -0.008946355}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f26acd90aeaf8946921960c3030d1cb
-      internalID: 735745511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 43046eaa1c8632248bbf63bbdcf2411e
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Knight_all_0: 4997878862588180679
-      Knight_all_1: 735745511
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -91,9 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f3c89b6c684684481e9a2f1f239247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 5
+  _range: 9
   _moveSpeed: 5
-  _buffPrefab: {fileID: 6549890664110068843, guid: 1810c108ab598704da9b7d2235474da9, type: 3}
   _buffProbability: 1
   _duration: 4
   _damagePerTick: 5

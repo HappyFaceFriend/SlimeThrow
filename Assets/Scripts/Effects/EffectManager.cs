@@ -20,9 +20,9 @@ public class EffectManager : MonoBehaviour
     [SerializeField] LittleFire _burnPrefab;
     [SerializeField] IceCube _freezePrefab;
     [SerializeField] Snowing _frostbitePrefab;
-    [SerializeField] ElectricShock _stunPrefab;
+    [SerializeField] ElectricShock _shockPrefab;
     [SerializeField] BuffBubble _poisonedPrefab;
-
+    [SerializeField] StunStar _stunPrefab;
 
     private void Awake()
     {
@@ -76,7 +76,12 @@ public class EffectManager : MonoBehaviour
     }
     public static ElectricShock InstantiateShock()
     {
-        ElectricShock effect = Instantiate(EffectManager._instance._stunPrefab);
+        ElectricShock effect = Instantiate(EffectManager._instance._shockPrefab);
+        return effect;
+    }
+    public static StunStar InstantiateStar()
+    {
+        StunStar effect = Instantiate(EffectManager._instance._stunPrefab);
         return effect;
     }
     public static BuffBubble InstantiateBubble()

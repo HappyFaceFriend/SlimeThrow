@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: PoisonSlime
   m_EditorClassIdentifier: 
-  _maxHp: 20
-  _attackPower: 5
+  _maxHp: 60
+  _attackPower: 20
   _flowerAttackPower: 3
   _attackSpeed: 0.4
-  _attackRange: 3
+  _attackRange: 10
   _sightRange: 6
   _moveSpeed: 0.5
-  _damageAsBullet: 10
+  _damageAsBullet: 25
   _type: 0
   _slotIcon: {fileID: -1397067860, guid: 7028f3ee3267dd04eb6f366b61e90a65, type: 3}
   _slimeColor: {r: 0.7019608, g: 0.16470589, b: 0.854902, a: 1}

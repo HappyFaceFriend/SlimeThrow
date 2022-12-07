@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: ElectroSlime
   m_EditorClassIdentifier: 
-  _maxHp: 20
-  _attackPower: 8
+  _maxHp: 70
+  _attackPower: 30
   _flowerAttackPower: 3
-  _attackSpeed: 0.3
-  _attackRange: 5
+  _attackSpeed: 0.5
+  _attackRange: 10
   _sightRange: 7
   _moveSpeed: 0.5
-  _damageAsBullet: 15
+  _damageAsBullet: 35
   _type: 0
   _slotIcon: {fileID: -1666682292, guid: 9f87eb77e49a2034e8fa53d13b23263d, type: 3}
   _slimeColor: {r: 0.14509805, g: 0.90196085, b: 0.9294118, a: 1}

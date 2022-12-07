@@ -7,7 +7,7 @@ namespace PlayerBuffs
 {
     public class PlayerStun : TimedBuff<PlayerBehaviour>
     {
-        ElectricShock _buff;
+        StunStar _buff;
         float _duration;
         Modifier _modifier;
         bool _start = false;
@@ -26,9 +26,9 @@ namespace PlayerBuffs
             {
                 if (!_start)
                 {
-                    _buff = EffectManager.InstantiateShock();
+                    _buff = EffectManager.InstantiateStar();
                     _buff.transform.SetParent(Owner.transform);
-                    _buff.transform.localPosition = Vector3.zero;
+                    _buff.transform.localPosition = new Vector3(0,0.7f,0);
                     Owner.MoveSpeed.AddModifier(_modifier);
                     _start = true;
                 }
@@ -44,7 +44,7 @@ namespace PlayerBuffs
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<ElectricShock>().gameObject.SetActive(false);
+            Owner.gameObject.GetComponentInChildren<StunStar>().gameObject.SetActive(false);
         }
     }
 }
