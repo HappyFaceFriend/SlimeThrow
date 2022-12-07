@@ -14,13 +14,11 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] UpgradePanel _upgradePanel;
     [SerializeField] UpgradeWeights[] _upgradeWeights;
-    [SerializeField] TextAsset _upgradeData;
     List<UpgradeData> _upgrades;
 
     List<UpgradeData>[] _allUpgradeDatas;
     List<string> _upgradeNames;
-
-    public TextAsset UpgradeData { get { return _upgradeData; } }
+    
     public List<string> UpgradesNames { get { return _upgradeNames; } }
 
     public List<UpgradeData> SelectedUpgrades { get { return _upgrades; } }

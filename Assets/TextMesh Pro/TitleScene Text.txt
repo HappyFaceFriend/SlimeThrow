@@ -1,0 +1,9 @@
+en	ko
+New Game	새 게임
+Load Game	이어하기
+Setting	설정
+Exit	종료
+Settings 설정
+Volume	음량
+Language	언어
+DONE	완료

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
 {
-    TextAsset stringsFile1;
+    [SerializeField] TextAsset stringsFile1;
+    [SerializeField] TextAsset stringsFile2;
 
     List<Dictionary<string, string>> localizedUpgradeData;
+    List<Dictionary<string, string>> localizedTitleData;
 
     private bool _load = false;
     public bool Load { get { return _load; } }
@@ -14,8 +16,8 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     new void Awake()
     {
         base.Awake();
-        stringsFile1 = GlobalRefs.UpgradeManager.UpgradeData;
         localizedUpgradeData = FileUtils.ParseTSV(stringsFile1.text);
+        localizedTitleData = FileUtils.ParseTSV(stringsFile2.text);
     }
 
     public void SetLoad()
@@ -27,6 +29,13 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     {
         string code = SaveDataManager.Instance.Language;
         var languageData = localizedUpgradeData.Find(x => x["ko"] == string_ko);
+        return languageData[code];
+    }
+
+    public string GetLocalizedTitle(string string_ko)
+    {
+        string code = SaveDataManager.Instance.Language;
+        var languageData = localizedTitleData.Find(x => x["ko"] == string_ko);
         return languageData[code];
     }
 }
