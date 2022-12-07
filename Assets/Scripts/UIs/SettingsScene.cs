@@ -33,11 +33,13 @@ public class SettingsScene : MonoBehaviour
     public void OnVolumeSet()
     {
         SaveDataManager.Instance.Volume = volumeSlider.value;
+        SaveDataManager.Instance.SaveSettings();
     }
     public void OnLanguageButtonPressed(string code)
     {
         SetLanguageAs(code);
         SaveDataManager.Instance.Language = code;
+        SaveDataManager.Instance.SaveSettings();
     }
     
     void SetLanguageAs(string code)
