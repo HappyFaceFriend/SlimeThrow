@@ -15,8 +15,8 @@ MonoBehaviour:
   _name: "\uD654\uC5FC\uBC29\uC5B4\uB9C9"
   _body: "\uBD88 \uC2AC\uB77C\uC784\uC758 \uACF5\uACA9\uC758 \uD53C\uD574\uAC00 50%
     \uAC10\uC18C\uD55C\uB2E4"
-  _icon: {fileID: 21300000, guid: 970214c04ab293342b8b4de1a8fa2a57, type: 3}
+  _icon: {fileID: 21300000, guid: 8d13389cf42ae3b418f080a5fad910c0, type: 3}
+  _rarity: 0
+  _maxCount: 1
   _upgradeMode:
     _upgradeType: 5
-    _applyValue: 0
-    _applyType: 0

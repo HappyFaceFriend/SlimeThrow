@@ -155,7 +155,7 @@ public class SlimeHerdSpawner : MonoBehaviour
         {
             for (int i = 0; i < herds.Count; i++)
             {
-                if (herds[i].MainSlime.Data == mainSlime.Data)
+                if (herds[i].MainSlime != null && herds[i].MainSlime.Data == mainSlime.Data)
                     mainHerds.Add(herds[i]);
             }
 
