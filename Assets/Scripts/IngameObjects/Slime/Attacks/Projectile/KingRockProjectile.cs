@@ -26,6 +26,8 @@ public class KingRockProjectile : SlimeProjectile
     }
     private void OnDestroy()
     {
+        if (!gameObject.scene.isLoaded)
+            return;
         GameObject effect = Instantiate(_landEffectPrefab, transform.position, Quaternion.identity);
         Destroy(effect.gameObject, 3.0f);
     }

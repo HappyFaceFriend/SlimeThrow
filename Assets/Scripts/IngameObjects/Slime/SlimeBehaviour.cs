@@ -203,6 +203,8 @@ public class SlimeBehaviour : StateMachineBase
 
     private void OnDestroy()
     {
+        if (!gameObject.scene.isLoaded)
+            return;
         if (PuttedInTurret)
             return;
         if(IsLastSlimeToDie)

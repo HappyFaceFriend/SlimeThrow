@@ -16,13 +16,20 @@ public class GameOverScene : MonoBehaviour
     [SerializeField] Transform _upgradesParent;
     [SerializeField] UpgradeIcon _upgradeIconPrefab;
 
-
+    [SerializeField] Panel _mainPanel;
     private void Start()
     {
         UpdatePanel();
     }
     public void OpenTitleScene()
     {
+        StartCoroutine(ClosePanel());
+    }
+    IEnumerator ClosePanel()
+    {
+        _mainPanel.Close();
+        while (_mainPanel.gameObject.activeSelf)
+            yield return null;
         SceneManager.LoadScene(_titleSceneName);
     }
     void UpdatePanel()

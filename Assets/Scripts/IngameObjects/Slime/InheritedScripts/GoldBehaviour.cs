@@ -11,6 +11,8 @@ public class GoldBehaviour : SlimeBehaviour
     }
     private void OnDestroy()
     {
+        if (!gameObject.scene.isLoaded)
+            return;
         if (PuttedInTurret)
             return;
         _camera.Shake(CameraController.ShakePower.SlimeHitted);

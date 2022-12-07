@@ -12,10 +12,9 @@ namespace SlimeStates
         public override void OnEnter()
         {
             base.OnEnter();
-            Slime.Flipper.enabled = true;
+            Slime.Flipper.enabled = false;
             _movement = Slime.GetComponent<SlimeMovement>();
             SetAnimState();
-            Slime.ChangeState(new MoveState(Slime));
         }
         public override void OnUpdate()
         {

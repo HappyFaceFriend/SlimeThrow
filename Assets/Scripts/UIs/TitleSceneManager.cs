@@ -37,7 +37,7 @@ public class TitleSceneManager : MonoBehaviour
     }
     public void Settings()
     {
-        SceneManager.LoadScene(_settingSceneName);
+        SceneManager.LoadScene(_settingSceneName, LoadSceneMode.Additive);
     }
     public void Exit()
     {

@@ -44,14 +44,16 @@ public class SlimeHerd : MonoBehaviour
     {
         foreach(SlimeBehaviour slime in _slimes)
         {
-            StartCoroutine(SpawnSingleSlime(slime));
+                StartCoroutine(SpawnSingleSlime(slime));
             yield return new WaitForSeconds(_spawnInterval);
         }
         Destroy(gameObject);
     }
     IEnumerator SpawnSingleSlime(SlimeBehaviour slime)
     {
-        EffectManager.InstantiateSpawnWarning(slime.transform.position, slime);
+        if (GlobalRefs.LevelManger.IsGameOver)
+            yield  break;
+            EffectManager.InstantiateSpawnWarning(slime.transform.position, slime);
         if(GlobalRefs.LevelManger.Spawner._isBurningOn && !GlobalRefs.LevelManger.Spawner._stopBurn)
             slime.ApplyBuff(new SlimeBuffs.Burn(8f, 1, 0.8f));
         if(GlobalRefs.LevelManger.Spawner._isSnowyOn && !GlobalRefs.LevelManger.Spawner._stopSnowy)
