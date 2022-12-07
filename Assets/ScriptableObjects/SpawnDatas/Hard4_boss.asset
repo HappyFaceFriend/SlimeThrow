@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e89760324d588e1439b340226358b3b6, type: 3}
-  m_Name: Normal1_boss
+  m_Name: Hard4_boss
   m_EditorClassIdentifier: 
-  EasyWeight: 0.3
-  NormalWeight: 0.6
-  HardWeight: 0.1
-  VeryHardWeight: 0
+  EasyWeight: 0
+  NormalWeight: 0
+  HardWeight: 0.5
+  VeryHardWeight: 0.5
   MustSpawns:
-  - {fileID: 6183778369517943518, guid: 41955e922f945d748bc9733b5e7e7aa5, type: 3}
+  - {fileID: 1381778019132056140, guid: 079cced70dce39b42a6982eafb976b89, type: 3}
   MainSlimeCandidates:
-  - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
-  MainSlimeWeight: 0.6
-  SpawnInterval: 4
+  - {fileID: 1429698854386456877, guid: 0e92b62e6588c8d4183b34891bd1301f, type: 3}
+  MainSlimeWeight: 0.4
+  SpawnInterval: 5
   Duration: 30

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89760324d588e1439b340226358b3b6, type: 3}
   m_Name: Normal2
   m_EditorClassIdentifier: 
-  EasyWeight: 0
-  NormalWeight: 0.6
-  HardWeight: 0.4
+  EasyWeight: 0.1
+  NormalWeight: 0.7
+  HardWeight: 0.2
   VeryHardWeight: 0
   MustSpawns: []
   MainSlimeCandidates:
