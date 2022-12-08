@@ -132,7 +132,7 @@ public class SlimeBehaviour : StateMachineBase
         if (GlobalRefs.UpgradeManager.GetCount("ºÒÁÖ¸Ô") >= 1 && _hpSystem.CurrentHp >= 0)
             ApplyBuff(new SlimeBuffs.Burn(4f, 2, 0.8f));
         /*if (GlobalRefs.UpgradeManager.GetCount("³Ãµ¿°í") >= 1 && _hpSystem.CurrentHp >= 0)
-            ApplyBuff(new SlimeBuffs.Freeze(1f, this, _freezeEffect));*/ 
+            ApplyBuff(new SlimeBuffs.Freeze(1f, this, _freezeEffect));*/
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
     {

@@ -12180,6 +12180,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f310f6d859a567942bac8fc09b2aa49f, type: 2}
   - {fileID: 11400000, guid: e40f523211d41264296ba11ad5d93d34, type: 2}
   - {fileID: 11400000, guid: 20408a13575c69b439d48c33fe31db10, type: 2}
+  _upgrades: []
   _rerollCount: 1
 --- !u!4 &963630799
 Transform:
@@ -16037,7 +16038,7 @@ MonoBehaviour:
     width: 3
     height: 4
   _spawnDataPerStage:
-  - {fileID: 11400000, guid: aa7f07e969f595349abafafdf4db0aeb, type: 2}
+  - {fileID: 11400000, guid: b4769916746c3fb4e9784befa41a96bd, type: 2}
   - {fileID: 11400000, guid: 33fc21f16304d9f4dbf0ab9ea18ca2ac, type: 2}
   - {fileID: 11400000, guid: 33fc21f16304d9f4dbf0ab9ea18ca2ac, type: 2}
   - {fileID: 11400000, guid: 82faa3c08acb6df44a9551517fc24046, type: 2}
