@@ -19,9 +19,7 @@ MonoBehaviour:
   MustSpawns:
   - {fileID: 1381778019132056140, guid: 079cced70dce39b42a6982eafb976b89, type: 3}
   MainSlimeCandidates:
-  - {fileID: -6843513126750113896, guid: 096792e971efe1148951cef9b322d9d4, type: 3}
-  - {fileID: 8694881231011927896, guid: ddded5407d5ac9746b0a323e05ceb10b, type: 3}
-  - {fileID: 5885471082506522880, guid: 9138fe507de73af47b0337431f941ff1, type: 3}
+  - {fileID: 1429698854386456877, guid: 0e92b62e6588c8d4183b34891bd1301f, type: 3}
   MainSlimeWeight: 0.4
   SpawnInterval: 8
   Duration: 30

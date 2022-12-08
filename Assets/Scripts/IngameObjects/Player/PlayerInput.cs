@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour
     public bool IsDashPressed { get { return Input.GetKeyDown(KeyCode.Space) && !_player.EverythingStopped; } }
     public bool IsReleasePressed { get { return Input.GetMouseButtonDown(0) && !_player.EverythingStopped; } }
     public bool IsAttackPressed { get { return Input.GetMouseButtonDown(0) && !_player.EverythingStopped; } }
-    public bool IsGetInTurretPressed { get { return Input.GetKeyDown(KeyCode.E) && !_player.EverythingStopped; } }
+    public bool IsGetInTurretPressed { get { return Input.GetKeyDown(KeyCode.LeftShift) && !_player.EverythingStopped; } }
     public bool IsGrabFlowerPressed { get { return Input.GetKeyDown(KeyCode.F) && !_player.EverythingStopped; } }
     public bool IsReleaseFlowerPressed { get { return Input.GetMouseButtonDown(0) && !_player.EverythingStopped; } }
     private void Awake()

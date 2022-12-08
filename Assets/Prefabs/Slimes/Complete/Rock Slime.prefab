@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: 952bdfa3ea09ed349b5adec73e689000, type: 2}
+    - target: {fileID: 9193871382579501950, guid: 0b2905fa9482ef94c879a40a287d59d6, type: 3}
+      propertyPath: _cancelAttackOnHit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9193871382579501948, guid: 0b2905fa9482ef94c879a40a287d59d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b2905fa9482ef94c879a40a287d59d6, type: 3}

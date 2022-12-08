@@ -143,11 +143,11 @@ public class SlimeBehaviour : StateMachineBase
         if (_cancelAttackOnHit) 
             _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
         damage *= GlobalRefs.LevelManger.Spawner.ExtraDamage.Value;
-        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & GlobalRefs.UpgradeManager.GetCount("파이어 슬래이어") != 0 & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
+        if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) && GlobalRefs.UpgradeManager.GetCount("파이어 슬래이어") != 0 && GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
             OnGetHitted(impactPosition, 999f, true);
         else
             OnGetHitted(impactPosition, damage, false);
-        if (GlobalRefs.UpgradeManager.GetCount("파이어 캐논") != 0 & _hpSystem.CurrentHp != 0)
+        if (GlobalRefs.UpgradeManager.GetCount("파이어 캐논") != 0 && _hpSystem.CurrentHp != 0)
             ApplyBuff(new SlimeBuffs.Burn(4f, 2, 0.8f));
     }
     protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
