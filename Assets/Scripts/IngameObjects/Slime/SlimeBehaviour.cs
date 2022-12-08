@@ -7,7 +7,7 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] SlimeData _data;
     [SerializeField] float _grabbableDuration;
     [SerializeField] FlipObjectToPoint _flip;
-    [SerializeField] bool _cancelAttackOnHitted = false;
+    [SerializeField] bool _cancelAttackOnHitted = true;
     protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
     public bool IsLastSlimeToDie { get; set; } = false;
