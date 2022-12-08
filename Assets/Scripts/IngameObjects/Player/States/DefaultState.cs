@@ -18,18 +18,18 @@ namespace PlayerStates
         }
         public override void OnUpdate()
         {
-            if (Player.Inputs.IsDashPressed)
+            if (Player.Inputs.IsDashPressed && !Player.IsStunned)
                 Player.ChangeState(new DashState(Player));
             else if (Player.Inputs.IsAttackPressed && Player.IsAbleToAttack)
             {
                     Player.ChangeState(new AttackingState(Player));
             }
-            else if (Player.Inputs.IsGrabFlowerPressed)
+            else if (Player.Inputs.IsGrabFlowerPressed && !Player.IsStunned)
             {
                 if (_grabController.GrabFlower() == GrabResult.Success)
                     Player.ChangeState(new GrabbingState(Player));
             }
-            if (Player.Inputs.IsGetInTurretPressed && Utils.Vectors.IsInDistance(transform.position, GlobalRefs.Turret.transform.position, Player.GetInTurretRange.Value))
+            if (Player.Inputs.IsGetInTurretPressed && !Player.IsStunned && Utils.Vectors.IsInDistance(transform.position, GlobalRefs.Turret.transform.position, Player.GetInTurretRange.Value))
                 Player.ChangeState(new EnterTurretState(Player));
             
             _movement.MoveByInput();

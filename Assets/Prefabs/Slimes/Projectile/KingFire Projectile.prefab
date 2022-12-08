@@ -91,9 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f3c89b6c684684481e9a2f1f239247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 9
+  _range: 8
   _moveSpeed: 5
   _buffProbability: 1
   _duration: 4
-  _damagePerTick: 5
+  _damagePerTick: 1
   _childProjectile: {fileID: 5073582269476436947, guid: 835a1979635289c4f84eef006db10a7f, type: 3}

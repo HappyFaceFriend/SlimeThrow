@@ -100,6 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 8
-  _moveSpeed: 5
+  _moveSpeed: 4
   _buffProbability: 1
   _duration: 1

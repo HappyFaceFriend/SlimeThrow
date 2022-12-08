@@ -114,10 +114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 5
-  _moveSpeed: 5
+  _moveSpeed: 3
   _padDurationTime: 6
   _duration: 2
-  _slowPercent: 0.8
+  _slowPercent: 0.5
 --- !u!1001 &2018050096418474254
 PrefabInstance:
   m_ObjectHideFlags: 0

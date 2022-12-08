@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7937999585697616691, guid: f54e8a26b9cf15d499effd7a027054c2, type: 3}
       propertyPath: _candidates.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7937999585697616691, guid: f54e8a26b9cf15d499effd7a027054c2, type: 3}
       propertyPath: _candidates.Array.data[0]
