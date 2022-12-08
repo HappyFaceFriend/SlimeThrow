@@ -19,6 +19,8 @@ public class IceProjectile : SlimeProjectile
             target.OnHittedBySlime(_slime, _damage);
             if (Random.Range(0f, 1f) <= _buffProbability)
             {
+                if (GlobalRefs.UpgradeManager.GetCount("해동") >= 1)
+                    _duration = 0.5f;
                 target.ApplyBuff(new PlayerBuffs.PlayerFreeze(_duration));
             }
             Die();

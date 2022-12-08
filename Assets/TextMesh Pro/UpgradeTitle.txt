@@ -75,6 +75,8 @@ Flame Bullet	화염탄
 The damage of Burn fixed at 10% of Slimes MaxHp	화상의 초당 데미지가 슬라임 최대 체력의 10%로 고정된다
 Cold Wave	한파
 Damage per second for Frostbite increases to 5, but speed of slime in frostbite increases about 50%	동상의 초당 데미지가 5로 증가하지만, 동상에 걸린 슬라임의 이동속도가 1.5배 증가한다
+Thawing	해동
+Duration time of Freeze reduced down to 0.5 second	빙결의 지속 시간이 0.5초로 줄어든다
 Mega Volt	백만볼트
 Slimes with under 50% of their MaxHP hit by electro slime bullet gets 100% increased damage	체력이 50% 이하인 슬라임이 전기 슬라임 포탄에 맞을 경우 데미지 100% 증가
 Static	정전기
