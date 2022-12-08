@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<FlowerPlantPoint> _dirts;
     [SerializeField] float _timeAfterStageClear;
 
+    [SerializeField] PausedPanel _pausedPanel;
     [SerializeField] StagePanel _stagePanel;
 
     [Header("Test")]
@@ -25,11 +26,15 @@ public class LevelManager : MonoBehaviour
     int _currentStage;
     int _slimeKilled;
 
+    public bool IsPaused { get; private set; } = false;
+
     public int SlimeKilled { get { return _slimeKilled; } set { _slimeKilled = value; } }
     public SlimeHerdSpawner Spawner { get { return _spawner; } }
     public bool IsLastEffect { get; private set; } = false;
 
     public bool IsGameOver { get; private set; } = false;
+    
+    public int CurrentStage { get { return _currentStage; } }
 
     Coroutine _gameLoop = null;
     private void Start()
@@ -47,6 +52,9 @@ public class LevelManager : MonoBehaviour
         int dirtIdx = Random.Range(0, _dirts.Count);
         _dirts[dirtIdx].PlantFlower(_flower);
     }
+
+    
+
     IEnumerator GameLoop()
     {
         //Init
@@ -104,9 +112,42 @@ public class LevelManager : MonoBehaviour
         {
             GlobalRefs.Player.ForceOutOfTurret();
         }
+
     }
     private void Update()
     {
+        if(!IsGameOver && Input.GetKeyDown(KeyCode.Escape))
+        {
+            IsPaused = !IsPaused;
+            if (IsPaused)
+                Pause();
+            else
+                UnPause();
+        }
+    }
+    void Pause()
+    {
+        IsPaused = true;
+        _pausedPanel.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void QuitGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("TitleScene");
+    }
+    public void UnPause()
+    {
+        StartCoroutine(UnpauseCoroutine());
+    }
+    IEnumerator UnpauseCoroutine()
+    {
+        IsPaused = false;
+        _pausedPanel.Close();
+        while (_pausedPanel.gameObject.activeSelf)
+            yield return null;
+
+        Time.timeScale = 1;
     }
     public void OnPlayerDead()
     {
