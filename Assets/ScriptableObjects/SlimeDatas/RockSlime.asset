@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: RockSlime
   m_EditorClassIdentifier: 
-  _maxHp: 60
-  _attackPower: 25
-  _flowerAttackPower: 2
+  _maxHp: 50
+  _attackPower: 8
+  _flowerAttackPower: 1
   _attackSpeed: 1
   _attackRange: 1
   _sightRange: 5
-  _moveSpeed: 0.4
+  _moveSpeed: 0.6
   _damageAsBullet: 30
   _type: 0
   _slotIcon: {fileID: -923642158, guid: f431ae16af462e24cad00566c4ca7cad, type: 3}

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: KingSlime
   m_EditorClassIdentifier: 
   _maxHp: 300
-  _attackPower: 40
+  _attackPower: 5
   _flowerAttackPower: 0
-  _attackSpeed: 1
-  _attackRange: 7
+  _attackSpeed: 0.5
+  _attackRange: 8
   _sightRange: 10
-  _moveSpeed: 0.2
+  _moveSpeed: 0.3
   _damageAsBullet: 0
   _type: 0
   _slotIcon: {fileID: -517770132, guid: 89f81cf39634983408fadb01c5397fa4, type: 3}

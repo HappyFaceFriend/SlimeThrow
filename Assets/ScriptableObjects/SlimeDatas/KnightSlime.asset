@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: KnightSlime
   m_EditorClassIdentifier: 
-  _maxHp: 150
-  _attackPower: 3
-  _flowerAttackPower: 3
-  _attackSpeed: 0.2
+  _maxHp: 100
+  _attackPower: 2
+  _flowerAttackPower: 1
+  _attackSpeed: 0.3
   _attackRange: 2
   _sightRange: 3
   _moveSpeed: 0.2

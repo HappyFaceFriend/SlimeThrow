@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: StickySlime
   m_EditorClassIdentifier: 
-  _maxHp: 50
-  _attackPower: 20
-  _flowerAttackPower: 2
-  _attackSpeed: 0.3
-  _attackRange: 8
-  _sightRange: 6
-  _moveSpeed: 0.3
+  _maxHp: 20
+  _attackPower: 3
+  _flowerAttackPower: 1
+  _attackSpeed: 0.4
+  _attackRange: 6
+  _sightRange: 8
+  _moveSpeed: 0.4
   _damageAsBullet: 20
   _type: 0
   _slotIcon: {fileID: -712703968, guid: 3bf6538c3d6507b48b68b5a5028ac6a0, type: 3}

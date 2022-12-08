@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Hard2_boss
   m_EditorClassIdentifier: 
   EasyWeight: 0
-  NormalWeight: 0.4
+  NormalWeight: 0.5
   HardWeight: 0.5
-  VeryHardWeight: 0.1
+  VeryHardWeight: 0
   MustSpawns:
   - {fileID: 5314271651676938470, guid: b0ebcf44800c213498eb6c536df93422, type: 3}
   MainSlimeCandidates:

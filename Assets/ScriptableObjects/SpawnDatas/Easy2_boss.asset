@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89760324d588e1439b340226358b3b6, type: 3}
   m_Name: Easy2_boss
   m_EditorClassIdentifier: 
-  EasyWeight: 0.7
-  NormalWeight: 0.3
+  EasyWeight: 0.8
+  NormalWeight: 0.2
   HardWeight: 0
   VeryHardWeight: 0
   MustSpawns:
   - {fileID: 8078931919047794414, guid: 4905ae10a0be05c439888fcd29a5aa72, type: 3}
   MainSlimeCandidates:
   - {fileID: 2426975632887591198, guid: 911378f541476bf448ba4f92c5f18668, type: 3}
-  MainSlimeWeight: 0.8
+  MainSlimeWeight: 0.3
   SpawnInterval: 5
   Duration: 25
