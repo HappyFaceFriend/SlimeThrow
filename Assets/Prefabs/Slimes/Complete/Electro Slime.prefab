@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -921164841
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f801f709b7016ce4bb75b7580cc9cb23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -202,9 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 1.12
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
   _isAttackDone: 0
   _padtilePrefab: {fileID: 1187412481165815332, guid: 0772de19f61022e4f811d73086a1a2e7, type: 3}
-  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &2452362142967466312
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,7 +39,6 @@ namespace SlimeBuffs
                     Owner.MoveSpeed.RemoveModifier(_modifier);
                     Owner.AttackSpeed.RemoveModifier(_modifier);
                     _slime.ChangeState(new SlimeStates.MoveState(_slime));
-                    Debug.Log("±ú¾î³µ´Ù");
                 }
             }
         }
