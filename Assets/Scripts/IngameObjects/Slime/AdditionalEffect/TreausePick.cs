@@ -15,6 +15,7 @@ public class TreausePick : MonoBehaviour
         GameObject coin = Instantiate(_coin, transform.position + new Vector3(0, 1), Quaternion.identity);
         Destroy(coin, 1f);
         GetComponent<Animator>().SetTrigger("Open");
+        SoundManager.Instance.PlaySFX("Coin");
         GlobalRefs.UpgradeManager.RerollCount += 1;
         _isEaten = true;
     }
