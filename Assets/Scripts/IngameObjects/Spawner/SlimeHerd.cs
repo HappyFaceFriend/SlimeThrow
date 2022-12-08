@@ -62,7 +62,7 @@ public class SlimeHerd : MonoBehaviour
         if(GlobalRefs.LevelManger.Spawner._isBurningOn && !GlobalRefs.LevelManger.Spawner._stopBurn)
             slime.ApplyBuff(new SlimeBuffs.Burn(8f, 1, 0.8f));
         if(GlobalRefs.LevelManger.Spawner._isSnowyOn && !GlobalRefs.LevelManger.Spawner._stopSnowy)
-            slime.ApplyBuff(new SlimeBuffs.Frostbite(5f, 1, 1f, 1f));
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(8f, 1, 0.8f, 1f));
         yield return null;
     }
     private void OnDrawGizmos()

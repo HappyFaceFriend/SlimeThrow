@@ -14,7 +14,7 @@ public class PoisonSlimeEffect : SlimeBulletEffect
         {
             Probability = 1f;
             Duration = 4f;
-            DamagePerTick = 5;
+            DamagePerTick = 2;
         }
     }
     protected override void GenerateEffect(GameObject effectPrefab, Vector3 landPosition)

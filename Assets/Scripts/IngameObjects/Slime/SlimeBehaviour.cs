@@ -126,7 +126,7 @@ public class SlimeBehaviour : StateMachineBase
             damage *= 1.2f;
         OnGetHitted(impactPosition, damage, false);
         if (GlobalRefs.UpgradeManager.GetCount("불주먹") >= 1 && _hpSystem.CurrentHp >= 0)
-            ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
+            ApplyBuff(new SlimeBuffs.Burn(4f, 2, 0.8f));
         /*if (GlobalRefs.UpgradeManager.GetCount("냉동고") >= 1 && _hpSystem.CurrentHp >= 0)
             ApplyBuff(new SlimeBuffs.Freeze(1f, this, _freezeEffect));*/ 
     }
@@ -142,7 +142,7 @@ public class SlimeBehaviour : StateMachineBase
         else
             OnGetHitted(impactPosition, damage, false);
         if (GlobalRefs.UpgradeManager.GetCount("파이어 캐논") != 0 & _hpSystem.CurrentHp != 0)
-            ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
+            ApplyBuff(new SlimeBuffs.Burn(4f, 2, 0.8f));
     }
     protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
     {

@@ -19,7 +19,7 @@ public class IceSlimeEffect : SlimeBulletEffect
             this._freezeProb = 1f;
             this._freezeTime = 1f;
             this._frostbiteProb = 1f;
-            this._frostbiteDamPerTick = 3;
+            this._frostbiteDamPerTick = 1;
             this._frostbiteDuration = 5f;
         }
     }
@@ -39,7 +39,6 @@ public class IceSlimeEffect : SlimeBulletEffect
             iceInfo._freezeTime += GlobalRefs.UpgradeManager.GetCount("¾óÀ½ ¶¯");
 
         slime.ApplyBuff(new SlimeBuffs.Freeze(iceInfo._freezeTime, slime));
-        slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration, iceInfo._frostbiteDamPerTick + GlobalRefs.UpgradeManager.GetCount("¼³ºù"), 1f,iceInfo._frostbiteProb));
         if(GlobalRefs.UpgradeManager.GetCount("ÇÑÆÄ") >= 1)
         {
             slime.ApplyBuff(new SlimeBuffs.Frostbite(iceInfo._frostbiteDuration + GlobalRefs.UpgradeManager.GetCount("°¨±â"), 5, 1f, iceInfo._frostbiteProb));
