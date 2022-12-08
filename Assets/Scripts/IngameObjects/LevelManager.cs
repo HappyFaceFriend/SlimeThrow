@@ -221,8 +221,10 @@ public class LevelManager : MonoBehaviour
     }
     void OpenGameOver(bool win)
     {
-        if(!win)
+        if (!win)
             SoundManager.Instance.PlaySFX("GameOver");
+        else
+            SoundManager.Instance.PlayBGM("GameWin");
         GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
         data.Win = win;
         data.Stage = _currentStage;
