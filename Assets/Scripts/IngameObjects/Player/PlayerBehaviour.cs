@@ -10,7 +10,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     [SerializeField] HpBar _hpBar;
     [SerializeField] LevelManager _levelManager;
     public bool IsInvincible { get; private set; }
-    public bool IsTargetable { get; private set; }
+    public bool IsTargetable { get; set; }
     public BuffableStat GetInTurretRange { get; private set; }
     public BuffableStat MaxHp { get { return _hpSystem.MaxHp; } }
     public HpSystem HpSystem { get { return _hpSystem; } }

@@ -40,7 +40,7 @@ namespace SlimeStates
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if (_isThrown && Utils.Collisions.GetCollidedComponent<TurretBehaviour>(_collider) != null)
+            if (_isThrown && !GlobalRefs.Turret.IsFull && Utils.Collisions.GetCollidedComponent<TurretBehaviour>(_collider) != null)
             {
                 GlobalRefs.Turret.PlaceSlime(Slime);
                 return;

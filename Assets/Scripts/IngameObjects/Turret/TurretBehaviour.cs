@@ -13,6 +13,8 @@ public class TurretBehaviour : StateMachineBase
     public bool IsMouseHovered { get { return _rigidbody.OverlapPoint(Utils.Inputs.GetMouseWordPos()); } }
     public Vector3 BodyRotation { get { return _body.rotation.eulerAngles; } }
 
+    public bool IsFull { get { return _bulletBuilder.Count >= 3; } }
+
     [SerializeField] Transform _shootPosition;
     [SerializeField] public BulletBuilder _bulletBuilder;
     [SerializeField] Transform _targetMarker;

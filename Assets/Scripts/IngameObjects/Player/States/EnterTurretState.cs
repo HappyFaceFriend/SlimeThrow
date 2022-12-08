@@ -50,7 +50,16 @@ namespace PlayerStates
                 lastShadowPos = shadowPos;
                 yield return null;
             }
-            Player.ChangeState(new InTurretState(Player));
+            if(!GlobalRefs.Turret.IsFull)
+            {
+                Player.ChangeState(new InTurretState(Player));
+            }
+            else
+            {
+                Player.ChangeState(new DefaultState(Player));
+                Player.IsTargetable = true;
+                Player.SetInvincible(false);
+            }
         }
     }
 
