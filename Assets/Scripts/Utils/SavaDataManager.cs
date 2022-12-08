@@ -19,7 +19,7 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
             _language = "ko";
     }
 
-    public string Language { get { return _language; } set { _language = value; } }
+    public string Language { get { return _language; } set { _language = value;  } }
     public float Volume { get { return _volume; } set { _volume = value; } }
 
     public void SaveSettings()

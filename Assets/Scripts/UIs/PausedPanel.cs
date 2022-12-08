@@ -7,8 +7,9 @@ public class PausedPanel : Panel
 {
     [SerializeField] TextMeshProUGUI StageText;
 
-    private void OnEnable()
+    protected void OnEnable()
     {
+        base.OnEnable();
         StageText.text = GlobalRefs.LevelManger.CurrentStage.ToString();
     }
 }

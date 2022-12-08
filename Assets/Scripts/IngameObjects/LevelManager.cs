@@ -116,7 +116,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(!IsGameOver && Input.GetKeyDown(KeyCode.Escape))
         {
             IsPaused = !IsPaused;
             if (IsPaused)
@@ -133,6 +133,7 @@ public class LevelManager : MonoBehaviour
     }
     public void QuitGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("TitleScene");
     }
     public void UnPause()
