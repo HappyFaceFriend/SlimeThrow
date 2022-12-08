@@ -104,7 +104,6 @@ MonoBehaviour:
   _warningTime: 1.5
   _buffProbability: 1
   _duration: 1
-  _shockPrefab: {fileID: 1035940225668863279, guid: ffb3a0b21db51fc40ae1db5434292430, type: 3}
 --- !u!1 &3032170453451529987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5073582268577550552, guid: 7775a21b65522cb49bdc60d5ce15e4e5, type: 3}

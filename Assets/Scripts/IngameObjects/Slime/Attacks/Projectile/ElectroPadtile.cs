@@ -47,6 +47,7 @@ public class ElectroPadtile : CollisionPadtile
             child = transform.GetChild(0).gameObject;
             child.SetActive(true);
             collider.enabled = true;
+            Destroy(gameObject, 0.3f);
         }
     }
 }

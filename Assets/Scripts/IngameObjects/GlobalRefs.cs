@@ -9,7 +9,7 @@ public class GlobalRefs : MonoBehaviour
     [SerializeField] Flower _flower;
     [SerializeField] UpgradeManager _upgradeManager;
     [SerializeField] LevelManager _levelManager;
-
+    //[SerializeField] LevelManager _levelManager;
     static GlobalRefs _instance = null;
 
     static GlobalRefs _safeInstance 
