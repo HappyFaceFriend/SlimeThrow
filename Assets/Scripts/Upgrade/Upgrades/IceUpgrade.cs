@@ -10,7 +10,7 @@ namespace Upgrades
         [System.Serializable]
         public class UpgradeMode
         {
-            public enum UpgradeType { SnowIce, Freeze, Cold, Wave, IceCoal, Freezer}
+            public enum UpgradeType { SnowIce, Freeze, Cold, Wave, IceCoal, Freezer, Thaw}
             public UpgradeType _upgradeType;
         }
 

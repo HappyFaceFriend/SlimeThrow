@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AngelBehaviour : SlimeBehaviour
 {
-    public float _recoverHp;
+    public int _recoverHp;
     //GameObject _recoveryPrefab;
     protected override void Awake()
     {
@@ -13,7 +13,7 @@ public class AngelBehaviour : SlimeBehaviour
     private void OnDestroy()
     {
         base.OnDestroy();
-        GlobalRefs.Player.RecoveHP(_recoverHp);
+        GlobalRefs.Flower.RecoverHP(_recoverHp);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
