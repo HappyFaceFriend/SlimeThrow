@@ -11,5 +11,6 @@ public class PausedPanel : Panel
     {
         base.OnEnable();
         StageText.text = GlobalRefs.LevelManger.CurrentStage.ToString();
+        SoundManager.Instance.PlaySFX("ButtonClick");
     }
 }
