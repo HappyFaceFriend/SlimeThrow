@@ -36,8 +36,9 @@ namespace PlayerBuffs
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<IceCube>().gameObject.SetActive(false);
             Owner.MoveSpeed.RemoveModifier(_modifier);
+            if (_buff != null)
+                _buff.Kill();
 
         }
     }

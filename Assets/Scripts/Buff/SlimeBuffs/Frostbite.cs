@@ -39,7 +39,8 @@ namespace SlimeBuffs
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<Snowing>().gameObject.SetActive(false);
+            if (_buff != null)
+                _buff.Kill();
         }
     }
 }
