@@ -16037,11 +16037,11 @@ MonoBehaviour:
     width: 3
     height: 4
   _spawnDataPerStage:
-  - {fileID: 11400000, guid: 92e33aab958958347a97264c761b5480, type: 2}
-  - {fileID: 11400000, guid: 92e33aab958958347a97264c761b5480, type: 2}
-  - {fileID: 11400000, guid: 92e33aab958958347a97264c761b5480, type: 2}
-  - {fileID: 11400000, guid: 92e33aab958958347a97264c761b5480, type: 2}
-  - {fileID: 11400000, guid: 92e33aab958958347a97264c761b5480, type: 2}
+  - {fileID: 11400000, guid: aa7f07e969f595349abafafdf4db0aeb, type: 2}
+  - {fileID: 11400000, guid: 33fc21f16304d9f4dbf0ab9ea18ca2ac, type: 2}
+  - {fileID: 11400000, guid: 33fc21f16304d9f4dbf0ab9ea18ca2ac, type: 2}
+  - {fileID: 11400000, guid: 82faa3c08acb6df44a9551517fc24046, type: 2}
+  - {fileID: 11400000, guid: 9544c84c12b45b743abf2ccf83ad4c78, type: 2}
   - {fileID: 11400000, guid: 82faa3c08acb6df44a9551517fc24046, type: 2}
   - {fileID: 11400000, guid: 9f74c8c9cc1ce034494ec157f2c079c4, type: 2}
   - {fileID: 11400000, guid: 9f74c8c9cc1ce034494ec157f2c079c4, type: 2}

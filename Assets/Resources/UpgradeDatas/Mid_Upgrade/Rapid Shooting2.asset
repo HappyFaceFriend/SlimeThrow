@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Rapid Shooting2
   m_EditorClassIdentifier: 
   _name: "\uAE09\uC18D\uC0AC\uACA92"
-  _body: "\uD3EC\uD0C4\uC758 \uB099\uD558 \uC18D\uB3C4\uAC00 50% \uC99D\uAC00\uD55C\uB2E4"
+  _body: "\uD3EC\uD0C4\uC758 \uB099\uD558 \uC18D\uB3C4\uAC00 70% \uC99D\uAC00\uD55C\uB2E4"
   _icon: {fileID: 21300000, guid: 18b74853d473b7e4ea1e0e3c78ad27e4, type: 3}
   _rarity: 1
   _maxCount: 1
   _statMode:
     _statToChange: 0
-    _applyValue: 0.5
+    _applyValue: 0.7
     _applyType: 0
