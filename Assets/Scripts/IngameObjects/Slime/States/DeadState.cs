@@ -22,12 +22,17 @@ namespace SlimeStates
             _knockback = Slime.GetComponent<KnockbackController>();
             Vector3 knockbackVec = _knockback.Velocity;
             if (knockbackVec == Vector3.zero)
+            {
                 knockbackVec = (_movement.TargetPos - Slime.transform.position).normalized;
-            _knockback.ApplyKnockbackDir(knockbackVec.normalized, 7, 10);
+                _knockback.ApplyKnockbackDir(knockbackVec.normalized, 3.5f, 7);
+            }
+            else
+                _knockback.ApplyKnockbackDir(knockbackVec.normalized, 7, 10);
+
 
             //var buff = Slime.transform.GetChild(1).gameObject;
             //if (buff != null)
-              //  buff.SetActive(false);
+            //  buff.SetActive(false);
         }
         public override void OnUpdate()
         {
