@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2902caff250bbde4d8b16183b846a9bb
+guid: bb10a1180cc0efe4eb71c49c952f9316
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Aid-kit_0
+      name: Upgrade_Form_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 403b7fb9ddaca5e4c9c2e5f82132b191
-      internalID: -363565913
+      spriteID: b9db4745d64d315409ba4e571c348c38
+      internalID: 1298936467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Aid-kit_1
+      name: Upgrade_Form_1
       rect:
         serializedVersion: 2
         x: 64
@@ -139,8 +139,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a60c4b6da23fc074da6a981ee5e26cde
-      internalID: 310394271
+      spriteID: 68c05251091c76e4da98b71436430d6c
+      internalID: 948249484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upgrade_Form_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243446e2ebae8a3459613bb83fcb1ba5
+      internalID: -310345858
       vertices: []
       indices: 
       edges: []
@@ -156,8 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Aid-kit_1: 310394271
-      Aid-kit_0: -363565913
+      Upgrade_Form_2: -310345858
+      Upgrade_Form_1: 948249484
+      Upgrade_Form_0: 1298936467
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

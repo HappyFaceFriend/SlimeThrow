@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<FlowerPlantPoint> _dirts;
     [SerializeField] float _timeAfterStageClear;
 
+    [SerializeField] PausedPanel _pausedPanel;
     [SerializeField] StagePanel _stagePanel;
 
     [Header("Test")]
@@ -25,15 +26,22 @@ public class LevelManager : MonoBehaviour
     int _currentStage;
     int _slimeKilled;
 
+    public bool IsPaused { get; private set; } = false;
+
     public int SlimeKilled { get { return _slimeKilled; } set { _slimeKilled = value; } }
     public SlimeHerdSpawner Spawner { get { return _spawner; } }
     public bool IsLastEffect { get; private set; } = false;
 
+    public bool IsGameOver { get; private set; } = false;
+    
+    public int CurrentStage { get { return _currentStage; } }
+
+    Coroutine _gameLoop = null;
     private void Start()
     {
         if (_spawner != null)
         {
-            StartCoroutine(GameLoop());
+            _gameLoop = StartCoroutine(GameLoop());
 
             SoundManager.Instance.PlayBGM("Game");
         }
@@ -44,6 +52,9 @@ public class LevelManager : MonoBehaviour
         int dirtIdx = Random.Range(0, _dirts.Count);
         _dirts[dirtIdx].PlantFlower(_flower);
     }
+
+    
+
     IEnumerator GameLoop()
     {
         //Init
@@ -51,13 +62,13 @@ public class LevelManager : MonoBehaviour
         _slimeKilled = 0;
         InitFlower();
         if(GlobalDataManager.Instance.Load)
-            //LoadGame();
+            LoadGame();
         _stagePanel.SetStage(_currentStage);
         //Loop
         state = "Before loop";
         while (_currentStage < _spawner.MaxStage)
         {
-            SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            SaveData data = new SaveData(_currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp, SlimeKilled, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
             SaveDataManager.Instance.Save(data);
 
             state = "Save";
@@ -109,18 +120,71 @@ public class LevelManager : MonoBehaviour
             for (int i = 2; i < childs; i++)
                 Destroy(GlobalRefs.Player.transform.GetChild(i).gameObject);
         }
+
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            OnPlayerDead();
+        if(!IsGameOver && Input.GetKeyDown(KeyCode.Escape))
+        {
+            IsPaused = !IsPaused;
+            if (IsPaused)
+                Pause();
+            else
+                UnPause();
+        }
+    }
+    void Pause()
+    {
+        IsPaused = true;
+        _pausedPanel.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void QuitGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("TitleScene");
+    }
+    public void UnPause()
+    {
+        StartCoroutine(UnpauseCoroutine());
+    }
+    IEnumerator UnpauseCoroutine()
+    {
+        IsPaused = false;
+        _pausedPanel.Close();
+        while (_pausedPanel.gameObject.activeSelf)
+            yield return null;
+
+        Time.timeScale = 1;
     }
     public void OnPlayerDead()
     {
-        OpenGameOver();
+        StopGame();
+        StartCoroutine(PlayerDieCoroutine());
     }
     public void OnFlowerDead()
     {
+        StopGame();
+        StartCoroutine(FlowerDieCoroutine());
+    }
+    void StopGame()
+    {
+        IsGameOver = true;
+
+        GlobalRefs.Player.EverythingStopped = true;
+        if (_gameLoop != null)
+            StopCoroutine(_gameLoop);
+        _spawner.StopSpawning();
+        _spawner.StopAllSlimes();
+    }
+    IEnumerator PlayerDieCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(4f);
+        OpenGameOver();
+    }
+    IEnumerator FlowerDieCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(3f);
         OpenGameOver();
     }
     void OpenGameOver()
@@ -135,6 +199,7 @@ public class LevelManager : MonoBehaviour
 
         GameOverDataManager.Data = data;
 
+        
         SceneManager.LoadScene(_gameOverSceneName, LoadSceneMode.Additive);
 
     }
@@ -154,6 +219,7 @@ public class LevelManager : MonoBehaviour
             GlobalRefs.Player.PlayerHPBar.SetHp((int)GlobalRefs.Player.HpSystem.CurrentHp, (int)GlobalRefs.Player.HpSystem.MaxHp.Value);
             GlobalRefs.Flower.HPSystem.ChangeHp((float)data._flowerHP - GlobalRefs.Flower.HPSystem.MaxHp.Value);
             GlobalRefs.Flower.HPBar.SetHp((int)GlobalRefs.Flower.HPSystem.CurrentHp, (int)GlobalRefs.Flower.HPSystem.MaxHp.Value);
+            SlimeKilled = data._slimesKilled;
             SaveDataManager.Instance.Language = data._language;
             SaveDataManager.Instance.Volume = (float)data._volume;
         }

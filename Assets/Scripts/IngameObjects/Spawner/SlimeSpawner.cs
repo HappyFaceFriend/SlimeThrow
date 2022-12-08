@@ -269,7 +269,6 @@ public class SlimeSpawner : MonoBehaviour
     {
         //로드할땐 pools 정보 불러오기
         InitPools();
-        _currentRound = loadData._round;
         _currentStage = loadData._stage;
     }
     void StartStage()

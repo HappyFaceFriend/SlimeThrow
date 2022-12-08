@@ -19,8 +19,23 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
             _language = "ko";
     }
 
-    public string Language { get { return _language; } set { _language = value; } }
+    public string Language { get { return _language; } set { _language = value;  } }
     public float Volume { get { return _volume; } set { _volume = value; } }
+
+    public void SaveSettings()
+    {
+        SaveData data = Load();
+        if (data == null)
+        {
+            SaveData newdata = new SaveData(0, null, 0, 0, 0, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            Save(newdata);
+        }
+        else
+        {
+            SaveData newData = new SaveData(data._stage, data._upgrades, data._playerHP, data._flowerHP, data._slimesKilled, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            Save(newData);
+        }
+    }
 
     public void Save(SaveData data)
     {

@@ -10,7 +10,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     [SerializeField] HpBar _hpBar;
     [SerializeField] LevelManager _levelManager;
     public bool IsInvincible { get; private set; }
-    public bool IsTargetable { get; private set; }
+    public bool IsTargetable { get; set; }
     public BuffableStat GetInTurretRange { get; private set; }
     public BuffableStat MaxHp { get { return _hpSystem.MaxHp; } }
     public HpSystem HpSystem { get { return _hpSystem; } }
@@ -117,8 +117,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
                 IsInvincible = false;
             }
         }
-        UpdateAnimSpeeds();
+        if (Input.GetKeyDown(KeyCode.P))
+            OnHitted(99999, Vector3.zero, false);
 
+        UpdateAnimSpeeds();
         MoveInBounds();
     }
     void UpdateAnimSpeeds()
@@ -192,6 +194,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
         Debug.Log("체력 " + amount + "회복");
     }
+
     void OnDie()
     {
         _flip.enabled = false;

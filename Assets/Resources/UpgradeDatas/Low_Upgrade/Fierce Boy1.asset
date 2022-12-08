@@ -16,7 +16,7 @@ MonoBehaviour:
   _body: "\uD50C\uB808\uC774\uC5B4\uAC00 \uD3EC\uD0C4\uC73C\uB85C \uCC29\uC9C0\uD560\uB54C\uB9C8\uB2E4
     \uCCB4\uB825, \uACF5\uACA9\uC18D\uB3C4, \uC774\uB3D9\uC18D\uB3C4\uAC00 \uBAA8\uB450
     5%\uC529 \uC99D\uAC00\uD55C\uB2E4"
-  _icon: {fileID: -1787816751, guid: 6f58455a8b06eb843bc11aafec192eed, type: 3}
+  _icon: {fileID: 21300000, guid: 3c3c63e17f92ded43842219d710a6088, type: 3}
   _rarity: 0
   _maxCount: 1
   _statModes:

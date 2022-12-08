@@ -14,6 +14,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     [SerializeField] float  timeScale = 1;
     [SerializeField] string code = "";
 
+
     public StageLabel.Type[] LabelTypes { get; private set; }
     public List<Sprite> LabelImages { get; private set; }
     public bool IsSpawning { get; private set; }
@@ -35,6 +36,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     List<SlimeBehaviour> _recentDead = new List<SlimeBehaviour>();
     public List<SlimeBehaviour> RecentDead { get { return _recentDead; } }
 
+    Coroutine _spawingCoroutine = null;
     private void Awake()
     {
         _allHerds = Resources.LoadAll<SlimeHerd>(Defs.SlimeHerdPrefabsPath);
@@ -63,7 +65,7 @@ public class SlimeHerdSpawner : MonoBehaviour
             _stopBurn = false;
         if (_isSnowyOn)
             _stopSnowy = false;
-        StartCoroutine(StartSpawning(stage));
+        _spawingCoroutine = StartCoroutine(StartSpawning(stage));
     }
     private void OnDrawGizmos()
     {
@@ -161,8 +163,7 @@ public class SlimeHerdSpawner : MonoBehaviour
 
             if (mainHerds.Count == 0)
             {
-                difficulty -= 1;
-                return GetRandomHerd(difficulty, mainSlime);
+                mainHerds.AddRange(herds);
             }
         }
 
@@ -224,6 +225,19 @@ public class SlimeHerdSpawner : MonoBehaviour
             _recentDead = dead;
             GlobalRefs.LevelManger.SlimeKilled += dead.Count;
         }
+    }
+    public void StopAllSlimes()
+    {
+        foreach(SlimeBehaviour slime in _spawnedSlimes)
+        {
+            if(slime.gameObject.activeInHierarchy)
+                slime.ChangeState(new SlimeStates.IdleState(slime));
+        }
+    }
+    public void StopSpawning()
+    {
+        if (_spawingCoroutine != null)
+            StopCoroutine(_spawingCoroutine);
     }
     void SpawnHerdRandomPos(SlimeHerd herd, int areaIdx)
     {

@@ -21,5 +21,5 @@ MonoBehaviour:
   MainSlimeCandidates:
   - {fileID: 1429698854386456877, guid: 0e92b62e6588c8d4183b34891bd1301f, type: 3}
   MainSlimeWeight: 0.4
-  SpawnInterval: 5
+  SpawnInterval: 7
   Duration: 30

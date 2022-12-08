@@ -41,7 +41,7 @@ namespace SlimeBuffs
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<LittleFire>().gameObject.SetActive(false);
+            Owner.gameObject.GetComponentInChildren<LittleFire>().gameObject.SetActive(false);  
         }
     }
 }

@@ -40,7 +40,7 @@ namespace SlimeStates
             //if (Slime.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !Slime.Animator.IsInTransition(0))
             if(_attack.IsAttackDone)
             {
-                Slime.ChangeState(new IdleState(Slime));
+                Slime.ChangeState(new MoveState(Slime));
             }
         }
         public override void OnExit()
