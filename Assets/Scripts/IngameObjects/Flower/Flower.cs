@@ -31,6 +31,12 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
         _hpSystem = new HpSystem(_maxHp, OnDie);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
+
+    public void RecoverHP(int recover)
+    {
+        _hpSystem.ChangeHp(recover);
+        _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))

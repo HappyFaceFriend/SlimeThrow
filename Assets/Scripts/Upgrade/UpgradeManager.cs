@@ -139,7 +139,7 @@ public class UpgradeManager : MonoBehaviour
                         break;
                     }
                 }
-                if (datas[i].MaxCount > 0 && _upgrades.FindAll(x => x == datas[i]).Count >= datas[i].MaxCount)
+                if (datas[i].MaxCount > 0 && _upgrades.FindAll(x => x.Name == datas[i].Name).Count >= datas[i].MaxCount)
                     needReroll = true;
                 count++;
             }
