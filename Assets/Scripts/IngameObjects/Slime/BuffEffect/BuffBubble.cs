@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuffBubble : MonoBehaviour
+public class BuffBubble : BuffEffectBase
 {
     public GameObject _bubblePrefab;
     float _timer = 0;
@@ -32,5 +32,6 @@ public class BuffBubble : MonoBehaviour
     public void SetDuration(float duration)
     {
         _duration = duration;   
+
     }
 }

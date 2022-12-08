@@ -33,14 +33,14 @@ namespace SlimeBuffs
                     _buff.transform.localPosition = Vector3.zero;
                     _nextDamageTime += _interval;
                     Owner.TakeDamage(_damage);
-                    Debug.Log("동상 데미지 " + _damage);
                 }
             }
         }
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<Snowing>().gameObject.SetActive(false);
+            if (_buff != null)
+                _buff.Kill();
         }
     }
 }

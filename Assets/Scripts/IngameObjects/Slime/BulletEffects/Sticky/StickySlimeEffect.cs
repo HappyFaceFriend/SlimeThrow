@@ -12,7 +12,7 @@ public class StickySlimeEffect : SlimeBulletEffect
         public StickyEffectInfo()
         {
             Probability = 1f;
-            Duration = 2.5f;
+            Duration = 3f;
             SlowPercent = 0.5f;
         }
     }

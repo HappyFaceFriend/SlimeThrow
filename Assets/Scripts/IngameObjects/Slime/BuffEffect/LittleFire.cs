@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LittleFire : MonoBehaviour
+public class LittleFire : BuffEffectBase
 {
     Animator _animator;
     //SpriteRenderer _spriteRenderer;

@@ -27,7 +27,7 @@ public class RockSlimeEffect : SlimeBulletEffect
     }
     public override void OnAddDuplicate(LandEffectInfo duplicateInfo)
     {
-        
+        duplicateInfo.Damage += Damage;
     }
     protected override AdditionalInfo GetAdditionalInfos()
     {

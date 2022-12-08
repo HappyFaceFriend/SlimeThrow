@@ -19,7 +19,7 @@ public class IceProjectile : SlimeProjectile
             target.OnHittedBySlime(_slime, _damage);
             if (Random.Range(0f, 1f) <= _buffProbability)
             {
-                target.ApplyBuff(new PlayerBuffs.PlayerFreeze(_duration, _buffProbability));
+                target.ApplyBuff(new PlayerBuffs.PlayerFreeze(_duration));
             }
             Die();
         }

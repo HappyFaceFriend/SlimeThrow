@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnInterval: 0.1
-  _difficulty: 0
+  _difficulty: 5
   _herdSize: {x: 4, y: 3}
   _mainSlime: {fileID: 0}
 --- !u!1001 &7159899585560093198

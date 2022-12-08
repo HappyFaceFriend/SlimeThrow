@@ -13,8 +13,7 @@ public class JumpingAttack : SlimeAttackBase
     protected override void OnStartAttack(Transform targetTransform)
     {
         _target = targetTransform;
-        GameObject _instantiated = Instantiate(_warningPrefab, transform.position, Quaternion.identity);
-        Destroy(_instantiated.gameObject, 0.35f);
+
     }
     public void AnimEvent_JumpingAttack()
     {
@@ -23,7 +22,11 @@ public class JumpingAttack : SlimeAttackBase
         Destroy(jumptile.gameObject, 0.35f);
         
     }
-
+    public void AnimEvent_EclipseWarning()
+    {
+        GameObject _instantiated = Instantiate(_warningPrefab, transform.position, Quaternion.identity);
+        Destroy(_instantiated.gameObject, 0.35f);
+    }
     protected override IEnumerator AttackCoroutine()
     {
         float eTime = 0f;
@@ -34,4 +37,5 @@ public class JumpingAttack : SlimeAttackBase
         }
         IsAttackDone = true;
     }
+
 }

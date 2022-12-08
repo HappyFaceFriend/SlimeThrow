@@ -7,12 +7,10 @@ namespace PlayerStates
     public class InTurretState : PlayerState
     {
         float _invincibleBonusTime = 0.4f;
-        SpriteRenderer[] _sprites;
         public InTurretState(PlayerBehaviour player) : base("Default", player) { }
         public override void OnEnter()
         {
             base.OnEnter();
-            _sprites = Player.GetComponentsInChildren<SpriteRenderer>();
             SetAllSprites(false);
             GlobalRefs.Turret.PlacePlayer(Player);
             Player.SetInvincible(true);
@@ -20,7 +18,7 @@ namespace PlayerStates
         }
         void SetAllSprites(bool enabled)
         {
-            foreach(SpriteRenderer sprite in _sprites)
+            foreach(SpriteRenderer sprite in Player.GetComponentsInChildren<SpriteRenderer>())
             {
                 sprite.enabled = enabled;
             }

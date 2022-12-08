@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: FireSlime
   m_EditorClassIdentifier: 
-  _maxHp: 60
-  _attackPower: 25
-  _flowerAttackPower: 2
-  _attackSpeed: 0.4
-  _attackRange: 9
-  _sightRange: 6
-  _moveSpeed: 0.5
-  _damageAsBullet: 35
+  _maxHp: 30
+  _attackPower: 3
+  _flowerAttackPower: 1
+  _attackSpeed: 0.5
+  _attackRange: 6
+  _sightRange: 8
+  _moveSpeed: 0.6
+  _damageAsBullet: 30
   _type: 0
   _slotIcon: {fileID: -1665694988, guid: ffd0c7948b32b6348a5573849c205e47, type: 3}
   _slimeColor: {r: 0.9843138, g: 0.2784314, b: 0.039215688, a: 1}

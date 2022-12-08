@@ -12,9 +12,7 @@ public class IntervalMultiAttack : MultiDirectionAttack
     bool _first = false;
     public new void AnimEvent_ShootProjectile()
     {
-        BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
-        smoke.SetColor(name);
-        Destroy(smoke.gameObject, 1f);
+;
     }
     protected override IEnumerator AttackCoroutine()
     {

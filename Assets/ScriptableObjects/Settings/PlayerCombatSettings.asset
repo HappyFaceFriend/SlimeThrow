@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf6e115c9362b24d99acea15275ef6c, type: 3}
   m_Name: PlayerCombatSettings
   m_EditorClassIdentifier: 
-  _maxHp: 10000
+  _maxHp: 100000
   _attackPower: 10
   _attackSpeed: 2
-  _damageAsBullet: 20
+  _damageAsBullet: 10
   _getInTurretRange: 1
   _grabRange: 0.45
   _pushToTowerRange: 2

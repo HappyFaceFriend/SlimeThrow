@@ -25,7 +25,6 @@ public class BulletBehaviour : MonoBehaviour
     {
         _targetPosition = targetPosition;
         StartCoroutine(MoveCoroutine());
-        Debug.Log(_moveSpeed);
     }
     public void ApplyEffects(List<LandEffectInfo> landEffects, PlayerBehaviour player, List<Color> colors)
     {

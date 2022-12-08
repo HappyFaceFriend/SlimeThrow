@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ea53adbb6a60b4d821e1d4c53fb7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 0.666
+  _duration: 1.12
   _isAttackDone: 0
   _padtilePrefab: {fileID: 1187412481165815332, guid: 0772de19f61022e4f811d73086a1a2e7, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}

@@ -6,7 +6,6 @@ public class RangedAttack : SlimeAttackBase
 {
     Transform _target;
     [SerializeField] SlimeProjectile _projectilePrefab;
-    [SerializeField] BulletSmoke _smokePrefab;
 
     protected override void OnStartAttack(Transform targetTransform)
     {
@@ -18,8 +17,6 @@ public class RangedAttack : SlimeAttackBase
         dir.y = 0;
         SlimeProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
         projectile.Init(_target.position, Slime);
-        BulletSmoke smoke = Instantiate(_smokePrefab, transform.position + dir * 0.1f, Quaternion.identity);
-        Destroy(smoke.gameObject, 1f);
     }
 
     protected override IEnumerator AttackCoroutine()

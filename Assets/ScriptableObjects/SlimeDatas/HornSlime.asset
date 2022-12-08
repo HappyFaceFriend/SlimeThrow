@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: HornSlime
   m_EditorClassIdentifier: 
-  _maxHp: 70
+  _maxHp: 60
   _attackPower: 5
-  _flowerAttackPower: 3
-  _attackSpeed: 0.5
-  _attackRange: 2.5
+  _flowerAttackPower: 1
+  _attackSpeed: 0.4
+  _attackRange: 2
   _sightRange: 5
-  _moveSpeed: 0.7
+  _moveSpeed: 0.8
   _damageAsBullet: 30
   _type: 0
   _slotIcon: {fileID: -1038117262, guid: 50821e653e4300d4e9dc32e66bf5e229, type: 3}

@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b816950693aedc64a9f2015998c97cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 0.666
+  _duration: 1.12
+  _isAttackDone: 0
   _numOfdirections: 10
   _projectilePrefab: {fileID: 5073582269476436947, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}

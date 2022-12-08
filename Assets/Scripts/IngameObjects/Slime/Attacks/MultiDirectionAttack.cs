@@ -8,7 +8,6 @@ public class MultiDirectionAttack : SlimeAttackBase
     public int _numOfdirections;
     protected Transform _target;
     [SerializeField] protected SlimeProjectile _projectilePrefab;
-    [SerializeField] protected BulletSmoke _smokePrefab;
     
     protected override void OnStartAttack(Transform targetTransform)
     {
@@ -26,10 +25,7 @@ public class MultiDirectionAttack : SlimeAttackBase
             Vector3 targetPos = new Vector3(tempdir.x, tempdir.y, 0) + transform.position;
             SlimeProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
             projectile.Init(targetPos, Slime);
-        }
-        BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
-        smoke.SetColor(name);
-        Destroy(smoke.gameObject, 1f);       
+        } 
     }
 
     protected override IEnumerator AttackCoroutine()

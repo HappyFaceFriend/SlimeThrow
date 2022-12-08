@@ -1,3 +1,4 @@
+using PlayerBuffs;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public BuffableStat PushToTowerRange { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public PlayerInput Inputs { get { return _inputs; } }
-    public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
+    public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack && !_buffManager.HasBuff(typeof(PlayerFreeze)) && !_buffManager.HasBuff(typeof(PlayerShock)) && !_buffManager.HasBuff(typeof(PlayerStun)); } }
     public bool EverythingStopped { get; set; }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
     public Color Color { get { return _combatSettings.Color; } }
@@ -141,7 +142,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
             AttackSpeed.AddModifier(mod);
             MoveSpeed.AddModifier(mod);
         }
-        Debug.Log(AttackSpeed.Value);
     }
     protected override StateBase GetInitialState()
     {
@@ -165,11 +165,11 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        if (GlobalRefs.UpgradeManager.GetCount("화염방어막") != 0 )
+        if (GlobalRefs.UpgradeManager.GetCount("화염방어막") != 0 && slime.Data.SlotIcon.name == "icon_Fire")
             damage /= 2f;
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted");
-        if (GlobalRefs.UpgradeManager.GetCount("정전기") >= 1)
+        if (GlobalRefs.UpgradeManager.GetCount("정전기") >= 1 && slime.Data.SlotIcon.name == "icon_Electro")
             slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(2f, 3, slime));
     }
 
@@ -197,7 +197,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _hpSystem.ChangeHp(amount);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
-        Debug.Log("체력 " + amount + "회복");
     }
 
     void OnDie()

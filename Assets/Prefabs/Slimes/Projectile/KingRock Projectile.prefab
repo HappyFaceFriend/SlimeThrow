@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 5073582268577550554, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 60a58ebdfbef88c4bbfc12afff274fcf, type: 3}
+      objectReference: {fileID: 1121215152, guid: bfac970bba34fd143bded2f78c13a284, type: 3}
     - target: {fileID: 5073582269476436944, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
       propertyPath: m_Name
       value: KingRock Projectile

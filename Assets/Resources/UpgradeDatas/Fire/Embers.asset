@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Embers
   m_EditorClassIdentifier: 
   _name: "\uBD88\uC528"
-  _body: "\uD654\uC0C1\uC758 \uC801\uC6A9\uC2DC\uAC04 3\uCD08 \uC99D\uAC00"
+  _body: "\uD654\uC0C1\uC758 \uC801\uC6A9\uC2DC\uAC04\uC774 3\uCD08 \uC99D\uAC00\uD55C\uB2E4"
   _icon: {fileID: 21300000, guid: 43a411ef4459a6a40978147e4711c29a, type: 3}
   _rarity: 0
   _maxCount: 2
