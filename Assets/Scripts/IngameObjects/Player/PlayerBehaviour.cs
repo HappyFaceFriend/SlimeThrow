@@ -152,6 +152,10 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         IsInvincible = true;
         IsTargetable = false;
     }
+    public void RemoveKnockback()
+    {
+        _knockback.StopKnockback();
+    }
     public void OnHittedBySlime(SlimeBehaviour slime, float damage)
     {
         if (EverythingStopped)
