@@ -161,11 +161,11 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        if (GlobalRefs.UpgradeManager.GetCount("화염방어막") != 0 )
+        if (GlobalRefs.UpgradeManager.GetCount("화염방어막") != 0 && slime.Data.SlotIcon.name == "icon_Fire")
             damage /= 2f;
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted");
-        if (GlobalRefs.UpgradeManager.GetCount("정전기") >= 1)
+        if (GlobalRefs.UpgradeManager.GetCount("정전기") >= 1 && slime.Data.SlotIcon.name == "icon_Electro")
             slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(2f, 3, slime));
     }
 
@@ -193,7 +193,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _hpSystem.ChangeHp(amount);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
-        Debug.Log("체력 " + amount + "회복");
     }
 
     void OnDie()
