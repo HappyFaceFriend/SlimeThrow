@@ -595,9 +595,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 3
-  _numOfdirections: 10
-  _projectilePrefab: {fileID: 7763154171693699967, guid: d4094aa271243f749a7a9d4490264a00, type: 3}
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
+  _isAttackDone: 0
+  _numOfdirections: 10
+  _projectilePrefab: {fileID: 7763154171693699967, guid: 958f2f515e6ba504eb2b107e9cd6390b, type: 3}
   _interval: 0.1
 --- !u!114 &6798287882626200566
 MonoBehaviour:

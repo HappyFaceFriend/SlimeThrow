@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedUpTime: 0.2
   _slowDownTime: 0.2
-  _moveSpeed: 4
+  _moveSpeed: 5
   _dashDistance: 2
   _dashDuration: 0.2
   _dashCurve:

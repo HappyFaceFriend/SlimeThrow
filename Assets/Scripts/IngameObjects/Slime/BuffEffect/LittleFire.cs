@@ -23,14 +23,9 @@ public class LittleFire : BuffEffectBase
     private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer > 0.1f && !_looping)
-        {
-            _looping = true;
-            _animator.SetBool("active", true);
-        }
         if (_timer > _duration)
         {
-            _animator.SetBool("active", false);
+            _animator.SetTrigger("destroy");
         }
     }
     public void SetDuration(float duration)
