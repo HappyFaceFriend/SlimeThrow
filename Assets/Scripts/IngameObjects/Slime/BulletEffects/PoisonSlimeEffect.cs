@@ -27,7 +27,8 @@ public class PoisonSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         PoisonEffectInfo poisonInfo = info as PoisonEffectInfo;
-        slime.ApplyBuff(new SlimeBuffs.Poisoned(poisonInfo.Duration, poisonInfo.DamagePerTick, 0.5f));
+        if(Random.Range(0f, 1f) <= poisonInfo.Probability)
+            slime.ApplyBuff(new SlimeBuffs.Poisoned(poisonInfo.Duration, poisonInfo.DamagePerTick, 0.5f));
         BuffBubble buffEffect = Instantiate(_buffEffect);
         buffEffect.transform.SetParent(slime.transform, false);
         buffEffect.GetComponent<BuffBubble>().SetDuration(poisonInfo.Duration);

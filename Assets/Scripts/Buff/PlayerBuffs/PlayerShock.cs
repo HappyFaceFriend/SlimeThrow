@@ -8,38 +8,40 @@ namespace PlayerBuffs
     public class PlayerShock : TimedBuff<PlayerBehaviour>
     {
         ElectricShock _buff;
-         float _duration;
+        float _duration;
         Modifier _modifier;
         bool _start = false;
-        float _probability;
 
-        public PlayerShock(float duration, float probability) : base(duration)
+        public PlayerShock(float duration) : base(duration)
         {
             _duration = duration;
             _modifier = new Modifier(0, Modifier.ApplyType.Multiply);
-            _probability = probability;
+        }
+        public override void OnStart()
+        {
+            base.OnStart();
+            _buff = EffectManager.InstantiateShock();
+            _buff.transform.SetParent(Owner.transform);
+            _buff.transform.localPosition = Vector3.zero;
         }
         public override void OnUpdate()
         {
             base.OnUpdate();
-            if(Random.Range(0f, 1f) <= _probability)
+
+
+            if (!_start)
             {
-                if (!_start)
+                Owner.MoveSpeed.AddModifier(_modifier);
+                _start = true;
+            }
+            else
+            {
+                if (ElapsedTime > _duration)
                 {
-                    _buff = EffectManager.InstantiateShock();
-                    _buff.transform.SetParent(Owner.transform);
-                    _buff.transform.localPosition = Vector3.zero;
-                    Owner.MoveSpeed.AddModifier(_modifier);
-                    _start = true;
-                }
-                else
-                {
-                    if (ElapsedTime > _duration)
-                    {
-                        Owner.MoveSpeed.RemoveModifier(_modifier);
-                    }
+                    Owner.MoveSpeed.RemoveModifier(_modifier);
                 }
             }
+
         }
         public override void OnEnd()
         {
