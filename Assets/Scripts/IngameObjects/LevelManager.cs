@@ -54,13 +54,13 @@ public class LevelManager : MonoBehaviour
         _slimeKilled = 0;
         InitFlower();
         if(GlobalDataManager.Instance.Load)
-            //LoadGame();
+            LoadGame();
         _stagePanel.SetStage(_currentStage);
         //Loop
         state = "Before loop";
         while (_currentStage < _spawner.MaxStage)
         {
-            SaveData data = new SaveData(0, _currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            SaveData data = new SaveData(_currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp, SlimeKilled, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
             SaveDataManager.Instance.Save(data);
 
             state = "Save";
@@ -170,6 +170,7 @@ public class LevelManager : MonoBehaviour
             GlobalRefs.Player.PlayerHPBar.SetHp((int)GlobalRefs.Player.HpSystem.CurrentHp, (int)GlobalRefs.Player.HpSystem.MaxHp.Value);
             GlobalRefs.Flower.HPSystem.ChangeHp((float)data._flowerHP - GlobalRefs.Flower.HPSystem.MaxHp.Value);
             GlobalRefs.Flower.HPBar.SetHp((int)GlobalRefs.Flower.HPSystem.CurrentHp, (int)GlobalRefs.Flower.HPSystem.MaxHp.Value);
+            SlimeKilled = data._slimesKilled;
             SaveDataManager.Instance.Language = data._language;
             SaveDataManager.Instance.Volume = (float)data._volume;
         }

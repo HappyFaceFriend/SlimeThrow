@@ -25,13 +25,15 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
     public void SaveSettings()
     {
         SaveData data = Load();
-        if (data != null)
+        if (data == null)
         {
-            SaveData newdata = new SaveData(0, 0, null, 0, 0, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            SaveData newdata = new SaveData(0, null, 0, 0, 0, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            Save(newdata);
         }
         else
         {
-            SaveData newData = new SaveData(data._round, data._stage, data._upgrades, data._playerHP, data._flowerHP, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            SaveData newData = new SaveData(data._stage, data._upgrades, data._playerHP, data._flowerHP, data._slimesKilled, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            Save(newData);
         }
     }
 
