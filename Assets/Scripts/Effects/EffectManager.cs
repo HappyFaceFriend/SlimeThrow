@@ -121,13 +121,14 @@ public class EffectManager : MonoBehaviour
         effect.gameObject.SetActive(true);
     }
 
-    public static void InstantiateSpawnWarning(Vector3 position, SlimeBehaviour slime)
+    public static SpawnWarning InstantiateSpawnWarning(Vector3 position, SlimeBehaviour slime)
     {
         SpawnWarning warning = _instance._spawnWarningPool.Create<SpawnWarning>();
         warning.transform.position = position;
         warning.Slime = slime;
         slime.transform.SetParent(null);
         warning.gameObject.SetActive(true);
+        return warning;
         
     }
 }

@@ -15532,7 +15532,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 828056cc3a828bb4088c0b36f8ba2b12, type: 2}
   - {fileID: 11400000, guid: 828056cc3a828bb4088c0b36f8ba2b12, type: 2}
   - {fileID: 11400000, guid: 86f244f2db7505f45b11ac09066b4e12, type: 2}
-  timeScale: 1
   code: 
   _spawnedSlimes: []
   eTime: 0

@@ -22,3 +22,5 @@ MonoBehaviour:
   MainSlimeWeight: 1
   SpawnInterval: 5
   Duration: 20
+  SpecialSpawnInterval: 4
+  SpecialSpawnWeight: 0.5

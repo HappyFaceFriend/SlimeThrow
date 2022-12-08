@@ -11,8 +11,9 @@ public class SlimeHerdSpawner : MonoBehaviour
     [SerializeField] List<StageSpawnData> _spawnDataPerStage;
     List<int> _selectedMainIndicies;
     [Header("Test")]
-    [SerializeField] float  timeScale = 1;
     [SerializeField] string code = "";
+
+    SlimeHerd _recentHerd = null;
 
 
     public StageLabel.Type[] LabelTypes { get; private set; }
@@ -86,7 +87,27 @@ public class SlimeHerdSpawner : MonoBehaviour
             LabelImages.Add(_spawnDataPerStage[i].MainSlimeCandidates[_selectedMainIndicies[i]].SlotIcon);
         }
     }*/
-    
+    IEnumerator StartSpecialSpawn(StageSpawnData spawnData, int currentStage)
+    {
+        float specialETime = 0;
+        while (IsSpawning)
+        {
+            specialETime += Time.deltaTime;
+            int currentAreaIdx = Random.Range(0, _spawnAreas.Length);
+
+            if(Random.Range(0f, 1f) < spawnData.SpecialSpawnWeight)
+                SpawnHerdRandomPos(GetRandomHerd(Difficulty.Special, null), currentAreaIdx);
+
+            float waitTime = spawnData.SpecialSpawnInterval * Random.Range(0.85f, 1.1f);
+
+            float eTime2 = 0f;
+            while (eTime2 <= waitTime && IsSpawning)
+            {
+                eTime2 += Time.deltaTime;
+                yield return null;
+            }
+        }
+    }
     IEnumerator StartSpawning(int currentStage)
     {
         int currentAreaIdx = Random.Range(0, _spawnAreas.Length);
@@ -96,30 +117,13 @@ public class SlimeHerdSpawner : MonoBehaviour
         mustSpawns.AddRange(spawnData.MustSpawns);
         IsSpawning = true;
         eTime = 0;
+        StartCoroutine(StartSpecialSpawn(spawnData,currentStage));
         while(eTime < spawnData.Duration)
         {
             eTime += Time.deltaTime;
-            Time.timeScale = timeScale;
             currentAreaIdx = SelectNextArea(currentAreaIdx);
 
-            SlimeBehaviour mainSlime;
-            if (_selectedMainIndicies[currentStage] == -1)
-                mainSlime = null;
-            else
-            {
-                mainSlime = spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]];
-
-                if (Random.Range(0f, 1f) > spawnData.MainSlimeWeight && spawnData.MainSlimeCandidates.Count > 1)
-                {
-                    int count = 0;
-                    while (mainSlime != spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]] && count < 25)
-                    {
-                        count++;
-                        mainSlime = Utils.Random.RandomElement(spawnData.MainSlimeCandidates);
-                    }
-                }
-            }
-
+            SlimeBehaviour mainSlime = GetMainSlime(currentStage, spawnData);
             if(mustSpawns.Count > 0)
             {
                 SpawnHerdRandomPos(mustSpawns[0], currentAreaIdx);
@@ -127,8 +131,11 @@ public class SlimeHerdSpawner : MonoBehaviour
             }
             else
                 SpawnHerdRandomPos(GetRandomHerd(GetDifficulty(spawnData), mainSlime), currentAreaIdx);
+
+            while (_recentHerd != null)
+                yield return null;
             float waitTime = spawnData.SpawnInterval * Random.Range(0.85f, 1.1f);
-            if (waitTime + eTime >= spawnData.Duration)
+            if (eTime + waitTime >= spawnData.Duration)
                 break;
             float eTime2 = 0f;
             while(eTime2 <= waitTime && eTime < spawnData.Duration)
@@ -143,7 +150,30 @@ public class SlimeHerdSpawner : MonoBehaviour
                 _stopSnowy = true;
             }
         }
+        
         IsSpawning = false;
+    }
+    SlimeBehaviour GetMainSlime(int currentStage, StageSpawnData spawnData)
+    {
+        SlimeBehaviour mainSlime;
+        if (_selectedMainIndicies[currentStage] == -1)
+            mainSlime = null;
+        else
+        {
+            mainSlime = spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]];
+
+            if (Random.Range(0f, 1f) > spawnData.MainSlimeWeight && spawnData.MainSlimeCandidates.Count > 1)
+            {
+                int count = 0;
+                while (mainSlime != spawnData.MainSlimeCandidates[_selectedMainIndicies[currentStage]] && count < 25)
+                {
+                    count++;
+                    mainSlime = Utils.Random.RandomElement(spawnData.MainSlimeCandidates);
+                }
+            }
+        }
+        return mainSlime;
+
     }
     SlimeHerd GetRandomHerd(Difficulty difficulty, SlimeBehaviour mainSlime)
     {
@@ -268,6 +298,7 @@ public class SlimeHerdSpawner : MonoBehaviour
                 break;
             }
         }
-        Instantiate(herd, targetPosition, Quaternion.identity).gameObject.SetActive(true);
+        _recentHerd = Instantiate(herd, targetPosition, Quaternion.identity);
+        _recentHerd.gameObject.SetActive(true);
     }
 }

@@ -10,6 +10,8 @@ public class SlimeHerd : MonoBehaviour
     [SerializeField] Vector2 _herdSize;
     [SerializeField] SlimeBehaviour _mainSlime;
 
+    List<SpawnWarning> _warnings;
+
     List<SlimeBehaviour> _slimes;
     RandomSlime [] _randomSlimes;
 
@@ -22,6 +24,7 @@ public class SlimeHerd : MonoBehaviour
         _slimes = new List<SlimeBehaviour>();
         _slimes.AddRange(GetComponentsInChildren<SlimeBehaviour>());
         _randomSlimes = GetComponentsInChildren<RandomSlime>();
+        _warnings = new List<SpawnWarning>();
 
         foreach (var randomSlime in _randomSlimes)
         {
@@ -51,13 +54,18 @@ public class SlimeHerd : MonoBehaviour
                 StartCoroutine(SpawnSingleSlime(slime));
             yield return new WaitForSeconds(_spawnInterval);
         }
+        while(_warnings.Count > 0)
+        {
+            _warnings.RemoveAll(x => !x.gameObject.activeInHierarchy);
+            yield return null;
+        }
         Destroy(gameObject);
     }
     IEnumerator SpawnSingleSlime(SlimeBehaviour slime)
     {
         if (GlobalRefs.LevelManger.IsGameOver)
             yield  break;
-            EffectManager.InstantiateSpawnWarning(slime.transform.position, slime);
+        _warnings.Add( EffectManager.InstantiateSpawnWarning(slime.transform.position, slime) );
         if(GlobalRefs.LevelManger.Spawner._isBurningOn && !GlobalRefs.LevelManger.Spawner._stopBurn)
             slime.ApplyBuff(new SlimeBuffs.Burn(8f, 1, 0.8f));
         if(GlobalRefs.LevelManger.Spawner._isSnowyOn && !GlobalRefs.LevelManger.Spawner._stopSnowy)
