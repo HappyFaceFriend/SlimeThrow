@@ -20,6 +20,10 @@ public class UpgradeManager : MonoBehaviour
 
     List<UpgradeData>[] _allUpgradeDatas;
     List<string> _upgradeNames;
+
+    public int RerollCount { get { return _rerollCount; } set { _rerollCount = value; } }
+
+    [SerializeField] public int _rerollCount= 1;
     
     public List<string> UpgradesNames { get { return _upgradeNames; } }
 
@@ -36,6 +40,30 @@ public class UpgradeManager : MonoBehaviour
         for (int i = 0; i < allDatas.Length; i++)
             _allUpgradeDatas[(int)allDatas[i].Rarity].Add(allDatas[i]);
 
+    }
+    public void OnRerollClicked()
+    {
+        if(RerollCount > 0)
+        {
+            UpgradeData[] datas = GetRandomUpgrades();
+            _upgradePanel.SetUpgrades(datas);
+        }
+    }
+
+    UpgradeData[] GetRandomUpgrades()
+    {
+        RerollCount -= 1;
+        UpgradeWeights upgradeWeights = _upgradeWeights[0];
+        for (int i = 0; i < _upgradeWeights.Length; i++)
+        {
+            if (_upgradeWeights[i].FromStage <= GlobalRefs.LevelManger.CurrentStage && GlobalRefs.LevelManger.CurrentStage < _upgradeWeights[i].ToStage)
+            {
+                upgradeWeights = _upgradeWeights[i];
+                break;
+            }
+        }
+        UpgradeData[] datas = GetRandomUpgrades(upgradeWeights);
+        return datas;
     }
     public void AddUpgrade(UpgradeData data)
     {
@@ -120,22 +148,13 @@ public class UpgradeManager : MonoBehaviour
     }
     public IEnumerator SelectUpgrade(int currentStage)
     {
-        UpgradeWeights upgradeWeights = _upgradeWeights[0];
         if(currentStage == 0)
         {
             _upgradePanel.SetUpgrades(_firstUpgrades);
         }
         else
         {
-            for (int i = 0; i < _upgradeWeights.Length; i++)
-            {
-                if (_upgradeWeights[i].FromStage <= currentStage && currentStage < _upgradeWeights[i].ToStage)
-                {
-                    upgradeWeights = _upgradeWeights[i];
-                    break;
-                }
-            }
-            UpgradeData[] datas = GetRandomUpgrades(upgradeWeights);
+            UpgradeData[] datas = GetRandomUpgrades();
             _upgradePanel.SetUpgrades(datas);
         }
 

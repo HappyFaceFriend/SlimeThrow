@@ -27,12 +27,12 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
         SaveData data = Load();
         if (data == null)
         {
-            SaveData newdata = new SaveData(0, null, 0, 0, 0, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            SaveData newdata = new SaveData(0, null, 0, 0, 0, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume, 1);
             Save(newdata);
         }
         else
         {
-            SaveData newData = new SaveData(data._stage, data._upgrades, data._playerHP, data._flowerHP, data._slimesKilled, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume);
+            SaveData newData = new SaveData(data._stage, data._upgrades, data._playerHP, data._flowerHP, data._slimesKilled, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume, data._rerollCount);
             Save(newData);
         }
     }

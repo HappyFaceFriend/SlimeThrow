@@ -13,8 +13,9 @@ public class SaveData
     public int _slimesKilled;
     public string _language;
     public double _volume;
+    public int _rerollCount;
 
-    public SaveData(int stage, List<string> upgrades, double playerHP, double flowerHP, int SlimesKilled, string language, double volume)
+    public SaveData(int stage, List<string> upgrades, double playerHP, double flowerHP, int SlimesKilled, string language, double volume, int rerollCount)
     {
         this._stage = stage;
         this._upgrades = upgrades;
@@ -23,5 +24,6 @@ public class SaveData
         this._slimesKilled = SlimesKilled;
         this._language = language;
         this._volume = volume;
+        _rerollCount = rerollCount;
     }
 }
