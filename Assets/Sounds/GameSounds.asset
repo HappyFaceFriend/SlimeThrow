@@ -43,3 +43,5 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 09a73aa1c8e084a4584fdcb3e4392971, type: 3}
   - _name: ThrowAway
     _clip: {fileID: 8300000, guid: 93339586e13414810901ad6e3957bf72, type: 3}
+  - _name: Coin
+    _clip: {fileID: 8300000, guid: 2d481372860dc3a49ab70e04361ae843, type: 3}
