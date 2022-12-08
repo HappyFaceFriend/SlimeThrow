@@ -10,6 +10,23 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     List<Dictionary<string, string>> localizedUpgradeData;
     List<Dictionary<string, string>> localizedTitleData;
 
+
+    List<Dictionary<string, string>> LocalizedUpgradeData { get 
+        { 
+            if(localizedUpgradeData == null)
+                localizedUpgradeData = FileUtils.ParseTSV(stringsFile1.text);
+            return localizedUpgradeData; 
+        } }
+    List<Dictionary<string, string>> LocalizedTitleData
+    {
+        get
+        {
+            if (localizedTitleData == null)
+                localizedTitleData = FileUtils.ParseTSV(stringsFile2.text);
+            return localizedTitleData;
+        }
+    }
+
     private bool _load = false;
     public bool Load { get { return _load; } }
 
@@ -28,14 +45,14 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     public string GetLocalizedString(string string_ko)
     {
         string code = SaveDataManager.Instance.Language;
-        var languageData = localizedUpgradeData.Find(x => x["ko"] == string_ko);
+        var languageData = LocalizedUpgradeData.Find(x => x["ko"] == string_ko);
         return languageData[code];
     }
 
     public string GetLocalizedTitle(string string_ko)
     {
         string code = SaveDataManager.Instance.Language;
-        var languageData = localizedTitleData.Find(x => x["ko"] == string_ko);
+        var languageData = LocalizedTitleData.Find(x => x["ko"] == string_ko);
         return languageData[code];
     }
 }

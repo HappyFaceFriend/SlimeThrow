@@ -15,7 +15,9 @@ public class LocalizedText : MonoBehaviour
     }
     public void Refresh()
     {
-        text.text = GlobalDataManager.Instance.GetLocalizedString(key);
+        print(SaveDataManager.Instance.Language);
+        print(GlobalDataManager.Instance);
+        text.text = GlobalDataManager.Instance.GetLocalizedTitle(key);
     }
     private void OnEnable()
     {
