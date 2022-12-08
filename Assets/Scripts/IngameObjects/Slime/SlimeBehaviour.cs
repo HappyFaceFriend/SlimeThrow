@@ -7,7 +7,7 @@ public class SlimeBehaviour : StateMachineBase
     [SerializeField] SlimeData _data;
     [SerializeField] float _grabbableDuration;
     [SerializeField] FlipObjectToPoint _flip;
-
+    [SerializeField] bool _cancelAttackOnHitted = false;
     protected KnockbackController _knockback;
     public bool IsGrabbable { get; set; } = false;
     public bool IsLastSlimeToDie { get; set; } = false;
@@ -121,7 +121,8 @@ public class SlimeBehaviour : StateMachineBase
         if (CurrentState is SlimeStates.SpawnState || !IsAlive)
             return;
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
-        _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
+        if(!_cancelAttackOnHitted)
+            _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
         if (GlobalRefs.UpgradeManager.GetCount("치명적인 불꽃") != 0 )
             damage *= 1.2f;
         OnGetHitted(impactPosition, damage, false);
@@ -135,7 +136,9 @@ public class SlimeBehaviour : StateMachineBase
         if (CurrentState is SlimeStates.SpawnState || !IsAlive)
             return;
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
-        _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
+
+        if (!_cancelAttackOnHitted) 
+            _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
         damage *= GlobalRefs.LevelManger.Spawner.ExtraDamage.Value;
         if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & GlobalRefs.UpgradeManager.GetCount("파이어 슬래이어") != 0 & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
             OnGetHitted(impactPosition, 999f, true);
@@ -168,7 +171,8 @@ public class SlimeBehaviour : StateMachineBase
                 SoundManager.Instance.PlaySFX("SlimeHitted1");
             else
                 SoundManager.Instance.PlaySFX("SlimeHitted2");
-            ChangeState(new SlimeStates.HittedState(this));
+            if (!_cancelAttackOnHitted)
+                ChangeState(new SlimeStates.HittedState(this));
         }
     }
     public void TakeDamage(float damage) // 이거를 플레이어한테 달아주면 된다
