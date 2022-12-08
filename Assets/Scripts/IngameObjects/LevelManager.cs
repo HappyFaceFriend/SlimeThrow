@@ -167,6 +167,7 @@ public class LevelManager : MonoBehaviour
         IsPaused = true;
         _pausedPanel.gameObject.SetActive(true);
         Time.timeScale = 0;
+        SoundManager.Instance.PauseBGM();
     }
     public void QuitGame()
     {
@@ -184,6 +185,7 @@ public class LevelManager : MonoBehaviour
         while (_pausedPanel.gameObject.activeSelf)
             yield return null;
 
+        SoundManager.Instance.ResumeBGM();
         Time.timeScale = 1;
     }
     public void OnPlayerDead()
@@ -199,6 +201,7 @@ public class LevelManager : MonoBehaviour
     void StopGame()
     {
         IsGameOver = true;
+        SoundManager.Instance.StopBGM();
 
         GlobalRefs.Player.EverythingStopped = true;
         if (_gameLoop != null)
