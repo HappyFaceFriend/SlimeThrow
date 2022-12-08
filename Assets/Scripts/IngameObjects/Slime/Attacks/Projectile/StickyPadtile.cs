@@ -41,7 +41,7 @@ public class StickyPadtile : SlimePadtile
         {
             var player = collision.collider.GetComponent<PlayerBehaviour>();
             var flower = collision.collider.GetComponent<Flower>();
-            if (player != null)
+            if (player != null && player.IsTargetable)
             {
                 if (_canDamage)
                 {

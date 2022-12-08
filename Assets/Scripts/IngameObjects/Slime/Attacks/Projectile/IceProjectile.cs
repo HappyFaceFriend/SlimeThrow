@@ -14,7 +14,7 @@ public class IceProjectile : SlimeProjectile
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var target = collision.collider.GetComponent<PlayerBehaviour>();  // 꽃 공격하는 건 어떠카지
-        if (target != null)
+        if (target != null && target.IsTargetable)
         {
             target.OnHittedBySlime(_slime, _damage);
             if (Random.Range(0f, 1f) <= _buffProbability)

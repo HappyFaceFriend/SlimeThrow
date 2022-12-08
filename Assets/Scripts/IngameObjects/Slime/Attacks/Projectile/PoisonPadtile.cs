@@ -39,8 +39,7 @@ public class PoisonPadtile : SlimePadtile
         if (_active)
         {
             var player = collision.collider.GetComponent<PlayerBehaviour>();
-            var flower = collision.collider.GetComponent<Flower>();
-            if (player != null)
+            if (player != null && player.IsTargetable)
             {
                 if (_canDamage)
                 {
@@ -51,14 +50,6 @@ public class PoisonPadtile : SlimePadtile
                         player.ApplyBuff(new PlayerBuffs.PlayerPoisoned(_duration, _damagePerTick, 1f, _buffPrefab));
                         _buffed = true;
                     }
-                }
-            }
-            else if (flower != null)
-            {
-                if (_canDamage)
-                {
-                    flower.OnHittedBySlime(_slime, _damage);
-                    _canDamage = false;
                 }
             }
         }

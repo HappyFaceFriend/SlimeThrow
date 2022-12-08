@@ -128,7 +128,8 @@ public class SlimeHerdSpawner : MonoBehaviour
             else
                 SpawnHerdRandomPos(GetRandomHerd(GetDifficulty(spawnData), mainSlime), currentAreaIdx);
             float waitTime = spawnData.SpawnInterval * Random.Range(0.85f, 1.1f);
-            
+            if (waitTime + eTime >= spawnData.Duration)
+                break;
             float eTime2 = 0f;
             while(eTime2 <= waitTime && eTime < spawnData.Duration)
             {
