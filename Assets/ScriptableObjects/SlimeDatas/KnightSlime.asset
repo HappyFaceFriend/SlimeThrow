@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KnightSlime
   m_EditorClassIdentifier: 
   _maxHp: 100
-  _attackPower: 2
+  _attackPower: 5
   _flowerAttackPower: 1
   _attackSpeed: 0.3
   _attackRange: 2
