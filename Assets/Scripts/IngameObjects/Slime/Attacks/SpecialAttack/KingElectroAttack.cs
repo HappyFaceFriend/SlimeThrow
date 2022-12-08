@@ -8,7 +8,6 @@ public class KingElectroAttack : SlimeAttackBase
     public int _numOfdirections;
     protected Transform _target;
     [SerializeField] protected ElectroPadtile _projectilePrefab;
-    [SerializeField] protected BulletSmoke _smokePrefab;
     float _magnitude;
 
     protected override void OnStartAttack(Transform targetTransform)
@@ -33,9 +32,6 @@ public class KingElectroAttack : SlimeAttackBase
                 projectile.Init(targetPos, Slime);
                 Destroy(projectile.gameObject, 1.8f);
             }
-            BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
-            smoke.SetColor(name);
-            Destroy(smoke.gameObject, 1f);
         }
         else
         {
@@ -53,10 +49,7 @@ public class KingElectroAttack : SlimeAttackBase
                 projectile.Init(targetPos, Slime);
                 Destroy(projectile.gameObject, 1.8f);
             }
-            BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
-            smoke.SetColor(name);
             _numOfdirections -= 5;
-            Destroy(smoke.gameObject, 1f);
         }
     }
 
