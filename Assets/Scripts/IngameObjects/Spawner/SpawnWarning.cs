@@ -9,6 +9,7 @@ public class SpawnWarning : PooledObject
     {
         if (GlobalRefs.LevelManger.IsGameOver)
             return;
+        GlobalRefs.LevelManger.Spawner.OnAddNewSlime(Slime);
         Slime.gameObject.SetActive(true);
         Slime.transform.SetParent(null);
     }
