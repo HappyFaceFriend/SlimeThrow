@@ -21,7 +21,6 @@ MonoBehaviour:
   - {fileID: 2426975632887591198, guid: 911378f541476bf448ba4f92c5f18668, type: 3}
   - {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
   - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
-  - {fileID: 147796247482930567, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
-  MainSlimeWeight: 0.4
+  MainSlimeWeight: 0.3
   SpawnInterval: 5
   Duration: 25
