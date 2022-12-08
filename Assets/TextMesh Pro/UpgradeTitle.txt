@@ -22,7 +22,7 @@ Player's MaxHp increased by 20 and CurrentHP increased by 30	플레이어의 최
 Fearsome Attack1	강인한 공격1
 Player Attack Power increased by 3	플레이어의 기본 공격력이 3 증가한다
 Rapid Shooting1	급속사격1
-Fall speed of cannonball increased by 20%	포탄의 낙하 속도가 20% 증가한다
+Fall speed of cannonball increased by 30%	포탄의 낙하 속도가 30% 증가한다
 Carpet Bombing1	무차별 폭격1
 Damage of cannonball increased by 10%	포탄의 데미지가 10% 증가한다
 Fierce Boy1	난폭한 소년1
@@ -30,7 +30,7 @@ Every time the player shoot by cannon, the player's attack speed and movement sp
 The Hunter1	사냥꾼1
 After every kill by player itself, Player recovers HP by 1	플레이어가 슬라임을 죽일때마다 체력 1 회복한다
 Far Away1	멀리던지기1
-The range of player throwing slime to cannon widthens by 20%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 20% 증가한다
+The range of player throwing slime to cannon widthens by 50%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 50% 증가한다
 Burning Ground	불타는 대지
 Every Slime spawned for the first 10 seconds get Burn	첫 10초간 스폰되는 슬라임 모두 화상을 입는다
 Snowy Field	설원
@@ -58,15 +58,15 @@ Player's MaxHp increased by 50 and CurrentHP increased by 50	플레이어의 최
 Fearsome Attack2	강인한 공격2
 Player Attack Power increased by 5	플레이어의 기본 공격력이 5 증가한다
 Rapid Shooting2	급속사격2
-Fall speed of cannonball increased by 50%	포탄의 낙하 속도가 50% 증가한다
+Fall speed of cannonball increased by 70%	포탄의 낙하 속도가 70% 증가한다
 Carpet Bombing2	무차별 폭격2
 Damage of cannonball increased by 30%	포탄의 데미지가 30% 증가한다
 Fierce Boy2	난폭한 소년2
 Every time the player shoot by cannon, the player's  attack speed and movement speed increases about 5%	플레이어가 포탄으로 착지할때마다 공격속도, 이동속도가 모두 5%씩 증가한다
 The Hunter2	사냥꾼2
-After every kill by player itself, Player recovers HP by 3	플레이어가 슬라임을 죽일때마다 체력을 3 회복한다
+After every kill by player itself, Player recovers HP by 2	플레이어가 슬라임을 죽일때마다 체력을 2 회복한다
 Far Away2	멀리던지기2
-The range of player throwing slime to cannon widthens by 50%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 50% 증가한다
+The range of player throwing slime to cannon widthens by 100%	플레이어가 대포에 슬라임을 넣을 수 있는 범위가 100% 증가한다
 Critical Fire	치명적인 불꽃
 Slimes on Burn gets 50% more damage from Player	화상을 입은 슬라임에게 플레이어의 기본 공격 데미지가 50% 증가
 Fire Cannon	파이어 캐논

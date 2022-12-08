@@ -137,8 +137,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         IsTargetable = true;
         if (FierceOn)
         {
-            _hpSystem.ChangeHp(_fierceNum * 100);
-            _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
             Modifier mod = new Modifier(_fierceNum, Modifier.ApplyType.Multiply);
             AttackSpeed.AddModifier(mod);
             MoveSpeed.AddModifier(mod);
