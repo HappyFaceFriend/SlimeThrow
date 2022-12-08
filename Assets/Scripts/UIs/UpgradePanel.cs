@@ -25,23 +25,22 @@ public class UpgradePanel : Panel
 
     void ApplyUIs()
     {
-
         _rerollButtonText.text = GlobalRefs.UpgradeManager.RerollCount.ToString();
         Color color = _rerollTag.color;
         if (GlobalRefs.UpgradeManager.RerollCount == 0)
         {
             _rerollTag.color = new Color(color.r, color.g, color.b, 0.75f);
-            _rerollButton.GetComponent<Button>().interactable = false;
+            _rerollButton.interactable = false;
         }
         else
         {
             _rerollTag.color = new Color(color.r, color.g, color.b, 1);
-            _rerollButton.GetComponent<Button>().interactable = true;
+            _rerollButton.interactable = true;
         }
     }
     public void Open()
     {
-        gameObject.SetActive(true);
         ApplyUIs();
+        gameObject.SetActive(true);
     }
 }

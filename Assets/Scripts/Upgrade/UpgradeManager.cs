@@ -16,7 +16,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] UpgradeWeights[] _upgradeWeights;
 
     [SerializeField] UpgradeData[] _firstUpgrades;
-    List<UpgradeData> _upgrades;
+    [SerializeField] List<UpgradeData> _upgrades;
 
     List<UpgradeData>[] _allUpgradeDatas;
     List<string> _upgradeNames;
@@ -45,6 +45,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if(RerollCount > 0)
         {
+            RerollCount -= 1;
             UpgradeData[] datas = GetRandomUpgrades();
             _upgradePanel.SetUpgrades(datas);
         }
@@ -52,7 +53,6 @@ public class UpgradeManager : MonoBehaviour
 
     UpgradeData[] GetRandomUpgrades()
     {
-        RerollCount -= 1;
         UpgradeWeights upgradeWeights = _upgradeWeights[0];
         for (int i = 0; i < _upgradeWeights.Length; i++)
         {

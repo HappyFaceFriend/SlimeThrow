@@ -81,6 +81,9 @@ public class LevelManager : MonoBehaviour
             state = "Save";
             yield return _stagePanel.StartNewStage(_currentStage);
             yield return new WaitForSeconds(1f);
+
+            if ((_currentStage + 1) % 5 == 0)
+                SoundManager.Instance.PlayBGM("Boss");
             _spawner.StartStage(_currentStage);
             state = "StartStage";
 
@@ -109,13 +112,16 @@ public class LevelManager : MonoBehaviour
             if (_currentStage == _spawner.MaxStage - 1)
                 break;
 
+            if ((_currentStage + 1) % 5 == 0)
+                SoundManager.Instance.PlayBGM("Game");
+
             yield return GlobalRefs.UpgradeManager.SelectUpgrade(_currentStage);
 
             state = "upgrade over";
             GlobalRefs.Player.EverythingStopped = false;
             _currentStage++;
         }
-
+        SoundManager.Instance.StopBGM();
         //¿Ã∞Â¿ª ∂ß
         yield return new WaitForSeconds(2f);
         OpenGameOver(true);

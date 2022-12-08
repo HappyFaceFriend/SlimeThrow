@@ -17,3 +17,7 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: ac1b5230baf234dfa9e935ead036145a, type: 3}
   - _name: Game
     _clip: {fileID: 8300000, guid: 35e6994b970914ce5826938d6be354ce, type: 3}
+  - _name: Ending
+    _clip: {fileID: 8300000, guid: e646138442ccb4308a7d2cfe29c0b22c, type: 3}
+  - _name: Boss
+    _clip: {fileID: 8300000, guid: 094845977acde48698145214996a5df8, type: 3}
