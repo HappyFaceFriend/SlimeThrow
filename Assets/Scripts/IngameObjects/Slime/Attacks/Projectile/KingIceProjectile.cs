@@ -6,11 +6,13 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class KingIceProjectile : IceProjectile
 {
     bool _split = false;
+    float _baseAngle;
     [SerializeField] SlimeProjectile _childProjectile;
     private void Start()
     {
         if (_slime.IsFever())
             _split = true;
+        _baseAngle = GetAngle(transform.position, _slime.transform.position);
     }
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
@@ -23,10 +25,9 @@ public class KingIceProjectile : IceProjectile
         { 
             Vector3 basedir = _moveDir;
             basedir = basedir.normalized;
-            float baseAngle = GetAngle(transform.position, _slime.transform.position);
             float offset = 15f;
-            Vector3 dir1 = Utils.Vectors.AngleToVector(baseAngle + offset);
-            Vector3 dir2 = Utils.Vectors.AngleToVector(baseAngle - offset);
+            Vector3 dir1 = Utils.Vectors.AngleToVector(_baseAngle + offset);
+            Vector3 dir2 = Utils.Vectors.AngleToVector(_baseAngle - offset);
             SlimeProjectile projectile1 = Instantiate(_childProjectile, transform.position, Quaternion.identity);
             SlimeProjectile projectile2 = Instantiate(_childProjectile, transform.position, Quaternion.identity);
             projectile1.Init(-dir1, 10);
