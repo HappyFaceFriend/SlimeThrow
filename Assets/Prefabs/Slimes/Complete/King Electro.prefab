@@ -385,7 +385,7 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: fea526dc868c25d48952b06c87bc47ef, type: 2}
   _grabbableDuration: 0
   _flip: {fileID: 3113332237417673297}
-  _cancelAttackOnHit: 1
+  _cancelAttackOnHit: 0
   _flowerAttackRange: 2
   _flasher: {fileID: 2874985876322093226}
   _squasher: {fileID: 2874985876322093227}
