@@ -27,10 +27,13 @@ public class SlimeBehaviour : StateMachineBase
     {
         get { return CurrentState is SlimeStates.SpawnState; }
     }
+
     public bool IsFever()
     {
-        if(_hpSystem.CurrentHp <= _hpSystem.MaxHp.Value/2)
+        if (_hpSystem.CurrentHp <= _hpSystem.MaxHp.Value / 2)
+        {
             return true;
+        }
         else
             return false;
     }
@@ -45,7 +48,7 @@ public class SlimeBehaviour : StateMachineBase
     public SlimeBulletEffect BulletEffect { get; private set; }
     public FlipObjectToPoint Flipper { get { return _flip; } }
 
-    HpSystem _hpSystem;
+    protected HpSystem _hpSystem;
 
     BuffManager<SlimeBehaviour> _buffManager = new BuffManager<SlimeBehaviour>();
     [SerializeField] FlashWhenHitted _flasher;
@@ -86,7 +89,7 @@ public class SlimeBehaviour : StateMachineBase
         base.Start();
         //GlobalRefs.LevelManger.Spawner.OnAddNewSlime(this);
     }
-    private void Update()
+    protected virtual void Update()
     {
         base.Update();
         _buffManager.OnUpdate();
@@ -195,13 +198,40 @@ public class SlimeBehaviour : StateMachineBase
             ChangeState(new SlimeStates.GrabbableState(this));
         else
         {
-            if (this.transform.childCount == 2)
-                this.transform.GetChild(1).gameObject.SetActive(false);
             ChangeState(new SlimeStates.DeadState(this));
         }
     }
 
-    private void OnDestroy()
+    protected void LastSlimeDestroyEffect()
+    {
+
+        SoundManager.Instance.PlaySFX("SlimeExplode");
+        SoundManager.Instance.PlaySFXDelayed("SlimeExplode", 0.05f);
+        _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
+        float smokeSpeed = 15f;
+        float angleOffset = Random.Range(-45, 45);
+        float bigScale = 5;
+        float fastSpeed = 30;
+        float[] angles = new float[4];
+        for (int i = 0; i < 4; i++)
+            angles[i] = 90 * i + angleOffset + Random.Range(-10, 10);
+
+        for (int i = 0; i < 4; i++)
+            EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i]) * fastSpeed, bigScale);
+        for (int j = 0; j < 5; j++)
+        {
+            float speed = smokeSpeed * (1 - 0.1f * j);
+            float moreOffset = Random.Range(-5f, 5f);
+            float scale = 3;
+            for (int i = 0; i < 4; i++)
+                EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i] + moreOffset)
+                            * speed, scale);
+
+        }
+
+        EffectManager.InstantiateHitEffect(transform.position, 4);
+    }
+    protected void OnDestroy()
     {
         if (!gameObject.scene.isLoaded)
             return;
@@ -209,31 +239,7 @@ public class SlimeBehaviour : StateMachineBase
             return;
         if(IsLastSlimeToDie)
         {
-            SoundManager.Instance.PlaySFX("SlimeExplode");
-            SoundManager.Instance.PlaySFXDelayed("SlimeExplode", 0.05f);
-            _camera.Shake(CameraController.ShakePower.SlimeLastHitted);
-            float smokeSpeed = 15f;
-            float angleOffset = Random.Range(-45, 45);
-            float bigScale = 5;
-            float fastSpeed = 30;
-            float[] angles = new float[4];
-            for (int i = 0; i < 4; i++)
-                angles[i] = 90 * i + angleOffset + Random.Range(-10, 10);
-
-            for(int i=0; i<4; i++)
-                EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i]) * fastSpeed, bigScale);
-            for (int j=0; j<5; j++)
-            {
-                float speed = smokeSpeed * (1 - 0.1f * j);
-                float moreOffset = Random.Range(-5f, 5f);
-                float scale = 3;
-                for (int i = 0; i < 4; i++)
-                    EffectManager.InstantiateSmokeEffect(transform.position, Utils.Vectors.AngleToVector(angles[i] + moreOffset)
-                                * speed, scale);
-
-            }
-
-            EffectManager.InstantiateHitEffect(transform.position, 4);
+            LastSlimeDestroyEffect();
         }
         else
         {

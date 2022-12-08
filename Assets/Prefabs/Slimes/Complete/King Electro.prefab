@@ -402,11 +402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f803aae117600438424083915bce84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 3
+  _duration: 1.5
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
   _isAttackDone: 0
   _numOfdirections: 10
   _projectilePrefab: {fileID: 1187412481165815332, guid: 0772de19f61022e4f811d73086a1a2e7, type: 3}
-  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!4 &6656503410286813239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1372328807142265609, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}

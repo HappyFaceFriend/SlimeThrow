@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: KingRockSlime
   m_EditorClassIdentifier: 
-  _maxHp: 500
+  _maxHp: 100
   _attackPower: 10
-  _flowerAttackPower: 0
-  _attackSpeed: 0.8
+  _flowerAttackPower: 4
+  _attackSpeed: 0.2
   _attackRange: 7
   _sightRange: 10
   _moveSpeed: 0.4
