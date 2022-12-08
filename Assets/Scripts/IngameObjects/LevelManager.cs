@@ -98,12 +98,20 @@ public class LevelManager : MonoBehaviour
 
             //업그레이드
             ResetPlayer();
+
+            if (_currentStage == _spawner.MaxStage - 1)
+                break;
+
             yield return GlobalRefs.UpgradeManager.SelectUpgrade(_currentStage);
 
             state = "upgrade over";
             GlobalRefs.Player.EverythingStopped = false;
             _currentStage++;
         }
+
+        //이겼을 때
+        yield return new WaitForSeconds(2f);
+        OpenGameOver(true);
     }
 
     void ResetPlayer()
@@ -180,17 +188,19 @@ public class LevelManager : MonoBehaviour
     IEnumerator PlayerDieCoroutine()
     {
         yield return new WaitForSecondsRealtime(4f);
-        OpenGameOver();
+        OpenGameOver(false);
     }
     IEnumerator FlowerDieCoroutine()
     {
         yield return new WaitForSecondsRealtime(3f);
-        OpenGameOver();
+        OpenGameOver(false);
     }
-    void OpenGameOver()
+    void OpenGameOver(bool win)
     {
-        SoundManager.Instance.PlaySFX("GameOver");
+        if(!win)
+            SoundManager.Instance.PlaySFX("GameOver");
         GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
+        data.Win = win;
         data.Stage = _currentStage;
         data.SlimeKilled = _slimeKilled;
         data.Upgrades = new UpgradeData[GlobalRefs.UpgradeManager.SelectedUpgrades.Count];
@@ -198,8 +208,6 @@ public class LevelManager : MonoBehaviour
             data.Upgrades[i] = GlobalRefs.UpgradeManager.SelectedUpgrades[i];
 
         GameOverDataManager.Data = data;
-
-        
         SceneManager.LoadScene(_gameOverSceneName, LoadSceneMode.Additive);
 
     }

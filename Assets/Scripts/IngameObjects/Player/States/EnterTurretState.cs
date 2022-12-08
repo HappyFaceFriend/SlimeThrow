@@ -16,6 +16,7 @@ namespace PlayerStates
             SetAnimState();
             Player.OnEnterTurret();
             Player.StartCoroutine(MoveCoroutine());
+            Player.RemoveKnockback();
         }
         public override void OnExit()
         {
