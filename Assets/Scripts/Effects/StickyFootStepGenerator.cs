@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickyFootStepGenerator : MonoBehaviour
+public class StickyFootStepGenerator : BuffEffectBase
 {
     [SerializeField] float interval;
     [SerializeField] Vector3 randomOffset;

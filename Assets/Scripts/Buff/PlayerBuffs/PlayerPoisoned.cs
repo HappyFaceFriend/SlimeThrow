@@ -40,7 +40,8 @@ namespace PlayerBuffs
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<BuffBubble>().gameObject.SetActive(false);
+            if (_buff != null)
+                _buff.Kill();
         }
     }
 }

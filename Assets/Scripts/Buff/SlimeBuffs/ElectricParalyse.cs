@@ -52,6 +52,12 @@ namespace SlimeBuffs
                 _slime.ChangeState(new SlimeStates.MoveState(_slime));
             }
         }
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            if (_buff != null)
+                _buff.Kill();
+        }
     }
 }
 

@@ -12,6 +12,7 @@ namespace PlayerBuffs
         bool _active = false;
         public bool _finish = false;
         float _slowPercent;
+        StickyFootStepGenerator _buff;
         public PlayerSlow(float duration, float slowPercent) : base(duration)
         {
             _duration = duration;
@@ -24,9 +25,9 @@ namespace PlayerBuffs
             base.OnUpdate();
             if (!_active)
             {
-                StickyFootStepGenerator buff = EffectManager.InstantiateStickyFootstepGenerator();
-                buff.transform.SetParent(Owner.transform);
-                buff.transform.localPosition = Vector3.zero;
+                _buff = EffectManager.InstantiateStickyFootstepGenerator();
+                _buff.transform.SetParent(Owner.transform);
+                _buff.transform.localPosition = Vector3.zero;
                 Owner.MoveSpeed.AddModifier(_modifier);
                 _active = true;
             }
@@ -41,7 +42,8 @@ namespace PlayerBuffs
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<StickyFootStepGenerator>().gameObject.SetActive(false);
+            if (_buff != null)
+                _buff.Kill();
         }
     }
 }

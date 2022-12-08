@@ -11,7 +11,7 @@ namespace PlayerBuffs
         float _interval;
         float _nextDamageTime;
         float _duration;
-        LittleFire _buff;
+        BuffEffectBase _buff;
         public PlayerBurn(float duration, float damage, float interval) : base(duration)
         {
             _duration = duration;
@@ -39,7 +39,8 @@ namespace PlayerBuffs
         public override void OnEnd()
         {
             base.OnEnd();
-            Owner.gameObject.GetComponentInChildren<LittleFire>().gameObject.SetActive(false);
+            if (_buff != null)
+                _buff.Kill();
         }
     }
 }
