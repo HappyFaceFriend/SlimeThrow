@@ -5,6 +5,8 @@ using System.IO;
 using LitJson;
 using Newtonsoft.Json.Linq;
 
+using UnityEngine.SceneManagement;
+
 public class SaveDataManager : SingletonBehaviour<SaveDataManager>
 {
     string _language = "en";
@@ -19,9 +21,27 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
             _language = "ko";
     }
 
-    public string Language { get { return _language; } set { _language = value;  } }
+    public string Language { get { return _language; } set { _language = value; TranslateAllTextsInScene(); } }
     public float Volume { get { return _volume; } set { _volume = value; } }
 
+    void TranslateAllTextsInScene()
+    {
+        for(int i=0; i<SceneManager.sceneCount; i++)
+        {
+            List<GameObject> rootObjectsInScene = new List<GameObject>();
+            Scene scene = SceneManager.GetSceneAt(i);
+            scene.GetRootGameObjects(rootObjectsInScene);
+
+            foreach(GameObject root in rootObjectsInScene)
+            {
+                LocalizedText[] allComponents = root.GetComponentsInChildren<LocalizedText>(true);
+                for (int j = 0; j < allComponents.Length; j++)
+                {
+                    allComponents[j].Refresh();
+                }
+            }
+        }
+    }
     public void SaveSettings()
     {
         SaveData data = Load();
