@@ -20,7 +20,7 @@ MonoBehaviour:
   - _name: SlimeAttack
     _clip: {fileID: 8300000, guid: 53f05d31d332f4dec9ccb40258b0e87f, type: 3}
   - _name: SlimeLastHitted
-    _clip: {fileID: 8300000, guid: 78d4908328e546e4eb88ae69f0bf6f62, type: 3}
+    _clip: {fileID: 8300000, guid: 65cc7487eac13b4409ff52f7d3c624dc, type: 3}
   - _name: SlimeExplode
     _clip: {fileID: 8300000, guid: 92c25b29511c743658321b11fd809a48, type: 3}
   - _name: PlayerHitted
