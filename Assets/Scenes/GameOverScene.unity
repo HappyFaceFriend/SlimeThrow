@@ -294,10 +294,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME OVER
+  m_text: "\uAC8C\uC784 \uC885\uB8CC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
-  m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
+  m_sharedMaterial: {fileID: 3200917206534147755, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -838,10 +838,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Slime Killed :'
+  m_text: "\uC8FD\uC778 \uC2AC\uB77C\uC784:"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
-  m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
+  m_sharedMaterial: {fileID: 3200917206534147755, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -973,10 +973,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Reached :'
+  m_text: "\uAE30\uB85D:"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
-  m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
+  m_sharedMaterial: {fileID: 3200917206534147755, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1633,10 +1633,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: return
+  m_text: "\uB3CC\uC544\uAC00\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
-  m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
+  m_sharedMaterial: {fileID: 3200917206534147755, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2023,10 +2023,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrades
+  m_text: "\uC5C5\uADF8\uB808\uC774\uB4DC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
-  m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
+  m_sharedMaterial: {fileID: 3200917206534147755, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2485,10 +2485,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME OVER
+  m_text: "\uAC8C\uC784 \uC885\uB8CC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
-  m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
+  m_sharedMaterial: {fileID: 3200917206534147755, guid: d1b476d3aa54b3048a8d496cf4824a8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
