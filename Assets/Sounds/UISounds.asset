@@ -20,7 +20,7 @@ MonoBehaviour:
   - _name: MainSlimeWalk
     _clip: {fileID: 8300000, guid: 746c8da6628aa4b5c910ecd4d7d4003c, type: 3}
   - _name: LastSlimeDead
-    _clip: {fileID: 8300000, guid: 78d4908328e546e4eb88ae69f0bf6f62, type: 3}
+    _clip: {fileID: 8300000, guid: 69a458f045892a549bbc6dea3120cfbf, type: 3}
   - _name: GameWin
     _clip: {fileID: 8300000, guid: d15d2dbe42e36cf4fb27f94524e4ace1, type: 3}
   - _name: GameOver
