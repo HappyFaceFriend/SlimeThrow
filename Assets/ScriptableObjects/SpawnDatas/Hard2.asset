@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89760324d588e1439b340226358b3b6, type: 3}
   m_Name: Hard2
   m_EditorClassIdentifier: 
-  EasyWeight: 0
-  NormalWeight: 0.3
-  HardWeight: 0.6
-  VeryHardWeight: 0.1
+  EasyWeight: 0.1
+  NormalWeight: 0.4
+  HardWeight: 0.5
+  VeryHardWeight: 0
   MustSpawns: []
-  MainSlimeCandidates: []
+  MainSlimeCandidates:
+  - {fileID: 2243384798116598786, guid: 427807377da2a8245bad1b5e4f07c72a, type: 3}
+  - {fileID: 6406124441371963539, guid: de41f0d0f4b724f49a385b76ac43fac4, type: 3}
+  - {fileID: 5885471082506522880, guid: 9138fe507de73af47b0337431f941ff1, type: 3}
   MainSlimeWeight: 0.4
   SpawnInterval: 8
   Duration: 30

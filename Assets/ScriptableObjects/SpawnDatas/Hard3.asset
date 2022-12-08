@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: Hard3
   m_EditorClassIdentifier: 
   EasyWeight: 0
-  NormalWeight: 0.1
-  HardWeight: 0.6
-  VeryHardWeight: 0.3
+  NormalWeight: 0.4
+  HardWeight: 0.5
+  VeryHardWeight: 0.1
   MustSpawns: []
-  MainSlimeCandidates: []
+  MainSlimeCandidates:
+  - {fileID: 5885471082506522880, guid: 9138fe507de73af47b0337431f941ff1, type: 3}
+  - {fileID: 2243384798116598786, guid: 427807377da2a8245bad1b5e4f07c72a, type: 3}
+  - {fileID: 8694881231011927896, guid: ddded5407d5ac9746b0a323e05ceb10b, type: 3}
   MainSlimeWeight: 0.4
   SpawnInterval: 8
   Duration: 30

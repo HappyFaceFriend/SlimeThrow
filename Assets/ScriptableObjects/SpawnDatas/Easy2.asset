@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89760324d588e1439b340226358b3b6, type: 3}
   m_Name: Easy2
   m_EditorClassIdentifier: 
-  EasyWeight: 0.7
-  NormalWeight: 0.3
+  EasyWeight: 0.8
+  NormalWeight: 0.2
   HardWeight: 0
   VeryHardWeight: 0
   MustSpawns: []
@@ -21,7 +21,6 @@ MonoBehaviour:
   - {fileID: 1864016776417955332, guid: a161015a5fe73764cbe4fc9f64d281f5, type: 3}
   - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
   - {fileID: 1429698854386456877, guid: 0e92b62e6588c8d4183b34891bd1301f, type: 3}
-  - {fileID: 5885471082506522880, guid: 9138fe507de73af47b0337431f941ff1, type: 3}
-  MainSlimeWeight: 0.8
+  MainSlimeWeight: 0.3
   SpawnInterval: 5
   Duration: 25

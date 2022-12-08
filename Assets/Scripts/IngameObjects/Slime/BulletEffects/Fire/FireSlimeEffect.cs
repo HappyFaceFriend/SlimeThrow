@@ -16,7 +16,7 @@ public class FireSlimeEffect : SlimeBulletEffect
         {
             Probability = 1f;
             Duration = 4f;
-            DamagePerTick = 5;
+            DamagePerTick = 2;
         }
     }
 

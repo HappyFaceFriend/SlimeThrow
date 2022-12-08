@@ -433,9 +433,9 @@ public class SlimeSpawner : MonoBehaviour
         _spawnedSlimes.Add(Instantiate(GetRandomSlime(), spawnPoint, Quaternion.identity));
         var slime = _spawnedSlimes[_spawnedSlimes.Count - 1];
         if (GlobalRefs.UpgradeManager.GetCount("불타는 대지") >= 1 & _burningGround)
-            slime.ApplyBuff(new SlimeBuffs.Burn(4f, 3, 0.8f));
+            slime.ApplyBuff(new SlimeBuffs.Burn(4f, 2, 0.8f));
         if (GlobalRefs.UpgradeManager.GetCount("설원") >= 1 & _snowyField)
-            slime.ApplyBuff(new SlimeBuffs.Frostbite(5f, 1, 1f, 1f));
+            slime.ApplyBuff(new SlimeBuffs.Frostbite(4f, 2, 0.8f, 1f));
     }
     SlimeBehaviour GetRandomSlime()
     {

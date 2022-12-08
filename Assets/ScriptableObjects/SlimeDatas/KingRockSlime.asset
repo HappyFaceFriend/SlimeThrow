@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a7dd590531eb47b8c7d43ec978fc9, type: 3}
   m_Name: KingRockSlime
   m_EditorClassIdentifier: 
-  _maxHp: 2
-  _attackPower: 40
+  _maxHp: 500
+  _attackPower: 10
   _flowerAttackPower: 0
-  _attackSpeed: 1
+  _attackSpeed: 0.8
   _attackRange: 7
   _sightRange: 10
-  _moveSpeed: 0.2
+  _moveSpeed: 0.4
   _damageAsBullet: 0
   _type: 0
   _slotIcon: {fileID: -517770132, guid: 89f81cf39634983408fadb01c5397fa4, type: 3}
