@@ -461,7 +461,8 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: 86b05a63906350e46ae4edf41d83ed1d, type: 2}
   _grabbableDuration: 0
   _flip: {fileID: 8305295646882140979}
-  _flowerAttackRange: 0
+  _cancelAttackOnHit: 1
+  _flowerAttackRange: 2
   _flasher: {fileID: 9192006421531519432}
   _squasher: {fileID: 9192006421531519433}
   _normPosOfFlowerAttack: 0
@@ -482,7 +483,7 @@ MonoBehaviour:
   _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
   _isAttackDone: 0
   _numOfdirections: 10
-  _projectilePrefab: {fileID: 7763154171693699967, guid: 849bf560ecb749743b47a56d40f1151a, type: 3}
+  _projectilePrefab: {fileID: 95313459947677558, guid: 849bf560ecb749743b47a56d40f1151a, type: 3}
   _interval: 0.05
 --- !u!114 &9192006421531519432 stripped
 MonoBehaviour:

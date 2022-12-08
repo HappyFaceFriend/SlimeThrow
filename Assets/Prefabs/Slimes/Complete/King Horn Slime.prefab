@@ -346,7 +346,8 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: 1195bff4be466444185d39685790163f, type: 2}
   _grabbableDuration: 0
   _flip: {fileID: 5949675880124449841}
-  _flowerAttackRange: 0
+  _cancelAttackOnHit: 1
+  _flowerAttackRange: 2
   _flasher: {fileID: 6792477103867297482}
   _squasher: {fileID: 6792477103867297483}
   _normPosOfFlowerAttack: 0
@@ -364,6 +365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 0.67
+  _smokePrefab: {fileID: 0}
+  _isAttackDone: 0
   _normPosOfAttack: 0
   _willReturn: 0
 --- !u!114 &6792477103867297482 stripped
