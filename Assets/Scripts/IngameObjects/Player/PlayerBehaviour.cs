@@ -1,3 +1,4 @@
+using PlayerBuffs;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     public BuffableStat PushToTowerRange { get; private set; }
     public BuffableStat DamageAsBullet { get; private set; }
     public PlayerInput Inputs { get { return _inputs; } }
-    public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack; } }
+    public bool IsAbleToAttack { get { return _attackController.IsAbleToAttack && !_buffManager.HasBuff(typeof(PlayerFreeze)) && !_buffManager.HasBuff(typeof(PlayerShock)) && !_buffManager.HasBuff(typeof(PlayerStun)); } }
     public bool EverythingStopped { get; set; }
     public PlayerMovementSettings MovementSettings { get { return _movementSettings; } }
     public Color Color { get { return _combatSettings.Color; } }

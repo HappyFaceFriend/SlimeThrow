@@ -20,12 +20,13 @@ public class ElectroPadtile : CollisionPadtile
             player.OnHittedBySlime(_slime, _damage);
 
             if(GlobalRefs.UpgradeManager.GetCount("비전도체") <= 0)
-                player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration, _buffProbability));
+                player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration));
 
-            player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration, _buffProbability));
+           if(Random.Range(0f, 1f) <= _buffProbability)
+                player.ApplyBuff(new PlayerBuffs.PlayerShock(_duration));
 
 
-            if(GlobalRefs.UpgradeManager.GetCount("진화") >= 1)
+            if (GlobalRefs.UpgradeManager.GetCount("진화") >= 1)
             {
                 Modifier modifier = new Modifier(1.1f, Modifier.ApplyType.Multiply);
                 GlobalRefs.Player.AttackSpeed.AddModifier(modifier);

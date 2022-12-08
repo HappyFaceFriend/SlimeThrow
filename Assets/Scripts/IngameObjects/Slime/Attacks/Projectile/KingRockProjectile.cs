@@ -20,7 +20,10 @@ public class KingRockProjectile : SlimeProjectile
         {
             target.OnHittedBySlime(_slime, _damage);
             if(_slime.IsFever())
-                target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration, _probability));
+            {
+                if(Random.Range(0f, 1f) <= _probability)
+                    target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration));
+            }
             Die();
         }
     }
