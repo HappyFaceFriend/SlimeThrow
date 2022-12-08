@@ -18,6 +18,7 @@ public class StageSpawnData : ScriptableObject
     public float SpawnInterval;
     public float Duration;
 
+    public List<SlimeHerd> Specials;
     public float SpecialSpawnInterval;
     public float SpecialSpawnWeight;
 }
