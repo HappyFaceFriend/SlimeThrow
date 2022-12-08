@@ -137,8 +137,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         IsTargetable = true;
         if (FierceOn)
         {
-            _hpSystem.ChangeHp(_fierceNum * 100);
-            _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
             Modifier mod = new Modifier(_fierceNum, Modifier.ApplyType.Multiply);
             AttackSpeed.AddModifier(mod);
             MoveSpeed.AddModifier(mod);
@@ -164,6 +162,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         if (IsInvincible) 
             return;
         Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
+        SetInvincible(true, 0.3f);
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
         if (GlobalRefs.UpgradeManager.GetCount("È­¿°¹æ¾î¸·") != 0 && slime.Data.SlotIcon.name == "icon_Fire")

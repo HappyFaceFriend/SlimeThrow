@@ -20,9 +20,11 @@ MonoBehaviour:
   - _name: MainSlimeWalk
     _clip: {fileID: 8300000, guid: 746c8da6628aa4b5c910ecd4d7d4003c, type: 3}
   - _name: LastSlimeDead
-    _clip: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
+    _clip: {fileID: 8300000, guid: 78d4908328e546e4eb88ae69f0bf6f62, type: 3}
+  - _name: GameWin
+    _clip: {fileID: 8300000, guid: d15d2dbe42e36cf4fb27f94524e4ace1, type: 3}
   - _name: GameOver
-    _clip: {fileID: 8300000, guid: a95a49e8527c2ab44a18abf1ab9bfdb7, type: 3}
+    _clip: {fileID: 8300000, guid: ba8e5c2372d362f4284b119af33bdd41, type: 3}
   - _name: GameStartClicked
     _clip: {fileID: 8300000, guid: 2fe418256694cba4fa8d0bab3fafd2d1, type: 3}
   - _name: UpgradeClicked

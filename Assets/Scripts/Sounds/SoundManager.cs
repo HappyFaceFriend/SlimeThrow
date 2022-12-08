@@ -24,6 +24,15 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     {
         _bgmSource.Stop();
     }
+
+    public void PauseBGM()
+    {
+        _bgmSource.Pause();
+    }
+    public void ResumeBGM()
+    {
+        _bgmSource.Play();
+    }
     public void PlaySFX(string name, float volume = 0.5f)
     {
         AudioClip sound = _uiSounds.GetSound(name);
