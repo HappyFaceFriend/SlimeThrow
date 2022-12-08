@@ -23,6 +23,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] ElectricShock _shockPrefab;
     [SerializeField] BuffBubble _poisonedPrefab;
     [SerializeField] StunStar _stunPrefab;
+    [SerializeField] StickyFootStepGenerator _footstepPrefab;
 
     private void Awake()
     {
@@ -96,11 +97,12 @@ public class EffectManager : MonoBehaviour
         effect.transform.position = position;
         effect.gameObject.SetActive(true);
     }
-    public static PooledObject InstantiateStickyFootstep()
+    public static StickyFootStepGenerator InstantiateStickyFootstepGenerator()
     {
-        PooledObject effect = _instance._stickyFootstepPool.Create<PooledObject>();
+        StickyFootStepGenerator effect = Instantiate(EffectManager._instance._footstepPrefab);
         return effect;
     }
+
     public static void InstantiateSmokeEffect(Vector3 position, Vector3 velocity, float scale = 1f)
     {
         PooledEffect effect = _instance._smokeEffectPool.Create<PooledEffect>();

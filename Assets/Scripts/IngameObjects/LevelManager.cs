@@ -112,6 +112,14 @@ public class LevelManager : MonoBehaviour
         {
             GlobalRefs.Player.ForceOutOfTurret();
         }
+        int childs = GlobalRefs.Player.transform.childCount;
+        if (childs > 2)
+        {
+            for (int i = 0; i < childs; i++)
+                GlobalRefs.Player.transform.GetChild(i).gameObject.SetActive(true);
+            for (int i = 2; i < childs; i++)
+                Destroy(GlobalRefs.Player.transform.GetChild(i).gameObject);
+        }
 
     }
     private void Update()

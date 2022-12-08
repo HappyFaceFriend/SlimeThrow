@@ -13910,6 +13910,7 @@ MonoBehaviour:
   _shockPrefab: {fileID: 3535861403580283121, guid: ffb3a0b21db51fc40ae1db5434292430, type: 3}
   _poisonedPrefab: {fileID: -6890286734947844482, guid: 10ff5885b2988434db016b7da5857a31, type: 3}
   _stunPrefab: {fileID: -8429736540458833258, guid: b2b389770df6ae244a8df6a9baab9427, type: 3}
+  _footstepPrefab: {fileID: 0}
 --- !u!4 &1102111293
 Transform:
   m_ObjectHideFlags: 0

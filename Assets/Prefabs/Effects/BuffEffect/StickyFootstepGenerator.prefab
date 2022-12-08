@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a121a2ff6942804a854bb44db2e3b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 0.1
+  interval: 0.5
   randomOffset: {x: 0.25, y: 0.15, z: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SlimeAttackBase : MonoBehaviour
 {
     [SerializeField] float _duration;
+    [SerializeField] BulletSmoke _smokePrefab;
     protected float Duration { get { return _duration; } }
     Coroutine _attackCoroutine;
     protected SlimeBehaviour Slime { get; private set; }
@@ -12,6 +13,8 @@ public class SlimeAttackBase : MonoBehaviour
     public bool IsAttackDone { get { return _isAttackDone; } protected set { _isAttackDone = value; } }
     Utils.Timer _coolDownTimer;
     public bool IsCoolDownReady { get { return _coolDownTimer.IsOver; } }
+
+    
 
     Vector3 _targetFlowerPos;
     protected void Awake()
@@ -83,5 +86,10 @@ public class SlimeAttackBase : MonoBehaviour
     protected virtual IEnumerator AttackCoroutine()
     {
         yield return null;
+    }
+    public void InstanceSmoke()
+    {
+        BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
+        Destroy(smoke.gameObject, 2f);
     }
 }

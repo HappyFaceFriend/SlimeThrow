@@ -92,7 +92,6 @@ public class BulletBuilder : MonoBehaviour
     {
         BulletBehaviour bulletObject = Instantiate(_bulletPrefab).GetComponent<BulletBehaviour>();
         bulletObject._moveSpeed *= Speed.Value;
-        Debug.Log(bulletObject._moveSpeed);
         ApplyEffectsToBullet(bulletObject);
         Clear();
         return bulletObject;

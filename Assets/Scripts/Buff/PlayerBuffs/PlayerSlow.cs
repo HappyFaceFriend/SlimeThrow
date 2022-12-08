@@ -23,7 +23,10 @@ namespace PlayerBuffs
         {
             base.OnUpdate();
             if (!_active)
-            { 
+            {
+                StickyFootStepGenerator buff = EffectManager.InstantiateStickyFootstepGenerator();
+                buff.transform.SetParent(Owner.transform);
+                buff.transform.localPosition = Vector3.zero;
                 Owner.MoveSpeed.AddModifier(_modifier);
                 _active = true;
             }
@@ -35,7 +38,11 @@ namespace PlayerBuffs
                 }
             }
         }
-
+        public override void OnEnd()
+        {
+            base.OnEnd();
+            Owner.gameObject.GetComponentInChildren<StickyFootStepGenerator>().gameObject.SetActive(false);
+        }
     }
 }
 

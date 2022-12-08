@@ -26,8 +26,5 @@ public class KingRockAttack : MultiDirectionAttack
                 projectile.Init(targetPos, Slime);
             }
         }
-        BulletSmoke smoke = Instantiate(_smokePrefab, transform.position, Quaternion.identity);
-        smoke.SetColor(name);
-        Destroy(smoke.gameObject, 1f);
     }
 }
