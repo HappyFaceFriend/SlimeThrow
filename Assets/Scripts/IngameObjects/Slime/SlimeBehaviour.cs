@@ -124,7 +124,7 @@ public class SlimeBehaviour : StateMachineBase
         if (CurrentState is SlimeStates.SpawnState || !IsAlive)
             return;
         Vector3 impactPosition = transform.position + (player.transform.position - transform.position) / 2;
-        if(!_cancelAttackOnHit)
+        if(_cancelAttackOnHit)
             _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.Small, Defs.KnockBackSpeed.Small);
         if (GlobalRefs.UpgradeManager.GetCount("치명적인 불꽃") != 0 )
             damage *= 1.2f;
@@ -140,7 +140,7 @@ public class SlimeBehaviour : StateMachineBase
             return;
         Vector3 impactPosition = transform.position + (landPosition - transform.position) / 2;
 
-        if (!_cancelAttackOnHit) 
+        if (_cancelAttackOnHit) 
             _knockback.ApplyKnockback(impactPosition, 4, Defs.KnockBackSpeed.Small);
         damage *= GlobalRefs.LevelManger.Spawner.ExtraDamage.Value;
         if (_hpSystem.CurrentHp < (_hpSystem.MaxHp.Value / 2) & GlobalRefs.UpgradeManager.GetCount("파이어 슬래이어") != 0 & GlobalRefs.Turret._bulletBuilder._slimeName == "Fire Slime")
@@ -174,7 +174,7 @@ public class SlimeBehaviour : StateMachineBase
                 SoundManager.Instance.PlaySFX("SlimeHitted1");
             else
                 SoundManager.Instance.PlaySFX("SlimeHitted2");
-            if (!_cancelAttackOnHit)
+            if (_cancelAttackOnHit)
                 ChangeState(new SlimeStates.HittedState(this));
         }
     }

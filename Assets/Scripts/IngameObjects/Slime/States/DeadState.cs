@@ -23,7 +23,7 @@ namespace SlimeStates
             Vector3 knockbackVec = _knockback.Velocity;
             if (knockbackVec == Vector3.zero)
             {
-                knockbackVec = (_movement.TargetPos - Slime.transform.position).normalized;
+                knockbackVec = -(_movement.TargetPos - Slime.transform.position).normalized;
                 _knockback.ApplyKnockbackDir(knockbackVec.normalized, 3.5f, 7);
             }
             else
