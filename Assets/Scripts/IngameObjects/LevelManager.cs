@@ -23,6 +23,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] string state;
     List<string> _upgradeList;
 
+    float _playerMoveSpeed;
+    float _playerAttackSpeed;
     int _currentStage;
     int _slimeKilled;
 
@@ -53,7 +55,11 @@ public class LevelManager : MonoBehaviour
         _dirts[dirtIdx].PlantFlower(_flower);
     }
 
-    
+    void GetPlyaerData()
+    {
+        _playerAttackSpeed = GlobalRefs.Player.AttackSpeed.Value;
+        _playerMoveSpeed = GlobalRefs.Player.MoveSpeed.Value;
+    }
 
     IEnumerator GameLoop()
     {
@@ -68,6 +74,7 @@ public class LevelManager : MonoBehaviour
         state = "Before loop";
         while (_currentStage < _spawner.MaxStage)
         {
+            GetPlyaerData();
             SaveData data = new SaveData(_currentStage, GlobalRefs.UpgradeManager.UpgradesNames, (double)GlobalRefs.Player.HpSystem.CurrentHp, (double)GlobalRefs.Flower.HPSystem.CurrentHp, SlimeKilled, SaveDataManager.Instance.Language, (double)SaveDataManager.Instance.Volume, GlobalRefs.UpgradeManager.RerollCount);
             SaveDataManager.Instance.Save(data);
 
@@ -133,6 +140,14 @@ public class LevelManager : MonoBehaviour
                 GlobalRefs.Player.transform.GetChild(i).gameObject.SetActive(true);
             for (int i = 2; i < childs; i++)
                 Destroy(GlobalRefs.Player.transform.GetChild(i).gameObject);
+        }
+
+        if(GlobalRefs.UpgradeManager.GetCount("抄气茄 家斥1") >= 1 || GlobalRefs.UpgradeManager.GetCount("抄气茄 家斥2") >= 1)
+        {
+            Modifier mod1 = new Modifier(_playerAttackSpeed - GlobalRefs.Player.AttackSpeed.Value, Modifier.ApplyType.Add);
+            Modifier mod2 = new Modifier(_playerMoveSpeed - GlobalRefs.Player.MoveSpeed.Value, Modifier.ApplyType.Add);
+            GlobalRefs.Player.AttackSpeed.AddModifier(mod1);
+            GlobalRefs.Player.MoveSpeed.AddModifier(mod2);
         }
 
     }
