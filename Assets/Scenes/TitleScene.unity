@@ -1142,7 +1142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shoot
+  m_text: "\uBC1C\uC0AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How to Play
+  m_text: "\uAC8C\uC784 \uBC29\uBC95"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -2316,7 +2316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Attack
+  m_text: "\uACF5\uACA9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -3346,7 +3346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move
+  m_text: "\uC774\uB3D9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -3776,7 +3776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: return
+  m_text: "\uB3CC\uC544\uAC00\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -4265,7 +4265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: protect your flower!
+  m_text: "\uB2F9\uC2E0\uC758 \uAF43\uC744 \uBCF4\uD638\uD558\uC138\uC694!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -4484,7 +4484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dodge
+  m_text: "\uAD6C\uB974\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -5171,7 +5171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How to Play
+  m_text: "\uAC8C\uC784 \uBC29\uBC95"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -6009,7 +6009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get in Turret
+  m_text: "\uB300\uD3EC\uC5D0 \uB4E4\uC5B4\uAC00\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
@@ -6388,7 +6388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pick up Flower
+  m_text: "\uAF43 \uC90D\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}
   m_sharedMaterial: {fileID: 5538672790399869949, guid: d6adec24f73a685488ac1910d0fe146f, type: 2}

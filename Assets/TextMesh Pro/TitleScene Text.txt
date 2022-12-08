@@ -1,9 +1,34 @@
 en	ko
 New Game	새 게임
 Load Game	이어하기
-Setting	설정
-Exit	종료
 Settings	설정
 Volume	음량
 Language	언어
 DONE	완료
+How To Play	게임 방법
+PROTECT YOUR FLOWER!	당신의 꽃을 보호하세요!
+MOVE	이동
+ATTACK	공격
+DODGE	구르기
+SHOOT	발사
+PICK UP FLOWER	꽃 줍기
+GET IN TURRET	대포에 들어가기
+RETURN	돌아가기
+GAME OVER	게임 종료
+REACHED	기록
+STAGE	스테이지
+SLIME KILLED	죽인 슬라임
+UPGRADES	업그레이드
+EXIT	나가기
+SPECIAL THANKS TO	도움을 준 분들
+HYUN SUK CHOI	최현석
+PROFESSOR SON	손용석 교수님
+MENTOR KIM	김윤래 멘토님
+CHUNGANG UNIVERSITY	중앙대학교
+THANKS FOR PLAYING!	플레이 해주셔서 감사합니다!
+SYSTEM DEVELOPMENT	시스템 개발
+YOUNG JIN LEE	이영진
+UPGRADE DEVELOPMENT	업그레이드 개발
+JAE YOUNG BAE	배재영
+SLIME DEVELOPMENT	슬라임 개발
+SE HEE KIM	김세희
