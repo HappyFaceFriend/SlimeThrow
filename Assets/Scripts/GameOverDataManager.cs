@@ -11,6 +11,7 @@ public class GameOverDataManager : MonoBehaviour
         public int Stage;
         public int SlimeKilled;
         public UpgradeData[] Upgrades;
+        public bool Win;
     }
     static GameOverDataManager _instance = null;
     static GameOverDataManager _safeInstance

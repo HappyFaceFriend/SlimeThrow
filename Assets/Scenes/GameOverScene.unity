@@ -1417,6 +1417,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _titleSceneName: TitleScene
+  _mainTitle:
+  - {fileID: 2108156844}
+  - {fileID: 204711782}
+  _exitButtonText: {fileID: 1463013286}
   _clearedStageText: {fileID: 527733159}
   _slimeKilledText: {fileID: 1508369675}
   _upgradesParent: {fileID: 1498222455}
@@ -2235,7 +2239,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 239.2719, y: 36.1671}
+  m_SizeDelta: {x: 255.5161, y: 36.1671}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924147130
 MonoBehaviour:
