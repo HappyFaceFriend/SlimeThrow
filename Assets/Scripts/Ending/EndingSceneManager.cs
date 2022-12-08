@@ -21,6 +21,11 @@ public class EndingSceneManager : MonoBehaviour
     [SerializeField] Transform[] _afterCredits;
 
     [SerializeField] Transform _thankyou;
+    public void AnimEvent_Shoot()
+    {
+        SoundManager.Instance.PlayBGM("Ending");
+        SoundManager.Instance.PlaySFX("BulletShoot", 2f);
+    }
     public void AnimEvent_StartCredit()
     {
         StartCoroutine(CreditCoroutine());
