@@ -23,7 +23,6 @@ namespace PlayerBuffs
         public override void OnStart()
         {
             base.OnStart();
-            _buff = EffectManager.InstantiateBubble();
             _buff.transform.SetParent(Owner.transform);
             _buff.transform.localPosition = Vector3.zero;
             _buff.SetDuration(_duration);

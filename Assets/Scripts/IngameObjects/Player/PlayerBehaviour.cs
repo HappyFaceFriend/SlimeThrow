@@ -200,7 +200,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
 
-    void OnDie()
+    protected void OnDie()
     {
         _flip.enabled = false;
         Destroy(GetComponent<CircleCollider2D>());

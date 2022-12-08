@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 300
   _attackPower: 5
-  _flowerAttackPower: 0
-  _attackSpeed: 0.5
+  _flowerAttackPower: 4
+  _attackSpeed: 0.6
   _attackRange: 8
   _sightRange: 10
   _moveSpeed: 0.3

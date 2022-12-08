@@ -9,7 +9,8 @@ public class GlobalRefs : MonoBehaviour
     [SerializeField] Flower _flower;
     [SerializeField] UpgradeManager _upgradeManager;
     [SerializeField] LevelManager _levelManager;
-    //[SerializeField] LevelManager _levelManager;
+    [SerializeField] Transform _flash;
+
     static GlobalRefs _instance = null;
 
     static GlobalRefs _safeInstance 
@@ -26,6 +27,8 @@ public class GlobalRefs : MonoBehaviour
     public static Flower Flower { get { return _safeInstance._flower; } }
     public static UpgradeManager UpgradeManager { get { return _safeInstance._upgradeManager; } }
     public static LevelManager LevelManger { get { return _safeInstance._levelManager; } }
+
+    public static Transform  Flash { get { return _safeInstance._flash; } }
     private void Awake()
     {
         _instance = this;

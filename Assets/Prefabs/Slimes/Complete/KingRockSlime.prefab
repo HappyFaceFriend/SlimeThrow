@@ -358,11 +358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c0571118f165d4e81ca30b1d0ed17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 3
+  _duration: 1
+  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
   _isAttackDone: 0
   _numOfdirections: 10
   _projectilePrefab: {fileID: 4819902492845863690, guid: 511b194ff50f0204d834b5f6d50ba8c1, type: 3}
-  _smokePrefab: {fileID: 3287679742095652102, guid: 949184e07c6a06140bb89dce6ec62295, type: 3}
 --- !u!114 &467252277621801285
 MonoBehaviour:
   m_ObjectHideFlags: 0
