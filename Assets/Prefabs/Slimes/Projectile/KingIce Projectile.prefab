@@ -79,7 +79,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5073582269476436944, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
   m_PrefabInstance: {fileID: 7952113018859115971}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7763154171693699967
+--- !u!114 &95313459947677558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,13 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2896773995829898771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f3c89b6c684684481e9a2f1f239247, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d88189b6f36d3047ad87cae42b847d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 5
   _moveSpeed: 5
-  _buffPrefab: {fileID: 7719907623317397778, guid: 7b7fa510811306f4f97c0902fe22782e, type: 3}
   _buffProbability: 1
   _duration: 4
-  _damagePerTick: 5
   _childProjectile: {fileID: 5073582269476436947, guid: 835a1979635289c4f84eef006db10a7f, type: 3}
