@@ -255,8 +255,6 @@ public class LevelManager : MonoBehaviour
             GlobalRefs.Flower.HPBar.SetHp((int)GlobalRefs.Flower.HPSystem.CurrentHp, (int)GlobalRefs.Flower.HPSystem.MaxHp.Value);
             GlobalRefs.UpgradeManager.RerollCount = data._rerollCount;
             SlimeKilled = data._slimesKilled;
-            SaveDataManager.Instance.Language = data._language;
-            SaveDataManager.Instance.Volume = (float)data._volume;
         }
     }
 }
