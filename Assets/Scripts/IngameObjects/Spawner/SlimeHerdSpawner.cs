@@ -96,7 +96,7 @@ public class SlimeHerdSpawner : MonoBehaviour
             specialETime += Time.deltaTime;
             float waitTime = spawnData.SpecialSpawnInterval * Random.Range(0.85f, 1.1f);
             yield return new WaitForSeconds(waitTime);
-            if (IsSpawning)
+            if (!IsSpawning)
                 yield break;
 
             int currentAreaIdx = Random.Range(0, _spawnAreas.Length);
