@@ -190,13 +190,13 @@ public class LevelManager : MonoBehaviour
     }
     public void OnPlayerDead()
     {
-        SoundManager.Instance.PlaySFX("GameOver");
+        SoundManager.Instance.PlaySFX("GameOver",2);
         StopGame();
         StartCoroutine(PlayerDieCoroutine());
     }
     public void OnFlowerDead()
     {
-        SoundManager.Instance.PlaySFX("GameOver");
+        SoundManager.Instance.PlaySFX("GameOver",2);
         StopGame();
         StartCoroutine(FlowerDieCoroutine());
     }

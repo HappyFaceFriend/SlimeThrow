@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89760324d588e1439b340226358b3b6, type: 3}
   m_Name: Normal2
   m_EditorClassIdentifier: 
-  EasyWeight: 0.3
-  NormalWeight: 0.7
+  EasyWeight: 0.4
+  NormalWeight: 0.6
   HardWeight: 0
   VeryHardWeight: 0
   MustSpawns: []
@@ -23,5 +23,12 @@ MonoBehaviour:
   - {fileID: 147796247482930567, guid: 04437c67c3aba7b418f7140770d1e64e, type: 3}
   - {fileID: 1429698854386456877, guid: 0e92b62e6588c8d4183b34891bd1301f, type: 3}
   MainSlimeWeight: 0.3
-  SpawnInterval: 6
+  SpawnInterval: 7.1
   Duration: 30
+  Specials:
+  - {fileID: 8010108785288251648, guid: 297d4c3f6e891fb45b5c9487a8ad2b5d, type: 3}
+  - {fileID: 8010108785288251648, guid: 297d4c3f6e891fb45b5c9487a8ad2b5d, type: 3}
+  - {fileID: 8010108785288251648, guid: 297d4c3f6e891fb45b5c9487a8ad2b5d, type: 3}
+  - {fileID: 6769264226660197822, guid: 884b955568c386140867c90f237af321, type: 3}
+  SpecialSpawnInterval: 19
+  SpecialSpawnWeight: 0.8

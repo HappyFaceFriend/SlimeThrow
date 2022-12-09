@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PlayerCombatSettings
   m_EditorClassIdentifier: 
   _maxHp: 150
-  _attackPower: 10
+  _attackPower: 12
   _attackSpeed: 2
-  _damageAsBullet: 10
+  _damageAsBullet: 13
   _getInTurretRange: 1
   _grabRange: 0.45
   _pushToTowerRange: 2

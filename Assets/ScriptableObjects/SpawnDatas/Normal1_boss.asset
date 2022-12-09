@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89760324d588e1439b340226358b3b6, type: 3}
   m_Name: Normal1_boss
   m_EditorClassIdentifier: 
-  EasyWeight: 0.3
-  NormalWeight: 0.7
+  EasyWeight: 0.4
+  NormalWeight: 0.6
   HardWeight: 0
   VeryHardWeight: 0
   MustSpawns:
@@ -21,5 +21,9 @@ MonoBehaviour:
   MainSlimeCandidates:
   - {fileID: 1639860601937243498, guid: b27c20c8334fdf24d996b2313cb989ed, type: 3}
   MainSlimeWeight: 0.5
-  SpawnInterval: 6
+  SpawnInterval: 8
   Duration: 30
+  Specials:
+  - {fileID: 8010108785288251648, guid: 297d4c3f6e891fb45b5c9487a8ad2b5d, type: 3}
+  SpecialSpawnInterval: 16
+  SpecialSpawnWeight: 1
