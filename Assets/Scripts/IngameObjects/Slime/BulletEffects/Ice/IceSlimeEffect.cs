@@ -33,7 +33,7 @@ public class IceSlimeEffect : SlimeBulletEffect
     protected override void OnHittedSlime(SlimeBehaviour slime, AdditionalInfo info, Vector3 landPosition)
     {
         var iceInfo = info as IceEffectInfo;
-        if (GlobalRefs.UpgradeManager.GetCount("ºù°áÅº") >= 1)
+        if (slime.GetComponent<KingBehaviour>() == null && GlobalRefs.UpgradeManager.GetCount("ºù°áÅº") >= 1)
             iceInfo._freezeTime = 1000f;
         else
             iceInfo._freezeTime += GlobalRefs.UpgradeManager.GetCount("¾óÀ½ ¶¯");

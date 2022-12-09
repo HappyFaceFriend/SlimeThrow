@@ -190,11 +190,13 @@ public class LevelManager : MonoBehaviour
     }
     public void OnPlayerDead()
     {
+        SoundManager.Instance.PlaySFX("GameOver");
         StopGame();
         StartCoroutine(PlayerDieCoroutine());
     }
     public void OnFlowerDead()
     {
+        SoundManager.Instance.PlaySFX("GameOver");
         StopGame();
         StartCoroutine(FlowerDieCoroutine());
     }
@@ -221,9 +223,7 @@ public class LevelManager : MonoBehaviour
     }
     void OpenGameOver(bool win)
     {
-        if (!win)
-            SoundManager.Instance.PlaySFX("GameOver");
-        else
+        if (win)
             SoundManager.Instance.PlayBGM("GameWin");
         GameOverDataManager.GameOverData data = new GameOverDataManager.GameOverData();
         data.Win = win;

@@ -11,6 +11,7 @@ public class TitleSceneManager : MonoBehaviour
     [SerializeField] string _settingSceneName;
     [SerializeField] Animator _animator;
     [SerializeField] float _cameraMoveMagnitude;
+    [SerializeField] Panel _howtoplay;
 
     bool _canCameraMove = false;
 
@@ -37,9 +38,9 @@ public class TitleSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene(_settingSceneName, LoadSceneMode.Additive);
     }
-    public void Exit()
+    public void HowToPlay()
     {
-        Application.Quit();
+        _howtoplay.gameObject.SetActive(true);
     }
     public void EnableCameraMove()
     {

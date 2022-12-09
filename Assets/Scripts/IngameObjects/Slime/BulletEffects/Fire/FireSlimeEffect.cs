@@ -44,7 +44,7 @@ public class FireSlimeEffect : SlimeBulletEffect
         if (slime.FlameBullet)  
             damage = slime.HPSystem.MaxHp.Value * 0.1f;
         var fireinfo = info as BurnEffectInfo;
-        if (GlobalRefs.UpgradeManager.GetCount("È­¿°Åº") != 0)
+        if (slime.GetComponent<KingBehaviour>() == null && GlobalRefs.UpgradeManager.GetCount("È­¿°Åº") != 0)
             fireinfo.DamagePerTick = (int)(slime.HPSystem.MaxHp.Value / 10f);
         else
             fireinfo.DamagePerTick += GlobalRefs.UpgradeManager.GetCount("Å¸µé¾î°¡´Â ½½¶óÀÓ");
