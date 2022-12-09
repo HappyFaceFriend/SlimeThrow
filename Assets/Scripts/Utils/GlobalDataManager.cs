@@ -13,7 +13,7 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     private bool _load = false;
     public bool Load { get { return _load; } }
 
-    new void Awake()
+    public new void Awake()
     {
         base.Awake();
         localizedUpgradeData = FileUtils.ParseTSV(stringsFile1.text);
