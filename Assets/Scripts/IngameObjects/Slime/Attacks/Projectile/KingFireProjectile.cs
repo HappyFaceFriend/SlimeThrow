@@ -7,14 +7,17 @@ public class KingFireProjectile : FireProjectile
 {
     bool _split = false;
     [SerializeField] SlimeProjectile _childProjectile;
+    SlimeBehaviour _source;
     private void Start()
     {
         if (_slime.IsFever())
             _split = true;
+       
     }
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
+        _source = shooter;
     }
 
    protected override void Die()

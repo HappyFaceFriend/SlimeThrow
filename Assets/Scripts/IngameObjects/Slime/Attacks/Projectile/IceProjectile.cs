@@ -6,7 +6,7 @@ public class IceProjectile : SlimeProjectile
 {
     public float _buffProbability;
     public float _duration;
-    public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
+    public override void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
     }

@@ -93,11 +93,6 @@ public class SlimeHerdSpawner : MonoBehaviour
         while (IsSpawning)
         {
             specialETime += Time.deltaTime;
-            int currentAreaIdx = Random.Range(0, _spawnAreas.Length);
-
-            if(Random.Range(0f, 1f) < spawnData.SpecialSpawnWeight)
-                SpawnHerdRandomPos(Utils.Random.RandomElement(spawnData.Specials), currentAreaIdx);
-
             float waitTime = spawnData.SpecialSpawnInterval * Random.Range(0.85f, 1.1f);
 
             float eTime2 = 0f;
@@ -106,6 +101,12 @@ public class SlimeHerdSpawner : MonoBehaviour
                 eTime2 += Time.deltaTime;
                 yield return null;
             }
+
+            int currentAreaIdx = Random.Range(0, _spawnAreas.Length);
+
+            if(Random.Range(0f, 1f) < spawnData.SpecialSpawnWeight)
+                SpawnHerdRandomPos(Utils.Random.RandomElement(spawnData.Specials), currentAreaIdx);
+
         }
     }
     IEnumerator StartSpawning(int currentStage)
