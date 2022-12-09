@@ -395,11 +395,6 @@ public class SlimeSpawner : MonoBehaviour
     {
         return Random.Range(2.8f - 0.3f * round, 4.4f - 0.4f * round);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            StartStage();
-    }
     static float ClampAngle(float angle)
     {
         angle = angle % 360;

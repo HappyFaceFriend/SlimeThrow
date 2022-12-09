@@ -18,6 +18,8 @@ public class Credit : EndingText
 
     public void Init(string title, string name)
     {
+        title = GlobalDataManager.Instance.GetLocalizedTitle(title);
+        name = GlobalDataManager.Instance.GetLocalizedTitle(name);
         _titleText1.text = title;
         _titleText2.text = title;
         _nameText1.text = name;

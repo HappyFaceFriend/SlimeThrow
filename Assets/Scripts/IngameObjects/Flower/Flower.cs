@@ -37,11 +37,6 @@ public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
         _hpSystem.ChangeHp(recover);
         _hpBar.SetHp((int)_hpSystem.CurrentHp, (int)_hpSystem.MaxHp.Value);
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-            OnHittedBySlime(null, 9999999);
-    }
     public void SetGrabbed(GrabController grabController)
     {
         _flowerstate = FlowerState.Grab;

@@ -10,14 +10,37 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     List<Dictionary<string, string>> localizedUpgradeData;
     List<Dictionary<string, string>> localizedTitleData;
 
+
+    List<Dictionary<string, string>> LocalizedUpgradeData { get 
+        {
+            if (localizedUpgradeData == null)
+                ParseTexts();
+            return localizedUpgradeData; 
+        } }
+    List<Dictionary<string, string>> LocalizedTitleData
+    {
+        get
+        {
+            if (localizedTitleData == null)
+                ParseTexts();
+            return localizedTitleData;
+        }
+    }
+
     private bool _load = false;
     public bool Load { get { return _load; } }
-
-    public new void Awake()
+    
+    void ParseTexts()
     {
-        base.Awake();
+        stringsFile1 = Resources.Load<TextAsset>("Texts/UpgradeTitle");
+        stringsFile2 = Resources.Load<TextAsset>("Texts/TitleScene Text");
         localizedUpgradeData = FileUtils.ParseTSV(stringsFile1.text);
         localizedTitleData = FileUtils.ParseTSV(stringsFile2.text);
+    }
+    new void Awake()
+    {
+        base.Awake();
+        ParseTexts();
     }
 
     public void SetLoad()
@@ -28,14 +51,14 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     public string GetLocalizedString(string string_ko)
     {
         string code = SaveDataManager.Instance.Language;
-        var languageData = localizedUpgradeData.Find(x => x["ko"] == string_ko);
+        var languageData = LocalizedUpgradeData.Find(x => x["ko"] == string_ko);
         return languageData[code];
     }
 
     public string GetLocalizedTitle(string string_ko)
     {
         string code = SaveDataManager.Instance.Language;
-        var languageData = localizedTitleData.Find(x => x["ko"] == string_ko);
+        var languageData = LocalizedTitleData.Find(x => x["ko"] == string_ko);
         return languageData[code];
     }
 }

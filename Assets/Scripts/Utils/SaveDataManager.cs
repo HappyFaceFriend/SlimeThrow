@@ -13,14 +13,26 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
     float _volume = 0.5f;
     JsonData Data;
 
-    public void UpdateLanguage()
+    private new void Awake()
     {
-        if (_language == "ko")
-            _language = "en";
-        else
-            _language = "ko";
+        base.Awake();
+        LoadSettings();
     }
 
+    void LoadSettings()
+    {
+        SaveData data = Load();
+        if (data == null)
+        {
+            _language = "en";
+            _volume = 0.5f;
+        }
+        else
+        {
+            _language = data._language;
+            _volume = (float)data._volume;
+        }
+    }
     public string Language { get { return _language; } set { _language = value; TranslateAllTextsInScene(); } }
     public float Volume { get { return _volume; } set { _volume = value; } }
 
@@ -34,7 +46,7 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
 
             foreach(GameObject root in rootObjectsInScene)
             {
-                LocalizedText[] allComponents = root.GetComponentsInChildren<LocalizedText>(true);
+                LocalizedText[] allComponents = root.GetComponentsInChildren<LocalizedText>();
                 for (int j = 0; j < allComponents.Length; j++)
                 {
                     allComponents[j].Refresh();

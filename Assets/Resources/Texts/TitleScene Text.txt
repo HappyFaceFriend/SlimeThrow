@@ -26,9 +26,12 @@ PROFESSOR SON	손용석 교수님
 MENTOR KIM	김윤래 멘토님
 CHUNGANG UNIVERSITY	중앙대학교
 THANKS FOR PLAYING!	플레이 해주셔서 감사합니다!
-SYSTEM DEVELOPMENT	시스템 개발
+System Development	시스템 개발
 YOUNG JIN LEE	이영진
-UPGRADE DEVELOPMENT	업그레이드 개발
+Upgrade Development	업그레이드 개발
 JAE YOUNG BAE	배재영
-SLIME DEVELOPMENT	슬라임 개발
+Slime Development	슬라임 개발
 SE HEE KIM	김세희
+CURRENT STAGE	현재 스테이지
+RESUME	재개
+PAUSED	일시정지

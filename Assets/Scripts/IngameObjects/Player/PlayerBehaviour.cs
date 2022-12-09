@@ -119,8 +119,6 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
                 IsInvincible = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.P))
-            OnHitted(99999, Vector3.zero, false);
 
         UpdateAnimSpeeds();
         MoveInBounds();

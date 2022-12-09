@@ -24,13 +24,6 @@ public class TreeSetter : MonoBehaviour
         row1.position = new Vector3(-_mapSize.x / 2, _mapSize.y / 2, 0);
         row2.position = new Vector3(-_mapSize.x / 2, -_mapSize.y / 2, 0);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            GenerateTrees();
-        }
-    }
     Transform GenerateColumn(int count)
     {
         Transform parent = new GameObject("col").transform;
