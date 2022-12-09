@@ -37,6 +37,7 @@ public class SlimeHerdSpawner : MonoBehaviour
     List<SlimeBehaviour> _recentDead = new List<SlimeBehaviour>();
     public List<SlimeBehaviour> RecentDead { get { return _recentDead; } }
 
+    Coroutine _specialSpawn = null;
     Coroutine _spawingCoroutine = null;
     private void Awake()
     {
@@ -94,13 +95,9 @@ public class SlimeHerdSpawner : MonoBehaviour
         {
             specialETime += Time.deltaTime;
             float waitTime = spawnData.SpecialSpawnInterval * Random.Range(0.85f, 1.1f);
-
-            float eTime2 = 0f;
-            while (eTime2 <= waitTime && IsSpawning)
-            {
-                eTime2 += Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(waitTime);
+            if (IsSpawning)
+                yield break;
 
             int currentAreaIdx = Random.Range(0, _spawnAreas.Length);
 
@@ -119,7 +116,7 @@ public class SlimeHerdSpawner : MonoBehaviour
         IsSpawning = true;
         eTime = 0;
         if (spawnData.Specials.Count > 0 && spawnData.SpawnInterval > 0)
-            StartCoroutine(StartSpecialSpawn(spawnData,currentStage));
+            _specialSpawn = StartCoroutine(StartSpecialSpawn(spawnData,currentStage));
         while(eTime < spawnData.Duration)
         {
             eTime += Time.deltaTime;
@@ -154,6 +151,8 @@ public class SlimeHerdSpawner : MonoBehaviour
         }
         
         IsSpawning = false;
+        if (_specialSpawn != null)
+            StopCoroutine(_specialSpawn);
     }
     SlimeBehaviour GetMainSlime(int currentStage, StageSpawnData spawnData)
     {
