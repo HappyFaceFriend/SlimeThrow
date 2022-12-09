@@ -93,6 +93,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 5
   _moveSpeed: 5
-  _buffProbability: 1
-  _duration: 4
+  _buffProbability: 0.5
+  _duration: 2
   _childProjectile: {fileID: 5073582269476436947, guid: 835a1979635289c4f84eef006db10a7f, type: 3}

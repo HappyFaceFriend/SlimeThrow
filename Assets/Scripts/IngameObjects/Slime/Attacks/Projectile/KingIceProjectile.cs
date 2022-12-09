@@ -6,15 +6,18 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class KingIceProjectile : IceProjectile
 {
     bool _split = false;
+    SlimeBehaviour _source;
     [SerializeField] SlimeProjectile _childProjectile;
     private void Start()
     {
         if (_slime.IsFever())
             _split = true;
+        
     }
-    public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
+    public override void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
+        _source = shooter;
     }
 
    protected override void Die()

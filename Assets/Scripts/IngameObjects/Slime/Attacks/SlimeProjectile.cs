@@ -19,7 +19,7 @@ public class SlimeProjectile : MonoBehaviour
         Vector3 v = end - start;
         return Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
     }
-    public void Init(Vector3 targetPosition, SlimeBehaviour shooter)
+    public virtual void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         _moveDir = (targetPosition - transform.position).normalized;
         _slime = shooter;

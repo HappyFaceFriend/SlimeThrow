@@ -14,6 +14,7 @@ public class AngelBehaviour : SlimeBehaviour
     {
         base.OnDestroy();
         GlobalRefs.Flower.RecoverHP(_recoverHp);
+        GlobalRefs.Player.HpSystem.ChangeHp(_recoverHp+20);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
