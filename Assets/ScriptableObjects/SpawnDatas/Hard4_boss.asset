@@ -25,5 +25,5 @@ MonoBehaviour:
   Duration: 30
   Specials:
   - {fileID: 8010108785288251648, guid: 297d4c3f6e891fb45b5c9487a8ad2b5d, type: 3}
-  SpecialSpawnInterval: 17
-  SpecialSpawnWeight: 0.75
+  SpecialSpawnInterval: 12
+  SpecialSpawnWeight: 1
