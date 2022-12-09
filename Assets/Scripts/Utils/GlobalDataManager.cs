@@ -12,9 +12,9 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
 
 
     List<Dictionary<string, string>> LocalizedUpgradeData { get 
-        { 
-            if(localizedUpgradeData == null)
-                localizedUpgradeData = FileUtils.ParseTSV(stringsFile1.text);
+        {
+            if (localizedUpgradeData == null)
+                ParseTexts();
             return localizedUpgradeData; 
         } }
     List<Dictionary<string, string>> LocalizedTitleData
@@ -22,7 +22,7 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
         get
         {
             if (localizedTitleData == null)
-                localizedTitleData = FileUtils.ParseTSV(stringsFile2.text);
+                ParseTexts();
             return localizedTitleData;
         }
     }
@@ -30,11 +30,17 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     private bool _load = false;
     public bool Load { get { return _load; } }
 
+    void ParseTexts()
+    {
+        stringsFile1 = Resources.Load<TextAsset>("Texts/UpgradeTitle");
+        stringsFile2 = Resources.Load<TextAsset>("Texts/TitleScene Text");
+        localizedUpgradeData = FileUtils.ParseTSV(stringsFile1.text);
+        localizedTitleData = FileUtils.ParseTSV(stringsFile2.text);
+    }
     new void Awake()
     {
         base.Awake();
-        localizedUpgradeData = FileUtils.ParseTSV(stringsFile1.text);
-        localizedTitleData = FileUtils.ParseTSV(stringsFile2.text);
+        ParseTexts();
     }
 
     public void SetLoad()
