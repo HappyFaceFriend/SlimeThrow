@@ -19,7 +19,7 @@ public class LocalizedText : MonoBehaviour
         else
             key = text2.text;
     }
-    public void Refresh()
+    public virtual void Refresh()
     {
         if (text != null)
             text.text = GlobalDataManager.Instance.GetLocalizedTitle(key);
