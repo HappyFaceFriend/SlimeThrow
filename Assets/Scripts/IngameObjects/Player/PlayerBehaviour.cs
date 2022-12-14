@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
+public class PlayerBehaviour : StateMachineBase
 {
     [SerializeField] FlipObjectToPoint _flip;
     [SerializeField] PlayerMovementSettings _movementSettings;
@@ -153,21 +153,23 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
     {
         _knockback.StopKnockback();
     }
-    public void OnHittedBySlime(SlimeBehaviour slime, float damage)
+    public void OnHittedBySlime(SlimeBehaviour slime, float damage, Vector3 position)
     {
         if (EverythingStopped)
             return;
         if (IsInvincible) 
             return;
-        Vector3 impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
+        Vector3 impactPosition = position;
+        if (slime.isActiveAndEnabled)
+            impactPosition = transform.position + (slime.transform.position - transform.position) / 2;
         SetInvincible(true, 0.3f);
         _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
         EffectManager.InstantiateHitEffect(transform.position);
-        if (GlobalRefs.UpgradeManager.GetCount("화염방어막") != 0 && slime.Data.SlotIcon.name == "icon_Fire")
+        if (slime.isActiveAndEnabled && GlobalRefs.UpgradeManager.GetCount("화염방어막") != 0 && slime.Data.SlotIcon.name == "icon_Fire")
             damage /= 2f;
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted");
-        if (GlobalRefs.UpgradeManager.GetCount("정전기") >= 1 && slime.Data.SlotIcon.name == "icon_Electro")
+        if (slime.isActiveAndEnabled && GlobalRefs.UpgradeManager.GetCount("정전기") >= 1 && slime.Data.SlotIcon.name == "icon_Electro")
             slime.ApplyBuff(new SlimeBuffs.ElectricParalyse(2f, 3, slime));
     }
 
@@ -179,6 +181,7 @@ public class PlayerBehaviour : StateMachineBase, IAttackableBySlime
             return;
         if(knockback)
             _knockback.ApplyKnockback(impactPosition, Defs.KnockBackDistance.PlayerHitted, Defs.KnockBackSpeed.PlayerHitted);
+
         EffectManager.InstantiateHitEffect(transform.position);
         TakeDamage(damage);
         SoundManager.Instance.PlaySFX("PlayerHitted", 0.15f);

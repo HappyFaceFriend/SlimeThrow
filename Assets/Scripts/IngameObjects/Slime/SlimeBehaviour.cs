@@ -116,7 +116,7 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnReleasedAtGround(Vector3 direction, float range)
     {
-        _knockback.ApplyKnockbackDir(direction, range, 7);
+        _knockback.ApplyKnockbackDir(direction, range, 12);
         ChangeState(new SlimeStates.GrabbableState(this, true));
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
@@ -269,14 +269,10 @@ public class SlimeBehaviour : StateMachineBase
     {
         if (!IsAlive || IsSpawning)
             return;
-        var target = collision.collider.GetComponent<IAttackableBySlime>();
-        if (target != null)
-        {
-            if(collision.transform == GlobalRefs.Player.transform)
-                target.OnHittedBySlime(this, AttackPower.Value);
-            else if(collision.transform == GlobalRefs.Flower.transform)
-                target.OnHittedBySlime(this, FlowerAttackPower.Value);
+        if(collision.transform == GlobalRefs.Player.transform)
+            GlobalRefs.Player.OnHittedBySlime(this, AttackPower.Value, this.transform.position);
+        else if(collision.transform == GlobalRefs.Flower.transform)
+            GlobalRefs.Flower.OnHittedBySlime(this, FlowerAttackPower.Value);
 
-        }
     }
 }

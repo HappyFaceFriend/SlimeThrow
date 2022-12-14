@@ -418,6 +418,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1702894428, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
     - {fileID: 6938963835695920365, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
+    - {fileID: 3189093803713607899, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}
 --- !u!4 &294484235289166165 stripped
 Transform:
@@ -485,6 +486,39 @@ MonoBehaviour:
   _numOfdirections: 10
   _projectilePrefab: {fileID: 95313459947677558, guid: 849bf560ecb749743b47a56d40f1151a, type: 3}
   _interval: 0.05
+--- !u!60 &3933152272104076826
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597772758391383740}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.7250781, y: 0.9271226}
+      - {x: 0.42077398, y: 1.145287}
+      - {x: 0.040531635, y: 1.1621265}
+      - {x: -0.4339941, y: 1.1540611}
+      - {x: -0.7451401, y: 0.63218784}
+      - {x: -0.51811117, y: 0.08900225}
+      - {x: 0.6110097, y: 0.07351923}
+      - {x: 0.8194499, y: 0.32450002}
 --- !u!114 &9192006421531519432 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7533918814969527188, guid: b51ebee10de0d9847a1b3477809161b0, type: 3}

@@ -24,7 +24,7 @@ public class SlimeJumptile : MonoBehaviour
         var target = collision.collider.GetComponent<PlayerBehaviour>();
         if (target != null)
         {
-            target.OnHittedBySlime(_slime, _damage);
+            target.OnHittedBySlime(_slime, _damage, transform.position);
         }
     }
     void Die()

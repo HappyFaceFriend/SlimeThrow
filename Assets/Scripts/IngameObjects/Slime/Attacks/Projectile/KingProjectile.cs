@@ -1,22 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-
 public class KingProjectile : SlimeProjectile
 {
     bool _split = false;
     [SerializeField] SlimeProjectile _childProjectile;
     SlimeBehaviour _source;
+    Vector3 _shootedPosition;
     private void Start()
     {
         if (_slime.IsFever())
             _split = true;
     }
-    public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
+    public override void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
         _source = shooter;
+        _shootedPosition = shooter.transform.position;
     }
 
    protected override void Die()
@@ -25,7 +25,7 @@ public class KingProjectile : SlimeProjectile
         { 
             Vector3 basedir = _moveDir;
             basedir = basedir.normalized;
-            float baseAngle = GetAngle(transform.position, _slime.transform.position);
+            float baseAngle = GetAngle(transform.position, _shootedPosition);
             float offset = 15f;
             Vector3 dir1 = Utils.Vectors.AngleToVector(baseAngle + offset);
             Vector3 dir2 = Utils.Vectors.AngleToVector(baseAngle - offset);

@@ -23,7 +23,7 @@ public class AngelBehaviour : SlimeBehaviour
         var target = collision.collider.GetComponent<PlayerBehaviour>();
         if (target != null)
         {
-            target.OnHittedBySlime(this, 0);
+            target.OnHittedBySlime(this, 0, transform.position);
         }
     }
 }

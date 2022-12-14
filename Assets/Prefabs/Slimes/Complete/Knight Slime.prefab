@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: 9c8b7aa7b8876974bb0cf9155076907a, type: 2}
+    - target: {fileID: 5640623954171796691, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
+      propertyPath: _cancelAttackOnHit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5640623954171796695, guid: cbbc5134c9738a5439297590f11ed14d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -116,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 5
+  _smokePrefab: {fileID: 0}
   _isAttackDone: 0
   _jumpTile: {fileID: 592915751190434719, guid: 1d94e1f79858ab8418bced03835439d9, type: 3}
   _warningPrefab: {fileID: 7772566373437317198, guid: f5f4039512eb90745a0454c7a6afc94d, type: 3}

@@ -7,10 +7,12 @@ public class KingRockProjectile : SlimeProjectile
     [SerializeField] GameObject _landEffectPrefab;
     public float _duration;
     public float _probability;
+    bool _isFever;
 
     public new void Init(Vector3 targetPosition, SlimeBehaviour shooter)
     {
         base.Init(targetPosition, shooter);
+        _isFever = shooter.IsFever();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,7 +21,7 @@ public class KingRockProjectile : SlimeProjectile
         if (target != null && target.IsTargetable)
         {
             target.OnHitted(_damage, this.transform.position, true);
-            if(_slime.IsFever())
+            if(_isFever)
             {
                 if(Random.Range(0f, 1f) <= _probability)
                     target.ApplyBuff(new PlayerBuffs.PlayerStun(_duration));

@@ -127,6 +127,13 @@ public class UpgradeManager : MonoBehaviour
 
             bool needReroll = true;
             int count = 0;
+            while (_allUpgradeDatas[rarity].Count == _upgrades.FindAll(x => (int)(x.Rarity) == rarity).Count)
+
+            {
+                rarity -= 1;
+                if (rarity == 0)
+                    break;
+            }
             while (needReroll && count < 50)
             {
                 datas[i] = Utils.Random.RandomElement(_allUpgradeDatas[rarity]);
