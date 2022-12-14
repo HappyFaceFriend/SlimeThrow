@@ -43,6 +43,7 @@ public class TurretBehaviour : StateMachineBase
     }
     public void RemovePlayer()
     {
+        ChangeState(new TurretDefaultstate(this));
         _bulletBuilder.RemovePlayer();
     }
     public void Shoot(Vector3 targetPosition)

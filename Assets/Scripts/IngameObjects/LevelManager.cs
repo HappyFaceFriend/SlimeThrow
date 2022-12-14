@@ -134,6 +134,7 @@ public class LevelManager : MonoBehaviour
         {
             GlobalRefs.Player.ForceOutOfTurret();
         }
+        
         int childs = GlobalRefs.Player.transform.childCount;
         if (childs > 2)
         {
