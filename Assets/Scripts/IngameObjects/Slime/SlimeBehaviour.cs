@@ -116,7 +116,7 @@ public class SlimeBehaviour : StateMachineBase
     }
     public void OnReleasedAtGround(Vector3 direction, float range)
     {
-        _knockback.ApplyKnockbackDir(direction, range, 12);
+        _knockback.ApplyKnockbackDir(direction, range, 7);
         ChangeState(new SlimeStates.GrabbableState(this, true));
     }
     public void OnHittedByPlayer(PlayerBehaviour player, float damage)
@@ -149,6 +149,8 @@ public class SlimeBehaviour : StateMachineBase
             OnGetHitted(impactPosition, damage, false);
         if (GlobalRefs.UpgradeManager.GetCount("ÆÄÀÌ¾î Ä³³í") != 0 && _hpSystem.CurrentHp != 0)
             ApplyBuff(new SlimeBuffs.Burn(4f, 2, 0.8f));
+        if (GetComponent<KingBehaviour>() == null && GlobalRefs.UpgradeManager.GetCount("ºù°áÅº") != 0 && _hpSystem.CurrentHp != 0)
+            ApplyBuff(new SlimeBuffs.Freeze(1000f, this));
     }
     protected void OnGetHitted(Vector3 impactPosition, float damage, bool slay)
     {
@@ -269,10 +271,14 @@ public class SlimeBehaviour : StateMachineBase
     {
         if (!IsAlive || IsSpawning)
             return;
-        if(collision.transform == GlobalRefs.Player.transform)
-            GlobalRefs.Player.OnHittedBySlime(this, AttackPower.Value, this.transform.position);
-        else if(collision.transform == GlobalRefs.Flower.transform)
-            GlobalRefs.Flower.OnHittedBySlime(this, FlowerAttackPower.Value);
+        var target = collision.collider.GetComponent<IAttackableBySlime>();
+        if (target != null)
+        {
+            if(collision.transform == GlobalRefs.Player.transform)
+                target.OnHittedBySlime(this, AttackPower.Value);
+            else if(collision.transform == GlobalRefs.Flower.transform)
+                target.OnHittedBySlime(this, FlowerAttackPower.Value);
 
+        }
     }
 }

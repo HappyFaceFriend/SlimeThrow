@@ -6,15 +6,15 @@ You are able to pick up dead Fire slime 100%	사망한 불 슬라임을 100%의 
 Pickup Ice	얼음슬라임 잡기
 You are able to pick up dead Ice slime 100%	사망한 얼음 슬라임을 100%의 확률로 집을 수 있다
 Pickup Electro	전기슬라임 잡기
-You are able to pick up dead Electro slime 100%	사망한 전기 슬라임을 100%의 확률로 집을 수 있다
+You are able to pick up dead Electro slime 50%	사망한 전기 슬라임을 50%의 확률로 집을 수 있다
 Pickup Poison	독슬라임 잡기
-You are able to pick up dead Poison slime 100%	사망한 독 슬라임을 100%의 확률로 집을 수 있다
+You are able to pick up dead Poison slime 50%	사망한 독 슬라임을 50%의 확률로 집을 수 있다
 Pickup Rock	바위슬라임 잡기
-You are able to pick up dead Rock slime 100%	사망한 바위 슬라임을 100%의 확률로 집을 수 있다
+You are able to pick up dead Rock slime 50%	사망한 바위 슬라임을 50%의 확률로 집을 수 있다
 Pickup Sticky	끈끈이슬라임 잡기
-You are able to pick up dead Sticky slime 100%	사망한 끈끈이 슬라임을 100%의 확률로 집을 수 있다
+You are able to pick up dead Sticky slime 50%	사망한 끈끈이 슬라임을 50%의 확률로 집을 수 있다
 Pickup Horn	뿔슬라임 잡기
-You are able to pick up dead Horn slime 100%	사망한 뿔 슬라임을 100%의 확률로 집을 수 있다
+You are able to pick up dead Horn slime 50%	사망한 뿔 슬라임을 50%의 확률로 집을 수 있다
 Light Footsteps1	가벼운 발걸음1
 Player movement speed increased by 20%	플레이어의 이동속도가 20% 증가한다
 Aidkit1	구급상자1
@@ -54,7 +54,7 @@ Duration of ElectricParalyse increased by 1 second	전기충격의 적용시간�
 Light Footsteps2	가벼운 발걸음2
 Player movement speed increased by 50%	플레이어의 이동속도가 50% 증가한다
 Aidkit2	구급상자2
-Player's MaxHp increased by 50 and CurrentHP increased by 50	플레이어의 최대 체력이 50 증가하고, 현재 체력이 50 증가한다
+Player's MaxHp increased by 50 and CurrentHP increased by 50	플레이어의 최대 체력이 30 증가하고, 현재 체력이 50 증가한다
 Fearsome Attack2	강인한 공격2
 Player Attack Power increased by 5	플레이어의 기본 공격력이 5 증가한다
 Rapid Shooting2	급속사격2

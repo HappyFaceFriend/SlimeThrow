@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: AidKit2
   m_EditorClassIdentifier: 
   _name: "\uAD6C\uAE09\uC0C1\uC7902"
-  _body: "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 50 \uC99D\uAC00\uD558\uACE0,
+  _body: "\uD50C\uB808\uC774\uC5B4\uC758 \uCD5C\uB300 \uCCB4\uB825\uC774 30 \uC99D\uAC00\uD558\uACE0,
     \uD604\uC7AC \uCCB4\uB825\uC774 50 \uC99D\uAC00\uD55C\uB2E4"
   _icon: {fileID: 21300000, guid: ee3031c6dbba8204ebff0fc44bc9455b, type: 3}
   _rarity: 1
   _maxCount: 1
   _statModes:
   - _statToChange: 0
-    _applyValue: 50
+    _applyValue: 30
     _applyType: 0
   - _statToChange: 1
     _applyValue: 50
