@@ -35,3 +35,4 @@ SE HEE KIM	김세희
 CURRENT STAGE	현재 스테이지
 RESUME	재개
 PAUSED	일시정지
+REROLL	새로고침

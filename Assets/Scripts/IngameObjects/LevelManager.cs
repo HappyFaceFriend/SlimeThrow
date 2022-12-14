@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Test")]
     [SerializeField] string state;
+    [SerializeField] bool test = false;
     List<string> _upgradeList;
 
     float _playerMoveSpeed;
@@ -126,7 +127,7 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         OpenGameOver(true);
     }
-
+    
     void ResetPlayer()
     {
         if (GlobalRefs.Player.CurrentState is PlayerStates.InTurretState)
@@ -161,6 +162,8 @@ public class LevelManager : MonoBehaviour
             else
                 UnPause();
         }
+        if (Input.GetKeyDown(KeyCode.Return) && test)
+            _spawner.Test_StopSpawning();
     }
     void Pause()
     {

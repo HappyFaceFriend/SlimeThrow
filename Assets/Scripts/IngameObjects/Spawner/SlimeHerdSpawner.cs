@@ -106,6 +106,16 @@ public class SlimeHerdSpawner : MonoBehaviour
 
         }
     }
+    public void Test_StopSpawning()
+    {
+        IsSpawning = false;
+        if (_specialSpawn != null)
+            StopCoroutine(_specialSpawn);
+        if (_spawingCoroutine != null)
+            StopCoroutine(_spawingCoroutine);
+        foreach(SlimeBehaviour slime in GameObject.FindObjectsOfType<SlimeBehaviour>(true))
+                Destroy(slime.gameObject);
+    }
     IEnumerator StartSpawning(int currentStage)
     {
         int currentAreaIdx = Random.Range(0, _spawnAreas.Length);

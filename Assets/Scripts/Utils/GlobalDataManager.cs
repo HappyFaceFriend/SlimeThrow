@@ -59,6 +59,8 @@ public class GlobalDataManager : SingletonBehaviour<GlobalDataManager>
     {
         string code = SaveDataManager.Instance.Language;
         var languageData = LocalizedTitleData.Find(x => x["ko"] == string_ko);
+        if (languageData == null)
+            print(string_ko + " : not found");
         return languageData[code];
     }
 }
