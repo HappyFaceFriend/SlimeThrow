@@ -129,9 +129,9 @@ public class SlimeBehaviour : StateMachineBase
         if (GlobalRefs.UpgradeManager.GetCount("Ä¡¸íÀûÀÎ ºÒ²É") != 0 )
             damage *= 1.2f;
         OnGetHitted(impactPosition, damage, false);
-        if (GlobalRefs.UpgradeManager.GetCount("ºÒÁÖ¸Ô") >= 1 && _hpSystem.CurrentHp >= 0)
+        if (GlobalRefs.UpgradeManager.GetCount("ºÒÁÖ¸Ô") >= 1 && _hpSystem.CurrentHp > 0)
             ApplyBuff(new SlimeBuffs.Burn(4f, 2, 0.8f));
-        if (GlobalRefs.UpgradeManager.GetCount("³Ãµ¿°í") >= 1 && _hpSystem.CurrentHp >= 0)
+        if (GlobalRefs.UpgradeManager.GetCount("³Ãµ¿°í") >= 1 && _hpSystem.CurrentHp > 0)
             ApplyBuff(new SlimeBuffs.Freeze(1f, this));
     }
     public void OnHittedByBullet(Vector3 landPosition, float damage)
