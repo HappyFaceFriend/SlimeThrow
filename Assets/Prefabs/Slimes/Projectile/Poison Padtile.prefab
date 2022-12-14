@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 5
   _moveSpeed: 3
-  _padDurationTime: 6
+  _padDurationTime: 4.5
   _buffProbability: 1
   _duration: 3
   _damagePerTick: 1
