@@ -34,7 +34,7 @@ public class SaveDataManager : SingletonBehaviour<SaveDataManager>
         }
     }
     public string Language { get { return _language; } set { _language = value; TranslateAllTextsInScene(); } }
-    public float Volume { get { return _volume; } set { _volume = value; } }
+    public float Volume { get { return _volume; } set { _volume = value; if (SoundManager.Instance != null) SoundManager.Instance.RefreshVolume(); } }
 
     void TranslateAllTextsInScene()
     {

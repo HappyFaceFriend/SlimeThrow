@@ -12,12 +12,20 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     [SerializeField] SoundList _bgms;
     [SerializeField] SoundList _uiSounds;
     [SerializeField] SoundList _gameSounds;
+
+    float _bgmVolume = 0.5f;
+    public void RefreshVolume()
+    {
+        _bgmSource.volume = SaveDataManager.Instance.Volume * _bgmVolume;
+        _sfxSource.volume = SaveDataManager.Instance.Volume;
+    }
     public void PlayBGM(string name, float volume = 0.5f)
     {
         AudioClip sound = _bgms.GetSound(name);
         _bgmSource.Stop();
         _bgmSource.clip = sound;
-        _bgmSource.volume = volume;
+        _bgmVolume = volume;
+        _bgmSource.volume = _bgmVolume * SaveDataManager.Instance.Volume;
         _bgmSource.Play();
     }
     public void StopBGM()
@@ -37,7 +45,7 @@ public class SoundManager : SingletonBehaviour<SoundManager>
     {
         AudioClip sound = _uiSounds.GetSound(name);
         if (sound == null)
-            _sfxSource.PlayOneShot(_gameSounds.GetSound(name), volume);
+            _sfxSource.PlayOneShot(_gameSounds.GetSound(name), volume );
         else
 
             _sfxSource.PlayOneShot(sound, volume);
