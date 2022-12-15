@@ -23197,7 +23197,7 @@ MonoBehaviour:
   _pausedPanel: {fileID: 1463763367}
   _stagePanel: {fileID: 1080433382}
   state: 
-  test: 1
+  test: 0
 --- !u!4 &1793902160
 Transform:
   m_ObjectHideFlags: 0

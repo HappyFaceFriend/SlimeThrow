@@ -271,14 +271,10 @@ public class SlimeBehaviour : StateMachineBase
     {
         if (!IsAlive || IsSpawning)
             return;
-        var target = collision.collider.GetComponent<IAttackableBySlime>();
-        if (target != null)
-        {
-            if(collision.transform == GlobalRefs.Player.transform)
-                target.OnHittedBySlime(this, AttackPower.Value);
-            else if(collision.transform == GlobalRefs.Flower.transform)
-                target.OnHittedBySlime(this, FlowerAttackPower.Value);
+        if(collision.transform == GlobalRefs.Player.transform)
+            GlobalRefs.Player.OnHittedBySlime(this, AttackPower.Value, transform.position);
+        else if(collision.transform == GlobalRefs.Flower.transform)
+            GlobalRefs.Flower.OnHittedBySlime(this, FlowerAttackPower.Value);
 
-        }
     }
 }

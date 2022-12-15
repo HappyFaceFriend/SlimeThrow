@@ -7,7 +7,7 @@ public enum FlowerState
     Grab, Planted
 }
 
-public class Flower : MonoBehaviour, IAttackableBySlime, IGrababble
+public class Flower : MonoBehaviour, IGrababble
 {
     [SerializeField] int _maxHp;
     [SerializeField] HpBar _hpBar;
