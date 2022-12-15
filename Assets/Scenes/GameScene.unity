@@ -12164,44 +12164,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396e137ae2366ad44b91ff9e71bddcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradePanel: {fileID: 628259090}
+  _upgradePanel: {fileID: 0}
   _upgradeWeights:
   - FromStage: 0
     ToStage: 5
     Weights:
-    - 0.69
-    - 0.25
+    - 0.84
+    - 0.15
     - 0.01
   - FromStage: 6
     ToStage: 10
     Weights:
-    - 0.55
-    - 0.4
-    - 0.05
+    - 0.77
+    - 0.2
+    - 0.03
   - FromStage: 11
     ToStage: 15
     Weights:
-    - 0.42
-    - 0.5
-    - 0.08
+    - 0.63
+    - 0.3
+    - 0.07
   - FromStage: 16
     ToStage: 20
     Weights:
-    - 0.4
-    - 0.5
+    - 0.45
+    - 0.45
     - 0.1
   - FromStage: 21
     ToStage: 25
     Weights:
-    - 0.35
-    - 0.5
+    - 0.4
+    - 0.45
     - 0.15
   - FromStage: 26
     ToStage: 30
     Weights:
-    - 0.35
-    - 0.4
-    - 0.2
+    - 0.3
+    - 0.45
+    - 0.25
   _firstUpgrades:
   - {fileID: 11400000, guid: f310f6d859a567942bac8fc09b2aa49f, type: 2}
   - {fileID: 11400000, guid: e40f523211d41264296ba11ad5d93d34, type: 2}
