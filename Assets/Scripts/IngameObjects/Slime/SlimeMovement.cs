@@ -37,7 +37,7 @@ public class SlimeMovement : MonoBehaviour
             else
             {
                 bool isPlayerInRange = Utils.Vectors.IsInDistance(_player.position, transform.position, _slime.SightRange.Value);
-                if (_target == _player && !isPlayerInRange)
+                if (_target == _player && (!isPlayerInRange || GlobalRefs.Player.IsTargetable))
                     _target = _flower;
                 else if (_target == _flower && isPlayerInRange)
                     _target = _player;
@@ -64,6 +64,10 @@ public class SlimeMovement : MonoBehaviour
             if (!Utils.Vectors.IsInDistance(_target.position, transform.position, range))
             {
                 _state = State.MoveToTarget;
+            }
+            if(_target == _player && !GlobalRefs.Player.IsTargetable)
+            {
+                _target = _flower;
             }
         }
 

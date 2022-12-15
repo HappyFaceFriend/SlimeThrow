@@ -17,7 +17,7 @@ RETURN	돌아가기
 GAME OVER	게임 종료
 REACHED:	기록:
 STAGE	스테이지
-SLIME KILLED:	죽인슬라임:
+SLIME KILLED:	죽인 슬라임:
 UPGRADES	업그레이드
 EXIT	나가기
 SPECIAL THANKS TO	도움을 준 분들
