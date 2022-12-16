@@ -10,7 +10,7 @@ public class PausedPanel : Panel
     protected void OnEnable()
     {
         base.OnEnable();
-        StageText.text = GlobalRefs.LevelManger.CurrentStage.ToString();
+        StageText.text = (GlobalRefs.LevelManger.CurrentStage + 1).ToString();
         SoundManager.Instance.PlaySFX("ButtonClick");
     }
 }

@@ -48,11 +48,19 @@ public class GameOverScene : MonoBehaviour
             _isWin = data.Win;
             if (data.Win)
             {
-                _mainTitle[0].text = "Game Clear";
-                _mainTitle[1].text = "Game Clear";
+                if(SaveDataManager.Instance.Language == "ko")
+                {
+                    _mainTitle[0].text = "°ÔÀÓ ½Â¸®";
+                    _mainTitle[1].text = "°ÔÀÓ ½Â¸®";
+                }
+                else
+                {
+                    _mainTitle[0].text = "Game Clear";
+                    _mainTitle[1].text = "Game Clear";
+                }
                 _exitButtonText.text = "Next";
             }
-            _clearedStageText.text = "Stage " + data.Stage.ToString();
+            _clearedStageText.text = "Stage " + (data.Stage+1).ToString();
             _slimeKilledText.text = data.SlimeKilled.ToString();
             for(int i=0; i<data.Upgrades.Length; i++)
             {
